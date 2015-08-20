@@ -1,4 +1,7 @@
 \chapter{Introduction}
+%*******************************************************************************
+
+\label{ch:intro}
 
 When I began the work described here, I was a computer scientist by training, and having recently discovered the existing work on computer-generated narrative, I had two initial impressions.
 %
@@ -11,7 +14,7 @@ In particular, it seemed to me then (as it apparently has to a variety of comput
 Certain pieces of writing advice and narrative theory reinforced this second impression, and I saw one of the main goals of my dissertation as the creation of a story generation system that would outperform existing work.
 
 
-As things turned out, a new and improved story generator is not one of the main contributions of my work.
+As things turned out, a new and improved story generator is not one of the main contributions of my work (I have built new narrative generation technology, but it isn't a game-changer in terms of the quality of automatically-generated stories).
 %
 Working first to reconstruct Scott Turner's \minstrel/ \cite{Turner1993} and then on my own \dunyazad/, I have begun to understand a little about what makes automatic narrative generation such a difficult problem, and in fact that is one of the contributions of this dissertation (although some of my lessons are perhaps those that every student in the area will learn through experience).
 %
@@ -24,21 +27,130 @@ In my case, I am using a formal model of narrative choices to test and explore w
 %
 Both the process of constructing such a formal model and experiments that can be performed with it can help develop the theory of choice poetics.
 %
-At the same time, the AI system relies on the theory, and the result of the research is thus both an improved theory of choice poetics and a novel AI system.
+At the same time, the AI system relies on the theory, and the result of the research is thus both an improved theory of choice poetics and a novel AI architecture for generating narrative choices.
 
 
 \section{Contributions}
+%===============================================================================
 
 As implied earlier, one of the contributions of my work is some general knowledge about the strengths and limitations of certain approaches to story generation.
 %
-Working with Brandon Tearse on the Skald system, which is a rational reconstruction of Turner's \minstrel/, we learned not only the limitations of that system, but also some broadly applicable rules regarding case-based story generation.
+Working with Brandon Tearse on the \skald/ system, which is a rational reconstruction of Turner's \minstrel/, I learned not only the limitations of that system, but also some broadly applicable rules regarding case-based story generation.
 %
-In particular, the ability of any case-based story generation system to recombine content effectively is limited by its commonsense reasoning capabilities.
+In particular, the ability of any case-based story generation system to recombine content is effectively limited by its commonsense reasoning capabilities.
 
-\section{Minstrel and Skald}
 
-\section{Choice Poetics}
+Based on this limitation, I built \dunyazad/, a choice-based-narrative generator which focuses on commonsense reasoning for story construction using answer-set programming.
+%
+While developing \dunyazad/, I also began to develop a theory of choice poetics--a theory of how audiences respond to different choice structures.
+%
+The main contribution of my work is thus both a theory (choice poetics) and a system (\dunyazad/) which have each furthered the development of the other.
+
+
+Finally, as \dunyazad/ has reached a stage where it can generate individual choices targeting some specific poetic effects, I ran an experiment to see how people actually react to the choices it generates.
+%
+The results of this experiment have helped me improve the system, but they also have some implications for the underlying theory.
+%
+The lessons of this experiment, both for AI systems and for choice poetics theory, are another contribution of this dissertation.
+
+
+
+\section{\minstrel/ and \skald/}
+%===============================================================================
+
+At the time that I first developed an interest in story generation, Brandon Tearse was working in my lab on a rational reconstruction of Scott Turner's 1993 \minstrel/ system \cite{Turner1993}.
+%
+The project was motivated by the impressive quality of the example stories given in Turner's thesis \cite{Turner1993}: Tearse thought that \minstrel/ would be a good foundation for developing an even-more-sophisticated story generator.
+%
+\minstrel/ used case-based reasoning to assemble new stories by remixing pieces from a story library according to special transform-recall-adapt methods (``TRAMs'').
+%
+In particular, Tearse was interested in finding out whether \minstrel/ could be used as a general-purpose story generation system, with different kinds of stories being produced simply by switching out the story library (and perhaps altering some of the TRAMs).
+%
+I joined the project, and over the next few years we built \skald/ by carefully reading Turner's thesis and reconstructing his system.
+
+
+As a rational reconstruction project, one of our goals was to better understand how Turner's architecture worked not by re-coding every line of the original source, but by building a new system using the principles of the original.
+%
+This technique exposes new information about the reconstructed architecture when things that work out automatically in the original code require explicit reasoning in the reconstructed version.
+%
+Building \skald/, we found ourselves unable to reproduce the quality of \minstrel/'s example stories with any regularity.
+%
+After performing some experiments, we came to the conclusion (supported, in retrospect, by the language of Turner's dissertation) that \minstrel/ was more a proof-of-concept for case-based story generation than a robust and extensible system.
+
+
+\minstrel/'s example stories were high-quality because \minstrel/ was carefully tuned to produce examples of what was possible for case-based story generation.
+%
+However, adding new stories to \minstrel/'s case library or trying to get it to generate different kinds of stories turned out to be a laborious and error-prone process.
+%
+A large part of this process was writing code to check for and correct mistakes introduced when story fragments were combined in inappropriate ways.
+%
+We hoped that \skald/ would be a useful architecture for creating custom story generators, and we started building a system called \problemplanets/ that would use \skald/ to generate science fiction stories (which were also going to include choices).
+%
+Unfortunately, the difficulties we encountered led us to conclude that \skald/ was not suitable for our purposes.
+%
+\Cref{ch:skald} contains the details of our rational reconstruction as well as the lessons we learned from building \skald/ and from working on \problemplanets/.
+
+
+Ultimately, these experiences led me to focus on the kinds of consistency constraints that we introduced to clean up \skald/'s assembled stories.
+%
+I reasoned that if much of the work necessary to produce a consistent story was being done by these constraints, then a generator that focused on them might be effective. 
+%
+My work on \skald/ was thus the impetus for building \dunyazad/.
+
+
 
 \section{\dunyazad/}
+%===============================================================================
+
+\dunyazad/ is a narrative generator that relies on answer-set programming to build stories that include choices.
+%
+In its current state, the focus is on generating individual choices that provoke specific reactions from the audience--that is, which achieve specific (choice) poetic effects.
+%
+The stories generated by \dunyazad/ are split into individual scenes during which a few actions takes place; these actions can be compared to planning operators in that they have pre- and post-conditions.
+%
+Because they player is given choices, \dunyazad/ generates a tree with actions as edges between states: where a state has multiple successors, the player is prompted to choose which branch is taken.
+
+
+\dunyazad/ builds this action tree iteratively by taking unfinished states and generating a collection of options to create a choice, setting up new scenes as necessary.
+%
+While this high-level process is a simple iterative one, the construction of each choice (and the setup for each new scene) is accomplished using answer-set programming.
+%
+Effectively, \dunyazad/ searches the space of all possible choice configurations for those that are allowed by its constraints and picks one arbitrarily.
+
+
+This means that for \dunyazad/ to work well, it needs to have a set of constraints that captures information about story consistency and choice structures.
+%
+These constrains are effectively a theory of choice poetics, and because I am using answer-set programming, this theory is encoded as a set of first-order logical predicates (as opposed to say, being implicit in the weights of a neural network).
+%
+In building \dunyazad/, I was thus \emph{necessarily} creating an implicit theory of choice poetics.
+%
+By making this implicit theory explicit and using craft advice and exemplary choice-based narratives to inform it, \dunyazad/'s generation was improved.
+%
+At the same time, the work on \dunyazad/ informed the theory: the answer set solver inevitably found problems with my initial attempts at defining various choice structures, resulting in malformed choices.
+
+
+\dunyazad/ thus serves as a tool for developing the theory of choice poetics.
+%
+Alongside traditional techniques such as analysis of existing choice-based narratives and the critical dialogues surrounding them, the operationalization of choice poetics as a component of generative system has unique insights to offer.
+%
+Furthermore, by performing experiments with the system, the lessons from building and debugging the system can be supplemented with empirical results.
+%
+While \cref{ch:dunyazad} describes how \dunyazad/ works in detail, \cref{ch:results} presents the results of the first such empirical investigation.
+
+
 
 \section{Outline}
+%===============================================================================
+
+% TODO: Maybe include citations for my papers in this section?
+
+The structure of this document roughly corresponds to the order in which various parts of the research were completed.
+%
+After reviewing related work in \cref{ch:related-work}, \cref{ch:skald} describes how \skald/ works and its relationship to \minstrel/.
+%
+In \cref{ch:skald}, \cref{sct:problem-planets-problems} goes into detail about the limitations of the \minstrel/ architecture and the problems we encountered building \problemplanets/.
+
+
+\Cref{ch:choice-poetics} describes the theory of choice poetics, and \cref{ch:dunyazad} goes on to describe how \dunyazad/ works and which parts of the theory it operationalizes.
+%
+Finally, \cref{ch:results} presents and analyzes the results of an experiment conducted using \dunyazad/, and \cref{ch:conclusion} summarizes the contributions of the entire document.
