@@ -2,6 +2,116 @@
 
 \label{ch:skald}
 
+\skald/ is an open-source\footnote{\skald/'s source code is available at \url{https://sites.google.com/a/soe.ucsc.edu/eis-skald/}} narrative generator that was created via a process of rational reconstruction, using Scott Turner's 1993 \minstrel/ as the object of study.
+%
+Like \minstrel/, it has an underlying graph-based representation of stories, and constructs new graphs via a case-based reasoning process that draws on a fixed library of pre-authored story graphs.
+%
+I worked on \skald/ with Brandon Tearse, and together we re-created \minstrel/'s original functionality and then used \skald/ to study \minstrel/'s strengths and weaknesses \cite{Tearse2011, Tearse2012, Tearse2014}.
+%
+This section explains in detail how \skald/ works, and then discusses what we learned from building it, and ultimately, why I was unsatisfied with Turner's imaginative recall process for constructing stories.
+
+
+
+\section{Rational Reconstruction}
+
+
+Before getting in to the details of \skald/, a brief note about rational reconstruction, which was our methodology for constructing \skald/ based on \minstrel/.
+%
+Rational reconstruction begins with in-depth study of an existing system, so that it can be understood at an algorithmic level.
+%
+If the system is available for direct study, this includes inspecting the source code and running the original system to see how it behaves.
+%
+If not, descriptions of the original system's behavior are used to understand how it functions.
+
+
+Once a system's behavior is well-understood, rational reconstruction proceeds by developing a new codebase to reproduce the functionality of the original.
+%
+The reason not to use the original code is that developing new code is a means of exposing quirks in the original.
+%
+Large software projects often contain implicit architectural decisions that are the result of idiosyncrasies in the original code.
+%
+The original programmer(s) may have been unaware of these decisions, as in their implementation the programming language or some other feature of their code design precluded some alternatives.
+%
+By developing a separate codebase, often in a different programming language from the original, rational reconstruction projects can expose these implicit properties of the original software, and thus learn more about the algorithm being investigated.
+
+
+For our work on \skald/, we got in touch with Turner, who graciously offered to supply us with magnetic tapes containing \minstrel/'s source code.
+%
+Given that we had neither a magnetic tape reader nor a machine that could run \minstrel/'s LISP variant on hand, we decided to proceed without the source code, using Turner's dissertation as the reference for \minstrel/'s design.
+%
+Turner's dissertation includes detailed descriptions of all of \minstrel/'s
+modules, in addition to several appendices, one of which contains an annotated
+trace of a run of \minstrel/.
+
+
+
+\section{\skald/}
+
+
+The core operating principle of \minstrel/ and \skald/ is called ``imaginative recall'' by Turner.
+%
+One method by which humans can make up new stories is to build them out of stories that they already know, modifying things to fit into a new context.
+%
+Turner reasoned that a computer could operate using the same principle: supplied with a story library, it could recall fragments from that library and modify them to fit together into a new story.
+%
+Turner was interested in computational creativity, and set out to demonstrate that a computer program could exhibit some of the same kinds of creativity as humans do when making up stories.
+
+
+Besides imaginative recall, Turner's \minstrel/ used a system of what he called ``author-level plans'' (ALPs) to guide the story generation process.
+%
+Each ALP took a partially-finished story and helped move it towards completion in some way, usually making use of imaginative recall to fill in some part of the story.
+%
+Turner's ALPs were responsible for some of the higher-level story structures that \minstrel/ could generate, but \minstrel/ also started each story from a template which dictated a general moral or lesson that the story would convey.
+
+\section{Story Templates and the Story Library}
+
+As a case-based reasoning system, \minstrel/ relies heavily on its story library.
+%
+Furthermore, \minstrel/ starts each new story by importing a story template from its template library, which is another source of human-authored content.
+%
+In \minstrel/ and \skald/, both of these resources are represented in a unique graph-based format which \minstrel/ uses to represent all story content.
+
+
+\begin{figure}
+\caption{TODO: HERE}
+\label{fig:story-graph}
+\end{figure}
+
+
+\minstrel/'s story graphs are directed graphs where each node is a conceptual dependency schema and edges are relations between these.
+%
+The four core node types are \gng/, \gna/, \gns/, and \gnb/ nodes, and they are usually found in \gng/-\gna/-\gns/ triangles linked by \gep/, \gei/, and \gea/ links.
+%
+Essentially, these \gng/-\gna/-\gns/ triples each represent a single event (along it its motivation and outcome) and they are linked to each other when the \gns/ of one triple has a \gem/ link to the \gng/ of another (see \cref{fig:story-graph}.
+%
+Within each node, the details of a particular \gng/, \gna/, \gns/, or \gnb/ are represented using conceptual dependency schemas (see \cref{fig:cd-nodes}).
+
+
+\begin{figure}
+\caption{TODO: HERE}
+\label{fig:cd-nodes}
+\end{figure}
+
+
+A few of the stories from \minstrel/'s original library are described in Turner's dissertation, but Turner's complete library was not available to us.
+%
+Because of this, we created our own ad-hoc story library by hand-authoring several stories that we thought would provide interesting source material.
+%
+One of the things we learned from this was that \minstrel/'s story library must be carefully managed to avoid generating malformed stories.
+%
+In particular, whenever there are multiple ways to represent the same concept in terms of story graph nodes, if different stories in the library use different encodings, the results of the imaginative recall process may be poor.
+%
+The same was true of \minstrel/'s starting templates: the templates had to match the story library closely in order to generate sensible stories.
+
+
+\section{Author-Level Plans}
+
+
+
+\section{Imaginative Recall}
+
+\section{\minstrel/'s Potential}
+
 \section{Problems with \problemplanets/}
 
 \label{sct:problem-planets-problems}
