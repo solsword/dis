@@ -8,7 +8,7 @@ Like \minstrel/, it has an underlying graph-based representation of stories, and
 %
 I worked on \skald/ with Brandon Tearse, and together we re-created \minstrel/'s original functionality and then used \skald/ to study \minstrel/'s strengths and weaknesses \cite{Tearse2011, Tearse2012, Tearse2014}.
 %
-This section explains in detail how \skald/ works, and then discusses what we learned from building it, and ultimately, why I was unsatisfied with Turner's imaginative recall process for constructing stories.
+This section explains how \skald/ works, and then discusses what we learned from building it, and ultimately, why I was unsatisfied with Turner's imaginative recall process for constructing stories.
 
 
 
@@ -48,11 +48,9 @@ trace of a run of \minstrel/.
 \section{\skald/}
 
 
-The core operating principle of \minstrel/ and \skald/ is called ``imaginative recall'' by Turner.
+Turner called \minstrel/'s core operating principle ``imaginative recall.''
 %
-One method by which humans can make up new stories is to build them out of stories that they already know, modifying things to fit into a new context.
-%
-Turner reasoned that a computer could operate using the same principle: supplied with a story library, it could recall fragments from that library and modify them to fit together into a new story.
+Humans often make up new stories using pieces of stories they've heard in the past, and Turner reasoned that a computer could operate using the same principle: supplied with a story library, it could recall fragments from that library and modify them to fit together into a new story.
 %
 Turner was interested in computational creativity, and set out to demonstrate that a computer program could exhibit some of the same kinds of creativity as humans do when making up stories.
 
@@ -106,10 +104,45 @@ The same was true of \minstrel/'s starting templates: the templates had to match
 
 \section{Author-Level Plans}
 
+\minstrel/'s author-level plans are essentially black-box code fragments that modify a story during construction.
+%
+Each plan is invoked in response to an author-level goal (ALG) and can itself add new ALGs to the current generation process.
+%
+There can be multiple plans which can satisfy a single goal, in which case they are tried in a fixed order until one is found whose preconditions are met.
+%
+ALGs are storied in a priority queue, and if a selected plan fails to achieve the current goal, that goal is re-enqueued at a lower priority level (until it falls below a priority threshold at which it is marked as permanently failed).
 
+
+This system allows the results of one plan to inform the operations of another when they both consider overlapping regions of the growing story graph.
+%
+Once all goals have been achieved, the story is considered finished.
+%
+The first goal of the system (called simply ``tell story'') is invoked after a story template has been imported, and it assigns both an ``instantiate'' and a ``check consistency'' goal to each node in the imported template.
+%
+The plans invoked to achieve these goals are responsible for most of the generated story, although there are a few plans which run under certain conditions that add additional nodes to the imported template as opposed to simply filling in empty schema fields.
+
+
+One category of these template-expanding plans is the ``make-consistent'' plans.
+%
+These are triggered by consistency goals that arise when consistency-checking plans (triggered by the ``check consistency'' goals added by ``tell story'') find an inconsistent node.
+%
+For example, the \texttt{CheckGoalConsistency} plan (which satisfied the ``check consistency'' goal for \gng/ nodes) might find a goal which is lacking a motivating state.
+%
+In this case, it could trigger the \texttt{MakeConsistentMotivatingState} plan, which adds a new \gns/ node linked to the \gng/ node by a \gem/ edge and adds a new ``instantiate'' ALG targeting the added node.
+%
+In this manner, the original story graph can be expanded during generation; \minstrel/ is not simply a complicated mad-libs system.
+
+
+Although \minstrel/ and \skald/ both contain more than 20 ALPs, the single ALP that is responsible for most of the story content generated is the \texttt{GeneralInstantiate} plan.
+%
+This plan is quite simple at the code level: it looks at the node in consideration along with its neighbors in the story graph, and asks the imaginative recall system to fill in the node based on the story library.
+%
+Of course, the operation of the imaginative recall system (\misntrel/'s case-based reasoning engine) is quite complex, and it is mostly responsible for the creative aspects of \minstrel/'s stories.
 
 
 \section{Imaginative Recall}
+
+
 
 \section{\minstrel/'s Potential}
 
