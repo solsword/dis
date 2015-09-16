@@ -142,9 +142,87 @@ Of course, the operation of the imaginative recall system (\misntrel/'s case-bas
 
 \section{Imaginative Recall}
 
+Turner's goal in developing \minstrel/ was to demonstrate the creative potential of imaginative recall, and in particular, how it could recreate elements of of human narrative creativity.
+%
+Working with stories represented in terms of graphs of story schemas as described above, imaginative recall makes new stories using a story library by taking an incomplete story fragment and filling it in using a similar scene from the story library.
+%
+For example, a scene where a knight slays a dragon might be recalled when building a story in which a troll is killed, filling in a knight as the protagonist in the new story.
+%
+Intuitively, imaginative recall recognizes trolls and dragons are similar because they are both monsters, and so the scene where the knight slays the dragon is appropriate source material for the new story.
 
+
+Imaginative recall actually works via a three-step recursive process: Transform, recall, and adapt.
+%
+First, an input query is transformed so that it can more easily match story fragments from the story library.
+%
+Second, a matching fragment is picked out from the library.
+%
+Finally, the matching fragment is adapted so that it matches the context of the current story.
+%
+In the example above, the query is a scene in which a troll is killed.
+%
+This is shown in \cref{fig:im-exmaple}: an \gna/ node liked to a \gns/ node with an \gei/ link.
+%
+The \gna/ node specifies that the type of action is ``attack,'' and that a troll is the target, but the actor and tool in this case are still unknown (otherwise the story fragment would already be complete).
+%
+The \gns/ node specifies that the troll has a health value of ``dead,'' and it doesn't have any unknowns.
+
+
+\begin{figure}
+\caption{TODO: HERE}
+\label{fig:im-example}
+\end{figure}
+
+
+Using this query, the imaginative recall system begins by searching for a direct match in the story library: a graph fragment in which all of the fields match with the query (for unknown fields of the query, any value can match).
+%
+Usually, there is no exact match, as would be the case here if the story library didn't contain any stories about trolls.
+%
+At this point, the system would begin to consult its library of Transform Recall Adapt Methods (or TRAMs).
+%
+Each TRAM specifies a specific transformation of a query, along with the steps needed to undo that transformation during the adapt step.
+%
+Various TRAM selection strategies are possible, including anything from random selection to exhaustive search through the space of possible TRAM applications.
+%
+Because multiple TRAMs can be applied to a single query, there's effectively a search space of TRAM applications branching out from each starting query, and somewhere within that space (hopefully) is a query that has an exact match with a fragment in the story library.
+%
+Ultimately, the odds of a match increase as more TRAMs are applied, because each TRAM tends to generalize the query.
+
+
+Coming back to our example, in the case of the troll being slain by an unknown actor, one available transformation is the ``GeneralizeActor'' transformation.
+%
+This TRAM says that a specific actor, like ``Lugthor the Troll,'' can be replaced with a generic actor of the specific actor's type (using a simple type ontology of actors).
+%
+In this case, the TRAM replaces all occurrences of the troll in the query fragment with ``a generic monster.''
+%
+After transformation, the new query is checked against the story library, and this time, there's a result: the scene where a knight kills a dragon now matches our fragment, because the dragon can match ``a generic monster.''
+%
+Having Recalled a scene from the story library, the Adapt step is triggered.
+%
+In this case, the adapt part of the ``GeneralizeActor'' TRAM indicates that the actor which matched the generalized actor from the story library scene should be replaced by the actor that was generalized.
+%
+So the fragment from the library in which a knight slays a dragon is adapted by replacing the dragon with our specific troll.
+%
+If multiple TRAMs had been necessary to find a match, their adapt steps would all have been applied in reverse order.
+%
+The adapted story fragment can be incorporated into the story, in this case our result is that a knight kills the troll with his lance (see \cref{fig:im-example}).
+%
+The TRAM process has eliminated all of our initial unknowns, and this story fragment is now completed; the ALP system takes over again to select a new place fragment for imaginative recall.
 
 \section{\minstrel/'s Potential}
+
+The promise of imaginative recall and the TRAM system is that TRAMs can capture how story scenes can be similar to one another, and then any corpus that can be turned into a story library can become a source for generating new material.
+%
+Turner acknowledged that some content-specific TRAMs might be needed, and some specific to his Arthurian domain were included in \minstrel/, but these were a minority.
+%
+And Turner demonstrated that the TRAM system could create stories that the system had never seen before: it didn't just regurgitate what was in the story library.
+%
+For example, \misntrel/ was able to ``invent'' the concept of suicide by taking a scene where someone was killed and ultimately filling in the killer and the victim with the same person.
+%
+Because of the kinds of information embedded in \minstrel/'s story graphs, this process isn't just chaos either: \gng/ and motivating \gns/ nodes constrain how their neighboring \gna/ nodes are filled in and enforce some semblance of believability.
+
+TODO: HERE
+
 
 \section{Problems with \problemplanets/}
 
