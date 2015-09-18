@@ -1,6 +1,5 @@
 #!/bin/sh
-
-pdflatex dis
+./cpl dis
 bibtex dis
-pdflatex dis
-pdflatex dis
+./cpl dis
+./cpl dis

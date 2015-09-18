@@ -137,7 +137,7 @@ Although \minstrel/ and \skald/ both contain more than 20 ALPs, the single ALP t
 %
 This plan is quite simple at the code level: it looks at the node in consideration along with its neighbors in the story graph, and asks the imaginative recall system to fill in the node based on the story library.
 %
-Of course, the operation of the imaginative recall system (\misntrel/'s case-based reasoning engine) is quite complex, and it is mostly responsible for the creative aspects of \minstrel/'s stories.
+Of course, the operation of the imaginative recall system (\minstrel/'s case-based reasoning engine) is quite complex, and it is mostly responsible for the creative aspects of \minstrel/'s stories.
 
 
 \section{Imaginative Recall}
@@ -161,7 +161,7 @@ Finally, the matching fragment is adapted so that it matches the context of the 
 %
 In the example above, the query is a scene in which a troll is killed.
 %
-This is shown in \cref{fig:im-exmaple}: an \gna/ node liked to a \gns/ node with an \gei/ link.
+This is shown in \cref{fig:im-example}: an \gna/ node liked to a \gns/ node with an \gei/ link.
 %
 The \gna/ node specifies that the type of action is ``attack,'' and that a troll is the target, but the actor and tool in this case are still unknown (otherwise the story fragment would already be complete).
 %
@@ -217,16 +217,83 @@ Turner acknowledged that some content-specific TRAMs might be needed, and some s
 %
 And Turner demonstrated that the TRAM system could create stories that the system had never seen before: it didn't just regurgitate what was in the story library.
 %
-For example, \misntrel/ was able to ``invent'' the concept of suicide by taking a scene where someone was killed and ultimately filling in the killer and the victim with the same person.
+For example, \minstrel/ was able to ``invent'' the concept of suicide by taking a scene where someone was killed and ultimately filling in the killer and the victim with the same person.
 %
 Because of the kinds of information embedded in \minstrel/'s story graphs, this process isn't just chaos either: \gng/ and motivating \gns/ nodes constrain how their neighboring \gna/ nodes are filled in and enforce some semblance of believability.
 
-TODO: HERE
+
+However, despite the potential of \minstrel/'s imaginative recall process, it is fundamentally not robust.
+%
+When building \skald/ we imagined that after providing a new story library containing roughly a dozen stories and doing some minor tuning, we'd be able to have \skald/ generate dozens to hundreds of new stories that included significant variations.
+%
+Unfortunately, what we found was that the authoring of the story library, the story templates, as well as the particular TRAMs and ALPs all had to be carefully balanced against each other to avoid nonsensical results.
+%
+In Turner's dissertation, in fact, he mentions a trial run where \minstrel/ is asked to generated stories repeatedly, in which the coherence of the stories breaks down after only 6 reasonable results.
+%
+So rather than a robust generation engine with the capacity for creative feats, \minstrel/ is a carefully balanced system designed to demonstrate the possibility of such feats.
+%
+The process of generating interesting stories while avoiding nonsensical ones using \minstrel/ inevitably involves looking at its output and altering the ALPs, TRAMs, and/or story library to correct errors.
 
 
 \section{Problems with \problemplanets/}
 
 \label{sct:problem-planets-problems}
 
-(ALPs are responsible for the heavy lifting; they are hard to write; I decided to go all-out on the constraints stuff)
-(Particularly for choice-based experiences, generating different options in dialogue with each other is necessary)
+In fact, this is exactly the issue that we ran into when we tried to build \problemplanets/, a choose-your-own-adventure-style game about climate change that was going to use \skald/ as a narrative generation engine.
+%
+Brandon Tearse and I teamed up with Aaron Reed to work on the project, which was the first major project where we attempted to put \skald/ to use.
+%
+Our plan was to set up some domain-specific ALPs and TRAMs for \problemplanets/' domain (a science fiction domain in which the protagonist travels from planet to planet solving climate-related problems on each) and then have Aaron (a noted author of interactive fiction) create a story library that we'd use to generate new stories for each player.
+%
+Given this design, \skald/ would have to be capable of generating stories unsupervised: we'd be able to tune the system by changing the library or adding ALPs and TRAMs up to release, but at that point it would ideally be able to produce stories we'd never seen before which were nevertheless coherent and interesting.
+
+
+What we discovered during this process was that \skald/ alone was incapable of consistent unsupervised generation.
+%
+No matter what we did, \skald/ produced internally inconsistent or otherwise incoherent stories within the first dozen or so it generated in a batch.
+%
+This was consistent with Turner's result of 6 stories in a run before incoherence of course, but our efforts to control \skald/ led us to the conclusion that we needed to go beyond the imaginative recall framework to achieve better consistency. 
+%
+In particular, we explored the idea that expanding the story library might give \skald/ more reach, but the opposite turned out to be true: expanding the story library only gave the TRAM system more room to make mistakes.
+
+
+Ultimately, we turned to the ALPs to fix things.
+%
+When asking \skald/ to generate a batch of stories in the \problemplanets/ domain, we would observe broken outputs and try to identify patterns.
+%
+Sometimes, a single story or group of stories in the story library could be re-written to eliminate a problem (this was often the case when different stories in the library used the same pattern of nodes in slightly different ways, and \skald/ crossed these senses during recall).
+%
+But this meant that Aaron had to be extremely careful in authoring stories for the library, and in particular, the effort of maintaining the library's internal consistency grew quadratically with the size of the library.
+%
+Furthermore, problems that couldn't be pinned on specific stories were patched using ALPs that checked for and attempted to fix them.
+
+
+Although Turner did include a few consistency-checking ALPs in \minstrel/, as we began to add more and more of them to \skald/, we realized that imaginative recall alone was no longer a driving force for story consistency.
+%
+Our architecture was shifting towards one in which imaginative recall supplied creative but often too-much-so results, and a complex system of rules implemented by a tangle of ALPs tried to force these results to be consistent.
+%
+Effectively, we were trying to write a programmatic definition of what made a story consistent within the ALP system.
+
+
+Additionally, we wanted the stories to be interactive, and so we decided to generate choices by simply having the story graphs branch and allowing the user to select a path when this happened.
+%
+We quickly found that this approach required careful hand-selection of branching points to make the choices sensible.
+%
+Only at very specific points in a story is it appropriate to present choices to the player, and the range of options that are reasonable is tightly constrained.
+%
+For choices to be dynamically generated a strong model of character motivation is necessary, so that options can include a set of motivated actions without including unmotivated or irrelevant ones.
+%
+Furthermore, different options at a choice point can't be generated sequentially by a system designed for generating linear stories.
+%
+Instead, the system must be aware that all of the options are presented to the player at once, and generate the entire set of options taking this into consideration.
+
+
+As we struggled with these difficulties in building \problemplanets/, I came to the conclusion that focusing just on rules of story consistency would be more productive.
+%
+Seeking to build a story generator that could provide robust variation and also deal with embedded choices, I turned to answer-set programming (ASP), which would allow me to write rules of story consistency as logical statements and let a solver use them to generate concrete stories.
+%
+In particular, encoding consistency rules as logical formalisms to be obeyed rather than a complex structure of imperative consistency-checking procedures was much more natural.
+%
+In addition, building a new system would allow me to address from the start the issues with choice generation that I had observed in \problemplanets/.
+%
+Thus the idea for \dunyazad/ was inspired by the difficulties of \problemplanets/.

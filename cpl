@@ -1,0 +1,10 @@
+#!/bin/bash
+GREP="grep --color=always --line-buffered"
+(/usr/bin/pdflatex -file-line-error $* 2>&1) \
+ | $GREP -vP "^\s*((\[|\]|\(|\))\s*)+$" \
+ | GREP_COLOR="01;31" $GREP -P "(^[^:]*:\d+: )|(^l\.\d+ )|(^! LaTeX Error: )|$" \
+ | GREP_COLOR="01;33" $GREP -P "(LaTeX [^\s]* ?Warning(:|))|(Package [^\s]+ Warning(:|))|$" \
+ | GREP_COLOR="01;34" $GREP -P "(^Overfull [^\s]*)|$" \
+ | GREP_COLOR="01;34" $GREP -P "(^Underfull [^\s]*)|$" \
+ | GREP_COLOR="01;32" $GREP -P "^Output written on .*\.pdf \(.*\)\.$|$" \
+ | uniq
