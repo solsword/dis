@@ -19,6 +19,8 @@ As things turned out, a new and improved story generator is not one of the main 
 Working first to reconstruct Scott Turner's \minstrel/ \citep{Turner1993} and then on my own \dunyazad/, I have begun to understand a little about what makes automatic narrative generation such a difficult problem, and in fact that is one of the contributions of this dissertation (although some of my lessons are perhaps those that every student in the area will learn through experience).
 %
 But the main contribution of this document is actually an example of a hybrid research method which advances both artificial intelligence and narrative theory at once by combining the two.
+%
+Said research method is applied to choice-based narratives, and in fact I have built the first narrative generation system that creates choices via explicit reasoning about how players perceive options and outcomes.
 
 
 The idea of using AI (and AI research) as a means to explore other subjects goes back to Phil Agre's idea of critical technical practice \citep{Agre1997}: engaging in technical AI research while addressing and respecting the critical implications of that work.
@@ -37,21 +39,23 @@ As implied earlier, one of the contributions of my work is some general knowledg
 %
 Working with Brandon Tearse on the \skald/ system, which is a rational reconstruction of Turner's \minstrel/, I learned not only the limitations of that system, but also some broadly applicable rules regarding case-based story generation.
 %
-In particular, the ability of any case-based story generation system to recombine content is effectively limited by its commonsense reasoning capabilities.
+In particular, the ability of any case-based story generation system to recombine content is effectively limited by the depth at which it can reason about its story domain.
 
 
-Based on this limitation, I built \dunyazad/, a choice-based-narrative generator which focuses on commonsense reasoning for story construction using answer-set programming.
+Based on this limitation, I built \dunyazad/, a choice-based-narrative generator which focuses on deep reasoning about a narrow story domain using answer-set programming.
+%
+\dunyazad/ is also designed to generate narrative choices, rather than linear narratives, as this problem has not received sufficient much attention in the literature until now.
 %
 While developing \dunyazad/, I also began to develop a theory of choice poetics--a theory of how audiences respond to different choice structures.
 %
-The main contribution of my work is thus both a theory (choice poetics) and a system (\dunyazad/) which have each furthered the development of the other.
+The main contribution of my work is thus both a theory (choice poetics) and a system (\dunyazad/) which both explore new territory around choices in games.
 
 
-Finally, as \dunyazad/ has reached a stage where it can generate individual choices targeting some specific poetic effects, I ran an experiment to see how people actually react to the choices it generates.
+Finally, as \dunyazad/ has reached a stage where it can generate individual choices targeting some specific poetic effects, I have run two experiment to see how people actually react to the choices it generates.
 %
-The results of this experiment have helped me improve the system, but they also have some implications for the underlying theory.
+The results of these experiments have helped me improve the system, but they also have some implications for the underlying theory.
 %
-The lessons of this experiment, both for AI systems and for choice poetics theory, are another contribution of this dissertation.
+The lessons of these experiments, both for AI systems and for choice poetics theory, are another contribution of this dissertation.
 
 
 
@@ -93,7 +97,7 @@ Unfortunately, the difficulties we encountered led us to conclude that \skald/ w
 
 Ultimately, these experiences led me to focus on the kinds of consistency constraints that we introduced to clean up \skald/'s assembled stories.
 %
-I reasoned that if much of the work necessary to produce a consistent story was being done by these constraints, then a generator that focused on them might be effective. 
+I reasoned that if much of the work necessary to produce a consistent story was being done by these constraints, then a generator that focused on them might be more effective. 
 %
 My work on \skald/ was thus the impetus for building \dunyazad/.
 
@@ -102,16 +106,16 @@ My work on \skald/ was thus the impetus for building \dunyazad/.
 \section{\dunyazad/}
 %===============================================================================
 
-\dunyazad/ is a narrative generator that relies on answer-set programming to build stories that include choices.
+\dunyazad/ is a choice-point generator that relies on answer-set programming to build tailored choices.
 %
-In its current state, the focus is on generating individual choices that provoke specific reactions from the audience--that is, which achieve specific (choice) poetic effects.
+It generates individual choices aimed at provoking specific reactions from the audience--that is, aimed at achieving specific (choice) poetic effects.
 %
-The stories generated by \dunyazad/ are split into individual scenes during which a few actions takes place; these actions can be compared to planning operators in that they have pre- and post-conditions.
+Each choice generated by \dunyazad/ takes place in an individual scene during which a few actions takes place; these actions can be compared to planning operators in that they have pre- and post-conditions.
 %
-Because they player is given choices, \dunyazad/ generates a tree with actions as edges between states: where a state has multiple successors, the player is prompted to choose which branch is taken.
+\dunyazad/ is able to assemble individual choices into a tree with actions as edges between states, but it does not currently reason about things like character development or plot arcs that would be necessary to construct interesting stories consisting of multiple scenes.
 
 
-\dunyazad/ builds this action tree iteratively by taking unfinished states and generating a collection of options to create a choice, setting up new scenes as necessary.
+\dunyazad/ builds its action trees iteratively by taking unfinished states and generating a collection of options to create a choice, setting up new scenes as necessary.
 %
 While this high-level process is a simple iterative one, the construction of each choice (and the setup for each new scene) is accomplished using answer-set programming.
 %
@@ -120,22 +124,24 @@ Effectively, \dunyazad/ searches the space of all possible choice configurations
 
 This means that for \dunyazad/ to work well, it needs to have a set of constraints that captures information about story consistency and choice structures.
 %
-These constrains are effectively a theory of choice poetics, and because I am using answer-set programming, this theory is encoded as a set of first-order logical predicates (as opposed to say, being implicit in the weights of a neural network).
+These constraints are effectively a theory of choice poetics, and because I am using answer-set programming, this theory is encoded as a set of first-order logical predicates (as opposed to say, being implicit in the weights of a neural network).
 %
-In building \dunyazad/, I was thus \emph{necessarily} creating an implicit theory of choice poetics.
+In building \dunyazad/, I thus \emph{necessarily} created an implicit theory of choice poetics.
 %
 By making this implicit theory explicit and using craft advice and exemplary choice-based narratives to inform it, \dunyazad/'s generation was improved.
 %
 At the same time, the work on \dunyazad/ informed the theory: the answer set solver inevitably found problems with my initial attempts at defining various choice structures, resulting in malformed choices.
 
 
-\dunyazad/ thus serves as a tool for developing the theory of choice poetics.
+\dunyazad/ is thus a useful tool for developing the theory of choice poetics.
 %
-Alongside traditional techniques such as analysis of existing choice-based narratives and the critical dialogues surrounding them, the operationalization of choice poetics as a component of generative system has unique insights to offer.
+Alongside traditional techniques such as analysis of existing choice-based narratives and the critical dialogues surrounding them, the operationalization of choice poetics as a component of a generative system has unique insights to offer.
 %
 Furthermore, by performing experiments with the system, the lessons from building and debugging the system can be supplemented with empirical results.
 %
-While \cref{ch:dunyazad} describes how \dunyazad/ works in detail, \cref{ch:results} presents the results of the first such empirical investigation.
+\cref{ch:choice-poetics} describes my theory of choice poetics and in particular a technique for analyzing choices with respect to player goals that \dunyazad/ has helped shape.
+%
+While \cref{ch:dunyazad} describes how \dunyazad/ works in detail, \cref{ch:results} presents the results of two empirical investigations.
 
 
 
@@ -153,4 +159,4 @@ In \cref{ch:skald}, \cref{sct:problem-planets-problems} goes into detail about t
 
 \Cref{ch:choice-poetics} describes the foundations of a theory of choice poetics, and \cref{ch:dunyazad} goes on to describe how \dunyazad/ works and which parts of the theory it operationalizes.
 %
-Finally, \cref{ch:results} presents and analyzes the results of an experiment conducted using \dunyazad/, and \cref{ch:conclusion} summarizes the contributions of the entire document.
+Finally, \cref{ch:results} presents and analyzes the results of two experiments conducted using \dunyazad/, and \cref{ch:conclusion} summarizes the contributions of the entire document.
