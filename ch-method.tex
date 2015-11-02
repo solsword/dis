@@ -1,0 +1,84 @@
+\chapter{Methodology}
+
+\label{ch:method}
+
+My work on \dunyazad/ has used an approach that's a little bit different from many other computer science research projects.
+%
+The problem I set out to solve, namely ``How can a computer automatically generate choices that achieve specific poetic effects?'' cannot be approached without first having an understanding of what poetic effects choices can create and how they do so.
+%
+However, when began my research, there was no existing literature focused on the specific poetics of choices (several authors have extended narratology to deal with various forms of interactive stories, but those projects are quite broad).
+%
+Thus in order to build my system, I would need to create my own theory describing how elements of a choice came together to produce effects like regret or hesitation, which led to a second research question: ``What poetic effects can choices accomplish within a narrative and how can those be recognized by examining said choices?''
+%
+Rather than simply hack away at  my system until I got results that I liked and leave a theory implicit in the code that I wrote, I decided to come up with an explicit theory of choice poetics that I would develop alongside my system, and thus give both research questions equal ground.
+%
+In the end, the system has become as much a tool for the development of the theory as the theory is a tool for the development of the system, and my research methodology has become a hybrid of AI systems development and narrative theoretics.
+
+
+\section{Hybrid Theory/System Development}
+
+Part of my research is straightforward from a computer science perspective: I want to build a computer system that does something new (in this case generate choices).
+%
+To do this I look for existing theories and craft wisdom about how to put together choices, and start encoding rules into my system.
+%
+However, as this progresses, the hybrid research approach dictates that I also take what I find and construct a formal theory of choice poetics, suitable for application by humans to existing interactive narratives with the goal of understanding and analyzing how their choices function.
+%
+By applying my partially-formed theory to existing interactive narratives I can see where it breaks down and start addressing those problems in both the theory and the system that I'm building.
+%
+This refinement is a natural part of the nascent development of any theory, and corresponds to debugging a computer program during development.
+%
+In fact, one of the strengths of the hybrid approach is that information flows both ways: refining the theory helps me foresee and avoid problems in the development of my system, but debugging my system also leads to improvements to my theory.
+%
+By developing both the theory and the system simultaneously, each can inform the other.
+
+
+\section{Exploratory Experimentation}
+
+Once a system reaches a certain stage of development it's usual to begin experimenting with it formally, proposing hypotheses and collecting results in order to prove the capabilities of the system.
+%
+In the hard sciences, hypotheses are usually directly derived from existing theories, and experimental evidence either confirms or disconfirms these hypotheses, leading to changes in the theory where appropriate.
+%
+However, in my case, as the theory is still under development, many of my hypotheses are \emph{exploratory}: I have an idea about how, say, certain outcome configurations will be more satisfying than others, and I can immediately try to use my system to test it.
+
+
+Because I'm developing both the theory and the system, the goals of my experiments are not to confirm existing theories, but to help suggest whether proposed theories are viable.
+%
+Of course, the experiments also help validate the capabilities of my system, so they serve a dual purpose: they validate my system's capabilities, and also explore several tentative directions for theoretical development.
+%
+\Cref{ch:results} presents the results of two such exploratory experiments, and the analysis there illustrates how results can shed light on both the system and the theory that it implements.
+
+
+\section{System Development drives Theory Refinement}
+
+
+One common complaint that computer scientists have about theories from the humanities is that they are too vague to be implemented as a program.
+%
+Creating a computer system that generates predictions or content based on a theory of narrative or the like is a difficult task, because such theories are largely developed to serve humans interested in understanding and analyzing a work, and computers don't have the same common-sense reasoning capabilities as humans.
+%
+Unsurprisingly then, the system development half of my hybrid research approach tends to contribute details and refinements to the theory being developed simultaneously.
+
+
+A concrete example is illustrative.
+%
+One of the things that \dunyazad/ reasons about is the impact of outcomes on player goals, and these in turn are defined with reference to states of the world.
+%
+For example, the ``avoid threats'' goal of a victim is negatively impacted when a ``threatening'' relationship targeting that victim is created or persists.
+%
+The same goal is advanced when such a relationship disappears.
+%
+This seems straightforward, but the system quickly figured out that having the player simply exit a scene (thereby disposing of the contents of that scene in preparation for creating a new scene) was a great way to cause ``threatening'' relationships to go away.
+%
+Thus when faced with some merchants threatened by bandits, the system thought that players would perceive a ``travel onwards'' option as excellent, when in fact it seems morally fraught.
+%
+The solution at a system level is of course to declare that states which change as a result of changing scenes don't have the usual effect on goals.
+%
+Although this was clearly a bug in my system, finding it also helped me add nuance to my theory: it reminded me that perceptions of goal progress are not just dependent on states which directly affect those goals, but also on other conditions that might make it more difficult for a goal to succeed.
+%
+A theory developed in the abstract might just talk about ``conditions that either positively or negatively impact a player goal,'' but as a result of having to define those conditions in a way that a computer can understand, I can refine my theory by giving a list of some such conditions and caveats to take into account during analysis.
+
+
+Thus the results of working with a concrete system tend to lead to a more detailed theory.
+%
+\Cref{ch:results} presents results from two experiments and includes information on how the data gathered was used to improve both \dunyazad/ (described in \cref{ch:dunyazad}) and the theory of choice poetics (\cref{ch:choice-poetics}.
+%
+As you read the rest of this document, keep in mind that many of my design decisions and experimental procedures wind up being influenced by the goals of both research and system development, and that neither \dunyazad/ nor choice poetics exist merely to enable the other.
