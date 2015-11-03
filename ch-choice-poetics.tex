@@ -2,19 +2,21 @@
 
 \label{ch:choice-poetics}
 
-The aim of this chapter is to lay the foundations of a theory of choice poetics.
+The aim of this chapter is twofold--first, to establish a framework for talking clearly and precisely about choices and their outcomes, and second, to introduce a method for analyzing choices based on how they relate to player goals.
 %
-In other words: to establish a theoretical framework for understanding the effects of choices in narrative contexts.
+Choice poetics should be able to address questions like: ``What is it about a choice that makes some players feel regret after picking a particular option?''
 %
-For example, what is it about a particular choice that makes some players feel regret after picking a particular option?
+This chapter attempts to establish terminology and formal perspectives that can be used to talk about choices, but it's far from a ``complete'' theory of choice poetics: it only deals with explicit, discrete choices, for example.
 %
-This chapter does not present a fully-developed theory, but rather attempts to establish terminology and formal perspectives that could be used as the basis of such a theory.
-%
-Some parts of the theory are developed (those that supported and were influenced by the development of \dunyazad/), but the ideas here are just the beginning of an in-depth study of narrative choices.
-
+Some parts of the theory are more developed (those that supported and were influenced by the development of \dunyazad/), but the ideas here are just the beginning of an in-depth study of narrative choices.
 
 
 \section{Inspirations}
+
+While choice poetics clearly has roots in the work of Aristotle \citep{Aristotle1917} (and more recently narrative formalists like Freytag \citep{Freytag1894} and Barthes \citep{Barthes1975}, to name only a few) choice poetics is also inspired by investigations into the psychology of both reading and decisions.
+%
+In the first camp, authors like 
+% TODO: HERE
 
 \citep{Carr2009}
 \citep{Bizzocchi2011}
@@ -27,7 +29,7 @@ In developing a theory of choice poetics, one must respect the lessons of the de
 %
 In particular, modern scholars have largely rejected ``objective'' narrative analysis and concluded that the experience of the individual reader must be taken into account.
 %
-Unlike Aristotle, who stated authoritatively what was good and bad about this drama or that, modern narrative scholars will analyse a work from a particular perspective, without claiming that this perspective is universal, perhaps performing a feminist or Marxist reading of a novel to see what insights a particular lens has to offer about the work.
+Unlike Aristotle, who stated authoritatively what was good and bad about this drama or that, modern narrative scholars will analyze a work from a particular perspective, without claiming that this perspective is universal, perhaps performing a feminist or Marxist reading of a novel to see what insights a particular lens has to offer about the work.
 
 
 Choice poetics must also respect the perspective of the reader, but it is in a slightly different position, as its readers are also players.
@@ -36,7 +38,7 @@ Insofar as the narrative that contains choices is experienced through the fabric
 %
 A narrative experienced within the framework of a game thus implicitly biases the attitudes of its readers, for example by setting up a score counter which players can try to maximize.
 %
-Counter-play is of course possible and important, but even counter-play is influenced by the rules of the game in virtue of being set against them.
+Counter-play is of course possible and important, but even counter-play is influenced by the rules of the game by virtue of being set against them.
 %
 The formal structures of the game rules that accompany a narrative-with-choices thus allow the theoretician to make an educated guess about the attitudes of players interacting with a piece.
 
@@ -65,14 +67,16 @@ At this point it is important to note that modes of engagement are neither exclu
 The modes of engagement presented here are also not intended to be comprehensive: these are some of the most common modes, but others may be possible and even the norm for certain games.
 %
 All of that notwithstanding, consideration of the mode(s) of engagement that players bring to a work is the first step in analyzing the choice poetics of a work.
-%
+
+
 This can take the form of assuming a particular mode: much as one can perform a feminist reading of a novel, one could perform a power-playing playthrough of a game.
 %
 This could also take the form of analyzing the game itself to determine which mode(s) of engagement it encourages and rewards.
 %
-It could also take the form of a qualitative study of actual players, to determine which mode(s) of engagement they are employing.
+It could even take the form of a qualitative study of actual players, to determine which mode(s) of engagement they are employing.
 %
 In any case, an analysis of choice poetics that does not consider modes of engagement is incomplete.
+
 
 \Cref{tab:modes-of-engagement} lists some of the most common modes of engagement, and gives examples of decisions that employ them.
 %
@@ -102,10 +106,75 @@ For example, Yee makes fine distinctions between different motivations grouped i
 \label{tab:modes-of-engagement}
 \end{table}
 
-TODO: HERE
+Although modes of engagement are important to choice poetics, in my work with \dunyazad/ I have not given them great attention: \dunyazad/ encourages avatar play and all of its evaluations assume that players will engage primarily in this mode.
+%
+Extending \dunyazad/ to support power play and role play better, and to account for these possible approaches when evaluating choices, would be a very interesting line of future work.
+%
+Developing \dunyazad/ in that direction would allow it to be used as a tool to study modes of engagement in more detail.
+
 
 \section{Dimensions of Player Experience}
 
+When using choice poetics to analyze a narrative or even just a single choice, one must consider the range of expressiveness of narrative choices.
+%
+Aristotle devoted much of his analysis in \work{Poetics} to comedy and tragedy as two of the most important modes of drama in his day, but the full range of poetic effects is very broad, and includes both momentary impressions such as a single confusing sentence and overall feelings, such as a vague dissatisfaction with an entire novel.
+%
+Once choices are involved, this repertoire is expanded, and it's important to have some understanding of what poetic effects a choice can possibly have.
+%
+Although no summary of possible poetic effects could hope to be complete, I have tried to list here a collection of important high-level aspects of a narrative experience that are strongly influenced by choice structures, including some which I believe are unique to narratives that contain choices.
+
+
+\begin{table}[h]
+\begingroup
+\renewcommand*{\arraystretch}{1.5}
+\begin{tabular}{p{5.5em}p{14em}p{13em}}
+\textbf{Dimension} & \textbf{Description} & \textbf{Supported By} \\
+\hline
+\textbf{Absorption} & How much of the player's attention is focused on the game. & Outcomes that are believable given options. \\
+\textbf{Identifica-tion} & How comfortable the player feels in the role they play as their avatar. & Options that support player self-expression. \\
+\textbf{Transpor-tation} & The degree to which a player thinks in terms of the game world rather than the real world. & Choices where the available options cover what the player thinks should be possible. \\
+\textbf{Agency} & Alignment of player goals with game affordances. & Transparent choices where outcomes align with player goals.\\
+\textbf{Influence} & Degree of player control over in-game outcomes. & Choices where outcomes are divergent and impactful. \\
+\textbf{Autonomy} & The player's ability to choose and pursue a variety of goals at their own discretion. & Choices between goals rather than between methods of pursuing a fixed goal; non-exclusive outcomes. \\
+\textbf{Responsi-bility} & Player feelings of responsibility for the actions of their avatar. & A mix of intentional outcomes that are good for and bad for other game characters. \\
+\textbf{Regret} & Player feelings of regret for an in-game decision. & Negative outcomes that result from tempting options but which are still believable. \\
+\end{tabular}
+\endgroup
+\caption{Some aspects of player experience that are influenced by choice poetics.}
+\label{tab:dimensions-of-experience}
+\end{table}
+
+\Cref{tab:dimensions-of-experience} provides a brief overview of these important dimensions of player experience.
+%
+Except for identification, transportation, and absorption, each of these possible poetic qualities are unique to interactive narratives: without choices, they simply aren't possible.
+%
+Because of this, figuring out how choice structures contribute to these effects 
+is an important task for choice poetics.
+%
+Of course, some of these effects, like agency, have already been extensively studied, often in broader contexts than just choice-based interactive narrative.
+%
+But it will still be important to understand how choice structures specifically contribute to these poetic qualities.
+%
+What follows is a preliminary analysis of each quality, based on craft wisdom and existing studies of games and real-world choices.
+
+\begin{itemize}
+  \item \textbf{Absorption} -- The idea of `immersion' is often discussed in relation to games, but the concept is often unclear, as it can refer to anything from immersion in an imagined world to sensory immersion in a virtual reality experience.
+%
+Absorption simply refers to the player's division of attention--is the player's attention completely absorbed by the narrative experience (whether it's a book, live-action role-playing game, or headset-enabled virtual reality experience) or are they distracted from the narrative?
+%
+Although considering this as a poetic quality is counter-intuitive, it's actually possible for a narrative to distract the player from itself by raising outside issues or causing emotions like frustration.
+%
+This is particularly relevant when choices become involved, as they can easily become a source of frustration.
+%
+TODO: HERE
+  \item \textbf{Identification} --
+  \item \textbf{Transportation} --
+  \item \textbf{Agency} --
+  \item \textbf{Influence} --
+  \item \textbf{Autonomy} -- 
+  \item \textbf{Responsibility} --
+  \item \textbf{Regret} --
+\end{itemize}
 
 \section{Choice Idioms}
 
