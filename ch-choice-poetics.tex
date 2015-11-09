@@ -87,10 +87,10 @@ The grouping of Yee's motivation components into these modes of engagement has t
 For example, Yee makes fine distinctions between different motivations grouped into the ``power play'' category here, but from a choice poetics perspective, whether someone is trying to maximize score or compete with an opponent doesn't matter, because both motivations are equally orthogonal to the narrative, and thus they have a similar effect on the player's experience of the narrative.
 
 
-\begin{table}[h]
+\begin{table}[!p]
 \begingroup
 \renewcommand*{\arraystretch}{1.5}
-\begin{tabular}{p{5em}p{10em}p{10em}p{7em}}
+\begin{tabular}{p{5em}p{10em}p{10em}p{6.9em}}
 \textbf{Mode} & \textbf{Decision Process} & \textbf{Example} & \textbf{\citep{Yee2006}} \\
 \hline
 \textbf{Avatar Play} & Decide as if you were in the character's situation. & When picking a pet, pick the cat because you like cats. & Role-Playing, Customization, Escapism \\
@@ -124,10 +124,10 @@ Once choices are involved, this repertoire is expanded, and it's important to ha
 Although no summary of possible poetic effects could hope to be complete, I have tried to list here a collection of important high-level aspects of a narrative experience that are strongly influenced by choice structures, including some which I believe are unique to narratives that contain choices.
 
 
-\begin{table}[h]
+\begin{table}[!p]
 \begingroup
 \renewcommand*{\arraystretch}{1.5}
-\begin{tabular}{p{5.5em}p{14em}p{13em}}
+\begin{tabular}{p{5.5em}p{14em}p{13.5em}}
 \textbf{Dimension} & \textbf{Description} & \textbf{Supported By} \\
 \hline
 \textbf{Absorption} & How much of the player's attention is focused on the game. & Outcomes that are believable given options. \\
@@ -274,9 +274,9 @@ The basic idea is to carefully break down how the options and outcomes relate to
 %
 The next section describes in detail how a discrete, explicit choice is represented for this analysis, and the seven analysis steps are described in the sections that follow.
 
-\begin{figure}[h]
+\begin{figure}[!p]
 \centering
-\includegraphics[height=\textheight]{fig/analysis-method-crop.pdf}
+\includegraphics[height=0.92\textheight]{fig/analysis-method-crop.pdf}
 \caption[Choice analysis flowchart]{Goal-based choice analysis for a single choice--an overview of the different steps and the information produced.}
 \label{fig:choice-analysis-method}
 \end{figure}
@@ -302,7 +302,7 @@ This idea of potential outcome components can also help analyze cases where a sy
 %
 Each part of a choice is subject scrutiny using the methodology presented here, and having precise language to talk about these choice components is necessary for detailed analysis.
 
-\begin{figure}[h]
+\begin{figure}[!p]
 \centering
 \includegraphics[width=\textwidth]{fig/choice-anatomy-crop.pdf}
 \caption[Anatomy of a choice]{%
@@ -362,11 +362,22 @@ Because goal priorities are even more volatile and difficult to estimate than go
 
 The second step of analysis is to figure out which potential outcome components are made to seem likely by the framing and option text of the choice.
 %
-This step starts by identifying a set of outcome components that seem plausible, and then isolating a subset of those that seem likely.
+For each option, this step starts by identifying a set of outcome components that seem plausible, and then figuring out which of those are likely and unlikely.
 %
-If desired, finer gradations of likelihood can be used, but at least finding a set of plausible outcomes and distinguishing some of those as likely is required.
+The goal of this step is to identify outcome components that the player can presumes will result from each option, so if there are actually multiple conflicting likely scenarios, none of them counts as `likely.'
 %
+For example, if one option involves rolling a six-sided die, but the player has been given a prophecy that the result will be either a six or a one, then the outcome components associated with rolling a six and those associated with rolling a one are all neutral in this analysis, while outcome components associated with other rolls are unlikely. 
+%
+Any outcome component that's associated with both rolling a six and rolling a one would still be marked as likely: given the information the player has, they can assume that such an outcome component will happen if they choose to roll the die.
+
+
 The outcome likelihoods produced by this step are used during option analysis in combination with the list of player goals from the goal analysis to figure out how each option portrays itself as affecting each goal.
+%
+\Cref{fig:choice-analysis-method} displays these assignments in the `Outcome Likelihoods' box: the choice has two options, `O1' and `O2,' and O1 has outcome components `A' and `B,' while O2 has outcome components `C' and `D.'
+%
+Components `A' and `B' are both neutrally likely (indicated by a `?'), while component `C' is unlikely (a `U') and component `D' is likely (an `L').
+%
+Note that it's possible and even common for the same outcome component to be a plausible result of multiple options, although that situation is not shown in \cref{fig:choice-analysis-method}.
 
 
 During this step, the actual outcomes of each option are irrelevant; what's important are the cues present in the framing and options that hint at what might happen if an option is elected.
@@ -380,12 +391,286 @@ However, from a designer's perspective, each choice is usually explicitly crafte
 
 \subsection{Option Analysis}
 
-TODO: HERE
+Given the player goals and estimates of likely-seeming outcome components, option analysis proceeds by analyzing how each option seems likely to impact each goal.
+%
+First, all possible outcome components are considered, to come up with an estimate of the goals that could \emph{possibly} be impacted by each option.
+%
+These evaluations are `enables' and `threatens'--which goals each option might possibly advance, and which goals it might possibly impede.
+%
+In \cref{fig:choice-analysis-method} the `+' and `-' symbols in the `Option Expectations' box are these enables and threatens assignments.
 
-\subsection{Outcome Component Analysis}
+
+Essentially, these enables and threatens evaluations are produced by considering the impact of each outcome component on each goal.
+%
+If any possible outcome component of an option could negatively impact a particular player goal, then that goal is deemed threatened by that option.
+%
+Likewise, if an outcome component can positively impact a goal, that goal is enabled by the corresponding option.
+%
+It is possible and even common for an option to both enable and threaten the same goal, and of course it's also possible that it neither enables nor threatens a goal.
+
+
+Besides possible impacts of each choice, option analysis is also concerned with likely impacts.
+%
+Using the same procedure, but this time only considering likely outcomes, `advances' and `hinders' option expectations are assigned to each option/goal pairing (these are the `*' and `!' symbols in \cref{fig:choice-analysis-method}).
+%
+If it's not clear whether an option advances or hinders a goal (perhaps because of multiple conflicting outcome components), neither label should be assigned: the enables and threatens labels should already be present and serve to indicate the possible but uncertain outcome relative to that goal.
+%
+On the other hand, if contrary indicators are present but one is clearly stronger or much more likely than another, the label more strongly indicated can be assigned, but this should only be done if the player can safely assume that the goal will be affected as indicated, as that is the purpose of these labels.
+%
+Note that an advances label can only be present if there is an enables label, and similarly a hinders label requires the presence of a threatens label.
+%
+The combination of enables, threatens, and one of either advances or hinders is common, and indicates an option that will probably advance or hinder a goal but with some risk involved.
+
+
+Remember that this step still makes no use of the actual outcomes of an option: it is just concerned with how the player views each option before making a decision.
+%
+It can also ignore the goal priorities because each goal is considered separately.
+%
+The option expectations produced by this step are used in the relative option analysis and retrospective analysis steps as a formal representation of how the player views each option.
+%
+During those analyses more fine-grained evaluations of player perceptions may be required on a case-by-case basis, but the enables/threatens/advances/hinders labels allow such complicated cases to quickly be separated from the simple cases.
+
 
 \subsection{Relative Option Analysis}
 
+After producing option expectations for each goal/option pairing, a full-blown analysis of the choice from a pre-decision standpoint can be produced by comparing the options available.
+%
+A set of prospective impression labels can be used to identify common option structures, and choices that don't easily fit into a known category can be examined more closely.
+%
+This step uses not only the option expectations from the option analysis step, but also the goal priorities that were produced during goal analysis.
+
+
+Certain common patterns of option expectations create well-understood prospective impressions.
+%
+For example, a dilemma has a specific feel, and several types of dilemma can be easily identified by comparing option expectations.
+%
+If there are exactly two options at a choice, each has overall negative impacts on high-priority player goals (and these impacts are roughly balanced), and each option negatively impacts a different set of goals, then the choice is a classic dilemma.
+%
+All of this information (besides the balance of impacts) is directly encoded in the option expectations, so classic dilemmas are easy to identify using this analysis method.
+%
+From a design standpoint, it's also easy to identify when an option isn't a classical dilemma and which aspects of that option would need to change to make it one.
+%
+Given the detailed language of choice analysis it's further possible to imagine other kinds of dilemmas: a two-option choice with balanced positive outcomes, or a three-option choice that still has balanced outcomes, or even a tradeoff choice where each option has positive impacts on one of two goals and negative impacts on the other.
+%
+This is one of the benefits of a detailed analysis technique, in fact: developing the precise language necessary for describing choices formally establishes a framework within which variations on a common pattern can be identified and enumerated.
+
+
+\begin{table}[!p]
+\begingroup
+\renewcommand*{\arraystretch}{1.5}
+\begin{tabular}{p{4.5em}p{10em}p{18.5em}}
+\textbf{Label} & \textbf{Description} & \textbf{Criteria} \\
+\hline
+\textbf{Dilemma} & A difficult decision between two negative outcomes. & Exactly two options, each of which hinders one of two different high-priority player goals. The priorities of the goals and the severity of the consequences should be balanced and neither option should enable or advance any goals (even low-priority ones). \\
+\textbf{Depres-sing} & A choice where there's a goal which is hindered no matter what you choose. & There's a high-priority goal which is hindered by every option. No option should enable or advance any high-priority goals. \\
+\textbf{Empower-ing} & A choice where every option has a positive impact. & Every option advances a player goal, and may threaten one or more goals but does not hinder any. \\
+\textbf{Obvious} & A choice that has one option which is clearly better than the rest. & One option that advances a high-priority player goal without hindering any (although it may threaten some), while none of the rest of the options enable any high-priority goals, and each of them threatens some goal. \\
+\textbf{Relaxed} & A choice that has no impact on any high-priority goals and where no goals are threatened. & There are no option expectations involving high-priority goals (positive or negative), and there are no threatens expectations (and thus no hinders expectations). \\
+\textbf{Myster-ious} & A choice where there is no indication of which option is best or how the outcomes might affect things. & There are zero option expectations, including enables and threatens expectations. \\
+\textbf{Uncom-fortable} & A choice where the best option isn't very good, but it's better than the alternatives. & There's one option which is expected to enable an important player goal (but not to advance it), while every other option has some combination of threatens and hinders expectations. The enabling option also threatens and possibly hinders the goal that it enables. \\
+\end{tabular}
+\endgroup
+\caption[Prospective choice impressions]{Several different prospective impression labels, with formal criteria based on option expectations and goal priorities. Note: see \cref{sec:results-prospective-caveats} for more precise versions of some of these labels as informed by experimental results.}
+\label{tab:prospective-impressions}
+\end{table}
+
+
+\Cref{tab:prospective-impressions} gives an overview of some prospective impression labels and the criteria for applying them based on goal priorities and option expectations.
+%
+Note that the criteria are designed to be sufficient for applying the label, but are probably not necessary--there are certainly some obvious choices which don't meet the strict criteria set out here, but from a design standpoint, if the criteria are met, a choice is almost certainly obvious (assuming also that the goal and outcome analyses are accurate of course).
+%
+The labels in \cref{tab:prospective-impressions} and their criteria were developed as part of \dunyazad/'s choice analysis component, and some of them (the depressing, empowering, obvious, and relaxed labels) were refined based on experimental results (see \cref{ch:results}).
+
+
+As a preview of those results, one caveat that applies to the relaxed label is that some people will always seek a best possible outcome when given a choice, and thus even at a choice among supposedly positive outcomes options which appear to lead to \emph{relatively} worse outcomes may be seen as bad options.
+%
+See \cref{sec:results-prospective-caveats} for further discussion of some extra criteria that should be considered when assigning these labels.
+%
+That section also presents versions of these labels with revised criteria.
+
+
+The labels presented here give an idea of how players will feel when faced with this choice before they make a decision.
+%
+Classic dilemmas, for example, are stressful decisions which are difficult to make, and they represent significant negative events.
+%
+In linear narrative, dilemmas and their consequences are commonly used as low points in a story, and are themselves often a result of a character's previous poor decision, in effect serving as extended punishment: the character must not only suffer a negative consequence, but must also choose which consequence to accept, thereby being forced to reflect on their initial decision while agonizing about their present options.
+%
+Despite being negative moments, dilemmas can also serve as moments of clarity: when a character finally confronts the bad options available to them and makes a decision, this can mark the end of denial about their situation and ultimately the beginning of redemption.
+
+
+In an interactive narrative, presenting the player with a dilemma can serve the same purposes: to accentuate an earlier mistake and punish the player, while perhaps also establishing a new goal of moving towards atonement.
+%
+A classic dilemma is a moment of heightened tension, and when a player is forced to make the decision it also represents a pause in the action, although a dilemma where the player has limited time to choose can also be used to accentuate feelings of urgency and haste.
+%
+Additionally, the intense consideration of options that a dilemma provokes can serve to heighten absorption and promote transportation.
+%
+The player will presumably dedicate significant mental energy to consider which option is the lesser of two evils, and when the options at a dilemma are diagetic, this thinking is done from a perspective within the narrative world.
+%
+Also, since diegetic dilemmas force the player to make an important decision for their avatar and to ``think as'' their avatar, they can promote identification.
+
+
+Dilemmas can be very fragile, however, because if the goals hindered by the two options are not well-balanced, the choice can become obvious.
+%
+A dilemma may also force a player to re-evaluate their priorities, especially when the player goals involved relate to different modes of engagement.
+%
+For example, if one option hinders a player's ludic goal of becoming more powerful (without necessarily affecting a similar diegetic goal) while another hinders the diegetic goal of preserving the safety of their avatar's ally, many players may simply make a decision to prioritize one mode of engagement (avatar play or power play, in this example) over the other, and thus avoid the dilemma.
+%
+Of course, a choice like this that forces the player to decide between orthogonal goals can be used intentionally by an author to build divergent experiences for players who presumably prioritize different things.
+%
+Such a choice not only measures a player's priorities but also probably affects them: human cognitive biases related to self-consistency and rationalization mean that once a player commits to a certain mode of engagement they are likely to stick with that choice. 
+
+
+A label like `dilemma' can thus be unpacked into a rich understanding of the poetics of a choice.
+%
+Beyond assigning such well-understood labels, however, relative option analysis can also find choices which don't strictly conform to any labels, and analyze them on a case-by-case basis.
+%
+It is often useful to compare a specific choice structure to known structures and focus on the differences.
+%
+For example, a choice that meets all the criteria for being obvious but at which the best options also hinders a high-priority goal could be compared to an obvious choice.
+%
+In this case, the relative merits of the goals advanced and hindered by the best option might mean that the decision is still straightforward, but even so the player may feel some reluctance that a normal obvious choice would not create.
+%
+Alternatively, because of the hindered goal and despite the advanced goal, an option which threatens some unimportant goal and has no other expectations might be more desirable than the `best' option if the player is risk-averse, creating a very different impression.
+%
+The relatively narrow labels presented here thus serve as anchor points for the analysis of more complex choices.
+%
+Of course, it's possible to establish many more clearly-defined labels than those presented in \cref{tab:prospective-impressions}, and doing so is a straightforward way to increase our understanding of choice poetics.
+
+
+\subsection{Outcome Component Analysis}
+
+While the results of relative option analysis give a sense of how a choice is perceived just before the player makes a decision, more work is necessary to understand how a player feels after experiencing an outcome.
+%
+This begins with outcome component analysis: Using the list of player goals and the outcome components identified during likelihood analysis (although ignoring their likelihoods), a breakdown of the actual impact of each outcome component on each player goal is created.
+%
+Recall that the option analysis step already summarized how the framing and options of a choice indicated goals would be affected, but during this step, actual effects based on actual outcomes are considered.
+
+
+An example of this distinction can be helpful: let's say the player has been flung off of a cliff and faces a choice between grabbing a nearby branch to save themselves or grabbing the outstretched hand of their avatar's only child, who is also falling.
+%
+As presented, the outcomes look grim: sacrifice any hope of saving one's child to save oneself, or catch one's child and at least suffer the same fate.
+%
+Assuming that the player can't reasonably expect some sort of miracle to save them (even given the full implications of genre conventions, etc.) both options are portrayed to have likely negative impacts on several player goals (assuming an avatar play mode of engagement).
+%
+But perhaps if the player chooses to grab their child, the actual outcome is that a freak gust of wind blows them both to safety, while if they choose to grab the branch, their child falls and dies.
+%
+The goal of outcome components is to analyze the valence of actual outcome components with respect to each player goal, including any components that weren't suggested by the framing and options of a choice.
+
+
+The method is simple: for each outcome component that actually happens at each option (or when outcomes are non-deterministic, for each outcome component that could happen), estimate its impact on each player goal.
+%
+The `Outcome Evaluations' table in \cref{fig:choice-analysis-method} that results from outcome component analysis illustrates this, using `+', and `-' for minor positive and negative consequences, and `*' and `!' for major consequences respectively.
+%
+Of course, a finer gradation of consequences could be used if desired, and certainly should be employed on a case-by-case basis where specific consequences must be compared, but gross distinctions are often sufficient to analyze straightforward choice structures.
+
+
+Note that even though the outcome component `C' of option `O2' does not actually occur according to the `Actual Outcomes' table, it is still analyzed in this example, perhaps because it might occur depending on the circumstances.
+%
+There are thus three categories of outcome components: suggested components that are hinted at by the framing and option text of a choice, but which may or may not even be possible, potential components which are possibilities given a specific decision, actual components which actually happen in a given play-through, and unrealized components which could have happened given a particular decision but did not.
+%
+In the example analysis from \cref{fig:choice-analysis-method}, outcome components `A,' `B,' and `C' are both suggested and potential, while component `D' is only suggested.
+%
+Meanwhile, components `A,' `B,' and `E' are actual, while `C' is unrealized; note that component `E' is not a suggested component.
+%
+Depending on the interactive narrative, complex rules may exist that establish what configurations of actual outcome components out of the set of potential outcome components are valid, and the player may or may not be aware of these rules.
+%
+If analysis is being conducted without a specific playthrough in mind, then in latter stages the different possible combinations of potential outcome components will have to be considered separately, as each may give rise to a different player experience.
+%
+Of course, player experiences must already be separated based on which option is chosen, but this does add some complexity to the analysis.
+%
+In the rest of this chapter outcomes are assumed to be deterministic, as that is the case for choices generated by \dunyazad/, and it generally makes analysis much more straightforward.
+%
+Once an understanding of how each potential outcome component affects each goal is reached, this information can be used to analyze the possible outcomes.
+
+
 \subsection{Full Outcome Analysis}
 
+By combining information from the goal analysis, likelihood analysis, and outcome component analysis steps, as well as information on which outcome components are actual for each option, a full picture of the effects of choosing each option can be assembled.
+%
+This stage of analysis summarizes some details of earlier stages to make common choice configurations easy to recognize, although for complicated structures these summaries may be insufficient and the results of earlier analyses will need to be used directly by the final retrospective analysis.
+%
+The goal of this stage of analysis is to establish two main evaluations for each option (and the corresponding outcome components): first, to what degree was the result expected, unexpected, or unpredictable, and second, was the outcome overall a good one, a bad one, a tradeoff, or irrelevant.
+
+
+The evaluation of expectedness relies on comparing option likelihoods from the likelihood analysis step with actual outcomes.
+%
+First, however, each outcome component is established as either `important' or `unimportant' based on whether or not it affects any high-priority player goals (using actual effects, not merely indicated effects).
+%
+Any outcome which is established as an alternative to an important outcome is also important, even if that outcome does not itself interact with a high-priority player goal.
+%
+When judging expectedness and valence of outcomes, unimportant outcome components are ignored (for a more detailed analysis using graded goal priorities, just factor goal priority into the expectedness and valence judgements as a weighting factor).
+
+
+Given important outcome components, the results of an option can be said to be completely `predictable' if every important actual outcome component at that option was identified as a likely component by the likelihood analysis.
+%
+Options where the important outcome components have a mix of likely and neutral likelihood fall somewhere between `predictable' and `unpredictable,' with options where all important components have neutral likelihood are fully `unpredictable.'
+%
+If \emph{any} important outcome component was marked as unlikely, however, the results are `unexpected,' and the same is true if there is an important outcome component that was not a suggested component at all (and thus does not appear in the likelihood analysis).
+%
+A simple analysis can use these three evaluations as exclusive labels, while a more nuanced analysis might represent the space between predictable, unpredictable, and unexpected outcomes as a continuous triangle as shown in the `Per-Option Assessments' block of \cref{fig:choice-analysis-method} (in this case only the assessment for the first option is shown).
+
+
+Besides predictability, outcomes have valences, which represent whether they are overall good, bad, or somewhere in-between.
+%
+Shown in \cref{fig:choice-analysis-method} is a simple good/bad/irrelevant/tradeoff scheme, but finer distinctions can be made within each category (for example whether a tradeoff is generally worth it or not).
+%
+Essentially, these evaluations summarize all goal impacts of the actual outcome components of an option, taking into account the relative strengths of each impact and the relative priorities of the associated goals.
+%
+Although this summarization step may muddle things in more complicated cases, it can be helpful for quickly identifying the simple cases: often the results of each option are simply purely good or bad in terms of important player goals, and their impact on the player can be judged accordingly.
+
+
+By assigning a single predictability value and valence to each option at a choice, it becomes much easier to get an overall picture of how the choice might look in retrospect given a particular decision.
+%
+Along with the prospective impressions established by the relative option analysis step, these per-outcome assessments are used by the final retrospective analysis step to understand how the player perceives an option after they've made a decision.
+
+
 \subsection{Retrospective Analysis}
+
+
+Retrospective analysis is the final step in the goal-driven option analysis framework presented here, although the results of the relative option analysis step can sometimes be used in isolation.
+%
+Retrospective analysis complements relative option analysis by providing an understanding of how the player feels after making a decision and experiencing an outcome at a choice.
+%
+Note that further comparative analysis of outcomes would be necessary to understand how a player might view a choice after experiencing multiple outcomes, but the usual case in which a player only experiences a single outcome doesn't need this extra step.
+
+
+As with the relative option analysis, this step is focused on matching against a set of characteristic option structures.
+%
+Note that each option is treated independently, although prospective impressions of the entire option set apply no matter which option is under scrutiny.
+%
+\Cref{tab:retrospective-impressions} lists some retrospective impressions identified during the creation of \dunyazad/ and the formal criteria for each.
+
+
+\begin{table}[!p]
+\begingroup
+\renewcommand*{\arraystretch}{1.5}
+\begin{tabular}{p{4.5em}p{10em}p{18.5em}}
+\textbf{Label} & \textbf{Description} & \textbf{Criteria} \\
+\hline
+\textbf{Expected Success} & A predictable outcome that advances player goals. & The option selected advances a player goal without hindering any, and its outcome is both predictable and positive. \\
+\textbf{Expected Failure} & A predictable outcome that hinders player goals. & The option selected hinders a player goal and doesn't advance any, and its outcome is both predictable and negative. \\
+\textbf{Nice Gamble} & A choice that seemed like a gamble but that turned out well. & The option selected didn't advance or hinder any player goals, or it both advanced and hindered one or more goals that were approximately balanced. The outcome was largely unpredictable, but also largely good. The selected option was not distinctly worse-seeming than any other options. \\
+\textbf{Bad Gamble} & A choice that seemed like a gamble and didn't pay off. & As above, but with a largely negative outcome. \\
+\textbf{Unfair} & An option which seemed good but which had unexpected negative consequences. & The selected option must be expected to advance at least one high-priority player goal, while not hindering any. It must also have an unexpected and largely negative outcome. \\
+\textbf{Miracle} & An option which seemed like a lost cause but which unexpectedly turned out well. & The selected option must be expected to fail at least one high-priority goal, while not advancing any. It must have an unexpected and overall positive outcome. \\
+\end{tabular}
+\endgroup
+\caption[Retrospective outcome impressions]{Several retrospective impression labels, with formal criteria based on option expectations, prospective impressions, and option assessments. Note: see \cref{sec:results-retrospective-caveats} for more precise versions of some of these labels as informed by experimental results.}
+\label{tab:prospective-impressions}
+\end{table}
+
+
+As with the prospective impression labels, retrospective impression labels are fairly narrow, but ``near misses'' can often be analyzed as a variant of a known case.
+%
+For example, an option that almost fits the ``nice gamble'' profile but for which there \emph{is} another option that seemed distinctly better has a slightly different feel from a normal nice gamble, but the difference isn't drastic (mainly, the player may place more blame for the failure on their own decision-making than on simple bad luck).
+%
+A full picture of how player feels after a choice combines prospective and retrospective impressions, for example: An obvious choice at which the player chose the `best' option which resulted in an expected success.
+%
+Options other than the chosen one can still influence the overall impression, especially by accentuating bad results (when multiple options seemed promising) or good results (when all options seemed bad).
+%
+Regret in particular is a poetic effect that depends heavily on the nature of options-not-chosen.
+
+
+\section{Overview}
+
+TODO: HERE
