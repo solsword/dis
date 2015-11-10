@@ -7,3 +7,6 @@
 *.lot
 *.toc
 *.html
+hev.*
+hevcr.*
+dis.image.tex

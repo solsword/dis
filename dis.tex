@@ -12,7 +12,8 @@
 
 % Figures, Tables, Enumerations, and Itemizes
 \usepackage{graphicx}
-\usepackage{cleveref}
+\usepackage{cleveref} % NON-HEVEA
+% HEVEA:\usepackage[poorman]{cleveref}
 \usepackage{enumitem}
 \usepackage{tikz}
 \usetikzlibrary{babel}
@@ -46,12 +47,13 @@
 
 \newcommand{\work}[1]{{\slshape #1}}
 
-\DeclareRobustCommand\encircle[1]{%
-\tikz[baseline=(X.base)] 
-\node (X) [draw, shape=circle, inner sep=0, line width=0.75pt] {%
-\small \sffamily \strut #1%
-};%
-}
+\DeclareRobustCommand\encircle[1]{% NON-HEVEA
+\tikz[baseline=(X.base)]  % NON-HEVEA
+\node (X) [draw, shape=circle, inner sep=0, line width=0.75pt] {% NON-HEVEA
+\small \sffamily \strut #1% NON-HEVEA
+};% NON-HEVEA
+} % NON-HEVEA
+% HEVEA:\newcommand{\encircle}[1]{(#1)}
 
 \begin{document}
 \frontmatter

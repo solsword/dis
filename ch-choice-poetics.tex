@@ -13,13 +13,18 @@ Some parts of the theory are more developed (those that supported and were influ
 
 \section{Inspirations}
 
+\cref{ch:related-work} contains a full review of literature related to choice poetics, but some of the most relevant sources are worth reiterating here.
+%
 While choice poetics clearly has roots in the work of Aristotle \citep{Aristotle1917} (and more recently narrative formalists like Freytag \citep{Freytag1894} and Barthes \citep{Barthes1975}, to name only a few) choice poetics is also inspired by investigations into the psychology of both reading and decisions.
 %
-In the first camp, authors like 
-% TODO: HERE
+In the first camp, psychologists have studied specific narrative effects such as transportation \citep{Green2000}, surprise \citep{Iran-Nejad1987}, and identification \citep{Oatley1995}.
+%
+In the second camp, researchers have studied how things like framing \citep{Tversky1981,Tversky1993}, and personality affect decisions and preferences.
 
-\citep{Carr2009}
-\citep{Bizzocchi2011}
+
+Counting craft wisdom from places like the Choice of Games development blog \citep{ChoiceOfGamesGameDesignCategory}, existing sources already contain a lot of information about how narrative choices work, but this information is scattered and often focused on either linear narrative or real-world choices.
+%
+Some of the work of this chapter is therefore synthesizing this existing information into a theory concerned primarily with discrete, explicit choices in narrative contexts.
 
 
 \section{Modes of Engagement}
@@ -644,15 +649,15 @@ Note that each option is treated independently, although prospective impressions
 \begin{table}[!p]
 \begingroup
 \renewcommand*{\arraystretch}{1.5}
-\begin{tabular}{p{4.5em}p{10em}p{18.5em}}
+\begin{tabular}{p{4.5em}p{14em}p{14.5em}}
 \textbf{Label} & \textbf{Description} & \textbf{Criteria} \\
 \hline
 \textbf{Expected Success} & A predictable outcome that advances player goals. & The option selected advances a player goal without hindering any, and its outcome is both predictable and positive. \\
 \textbf{Expected Failure} & A predictable outcome that hinders player goals. & The option selected hinders a player goal and doesn't advance any, and its outcome is both predictable and negative. \\
 \textbf{Nice Gamble} & A choice that seemed like a gamble but that turned out well. & The option selected didn't advance or hinder any player goals, or it both advanced and hindered one or more goals that were approximately balanced. The outcome was largely unpredictable, but also largely good. The selected option was not distinctly worse-seeming than any other options. \\
 \textbf{Bad Gamble} & A choice that seemed like a gamble and didn't pay off. & As above, but with a largely negative outcome. \\
-\textbf{Unfair} & An option which seemed good but which had unexpected negative consequences. & The selected option must be expected to advance at least one high-priority player goal, while not hindering any. It must also have an unexpected and largely negative outcome. \\
-\textbf{Miracle} & An option which seemed like a lost cause but which unexpectedly turned out well. & The selected option must be expected to fail at least one high-priority goal, while not advancing any. It must have an unexpected and overall positive outcome. \\
+\textbf{Unfair} & An option that seemed good but had unexpected negative consequences. & The selected option must be expected to advance at least one high-priority player goal, while not hindering any. It must also have an unexpected and largely negative outcome. \\
+\textbf{Miracle} & An option that seemed like a lost cause but that unexpectedly turned out well. & The selected option must be expected to fail at least one high-priority goal, while not advancing any. It must have an unexpected and overall positive outcome. \\
 \end{tabular}
 \endgroup
 \caption[Retrospective outcome impressions]{Several retrospective impression labels, with formal criteria based on option expectations, prospective impressions, and option assessments. Note: see \cref{sec:results-retrospective-caveats} for more precise versions of some of these labels as informed by experimental results.}
@@ -671,6 +676,41 @@ Options other than the chosen one can still influence the overall impression, es
 Regret in particular is a poetic effect that depends heavily on the nature of options-not-chosen.
 
 
-\section{Overview}
+\section{Overview \& Future Work}
 
-TODO: HERE
+The analysis method presented here is heavily dependent on identifying well-understood prospective and retrospective impressions and good criteria for their application.
+%
+However, this chapter only presents a few of these impressions, and it does not contain a comprehensive analysis of the poetic effects that they can create.
+%
+In other words, the theory of choice poetics described here is still preliminary.
+%
+However, this goal-based choice analysis is a strong framework for understanding nuanced choices, because decomposing options and outcome components can help untangle complex choice structures.
+%
+Additionally, by separating player goal analysis from the main choice analysis and taking modes of engagement into account, this method makes the dependencies between desired impressions and particular player goals visible to designers.
+%
+It could thus be helpful for debugging key choice structures that aren't producing a desired impression, and for figuring out whether a game supports different modes of engagement.
+
+
+The few impressions that have been presented here have also been verified to some degree by the experiments presented in \cref{ch:results}.
+%
+In fact, the results of those experiments did not unanimously confirm my hypotheses, which has led to refinements in the analysis technique presented here.
+%
+These revisions and others that were made as I built \dunyazad/ are the primary product of my hybrid research method: a more nuanced understanding of choice poetics obtained by attempting to operationalize it.
+
+
+The next step in this direction of research would be to greatly expand the number of prospective and retrospective impressions scrutinized.
+%
+An efficient approach would be to take a well-known interactive experience built around explicit discrete narrative choices and analyze it from the beginning, breaking down each choice within this framework and looking for patterns in their usage.
+%
+\dunyazad/ could then be used to double-check and refine the insights generated by this process: take each impression identified during the initial analysis, encode it in \dunyazad/, and ask \dunyazad/ to generate choices that involve that impression.
+%
+Some of the choices generated will likely not appear to give that impression upon initial inspection, and \dunyazad/'s full output can be used to figure out exactly how the criteria that were developed technically fit the generated choice.
+%
+With this information, refinements to \dunyazad/ and/or the underlying theory can be made, eventually producing both an analytical and a generative model of the impression in question, and completing the analysis $\rightarrow$ theory $\rightarrow$ generative model $\rightarrow$ experimentation cycle.
+
+
+The next chapter describes in detail how \dunyazad/ operates, and is to some degree a mirror of this one: an automated version of the analysis technique described here forms the core of \dunyazad/'s reasoning capabilities.
+%
+After that, \cref{ch:results} discusses the results of two experiments that showed outputs from \dunyazad/ to humans and gathered feedback about their impressions.
+%
+\Cref{ch:results} includes some updates to the material presented here, as the refinements make the most sense when presented alongside the experimental results that led to them.
