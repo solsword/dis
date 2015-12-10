@@ -2,12 +2,49 @@
 
 \label{ch:dunyazad}
 
-\section{Answer-Set Programming and Critical Technical Practice}
+As stated in the introduction, \dunyazad/ has two purposes as a project: first, to produce a \emph{system}, and second, to produce a \emph{theory}.
+%
+The system is a novel story generator that incorporates choices not incidentally, but as its main form of content.
+%
+The theory is a theory of choice poetics: a theory about how specific choice structures give rise to certain feelings, such as regret.
+%
+In order to satisfy these two goals, \dunyazad/ uses an answer set solver to turn a logical criteria for a certain kind of choice into an instance of such a choice--this it it's core operating principle.
 
-\section{Goals}
+
+\dunyazad/'s code therefore largely consists of a set of logical statements describing what a choice structure is and when choices fit into one of several categories.
+%
+For example, there are statements that define a ``relaxed'' choice.
+%
+Besides these rules, there is an external control structure which invokes the solver repeatedly, generating multiple choices and connecting them into a story.
+%
+The focus of development so far has been on individual choices, but the capacity exists for \dunyazad/ to generate a full branching story.
+%
+Of course, there is also some imperative code for turning a logical choice structure into English text, in the form of a template-based generation system.
+%
+The English-generation code and the control code are both written in Python.
+
+
+The goal of this chapter is to describe in detail how \dunyazad/ functions.
+%
+First, \cref{sec:dunyazad-asp-and-ctp} describes why \dunyazad/ uses answer set programming in a bit more detail, and how answer set programming helps with the theory development goal.
+%
+\Cref{sec:dunyazad-choice-generation} then describes how \dunyazad/ generates individual choices, while \cref{sec:dunyazad-control} describes the higher-level control mechanism, and \cref{sec:dunyazad-english} describes the template-based English generation component.
+%
+Finally, \cref{sec:dunyazad-summary} summarizes the entire system and works through an example of how \dunyazad/ generates a choice from beginning to end.
+
+%\section{Goals}
+
+\section{Answer-Set Programming and Critical Technical Practice}
+\label{sec:dunyazad-asp-and-ctp}
+
+\section{Choice Generation}
+\label{sec:dunyazad-choice-generation}
 
 \section{High-Level Control}
+\label{sec:dunyazad-control}
 
-\section{Scene Generation}
+\section{English Generation}
+\label{sec:dunyazad-english}
 
-\section{Experimental Results}
+\section{Summary}
+\label{sec:dunyazad-summary}
