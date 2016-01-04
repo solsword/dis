@@ -126,7 +126,9 @@ These things are defined by representational and constituent constraints.
 
 In \dunyazad/, a story is represented as a sequence of actions, each drawn from a pre-determined set.
 %
-Besides actions, each time point in a story has an initial state, which can include characters, items, and relations between them.
+Besides actions, each timepoint in a story has an initial state, which can include characters, items, and relations between them.
+%
+\dunyazad/ also has ``setups,'' which are used to establish interesting situations that motivate action.
 %
 This kind of representation is amenable to logical reasoning and similar to representations used in planning-based story generation systems.
 %
@@ -137,12 +139,11 @@ Luckily, many of the original Choose-Your-Own-Adventure books are focused on act
 
 \subsubsection{States}
 
-
 \dunyazad/'s representational constraints define predicates for ``instances,'' which may be either ``actors'' or ``items,'' as well as ``states'' (binary properties of an instance), ``properties'' (instance properties which can be multi-valued), and ``relations,'' (named directional instance-to-instance links).
 %
 Besides these things, which can change from one state to the next as a result of the outcomes of actions, instances can have timeless ``surface properties'' like a name, which is stored but cannot be changed by events in the story.
 %
-\Cref{fig:dunyazad-states} gives examples of each of these and shows how they come together to describe a situation.
+\Cref{fig:dunyazad-states} gives examples of each of these and \cref{fig:dunyazad-state-example} shows how they come together to describe a situation.
 
 
 \begin{figure}[!t]
@@ -153,15 +154,36 @@ TODO: HERE
 \label{fig:dunyazad-states}
 \end{figure}
 
-\begin{figure}[!t]
+
+The core states in \dunyazad/ describe the cast and any items or skills that those characters possess.
+%
+Beyond these states are a group of states that describe transient relationships which set the stage for action, these are called ``potentials.''
+%
+Potentials include things like \prq{knows\_gossip}{,} \prq{injured}{,} and \prq{threatening}{,} and each is classified as either a ``problem'' or an ``opportunity.''
+%
+Although these special potential states are represented using normal \prq{state}{,} \prq{property}{,} and \prq{relation}{} predicates, actions which get rid of them must specify whether each potential is \prq{resolved}{,} \prq{manifested}{,} or \prq{nullified}{.}
+%
+Additionally, extra predicates specify whether a potential is \prq{problematic\_for}{} one or more of the actors involved (for example, the \prq{injured} state is \prq{problematic\_for}{} any actor to which it is applied).
+
+
+\dunyazad/ understands based on this information whether the action which eliminated a potential was good or bad for different characters.
+%
+For example, an action that \prq{resolves}{} an \prq{injured} state is good for the actor who was injured, and thus taking that action makes sense for that character.
+%
+States themselves thus directly encode some of the information used to decide which actions are viable.
+%
+This not only helps the system reason about motivation, but it also makes the design of actions and setups easier by providing a standard set of states that trigger certain actions.
+
+
+\begin{figure}[!b]
 \centering
 %\includegraphics[width=\textwidth]{fig/dunyazad-states.pdf}
 \fbox{%
 \parbox{\textwidth}{
 Scene: \vspace{0.5em}\\
-\hspace*{0.8em} ``A merchant carrying some perfume is being threatened by bandits.'' \vspace{0.5em} \\
+\ind ``A merchant carrying some perfume is being threatened by bandits.'' \vspace{0.5em} \\
 Representation: \vspace{0.5em} \\
-\hspace*{0.8em} \parbox{0.9\textwidth}{ \tt
+\ind \parbox{0.9\textwidth}{ \tt
 inst(actor,businessperson\_4). \\
 inst(actor,tough\_3). \\
 inst(item,treasure\_5). \\
@@ -169,26 +191,175 @@ property(type,inst(actor,businessperson\_4),merchant). \\
 property(type,inst(actor,tough\_3),bandits). \\
 property(type,inst(item,treasure\_5),perfume). \\
 relation( \\
-\hspace*{0.5em} has\_item, \\
-\hspace*{0.5em} inst(actor,businessperson\_4), \\
-\hspace*{0.5em} inst(item,treasure\_5) \\
+\ind has\_item, \\
+\ind inst(actor,businessperson\_4), \\
+\ind inst(item,treasure\_5) \\
 ). \\
 relation( \\
-\hspace*{0.5em} threatening, \\
-\hspace*{0.5em} inst(actor,tough\_3), \\
-\hspace*{0.5em} inst(actor,businessperson\_4) \\
+\ind threatening, \\
+\ind inst(actor,tough\_3), \\
+\ind inst(actor,businessperson\_4) \\
 ). \\
-surface\_property(name,inst(item,treasure\_5),"perfume"). \\
+surface\_property(name,inst(item,treasure\_5),"perfume").
 }
 }
 }
-\caption[\dunyazad/ State Example]{An example scene description using \dunyazad/'s internal representation, showing the most-relevant predicates. In real output, there would be many more ``surface property'' predicates describing things like the name and each instance and whether it is plural or singular. Note that each instance is assigned a unique identifier that ends with a number.}
+\caption[\dunyazad/ State Example]{An example scene description using \dunyazad/'s internal representation, showing the most-relevant predicates. In real output, each of these predicates except the \prq{surface\_property}{} would be tied to a specific timepoint, and there would be many more \prq{surface\_property}{} predicates describing things like the name of each instance and whether it is plural or singular. Note that each instance is assigned a unique identifier that ends with a number.}
 \label{fig:dunyazad-state-example}
 \end{figure}
 
 
+\Cref{fig:dunyazad-state-example} is not quite accurate, because \dunyazad/'s non-surface state predicates are never encountered raw.
+%
+Instead, they are wrapped in \prq{st(<timepoint>, <state>)}{} predicates, to define different states of the world for each timepoint in the story.
+%
+The timepoints in a story form a directed acyclic graph that branches out from a single root node.
+%
+The structure of this graph is defined using \prq{successor(<previous>, <option>, <next>)}{} predicates which specify that the result of choosing option \prq{<opt>}{} at timepoint \prq{<previous>}{} is the state designated \prq{<next>}{.}
+%
+The root timepoint is named \prq{root}{,} and each successor is named for its parent plus the number of the option that leads to it, so for example, if there were three options at the \prq{root\_2}{} node, they would lead to timepoints labelled \prq{root\_2\_1}{,} \prq{root\_2\_2}{,} and \prq{root\_2\_3}{.}
+%
+The timepoints do not necessarily form a tree, however: if two outcomes lead to identical states, as long as it would not form a cycle in the graph, \dunyazad/ may connect them to the same timepoint.
+
 
 \subsubsection{Actions}
+
+As mentioned above, timepoints in \dunyazad/ are connected by options.
+%
+Each option is associated with a single action, and arguments describe the details of that action (for example, the initiator and/or target).
+%
+If a timepoint has more than one option, it represents a choice to be made by the player, otherwise it is simply an event that happens.
+%
+Actions specify lists of outcome variables with values for each variable.
+%
+For each outcome variable that an action has, a single outcome value is assigned to each option that uses that action, thereby defining the entire impact of that option on the world state.
+%
+These assignments have a shorthand notation \prq{o(<variable>, <value>)}{} which indicates that the outcome variable \prq{<variable>}{} takes on the value \prq{<value>}.
+%
+\Cref{fig:dunyazad-action-example} shows an example where at timepoint \prq{root}{,} the action associated with option 1 is \prq{talk\_down}{,} with two outcomes: \prq{o(attitude, convinced)}{} and \prq{o(enraged, not\_enraged)}{}.
+
+\begin{figure}[!t]
+\centering
+\fbox{%
+\parbox{\textwidth}{
+Option: \vspace{0.5em}\\
+\ind ``You try to talk the bandits down.'' \vspace{0.5em} \\
+Outcome: \vspace{0.5em}\\
+\ind ``You talk to the bandits and convince them to back off.'' \vspace{0.5em} \\
+Representation: \vspace{0.5em} \\
+\ind \parbox{0.9\textwidth}{ \tt
+\cg{at(root,} action(option(1), talk\_down)\cg{).} \\
+
+\cg{at(root,} arg(option(1), asking, inst(actor, you))\cg{).} \\
+\cg{at(root,} arg(option(1), listening, inst(actor, tough\_3))\cg{).} \\
+\cg{at(root,} arg(option(1), victim, \\
+\ind inst(actor, businessperson\_4))\cg{).} \\
+
+\cg{at(root,} outcome(option(1), o(attitude, convinced))\cg{).} \\
+\cg{at(root,} outcome(option(1), o(enraged, not\_enraged))\cg{).} \\
+
+\cg{at(root,} consequence\_of(option(1), o(attitude, convinced), \\
+\ind \_not, relation(threatening, \\
+\ind \ind inst(actor, tough\_3), inst(actor, businessperson\_4)))\cg{).} \\
+\cg{at(root,} consequence\_of(option(1), o(enraged, enraged), \\
+\ind \_not, relation(threatening, \\
+\ind \ind inst(actor, tough\_3), inst(actor, you)))\cg{).} \\
+
+\cg{at(root,} consequence(option(1), \\
+\ind \_not, relation(threatening, \\
+\ind \ind inst(actor, tough\_3), inst(actor, businessperson\_4)))\cg{).}
+}
+}
+}
+\caption[\dunyazad/ Action Example]{An example of action representation in \dunyazad/. Note that even outcomes which do not occur (\prq{o(enraged, enraged)}{} in this case) have their potential consequences noted via \prq{consequence\_of}{} predicates, but only outcomes that do occur (as specified by the \prq{at(<timepoint>, outcome(option(<opt>), o(<outvar>, <outval>)))}{} predicates) have actual consequences. }
+\label{fig:dunyazad-action-example}
+\end{figure}
+
+
+Each action thus has multiple possible outcomes.
+%
+For the \prq{talk\_down}{} action, there are theoretically four: the \prq{attitude}{} outcome variable has two exclusive values \prq{convinced}{} and \prq{unconvinced}{,} while the \prq{enraged}{} outcome variable has two more values: \prq{enraged}{} and \prq{not\_enraged}{.}
+%
+However, the definition of \prq{talk\_down}{} stipulates that the outcome \prq{o(enraged, enraged)}{} is only possible if the outcome \prq{o(attitude, unconvinced)}{} is also present, so there are only three possibilities:
+
+\begin{enumerate}
+  \item The target is convinced to calm down (\prq{o(attitude, convinced)}{} and \prq{o(enraged, not\_enraged)}), in which case they stop threatening whoever they were threatening.
+  \item The target is unconvinced, and nothing changes (\prq{o(attitude, convinced)}{} along with \prq{o(enraged, not\_enraged)}).
+  \item The target is unconvinced, and gets mad at the person who tried to convince them (\prq{o(attitude, convinced)}{} along with \prq{o(enraged, enraged)}).
+\end{enumerate}
+
+Note that for a traditional planning system, because each combination of outcome variables has a different effect on the world state, each action would have to be broken into multiple sub-actions with fixed pre- and post-conditions.
+%
+The advantage of grouping them together conceptually is that this represents the player's view of things: the text introducing an option doesn't indicate the values of its outcome variables, and so the player can never be completely sure what outcomes an action will have.
+%
+This way of representing actions thus helps the system reason about how the player might perceive actions, this is the same reason that possible but unrealized state changes are explicitly represented by the system using \prq{consequence\_of}{} predicates (see \cref{fig:dunyazad-action-example}).
+
+
+\begin{table}[!h]
+\begingroup
+\renewcommand*{\arraystretch}{1.5}
+\begin{tabular}{c c c c}
+  \pr{accuse}       & \pr{explain\_innocence} & \pr{play\_song}         & \pr{talk\_down} \\
+  \cg{\pr{arrive}}       & \pr{flee}               & \pr{polymorph}          & \pr{tell\_story} \\
+  \pr{attack}       & \pr{gossip}             & \cg{\pr{pursue}}             & \pr{trade} \\
+  \pr{buy\_healing} & \pr{leave}              & \pr{reach\_destination} & \pr{travel\_onwards} \\
+  \pr{deny\_blame}  & \pr{pacify}             & \pr{shift\_blame}       & \pr{treat\_injury} \\
+  \pr{dispel}       & \pr{pay\_off}           & \pr{steal}
+\end{tabular}
+\endgroup
+\caption[List of Actions in \dunyazad/]{The 23 actions currently defined in \dunyazad/. The \prq{arrive}{} and \prq{pursue}{} actions aren't currently used because the system has no setups that motivate them.}
+\label{tab:dunyazad-action-list}
+\end{table}
+
+\dunyazad/ currently has a total of 23 different actions, listed in \cref{tab:dunyazad-action-list}.
+%
+Given the setups that exist, however, the \prq{arrive}{} and \prq{pursue}{,}, actions are never motivated and thus impossible to use, so there are effectively 21 possible actions.
+%
+Most actions have at least two possible outcome configurations, and a few (such as \prq{attack{}}) have four or more.
+%
+However, the number of actions that are possible in a given state are limited by the constituent and aesthetic constraints.
+%
+This is where the setups come in: most actions require some sort of motivating state to make sense (the \prq{talk\_down}{} action, for example, requires that either a \prq{threatening}{} or an \prq{accusing}{} relationship be present).
+%
+Setups represent existing situations that the player might encounter while travelling, and each sets up conditions for a particular subset of actions.
+
+
+\subsubsection{Setups}
+
+Besides the initial state of the world having to do with the protagonist(s) and their starting skills and equipment, most of the state in \dunyazad/ comes from setups.
+%
+The situations \dunyazad/ creates are designed to fit into an overarching travel narrative: the protagonist(s) are on a journey, and encounter various obstacles.
+%
+This provides an excuse to repeatedly clean up the world state by having the main character(s) ``travel onwards,'' getting rid of any states except those pertaining to the main character(s) and introducing a new setup.
+%
+When putting multiple timepoints together into a complete branching story, \dunyazad/ starts by introducing a setup and then adding a few timepoints which resolve any outstanding potentials in that setup.
+%
+It then adds a \prq{travel\_onwards}{} option to each branch where potentials have been resolved, and adds a new setup to the timepoint that follows this option.
+
+
+Setups are thus expected to set the stage for action: they provide a situation that contains the potential for something interesting to occur.
+%
+Some setups are quite flexible while others are specific.
+%
+For example, the \prq{healer}{} setup simply adds an actor with the \prq{healing}{} skill and a tool for healing who is offering to treat injuries for a price; it may only be used when a protagonist is injured.
+%
+In contrast, the \prq{market}{} setup potentially includes a lowlife, a healer, a laborer, an aristocrat, and up to two merchants.
+%
+These characters can have several potentials between them: the lowlife can be threatening one of the merchants, the noble might be accusing the peasant or one of the merchants, or perhaps the merchants are simply selling things and the noble or laborer knows some gossip.
+%
+The wide range of possibilities allowed by the \prq{market}{} setup lets \dunyazad/ create a variety of situations in service of creating particular choice structures, whereas the \prq{healer}{} setup is designed to be deployed in a very particular circumstance.
+%
+Although the \prq{market}{} setup eclipses the \prq{healer}{} setup in terms of actions enabled, the \prq{healer}{} setup's lack of extraneous characters provides a very different feeling to the player, and its surface text is more specific.
+
+
+As mentioned above, not every timepoint includes setup-induced state changes: they only occur for the \prq{root}{} node and for timepoints that follow \prq{travel\_onwards}{} actions.
+%
+The states associated with a setup are introduced after the \prq{travel\_onwards}{} action first removes all states associated with the old location--only states directly associated with a protagonist (such as an injury sustained or an item acquired) are retained.
+%
+Because \dunyazad/ effectively solves entire timepoints at once, however, the particular configuration of a setup's flexible elements can be changed at the same time that the actions, arguments, and outcomes of options are being decided.
+%
+This means that \dunyazad/ has the freedom to consider all possible setups as well as all configurations of actions given those setups when trying to build a particular choice structure, unless a certain setup is mandated by outside restrictions.
+
 
 \subsection{Constituent Constraints}
 
