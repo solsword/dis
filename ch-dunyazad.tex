@@ -311,6 +311,20 @@ This way of representing actions thus helps the system reason about how the play
 \label{tab:dunyazad-action-list}
 \end{table}
 
+
+Besides defining outcomes, actions also define how skills affect their outcomes, but asserting that certain outcome values are linked to the presence or absence of particular skills on the part of one or more participants of the action.
+%
+Tools may also be involved.
+%
+For example the \prq{attack}{} action has an outcome variable \prq{success}{} with three values: \prq{victory}{,} \prq{defeat}{,} and \prq{tie}{.}
+%
+It specifies that the outcomes \prq{o(success, victory)}{} and \prq{o(success, defeat)}{} are both linked to the \prq{fighting}{} skill as alternate outcomes of a skill contest between the \prq{aggressor}{} and \prq{target}{} of the action, where tools are advantageous.
+%
+This means that if the aggressor of an attack action has both the \prq{fighting}{} skill and a tool for that skill, while the target of the attack has neither (or even if they're just missing a tool) the \prq{o(success, victory)}{} outcome is more likely, and the \prq{o(success, defeat)}{} outcome is less likely (the exact consequences of these assignments will be discussed in \cref{sec:dunyazad-poetic-constraints}).
+%
+Effectively, the definition of an action thus includes enough information for \dunyazad/ to consider both possible consequences of an action and what initial states might best foreshadow each different outcome.
+
+
 \dunyazad/ currently has a total of 23 different actions, listed in \cref{tab:dunyazad-action-list}.
 %
 Given the setups that exist, however, the \prq{arrive}{} and \prq{pursue}{,}, actions are never motivated and thus impossible to use, so there are effectively 21 possible actions.
@@ -354,6 +368,8 @@ Although the \prq{market}{} setup eclipses the \prq{healer}{} setup in terms of 
 
 As mentioned above, not every timepoint includes setup-induced state changes: they only occur for the \prq{root}{} node and for timepoints that follow \prq{travel\_onwards}{} actions.
 %
+Internally, \dunyazad/ refers to everything that occurs between one setup and the \prq{travel\_onwards}{} events which follow that setup on each branch from it as a `vignette.'
+%
 The states associated with a setup are introduced after the \prq{travel\_onwards}{} action first removes all states associated with the old location--only states directly associated with a protagonist (such as an injury sustained or an item acquired) are retained.
 %
 Because \dunyazad/ effectively solves entire timepoints at once, however, the particular configuration of a setup's flexible elements can be changed at the same time that the actions, arguments, and outcomes of options are being decided.
@@ -369,11 +385,69 @@ This is where the constituent constraints come in.
 %
 While the basic predicates that define representational elements ensure things like continuity of states between timepoints, constituent constraints help ensure that actions get assembled into a story, instead of just a random sequence of unrelated events.
 %
-For example, 
+For example, rules that prohibit the same action from happening twice in a row,
+or that require that each action be motivated, are constituent constraints.
+
+
+While there is sometimes a gray area between constituent and aesthetic constraints, constituent constraints can often be identified as being concerned with getting \dunyazad/ to produce stories at all, while aesthetic constraints help defined \dunyazad/'s particular flavor of story.
+%
+If constituent constraints are removed, the results are often nonsensical; if aesthetic constraints are removed results still make sense, but they no longer fit with other stories that \dunyazad/ constructs.
+%
+\Cref{tab:dunyazad-constraints-inventory} lists all of the source code files from \dunyazad/'s main answer set problem definition code and briefly indicates what rules each file contains from each constraint type.
+
+\begin{table}[!p]
+\begin{minipage}[t]{\dimexpr0.5\textwidth-2em}
+  \pr{actions.lp} \\
+  \ind [representational] The association between actions and options; argument and outcome binding; consequences based on outcomes. \\
+  \ind [constituent] Limits to interactions with incapacitated/off-stage actors. \\
+  \ind [poetic] Definition of `surprising' outcomes based on likely/unlikely outcomes. \vspace*{0.5em} \\
+  \pr{actors.lp} \\
+  \ind [representatonal] Unpacking for actor definitions; top level of the actors ontology. \vspace*{0.5em} \\
+  \pr{choice\_structure.lp} \\
+  \ind [constituent] Motivation and relevance of options; bans redundancy, boredom, and repetition; encourages setup variety.  \\
+  \ind [aesthetic] Enforces narrative perspecive (second-person); bans trick options. \\
+  \ind [poetic] Story length and choice frequency constraints. \vspace*{0.5em} \\
+  \pr{core.lp} \\
+  \ind [representational] Basic structure definitions (options, events, choices, etc.); exclusivity for states; reflexivity for actions; ontology basics (inheritance). \vspace*{0.5em} \\
+  \pr{eval.lp} \\
+  \ind [poetic] Expectations; perceived and actual stakes; option feels; option structures; outcome perceptions; outcome predictabilities; outcome feels. \vspace*{0.5em} \\
+  \pr{goals.lp} \\
+  \ind [poetic] Player goals; apparent guilt of characters. \vspace*{0.5em} \\
+  \pr{grow.lp} \\
+  \ind [representational] Timepoint ordering and links; timepoint creation and state transfer; state matching. \vspace*{0.5em} \\
+  \pr{items.lp} \\
+  \ind [representational] Unpacking for item definitions; tool possession for a skill; communal ownership for trading. \vspace*{0.5em} \\
+\end{minipage}%
+\hfill
+\noindent
+\begin{minipage}[t]{\dimexpr0.5\textwidth-2em}
+  \pr{potential.lp} \\
+  \ind [representational] Resolution methods, initiators, urgency/immediacy, and importance of potentials; unresolved and hidden potentials. \vspace*{0.5em} \\
+  \pr{settings.lp} \\
+  \ind [content] The possible settings. \\
+  \ind [representational] Assignment of settings to timepoints; setting continuity and changes. \vspace*{0.5em} \\
+  \pr{setup.lp} \\
+  \ind [representational] Unpacking setups; creating/editing associated states. \vspace*{0.5em} \\
+  \pr{skills.lp} \\
+  \ind [content] The list of skills (but skill-action links are specified by actions). \\
+  \ind [representational] \vspace*{0.5em} \\
+  \pr{surface.lp} \\
+  \ind [representational] Surface properties like names and genders. \vspace*{0.5em} \\
+  \pr{the\_party.lp} \\
+  \ind [content] Rules that define the starting state of the protagonist(s). \vspace*{0.5em} \\
+  \pr{vignettes.lp} \\
+  \ind [constituent] Scoping of vignettes (actions in a single location). \vspace*{0.5em} \\
+  \pr{content/*} \\
+  \ind [content] These define the actions, goals, potentials, and setups that \dunyazad/ can use, along with its ontology of actors and items.
+\end{minipage}
+\caption[\dunyazad/ Constraints Inventory]{An inventory of \dunyazad/'s constraints organized by file and constraint type.}
+\label{tab:dunyazad-constraints-inventory}
+\end{table}
 
 \subsection{Aesthetic Constraints}
 
 \subsection{Poetic Constraints}
+\label{sec:dunyazad-poetic-constraints}
 
 \section{High-Level Control}
 \label{sec:dunyazad-control}
