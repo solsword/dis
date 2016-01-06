@@ -179,10 +179,10 @@ This not only helps the system reason about motivation, but it also makes the de
 \centering
 %\includegraphics[width=\textwidth]{fig/dunyazad-states.pdf}
 \fbox{%
-\parbox{\textwidth}{
-Scene: \vspace{0.5em}\\
-\ind ``A merchant carrying some perfume is being threatened by bandits.'' \vspace{0.5em} \\
-Representation: \vspace{0.5em} \\
+\parbox{0.9\textwidth}{
+Scene:\svind\\
+\ind ``A merchant carrying some perfume is being threatened by bandits.''\vind\\
+Representation:\svind \\
 \ind \parbox{0.9\textwidth}{ \tt
 inst(actor,businessperson\_4). \\
 inst(actor,tough\_3). \\
@@ -241,12 +241,12 @@ These assignments have a shorthand notation \prq{o(<variable>, <value>)}{} which
 \begin{figure}[!t]
 \centering
 \fbox{%
-\parbox{\textwidth}{
-Option: \vspace{0.5em}\\
-\ind ``You try to talk the bandits down.'' \vspace{0.5em} \\
-Outcome: \vspace{0.5em}\\
-\ind ``You talk to the bandits and convince them to back off.'' \vspace{0.5em} \\
-Representation: \vspace{0.5em} \\
+\parbox{0.9\textwidth}{
+Option:\svind\\
+\ind ``You try to talk the bandits down.''\vind \\
+Outcome:\svind\\
+\ind ``You talk to the bandits and convince them to back off.''\vind \\
+Representation:\svind \\
 \ind \parbox{0.9\textwidth}{ \tt
 \cg{at(root,} action(option(1), talk\_down)\cg{).} \\
 
@@ -396,51 +396,74 @@ If constituent constraints are removed, the results are often nonsensical; if ae
 \Cref{tab:dunyazad-constraints-inventory} lists all of the source code files from \dunyazad/'s main answer set problem definition code and briefly indicates what rules each file contains from each constraint type.
 
 \begin{table}[!p]
-\begin{minipage}[t]{\dimexpr0.5\textwidth-2em}
-  \pr{actions.lp} \\
-  \ind [representational] The association between actions and options; argument and outcome binding; consequences based on outcomes. \\
-  \ind [constituent] Limits to interactions with incapacitated/off-stage actors. \\
-  \ind [poetic] Definition of `surprising' outcomes based on likely/unlikely outcomes. \vspace*{0.5em} \\
-  \pr{actors.lp} \\
-  \ind [representatonal] Unpacking for actor definitions; top level of the actors ontology. \vspace*{0.5em} \\
-  \pr{choice\_structure.lp} \\
-  \ind [constituent] Motivation and relevance of options; bans redundancy, boredom, and repetition; encourages setup variety.  \\
-  \ind [aesthetic] Enforces narrative perspecive (second-person); bans trick options. \\
-  \ind [poetic] Story length and choice frequency constraints. \vspace*{0.5em} \\
-  \pr{core.lp} \\
-  \ind [representational] Basic structure definitions (options, events, choices, etc.); exclusivity for states; reflexivity for actions; ontology basics (inheritance). \vspace*{0.5em} \\
-  \pr{eval.lp} \\
-  \ind [poetic] Expectations; perceived and actual stakes; option feels; option structures; outcome perceptions; outcome predictabilities; outcome feels. \vspace*{0.5em} \\
-  \pr{goals.lp} \\
-  \ind [poetic] Player goals; apparent guilt of characters. \vspace*{0.5em} \\
-  \pr{grow.lp} \\
-  \ind [representational] Timepoint ordering and links; timepoint creation and state transfer; state matching. \vspace*{0.5em} \\
-  \pr{items.lp} \\
-  \ind [representational] Unpacking for item definitions; tool possession for a skill; communal ownership for trading. \vspace*{0.5em} \\
+\begin{minipage}[t][0.935\textheight]{\dimexpr0.5\textwidth-1.2em}
+\begin{hangparas}{0.8em}{1}
+\setlength{\parskip}{0.5em}
+\file{actions.lp} \\
+  \cg{[representational]} Action representation; consequences. \\
+  \cg{[constituent]} Incapacitation. \\
+  \cg{[poetic]} `Surprising' outcomes based on likely/unlikely outcomes.
+
+\file{actors.lp} \\
+  \cg{[representatonal]} Unpacking for actors; top level of actors ontology.
+
+\file{choice\_structure.lp} \\
+  \cg{[constituent]} Motivation; relevance; redundancy; repetition.  \\
+  \cg{[aesthetic]} Narrative perspecive (second-person); setup variety; bans boredom and trick options. \\
+  \cg{[poetic]} Story length and pacing.
+
+  \file{core.lp} \\
+  \cg{[representational]} Basic structure (options, events, choices, etc.); exclusivity for states; reflexivity for actions; ontology basics (inheritance).
+
+  \file{eval.lp} \\
+  \cg{[poetic]} Expectations; stakes; option feels; option structures; outcome perceptions; outcome predictabilities; outcome feels.
+
+  \file{goals.lp} \\
+  \cg{[poetic]} Player goals; guilt.
+
+  \file{grow.lp} \\
+  \cg{[representational]} Timepoint ordering and links; timepoint creation and state transfer; state matching.
+
+  \file{items.lp} \\
+  \cg{[representational]} Unpacking for items; tool possession for skills; communal ownership for trading.
+\end{hangparas}%
 \end{minipage}%
 \hfill
 \noindent
-\begin{minipage}[t]{\dimexpr0.5\textwidth-2em}
-  \pr{potential.lp} \\
-  \ind [representational] Resolution methods, initiators, urgency/immediacy, and importance of potentials; unresolved and hidden potentials. \vspace*{0.5em} \\
-  \pr{settings.lp} \\
-  \ind [content] The possible settings. \\
-  \ind [representational] Assignment of settings to timepoints; setting continuity and changes. \vspace*{0.5em} \\
-  \pr{setup.lp} \\
-  \ind [representational] Unpacking setups; creating/editing associated states. \vspace*{0.5em} \\
-  \pr{skills.lp} \\
-  \ind [content] The list of skills (but skill-action links are specified by actions). \\
-  \ind [representational] \vspace*{0.5em} \\
-  \pr{surface.lp} \\
-  \ind [representational] Surface properties like names and genders. \vspace*{0.5em} \\
-  \pr{the\_party.lp} \\
-  \ind [content] Rules that define the starting state of the protagonist(s). \vspace*{0.5em} \\
-  \pr{vignettes.lp} \\
-  \ind [constituent] Scoping of vignettes (actions in a single location). \vspace*{0.5em} \\
-  \pr{content/*} \\
-  \ind [content] These define the actions, goals, potentials, and setups that \dunyazad/ can use, along with its ontology of actors and items.
-\end{minipage}
-\caption[\dunyazad/ Constraints Inventory]{An inventory of \dunyazad/'s constraints organized by file and constraint type.}
+\begin{minipage}[t][0.935\textheight]{\dimexpr0.5\textwidth-1.2em}
+\begin{hangparas}{0.8em}{1}
+\setlength{\parskip}{0.5em}
+  \file{potential.lp} \\
+  \cg{[representational]} Resolution methods, initiators, urgency/immediacy, and importance of potentials; unresolved and hidden potentials.
+
+  \file{settings.lp} \\
+  \cg{[content]} The possible settings. \\
+  \cg{[representational]} Setting assignment; setting continuity and changes.
+
+  \file{setup.lp} \\
+  \cg{[representational]} Unpacking for setups; setup state creation.
+
+  \file{skills.lp} \\
+  \cg{[content]} The list of skills (but skill-action links are specified by actions). \\
+  \cg{[constituent]} Outcome likelihood; skill and tool relevance.
+
+  \file{surface.lp} \\
+  \cg{[representational]} Surface properties like names and genders.
+
+  \file{the\_party.lp} \\
+  \cg{[content]} Rules that define the starting state of the protagonist(s).
+
+  \file{utils.lp} \\
+  \cg{[other]} Helpers; name assignment.
+
+  \file{vignettes.lp} \\
+  \cg{[constituent]} Scoping of vignettes (actions in a single location).
+
+  \file{content/*} \\
+  \cg{[content]} These files define the actions, goals, potentials, and setups that \dunyazad/ can use, along with its ontology of actors and items.
+\end{hangparas}%
+\end{minipage}%
+\caption[\dunyazad/ Constraints Inventory]{An inventory of \dunyazad/'s constraints organized by file and by constraint type.}
 \label{tab:dunyazad-constraints-inventory}
 \end{table}
 
