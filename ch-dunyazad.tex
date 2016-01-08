@@ -236,7 +236,13 @@ For each outcome variable that an action has, a single outcome value is assigned
 %
 These assignments have a shorthand notation \prq{o(<variable>, <value>)}{} which indicates that the outcome variable \prq{<variable>}{} takes on the value \prq{<value>}.
 %
+Each such assignment is an outcome component, and together, all such assignments for an action are the outcome of that action.
+%
 \Cref{fig:dunyazad-action-example} shows an example where at timepoint \prq{root}{,} the action associated with option 1 is \prq{talk\_down}{,} with two outcomes: \prq{o(attitude, convinced)}{} and \prq{o(enraged, not\_enraged)}{}.
+%
+Note that each outcome variable is responsible for deciding whether or not a particular state change occurs (or between several possible state changes one of which must occur).
+%
+The consequences of an action in terms of the world state are thus fully determined by the values its outcome variables.
 
 \begin{figure}[!t]
 \centering
@@ -438,14 +444,15 @@ If constituent constraints are removed, the results are often nonsensical; if ae
 
   \file{settings.lp} \\
   \cg{[content]} The possible settings. \\
-  \cg{[representational]} Setting assignment; setting continuity and changes.
+  \cg{[representational]} Setting assign\-ment; setting continuity.
 
   \file{setup.lp} \\
   \cg{[representational]} Unpacking for setups; setup state creation.
 
   \file{skills.lp} \\
-  \cg{[content]} The list of skills (but skill-action links are specified by actions). \\
-  \cg{[constituent]} Outcome likelihood; skill and tool relevance.
+  \cg{[content]} The list of skills. \\
+  \cg{[representational]} Relevance for skills and tools. \\
+  \cg{[constituent]} Outcome likelihoods.
 
   \file{surface.lp} \\
   \cg{[representational]} Surface properties like names and genders.
@@ -467,10 +474,128 @@ If constituent constraints are removed, the results are often nonsensical; if ae
 \label{tab:dunyazad-constraints-inventory}
 \end{table}
 
+The major topics covered by the constituent constraints are as follows:
+%
+\begin{itemize}
+  \item Incapacitation--constraints that prevent injured actors from taking vigorous actions like fighting, and prevent dead actors from doing anything.
+  \item Motivation--these constraints require that the actor that initiates each action have a motivation for taking that action.
+  \item Relevance--constraints which require that actions address an existing important potential. These get rid of situations where someone fighting for their life might stop to buy fruit, for example.
+  \item Redundancy--these constraints prevent two options at the same choice from being redundant.
+  \item Repetition--these constraints prevent direct repetition: repeated actions at subsequent timepoints and repeated use of the same setup for subsequent vignettes.
+  \item Outcome likelihoods--these constraints describe how skills and tools make certain outcomes more or less likely. Without them, outcomes would have no relation to the skills and tools of the participating actors.
+  \item Vignette scoping--constraints that determine when \prq{travel\_onwards}{} actions are appropriate and thus where new setups should be applied.
+\end{itemize}
+%
+Along with the representational constraints discussed above, these constituent constraints force answer sets to represent something that resembles a story, as opposed to a random mish-mash of incomprehensible actions.
+%
+The aesthetic constraints take things one step further and isolate a particular kind of story that \dunyazad/ tries to create.
+
 \subsection{Aesthetic Constraints}
+
+\dunyazad/'s aesthetic constraints go beyond the basics required to produce actions that make sense and can be read as a story and attempt to define what kind of stories \dunyazad/ will produce.
+%
+As shown in \cref{tab:dunyazad-constraints-inventory} there are several different categories:
+%
+\begin{itemize}
+  \item Narrative perspective--these constraints require that all actions at choice points be initiated by the protagonist(s) and that all other actions are initiated by non-protagonists, effectively establishing a loose second-person narrative perspective.
+  \item Setup variety--These constraints force \dunyazad/ to use a variety of setups over the course of a story, rather than just revisiting a few. This goes beyond prohibiting direct repetition and establishes a ``breadth'' requirement: before you can repeat a setup for the $n$th time, you must have used a total of at least $n+1$ unique setups (including the setup in question).
+  \item Boredom--Beyond the repetition constituent constraints, these constraints target things like repeated failed attempts to solve the same problem, or the recurrence of a problem within a single scene. Although not something that would seem obviously broken to readers, these possibilities were deemed less interesting and prohibited.
+  \item Trick options--If there are multiple protagonists and one has the skill necessary to perform a certain action while another lacks it, giving the player the option of having the unskilled protagonist perform that action is a kind of trick and this can feel very bad for the player as they're essentially not given the most rational option (which would be to have the skilled party member perform the action) but at the same time reminded of its presence. These constraints simply rule out this possibility, even though one could imagine using it for dramatic effect.
+\end{itemize}
+
+
+These aesthetic constraints are admittedly a bit underdeveloped.
+%
+In particular, there are not enough related to ensuring that long-term actions form a coherent plot, and this is one reason\footnote{A more important reason was the elimination of confounding factors.} that the experiments discussed in \cref{ch:results} focus on single choices rather than entire stories.
+%
+This is an open area of future work for \dunyazad/: developing stronger plot structures across multiple actions would allow it to produce interesting short stories and thus to support more complicated experiments.
 
 \subsection{Poetic Constraints}
 \label{sec:dunyazad-poetic-constraints}
+
+\dunyazad/'s poetic constraints are mechanisms for authorial control.
+%
+Together, they establish a set of predicates which can be required or forbidden in order to drive the creation of different kinds of choices.
+%
+These constraints are thus not about declaring what is universally acceptable or unacceptable, but rather about distinguishing between multiple interesting possibilities and providing the author the ability to make choices between these at a high level.
+%
+The bulk of these constraints form \dunyazad/'s operationalization of choice poetics, but a few are concerned with other effects:
+%
+\begin{itemize}
+  \item Surprising outcomes--Using the notion of likely and unlikely outcomes based on skills and tools, \dunyazad/ labels outcomes which are deemed unlikely as `surprising.' In an earlier version, `surprising' outcomes were prohibited altogether, now it's up to the author whether or not to allow them.
+  \item Story length and pacing--\dunyazad/ has rules for constraining how many actions must occur before a story ends, and how many of these must be choices as opposed to simple events.
+\end{itemize}
+%
+Besides these two categories of constraint, \dunyazad/'s poetic constraints are focused on choice poetics, and in particular, implementing the goal-based choice analysis method described in \cref{sec:goal-based-choice-analysis} and illustrated in \cref{fig:choice-analysis-method}.
+%
+These constraints are the focus of the experiments described in \cref{ch:results} and they have been the focus of development on \dunyazad/ so far: these are the constraints that allow \dunyazad/ to attempt to create specific poetic effects when constructing choices.
+%
+Although the details of goal-based choice analysis were the main subject of \cref{ch:choice-poetics}, the following section provides a walk-through of \dunyazad/'s technical implementation of the technique.
+
+\subsubsection{Choice Poetics}
+
+\dunyazad/'s choice poetics constraints rely on a few underlying properties of its stories that were just discussed, most notably the concept of likely and unlikely outcomes based on skills and tools.
+%
+In \dunyazad/'s code it is assumed that players will be roughly aware of these things, and the surface text code does its best to ensure this.
+%
+If this assumption is violated, \dunyazad/'s choices may have unintended poetic effects, just as when an author fails to clearly communicate and leaves some of their audience confused.
+%
+Results so far seem to indicate that this assumption is mostly correct, however, so \dunyazad/'s conflation of its internal likelihoods with players' perceptions of such seems to be acceptable.
+
+
+It is no accident that the breakdown of choice structures described in \cref{sec:cp-choice-representation} corresponds exactly to \dunyazad/'s internal representation of a choice as having an initial state, several options, and several outcomes at each option.
+%
+When a choice occurs directly after a setup (which always happens when \dunyazad/ generates a single choice) the setup becomes the framing.
+%
+The options are each a single action, described to the player before a choice is made without mention of any outcomes.
+%
+Once the player chooses, they see the outcome for the option they selected, which is a description of each outcome component (an \prq{o(<variable>, <value>)}{} pair) of that action.
+%
+The idea of potential outcomes also has a direct analogue: these are the other possible values of outcome variables for an action.
+
+
+Each of the seven steps of choice analysis described in \cref{sec:goal-based-choice-analysis} has a corresponding set of rules in \dunyazad/ which depend on the rules for earlier steps:
+%
+\begin{enumerate}
+  \item %
+    Goal Analysis: This step is quite simple in \dunyazad/: the file \file{goals.lp} includes rules that directly state the player's goals in every situation.
+    %
+    Of course, forcing the author to estimate the player's goals like this is not perfect, but results so far indicate that it works tolerably well.
+    %
+    Individual content files that specify how each goal works provide rules for determining the priority of the goal in a given situation (this is binary, either `high' or `low').
+    %
+    These files also define at least one state that \prq{achieves}{,} \prq{fails}{,} \prq{hinders}{,} or \prq{advances}{} the goal.
+    %
+    For example, the \prq{preserve\_health}{} goal always has high priority and specifies that the states \prq{injured}{} and \prq{killed}{} both \prq{fail}{} the goal when true of the goal's target.
+    %
+    \file{goals.lp} then specifies that at every timepoint, the player has a \prq{preserve\_health}{} goal for each protagonist, allowing \dunyazad/ to understand that an action which might have an outcome that kills a protagonist will be viewed by the player as carrying some risk.
+    %
+    The full list of player goals assumed by the system is as follows:
+    %
+    \begin{itemize}
+      \item The player always has a \prq{preserve\_health}{} goal for each protagonist. As mentioned above, these goals are always high-priority and are failed by the \prq{injured}{} and \prq{killed}{} states.
+      \item The player always has an \prq{avoid\_threats\_to}{} goal for each protagonist. Actions which cause \prq{threatening}{} relationships with a protagonist as the object \prq{hinder}{} these goals, as do actions which allow such a state to persist (i.e., actions which don't have a consequence that resolves such a state when one exists). These goals are always high-priority.
+      \item The player always has an \prq{avoid\_accusations}{} goal for each protagonist. These goals work just like \prq{avoid\_threats\_to}{} goals but for the \prq{accusing}{} relationship, which indicates that someone is being accused of a crime. As with \prq{avoid\_threats\_to}{}, these goals are high-priority.
+      \item The player always has a \prq{preserve\_original\_form}{} goal for each protagonist. The \prq{polymorph}{} action represents a magic spell that can turn someone into a chicken; these goals assume that this is a state to be avoided an reversed whenever possible. These goals are high-priority.
+      \item Whenever an item has been stolen from a protagonist, the player has a \prq{reclaim\_property}{} goal for that item/protagonist. This goal is achieved when the \prq{has\_item}{} relation holds between the original owner and the item, and it it always high-priority.
+      \item The player always has an \prq{as\_intended}{} goal for each protagonist. These goals make use of the \prq{default\_intent}{} predicates specified in the definition of each action. Essentially, each action declares one or more outcome components to be its default intent: the outcome that the initiator of the action is hoping for. In the case of the \prq{attack}{} action, for example, the outcome component \prq{o(success, victory)}{} is a \prq{default\_intent}{}. When a \prq{default\_intent}{} outcome component is present, the \prq{as\_intended}{} goal of the action's initiator is achieved, when absent, the goal is failed. These goals are always low-priority, because they don't represent any particular bad or good states: there are many situations where an unintended outcome can be good for a character, and actual good or bad results are more important than things going as intended.
+      \item The player always has a \prq{have\_tool\_for} goal for each skill of each protagonist. These goals are achieved by possessing an item which counts as a tool for a particular skill, and they are always low-priority. The assumption that the player will have these goals is probably the weakest such, as players may not always remember at each moment what skills they have and which ones they have tools for. However, the presence of these goals means that trading items for goods or services can have value, and they can differentiate good trades from bad ones. In situations where players had a chance to play multiple stories, players would be more likely to consider these goals when making choices.
+      \item The final goals assigned to the player presume that players are generally sympathetic: unless a character is actively threatening or accusing another (deemed `guilty' by the system), the player is assumed to have both \prq{avoid\_threats\_to}{} and \prq{avoid\_accusations}{} goals for that character. These goals mean that when the player encounters non-protagonists threatening or accusing each other, the system assumes that the player will want to help the victim. As above, these goals are high-priority.
+    \end{itemize}
+
+    Although this static goal analysis works reasonably well, an interesting opportunity for future work presents itself here.
+    %
+    Not only could \dunyazad/ benefit from dynamic goal analysis, as a system that produces choice-based narratives, it could incorporate explicit choices-of-goals as part of the stories it generates, and use the results of these choices as direct statements of player intent rather than relying on authorial guesswork.
+    %
+    This would require a major overhaul of the goals system, however, and goals might have to be represented as mutable states of the world, which would place an additional burden on the solver.
+
+  \item Likelihood Analysis:
+  \item Option Analysis:
+  \item Relative Option Analysis:
+  \item Outcome Component Analysis:
+  \item Full Outcome Analysis:
+  \item Retrospective Analysis:
+\end{enumerate}
 
 \section{High-Level Control}
 \label{sec:dunyazad-control}
