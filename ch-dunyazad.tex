@@ -163,12 +163,12 @@ Potentials include things like \prq{knows\_gossip}{,} \prq{injured}{,} and \prq{
 %
 Although these special potential states are represented using normal \prq{state}{,} \prq{property}{,} and \prq{relation}{} predicates, actions which get rid of them must specify whether each potential is \prq{resolved}{,} \prq{manifested}{,} or \prq{nullified}{.}
 %
-Additionally, extra predicates specify whether a potential is \prq{problematic\_for}{} one or more of the actors involved (for example, the \prq{injured} state is \prq{problematic\_for}{} any actor to which it is applied).
+Additionally, extra predicates specify whether a potential is \prq{problematic\_for}{} one or more of the actors involved (for example, the \prq{injured}{} state is \prq{problematic\_for}{} any actor to which it is applied).
 
 
 \dunyazad/ understands based on this information whether the action which eliminated a potential was good or bad for different characters.
 %
-For example, an action that \prq{resolves}{} an \prq{injured} state is good for the actor who was injured, and thus taking that action makes sense for that character.
+For example, an action that \prq{resolves}{} an \prq{injured}{} state is good for the actor who was injured, and thus taking that action makes sense for that character.
 %
 States themselves thus directly encode some of the information used to decide which actions are viable.
 %
@@ -234,7 +234,7 @@ Actions specify lists of outcome variables with values for each variable.
 %
 For each outcome variable that an action has, a single outcome value is assigned to each option that uses that action, thereby defining the entire impact of that option on the world state.
 %
-These assignments have a shorthand notation \prq{o(<variable>, <value>)}{} which indicates that the outcome variable \prq{<variable>}{} takes on the value \prq{<value>}.
+These assignments have a shorthand notation \prq{o(<variable>, <value>)}{} which indicates that the outcome variable \prq{<variable>}{} takes on the value \prq{<value>}{.}
 %
 Each such assignment is an outcome component, and together, all such assignments for an action are the outcome of that action.
 %
@@ -289,9 +289,9 @@ For the \prq{talk\_down}{} action, there are theoretically four: the \prq{attitu
 However, the definition of \prq{talk\_down}{} stipulates that the outcome \prq{o(enraged, enraged)}{} is only possible if the outcome \prq{o(attitude, unconvinced)}{} is also present, so there are only three possibilities:
 
 \begin{enumerate}
-  \item The target is convinced to calm down (\prq{o(attitude, convinced)}{} and \prq{o(enraged, not\_enraged)}), in which case they stop threatening whoever they were threatening.
-  \item The target is unconvinced, and nothing changes (\prq{o(attitude, convinced)}{} along with \prq{o(enraged, not\_enraged)}).
-  \item The target is unconvinced, and gets mad at the person who tried to convince them (\prq{o(attitude, convinced)}{} along with \prq{o(enraged, enraged)}).
+  \item The target is convinced to calm down (\prq{o(attitude, convinced)}{} and \prq{o(enraged, not\_enraged)}{}), in which case they stop threatening whoever they were threatening.
+  \item The target is unconvinced, and nothing changes (\prq{o(attitude, convinced)}{} along with \prq{o(enraged, not\_enraged)}{}).
+  \item The target is unconvinced, and gets mad at the person who tried to convince them (\prq{o(attitude, convinced)}{} along with \prq{o(enraged, enraged)}{}).
 \end{enumerate}
 
 Note that for a traditional planning system, because each combination of outcome variables has a different effect on the world state, each action would have to be broken into multiple sub-actions with fixed pre- and post-conditions.
@@ -320,7 +320,7 @@ This way of representing actions thus helps the system reason about how the play
 
 Besides defining outcomes, actions also define how skills affect their outcomes, but asserting that certain outcome values are linked to the presence or absence of particular skills on the part of one or more participants of the action.
 %
-Tools may also be involved.
+These links are denoted by \prq{skill\_link}{} predicates, and tools may also be involved.
 %
 For example the \prq{attack}{} action has an outcome variable \prq{success}{} with three values: \prq{victory}{,} \prq{defeat}{,} and \prq{tie}{.}
 %
@@ -335,7 +335,7 @@ Effectively, the definition of an action thus includes enough information for \d
 %
 Given the setups that exist, however, the \prq{arrive}{} and \prq{pursue}{,}, actions are never motivated and thus impossible to use, so there are effectively 21 possible actions.
 %
-Most actions have at least two possible outcome configurations, and a few (such as \prq{attack{}}) have four or more.
+Most actions have at least two possible outcome configurations, and a few (such as \prq{attack}{}) have four or more.
 %
 However, the number of actions that are possible in a given state are limited by the constituent and aesthetic constraints.
 %
@@ -558,7 +558,9 @@ Each of the seven steps of choice analysis described in \cref{sec:goal-based-cho
 %
 \begin{enumerate}
   \item %
-    Goal Analysis: This step is quite simple in \dunyazad/: the file \file{goals.lp} includes rules that directly state the player's goals in every situation.
+    \textbf{Goal Analysis} \\
+    %
+    This step is quite simple in \dunyazad/: the file \file{goals.lp} includes rules that directly state the player's goals in every situation.
     %
     Of course, forcing the author to estimate the player's goals like this is not perfect, but results so far indicate that it works tolerably well.
     %
@@ -579,9 +581,11 @@ Each of the seven steps of choice analysis described in \cref{sec:goal-based-cho
       \item The player always has a \prq{preserve\_original\_form}{} goal for each protagonist. The \prq{polymorph}{} action represents a magic spell that can turn someone into a chicken; these goals assume that this is a state to be avoided an reversed whenever possible. These goals are high-priority.
       \item Whenever an item has been stolen from a protagonist, the player has a \prq{reclaim\_property}{} goal for that item/protagonist. This goal is achieved when the \prq{has\_item}{} relation holds between the original owner and the item, and it it always high-priority.
       \item The player always has an \prq{as\_intended}{} goal for each protagonist. These goals make use of the \prq{default\_intent}{} predicates specified in the definition of each action. Essentially, each action declares one or more outcome components to be its default intent: the outcome that the initiator of the action is hoping for. In the case of the \prq{attack}{} action, for example, the outcome component \prq{o(success, victory)}{} is a \prq{default\_intent}{}. When a \prq{default\_intent}{} outcome component is present, the \prq{as\_intended}{} goal of the action's initiator is achieved, when absent, the goal is failed. These goals are always low-priority, because they don't represent any particular bad or good states: there are many situations where an unintended outcome can be good for a character, and actual good or bad results are more important than things going as intended.
-      \item The player always has a \prq{have\_tool\_for} goal for each skill of each protagonist. These goals are achieved by possessing an item which counts as a tool for a particular skill, and they are always low-priority. The assumption that the player will have these goals is probably the weakest such, as players may not always remember at each moment what skills they have and which ones they have tools for. However, the presence of these goals means that trading items for goods or services can have value, and they can differentiate good trades from bad ones. In situations where players had a chance to play multiple stories, players would be more likely to consider these goals when making choices.
+      \item The player always has a \prq{have\_tool\_for}{} goal for each skill of each protagonist. These goals are achieved by possessing an item which counts as a tool for a particular skill, and they are always low-priority. The assumption that the player will have these goals is probably the weakest such, as players may not always remember at each moment what skills they have and which ones they have tools for. However, the presence of these goals means that trading items for goods or services can have value, and they can differentiate good trades from bad ones. In situations where players had a chance to play multiple stories, players would be more likely to consider these goals when making choices.
       \item The final goals assigned to the player presume that players are generally sympathetic: unless a character is actively threatening or accusing another (deemed `guilty' by the system), the player is assumed to have both \prq{avoid\_threats\_to}{} and \prq{avoid\_accusations}{} goals for that character. These goals mean that when the player encounters non-protagonists threatening or accusing each other, the system assumes that the player will want to help the victim. As above, these goals are high-priority.
     \end{itemize}
+    %
+    The predicates created by \file{goals.lp} are \prq{at(<timepoint>, player\_goal(<goal>))}{} predicates which specify the goals of the player for each timepoint, and \prq{at(<timepoint>, goal\_stakes(<goal>, <priority>))}{} predicates which assign priorities to each goal.
 
     Although this static goal analysis works reasonably well, an interesting opportunity for future work presents itself here.
     %
@@ -589,12 +593,136 @@ Each of the seven steps of choice analysis described in \cref{sec:goal-based-cho
     %
     This would require a major overhaul of the goals system, however, and goals might have to be represented as mutable states of the world, which would place an additional burden on the solver.
 
-  \item Likelihood Analysis:
-  \item Option Analysis:
-  \item Relative Option Analysis:
-  \item Outcome Component Analysis:
-  \item Full Outcome Analysis:
-  \item Retrospective Analysis:
+  \item %
+    \textbf{Likelihood Analysis} \\
+    %
+    This step is already performed by \dunyazad/'s constituent constraints, using the \prq{skill\_link}{} predicates supplied by action definitions along with information on the skills and tools available to the actors involved in each action. 
+    %
+    Recall that individual outcome components are labelled as likely or unlikely, rather than entire outcomes, as called for in \cref{sec:goal-based-choice-analysis}.
+    %
+    This step produces the \prq{at(<timepoint>, likely\_outcome(<option>, <outcome>))}{} and \prq{at(<timepoint>, unlikely\_outcome(<option>, <outcome>))}{} predicates.
+
+  \item %
+    \textbf{Option Analysis}
+    %
+    As explained in \cref{sec:goal-based-choice-analysis}, the option analysis step uses the results of goal and likelihood analysis to attach expectations to each option.
+    %
+    In the code, goal predicates specify which state(s) affect them, and the likelihood of all possible outcomes is known, so option analysis it straightforward.
+    %
+    First, all possible option components are considered and if any of them has a negative consequence for a goal, that goal is considered to be ``threatened'' by that option.
+    %
+    Similarly, any positive consequence entails a ``enables'' relationship.
+    %
+    Since each option has multiple outcome components, a single goal may be both ``threatened'' and ``enabled'' by the same option, of course.
+    %
+    For the ``achieves'' and ``fails'' evaluations, the same analysis applies, but only outcome components marked as \prq{likely}{} are considered.
+    %
+    The result of the option analysis constraints is a set of \prq{at(<timepoint>, expectation(<option>, <expectation>, <goal>))}{} that list the expectations for each option/goal pair.
+
+  \item %
+    \textbf{Relative Option Analysis}
+    %
+    Integrating goal priorities and option expectations, relative option analysis produces \prq{at(<timepoint>, option\_feel(<option>, <feel>))}{} predicates, which collapse the various expectations across goals at each option to produce a general evaluation of that option.
+    %
+    For example, if an option has at least one \prq{achieves}{} expectation and it has no \prq{threatens}{} or \prq{fails}{} expectations across all goals (only counting goals tied for highest priority at that option) an option is labeled as a \prq{sure\_thing}{.}
+    %
+    These rules establish one or more \prq{option\_feel}{}s for each option, and these are further aggregated into \prq{option\_structure}{} assignments, which are the prospective impressions show in \cref{tab:prospective-impressions}.
+    %
+    These prospective impression assignments were the subject of the first experiment described in \cref{ch:results} and provide one primary means of controlling the kinds of choices \dunyazad/ generates.
+    %
+    Although they are discussed here as being `assigned' based on existing choice structures, because they're just predicates in an answer set program, they can be required and the solver will solve for answer sets that include them.
+    %
+    Requiring these \prq{option\_feel}{} predicates thus allows an author (or experimenter) to generated choices that (hopefully) make a desired prospective impression on the player.
+
+  \item %
+    \textbf{Outcome Component Analysis}
+    %
+    Using player goal information and information about all possible outcomes of each action, outcome component analysis maps the relationships between every possible outcome component and each goal.
+    %
+  These relationships have four basic values, similar to the \prq{expectation}{} predicates generated by the option analysis step: \prq{advances}{,} \prq{hinders}{,} \prq{achieves}{,} and \prq{fails}{.}
+    %
+    These are directly deduced from the definitions of each goal combined with the states that a particular outcome component adds or removes.
+    %
+    So for example, the \prq{o(success, dispelled)}{} possible outcome component of the \prq{dispel}{} action has a consequence which removes the \prq{polymorphed}{} property from the target of the action.
+    %
+    Because of this, any option that consists of a \prq{dispel}{} action with a polymorphed target will \prq{advance}{} the \prq{preserve\_original\_form}{} goal for the target actor, (because the \prq{polymorphed}{} state which is being removed \prq{fails} the \prq{preserve\_original\_form}{} goal).
+
+    Because of the way that goals are defined in \dunyazad/ this step of analysis is fairly trivial.
+    %
+    Of course, not all goals are simple to define in terms of a globally applicable set of states that triggers them.
+    %
+    For example, the \prq{as\_intended}{} goal deals directly with outcomes as opposed to world states, which may be different depending on the context of an action.
+    %
+    Because of this, the \prq{as\_intended}{} goal definition has custom code which directly creates \prq{expectation}{} and \prq{outcome\_perception}{} predicates by considering which outcomes are likely (and which is the \prq{default\_intent}{,} as mentioned above).
+    %
+    The \prq{avoid\_accusations}{} and \prq{avoid\_threats\_to}{} goals also have a bit of custom code to make them more urgent: when an accusation or threat state is present, actions which have no effect on that state are given \prq{fails}{} expectations and \prq{hinders}{} outcome perceptions.
+    %
+    All other goals simply specify one or more states that \prq{advance}{,} \prq{hinder}{,} \prq{achieve}{,} or \prq{fail}{} them, as described above.
+
+  \item %
+    \textbf{Full Outcome Analysis}
+    %
+    Full outcome analysis concerns the expectedness and overall valence of the entire outcome of each option.
+    %
+    In \dunyazad/, these are represented by \prq{at(<timepoint>, outcome\_overall(<option>, <evaluation>))}{,} \prq{at(<timepoint>, outcome\_predictability(<option>, <outcome>, <predictability>))}{,} and \prq{at(<timepoint>, overall\_predictability(<option>, <predictability>))}{} predicates.
+    %
+    The \prq{outcome\_overall}{} predicates summarize the individual \prq{outcome\_perception}{} predicates across all player goals and across different outcome components at an action.
+    %
+    There are eight possible \prq{outcome\_overall}{} values:
+    %
+    \begin{enumerate}
+      \item \prq{great}{}--Reserved for options which achieve at least one player goal while neither failing nor hindering any.
+      \item \prq{good}{}--Options which would be \prq{great}{}, except that they merely advance at least one player goal as opposed to achieving any.
+      \item \prq{tradeoff}{}--Options which both achieve one goal and fail another, or which both advance one goal and hinder another (without either achieving or failing any).
+      \item \prq{worth\_it}{}--Options where the best outcome achieves a goal, but the worst outcome hinders a (presumably different) goal.
+      \item \prq{not\_worth\_it}{}--Options where the worst outcome fails a goal, while the best outcome advances a goal.
+      \item \prq{bad}{}--Options where no goals are achieved or advanced, and the worst outcome hinders a goal.
+      \item \prq{awful}{}--\prq{bad}{} options where a goal is failed instead of merely hindered.
+      \item Neutral--Options where no outcome is relevant to any player goal.
+    \end{enumerate}
+    %
+    Note that for all of these evaluations, only top-priority goals are considered (i.e., if there is at least one high-priority goal, only high-priority goals count; if not then low-priority goals can come into play).
+    %
+    Summarizing the potentially complex per-outcome-component evaluations from the outcome component analysis step like this helps make the retrospective analysis more tractable (both for humans and for the solver).
+    %
+    Most common cases avoid the ambiguous ``tradeoff'' label anyways, so not much information is lost.
+
+    Along with \prq{outcome\_overall}{} labels, this step assigns one of the following six \prq{outcome\_predictability}{} values to each option (and first to each outcome component):
+    %
+    \begin{enumerate}
+      \item
+        %
+        \prq{predictable}{}--An outcome component is \prq{predictable}{} when its value is the sole likely value for its variable.
+        %
+        An entire option is \prq{predictable}{} when every single important outcome component (an outcome component that affects one or more goals tied for the highest priority) is \prq{predictable}{}, and there is at least one such outcome component.
+        %
+      \item \prq{expected}{}--An outcome component is \prq{expected}{} when it is one of several likely values for its variable.
+        %
+        An entire option is \prq{expected}{} when every outcome at that option is either \prq{predictable}{,} \prq{expected}{,} or \prq{average}{,} and they're not \emph{all} \prq{average}{} (nor are all components unimportant).
+        %
+      \item \prq{average}{}--These outcome components aren't likely, but neither are they unlikely, and no other values for their variable are likely, while at least one is unlikely.
+        %
+        In other words, an outcome component is \prq{average}{} when a variable avoids an unlikely value but the value that it takes on isn't deemed likely.
+        %
+        An entire option is \prq{average}{} if every one of its important outcome components is average, and it has at least one important outcome.
+
+      \item \prq{unpredictable}{}--An outcome component is \prq{unpredictable}{} if for its variable, there are no likely or unlikely values, or if all values for its variable are unlikely.
+        %
+        An option as a whole is \prq{unpredictable}{} if it has at least one \prq{unpredictable}{} component and no \prq{unexpected}{} or \prq{unfair}{} components (counting only important outcome components).
+      \item \prq{unexpected}{}--An \prq{unexpected} outcome component is one where an \prq{unlikely}{} value is selected despite the presence of at least one \prq{neutral}{} value, but no actually \prq{likely}{} values are possible.
+        %
+        For an option to be labeled \prq{unexpected}{} as a whole, it must have at least one important \prq{unexpected}{} component and no \prq{unfair}{} components.
+      \item \prq{unfair}{}--An \prq{unfair}{} option component is one where an \prq{unlikely}{} value has been selected for a variable over a possible \prq{likely}{} value.
+        %
+        Every option that has an important \prq{unfair}{} outcome component is considered \prq{unfair}{} as a whole.
+    \end{enumerate}
+
+    There are actually two other predictability values that are used only for entire options: \prq{irrelevant}{} (used for options that are entirely lacking in \prq{outcome\_perception}{} predicates) and \prq{unrecognized}{} (used as a catch-all for situations that don't fit any other label).
+    %
+    TODO: HERE
+
+  \item %
+    \textbf{Retrospective Analysis}
 \end{enumerate}
 
 \section{High-Level Control}
