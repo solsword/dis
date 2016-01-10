@@ -687,7 +687,7 @@ Each of the seven steps of choice analysis described in \cref{sec:goal-based-cho
     %
     Most common cases avoid the ambiguous ``tradeoff'' label anyways, so not much information is lost.
 
-    Along with \prq{outcome\_overall}{} labels, this step assigns one of the following six \prq{outcome\_predictability}{} values to each option (and first to each outcome component):
+    Along with \prq{outcome\_overall}{} labels, this step assigns one of the following six \prq{outcome\_predictability}{} values to each outcome component and also (as \prq{overall\_predictability}{}) to each option:
     %
     \begin{enumerate}
       \item
@@ -719,11 +719,44 @@ Each of the seven steps of choice analysis described in \cref{sec:goal-based-cho
 
     There are actually two other predictability values that are used only for entire options: \prq{irrelevant}{} (used for options that are entirely lacking in \prq{outcome\_perception}{} predicates) and \prq{unrecognized}{} (used as a catch-all for situations that don't fit any other label).
     %
-    TODO: HERE
+    As with the \prq{outcome\_overall} summarization, building \prq{overall\_predictability}{} predicates reduces the complexity of possible \prq{outcome\_predictability}{} configurations to a few cases which cover common situations.
+    %
+    In the same way that this is useful for efficient analysis (and more detailed analysis is always possible when necessary), it is helpful when authoring constraints (and likewise, constraints directly targeting complex \prq{outcome\_predictability}{} situations can be written if necessary).
+    %
+    The \prq{outcome\_overall}{} and \prq{overall\_predictability}{} predicates from this step are used alongside the \prq{outcome\_feel}{} predicates from relative option analysis as inputs for retrospective analysis.
 
   \item %
     \textbf{Retrospective Analysis}
+    %
+    By comparing outcomes with option feels, an overall impression of a choice can be obtained.
+    %
+    These are represented using \prq{at(<timepoint>, outcome\_feel(<option>, <feel>))}{} predicates.
+    %
+    \dunyazad/ has six different \prq{outcome\_feel}{} structures that it recognizes, which are shown in \cref{tab:dunyazad-outcome-feel-structures}.
+    %
+    TODO: HERE!
+
+    Note that contrary to \cref{fig:choice-analysis-method}, \dunyazad/ doesn't directly incorporate information from its option analysis step into its retorspective analysis.
+    TODO: HERE!
+
 \end{enumerate}
+
+\begin{table}[!p]
+\begingroup
+\renewcommand*{\arraystretch}{1.5}
+\begin{tabular}{p{8em} p{8em} p{8em} p{8em}}
+  \prq{outcome\_feel}{}       &   \prq{option\_feel}{} values                                           &   \prq{overall\_predictability}{} values                                   &   \prq{outcome\_overall}{} values \\
+  \prq{expected\_success}{}   &   \prq{sure\_thing}{} \newline \prq{safe}{} \newline \prq{hopeful}{}    &   \prq{predictable}{} \newline \prq{expected}{}                            &   \prq{great}{} \newline \prq{good}{} \\
+  \prq{unfair}{}              &   \prq{sure\_thing}{} \newline \prq{safe}{} \newline \prq{hopeful}{}    &   \prq{unexpected}{} \newline \prq{unfair}{}                               &   \prq{bad}{} \newline \prq{awful}{} \\
+  \prq{nice\_gamble}{}        &   \prq{risky}{} \newline \prq{tradeoff}{} \newline \prq{irrelevant}{}   &   \prq{average}{} \newline \prq{unpredictable}{}                           &   \prq{great}{} \newline \prq{good}{} \newline \prq{worth\_it}{} \\
+  \prq{bad\_gamble}{}         &   \prq{risky}{} \newline \prq{tradeoff}{} \newline \prq{irrelevant}{}   &   \prq{average}{} \newline \prq{unpredictable}{}                           &   \prq{not\_worth\_it}{} \newline \prq{bad}{} \newline \prq{awful}{} \\
+  \prq{expected\_failure}{}   &   \prq{long\_shot}{} \newline \prq{bad}{} \newline \prq{doomed}{}       &   \prq{predictable}{} \newline \prq{expected}{} \newline \prq{average}{}   &   \prq{bad}{} \newline \prq{awful}{} \\
+  \prq{miracle}{}             &   \prq{long\_shot}{} \newline \prq{bad}{} \newline \prq{doomed}{}       &   \prq{unexpected}{} \newline \prq{unfair}{}                               &   \prq{great}{} \newline \prq{good}{} \newline \prq{worth\_it}{} \\
+\end{tabular}
+\endgroup
+\caption[Outcome feel structures]{\dunyazad/'s six outcome feel structures. If at least one of each of the given \prq{option\_feel}{,} \prq{overall\_predictability}{,} and \prq{outcome\_feel}{} lists applies to an option, the listed \prq{outcome\_feel}{} applies.}
+\label{tab:retrospective-impressions}
+\end{table}
 
 \section{High-Level Control}
 \label{sec:dunyazad-control}
