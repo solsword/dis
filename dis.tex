@@ -21,6 +21,7 @@
 \usetikzlibrary{babel}
 % TODO: Good settings here!
 %\setitemize{itemsep=4pt,topsep=5pt,parsep=0pt,partopsep=0pt}
+\usepackage{afterpage}
 
 % Misc
 \usepackage[hyphens]{url}
@@ -30,6 +31,8 @@
 \bibliographystyle{plainnat}
 
 % Custom commands
+\usepackage{xspace}
+
 \def\dunyazad/{{\slshape Dunyazad}}
 \def\minstrel/{{\slshape Minstrel}}
 \def\skald/{{\slshape Skald}}
@@ -48,9 +51,10 @@
 \def\gem/{\texttt{motivates}}
 
 \newcommand{\work}[1]{{\slshape #1}}
-
+\newcommand{\exchar}[1]{`\texttt{#1}'\xspace}
 \newcommand{\pr}[1]{\texttt{#1}}
 \newcommand{\file}[1]{\texttt{#1}}
+\newcommand{\prog}[1]{\texttt{#1}}
 \newcommand{\prq}[2]{``\texttt{#1}{#2}''}
 \newcommand{\ind}{\hspace*{0.8em}}
 \newcommand{\svind}{\vspace*{0.3em}}
