@@ -1232,10 +1232,8 @@ The text overall is easier to read than a version that used determinate noun ref
 
 \afterpage{
 \begin{figure}[!h]
-  \setlength{\fboxsep}{12pt}
-\centering
-\fbox{
-  \parbox{0.9\textwidth}{
+\quotebox{
+    \slshape
 You are about to set out on an epic journey. You are are heading towards towards the distant country of Jichish, hoping to earn fame and fortune.
 
 You have some perfume and a book of herbal lore, and you have skill: literacy, you have skill: wilderness lore, you have skill: musician, and you have skill: sorcery.
@@ -1253,8 +1251,8 @@ The merchant is selling an oboe and he is selling his ancient grimoire.
     $\rightarrow$ He agrees to trade his oboe for your book of herbal lore.
   \item You steal his oboe from the merchant (You are missing skill: thievery. He is missing skill: thievery). \\
     $\rightarrow$ You steal his oboe from the merchant, and he doesn't even notice.
-\end{enumerate}%
-}%
+\vspace*{-1em}
+\end{enumerate}
 }
 \caption[Example Output]{An example of \dunyazad/'s text output. In an interactive output format{\footnotemark} the outcome text would be hidden until an option was chosen. Note the awkward pronominalization in the option text.
 }

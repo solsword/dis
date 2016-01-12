@@ -22,6 +22,8 @@
 % TODO: Good settings here!
 %\setitemize{itemsep=4pt,topsep=5pt,parsep=0pt,partopsep=0pt}
 \usepackage{afterpage}
+\usepackage{manyfoot}
+\newfootnote{Star}
 
 % Misc
 \usepackage[hyphens]{url}
@@ -60,6 +62,18 @@
 \newcommand{\svind}{\vspace*{0.3em}}
 \newcommand{\vind}{\vspace*{0.5em}}
 \newcommand{\cg}[1]{{\color{gray} #1}}
+\newcommand{\quotebox}[1]{%
+{%
+\setlength{\fboxsep}{8pt}%
+\begin{center}%
+\fbox{%
+  \parbox{0.9\textwidth}{%
+    #1
+  }%
+}%
+\end{center}%
+}%
+}
 
 \DeclareRobustCommand\encircle[1]{% NON-HEVEA
 \tikz[baseline=(X.base)]  % NON-HEVEA
