@@ -170,7 +170,7 @@ Myle Ott's ``uniqueturker'' script (\url{https://uniqueturker.myleott.com/}) was
 %
 To avoid being targeted by bots, the tasks required workers with a 97\% acceptance rate across at least 1000 accepted tasks.
 
-\subsection{Survey Content}
+\subsubsection{Survey Content}
 
 Each survey was divided into three sections.
 %
@@ -341,7 +341,7 @@ Both of these hypotheses were validated using Mann-Whitney-Wilcoxon U tests agai
 A fall-back hypothesis for stakes was that participants who saw low-stakes choices would agree more strongly with that statement than participants who saw high-stakes choices (a between-cases hypothesis).
 
 
-\section{Results}
+\subsection{Results}
 
 Before processing the data from Amazon Mechanical Turk, responses that showed signs of inattentiveness, non-proficiency with English, or excess haste were filtered out.
 %
@@ -380,20 +380,20 @@ The low- and high-stakes conditions had 44 and 35 responses respectively; I used
 \begin{tabular}{l | c | c | c | c | c | c | c | c | c}
 Question      & \multicolumn{3}{|c|}{Obvious} & \multicolumn{3}{|c|}{Relaxed} & \multicolumn{3}{|c}{Dilemma} \\
 \hline
-\sIqIabbr/    & \multicolumn{3}{|c|}{-} & \pad/A & \pad/0.176 & $\times$  & \pad/\textbf{D} & \textbf{0.009} & \pad/\textbf{66\%} \\
+\sIqIabbr/    & \multicolumn{3}{|c|}{-} & \significant{A} & \significant{0.176} & \significant{$\times$}  & \textbf{D} & \textbf{0.009} & \textbf{66\%} \\
 \hline
-\sIqIIabbr/   & \pad/\textbf{A} & \textbf{0.023} & \pad/\textbf{64\%}  & \multicolumn{3}{|c|}{-} & \pad/\textbf{D} & \textbf{0.047} & \pad/\textbf{62\%} \\
+\sIqIIabbr/   & \textbf{A} & \textbf{0.023} & \textbf{64\%}  & \multicolumn{3}{|c|}{-} & \textbf{D} & \textbf{0.047} & \textbf{62\%} \\
 \hline
-\sIqIIIabbr/  & \multicolumn{3}{|c|}{-} & \pad/\textbf{A} & \textbf{0.015} & \pad/\textbf{65\%}  & \multicolumn{3}{|c}{-}\\
+\sIqIIIabbr/  & \multicolumn{3}{|c|}{-} & \textbf{A} & \textbf{0.015} & \textbf{65\%}  & \multicolumn{3}{|c}{-}\\
 \hline           
-\sIqIVabbr/   & \pad/\textbf{D} & \textbf{0.006} & \pad/\textbf{68\%}  & \pad/\textbf{D} & \textbf{0.005} & \pad/\textbf{68\%}  & \pad/\textbf{A} & \textbf{0.007} & \pad/\textbf{67\%} \\
+\sIqIVabbr/   & \textbf{D} & \textbf{0.006} & \textbf{68\%}  & \textbf{D} & \textbf{0.005} & \textbf{68\%}  & \textbf{A} & \textbf{0.007} & \textbf{67\%} \\
 \hline
-\sIqVabbr/    & \pad/D & 0.069 & $\times$  & \multicolumn{3}{|c|}{-} & \pad/A & 0.322 & $\times$  \\
+\sIqVabbr/    & \significant{D} & \significant{0.069} & \significant{$\times$}  & \multicolumn{3}{|c|}{-} & \significant{A} & \significant{0.322} & \significant{$\times$}  \\
 \hline
 \hline
-\sIqVIIabbr/  & \pad/D & 0.073 & $\times$  & \multicolumn{3}{|c|}{-} & \pad/\textbf{A} & \textbf{0.009} & \pad/\textbf{66\%} \\
+\sIqVIIabbr/  & \significant{D} & \significant{0.073} & \significant{$\times$}  & \multicolumn{3}{|c|}{-} & \textbf{A} & \textbf{0.009} & \textbf{66\%} \\
 \hline
-\sIqVIIIabbr/ & \multicolumn{3}{|c|}{-} & \multicolumn{3}{|c|}{-} & \pad/\textbf{A} & \textbf{0.001} & \pad/\textbf{71\%} \\
+\sIqVIIIabbr/ & \multicolumn{3}{|c|}{-} & \multicolumn{3}{|c|}{-} & \textbf{A} & \textbf{0.001} & \textbf{71\%} \\
 \end{tabular}
 \egroup
   \caption{%
@@ -402,6 +402,8 @@ Single-treatment hypotheses by treatment.
 Each entry has a letter indicating the hypothesis (agree (A) or disagree (D)) followed by the $p$-value for that test.
 %
 Significant entries ($p < 0.05$) are listed in bold, and indicate a common-language effect size (the percentage of comparisons supporting the hypothesis).
+%
+Non-significant entries are highlighted in blue.
 %
 Note that question 6 (the trick question) is omitted here.
 }
@@ -431,7 +433,7 @@ Question & Hypothesis & \hspace{1.2em}$p$ & effect \\
 \cline{2-4}
               & \textbf{dilemma$>$relaxed} & \textbf{0.001} & \textbf{71\%} \\
 \hline
-\sIqVIIIabbr/ & dilemma$>$obvious & 0.141 & $\times$ \\
+\sIqVIIIabbr/ & \significant{dilemma$>$obvious} & \significant{0.141} & \significant{$\times$} \\
 \cline{2-4}
               & \textbf{dilemma$>$relaxed} & \textbf{0.0004} & \textbf{73\%} \\
 \end{tabular}
@@ -439,7 +441,7 @@ Question & Hypothesis & \hspace{1.2em}$p$ & effect \\
   \caption{%
 Between-treatments hypotheses.
 %
-Each row indicates a hypothesis, the corresponding $p$-value, and the effect size if the result is significant ($p < 0.05$). Significant results are shown in bold.
+Each row indicates a hypothesis, the corresponding $p$-value, and the effect size if the result is significant ($p < 0.05$). Significant results are shown in bold; non-significant results are in blue.
 }
   \label{tab:s1-between-results}
 \end{table}
@@ -485,7 +487,7 @@ The second stakes hypothesis (that high-stakes choices would elicit disagreement
 Finally, the backup hypothesis (that agreement would be higher in the low-stakes case than the high-stakes case) was a given as the first two were confirmed; it had $p = 9.7\times10^{-11}$ and an effect size of 83\%.
 
 
-\section{Discussion}
+\subsection{Discussion}
 
 Out of the 25 specific hypotheses, 20 were supported by the data.
 %
@@ -501,35 +503,35 @@ On a treatment-by-treatment basis, the observed properties were:
   \item ``Dilemma'' choices -- Participants tended to disagree that there were ``no bad options'' at these choices (question 1) and agree that there were ``no good options'' at these choices (question 4). Furthermore, they disagreed with the statement that these choices had a clear best option (question 2), and agreed that these choices were difficult and had important consequences (questions 7 and 8). However, I expected participants to agree that all options at these choices were about equally promising, but the data did not support this hypothesis.
 \end{itemize}
 %
-Overall, the data support \dunyazad/'s ability to construct choices where there is a clear best option, choices with low or high stakes, choices with no good options, and choices perceived to have important consequences.
-% TODO: HERE
-These are important successes for automatic reasoning about choice poetics, and they imply that the goals my survey participants considered when judging the choices align at least somewhat with those the system assumes players will have.
+Overall, the data support \dunyazad/'s ability to control stakes and outcome valences, but they show that it has a bit of trouble making outcomes seem similar.
+%
+The areas where its choices were able to produce the desired poetic effects are important successes for automatic reasoning about choice poetics, and they also imply that the goals my survey participants considered when judging the choices align at least somewhat with those the system assumes players will have.
 
 
-However there were several places where the data did not support my hypotheses.
+Places were the data did not support my hypotheses are opportunities for further scrutiny.
 %
 To start with, I wanted to investigate whether the failed hypotheses were the result of general trends across all choices generated under a treatment condition or whether any single choice contributed disproportionately to an unexpected result.
 %
 To do this I broke down the results by individual questions within a treatment and plotted them to see if there was any indication of per-question differences.
 
 
-\subsection{Option Relativity}
+\subsubsection{Option Relativity}
 
 
 \begin{figure}[!h]
   \includegraphics[width=\textwidth]{fig/relaxed-q1.pdf}
   \caption{A graph of responses to question 1 under the ``relaxed'' treatment. The three numbers are the seeds used to generate the three different choices for this treatment. The graph setup is the same as in \cref{fig:s1-report}.}
-  \label{fig:relaxedq1}
+  \label{fig:s1-relaxedq1}
 \end{figure}
 
 
 The first of my failed hypotheses involved the ``relaxed'' treatment.
 %
-I expected the ``relaxed'' treatment to elicit agreement with the statement ``There are no bad options at this choice,'' but my statistical test failed to reject the null hypothesis that the answers to this question were consistent with a uniform distribution of underlying responses.
+I expected the ``relaxed'' treatment to elicit agreement with the statement ``There are no bad options at this choice,'' but it didn't do so definitively (the statistical test failed to reject the null hypothesis that the answers to this question were consistent with a uniform distribution of underlying responses).
 %
-A per-choice breakdown of the data for relaxed condition in \cref{fig:relaxedq1} gives a strong indication that the question with seed 4897 elicited qualitatively different responses than the two other questions in this treatment.
+A per-choice breakdown of the data for the relaxed condition shown in \cref{fig:s1-relaxedq1} gives a strong indication that the question with seed 4897 elicited qualitatively different responses than the two other questions in this treatment.
 %
-That particular question is shown in \cref{fig:ch4897}, and reveals one possible reason for what I observed: unlike the other two questions in the ``relaxed'' case, option 3 of this question lists ``no relevant skills'' rather than giving a relevant skill possessed by the player.
+That particular question is shown in \cref{fig:s1-seed-4897}, and reveals one possible reason for what I observed: unlike the other two questions in the ``relaxed'' case, option 3 of this question lists ``no relevant skills'' rather than giving a relevant skill possessed by the player.
 
 
 \begin{figure}[!h]
@@ -553,7 +555,7 @@ What do you do?
 }
 }
   \caption{The ``relaxed'' choice with seed 4897 (minus the framing, which is largely the same as that shown in \cref{fig:exframing}).}
-  \label{fig:ch4897}
+  \label{fig:s1-seed-4897}
 \end{figure}
 
 
@@ -561,7 +563,7 @@ The fact that the player doesn't have any skills relevant to that action does no
 %
 None of the options at the other two choices in the ``relaxed'' treatment listed ``no relevant skills,'' they all listed some skill that the player had as relevant, which explains why there might be a difference in responses.
 %
-If that wording caused the shift, it would be consistent with Schwartz et al.'s theory of satisficing versus maximizing personalities \citep{Schwartz2002}.
+If that wording caused the shift, it would be consistent with Schwartz et al.'s theory of satisficing versus maximizing personalities \citep{Schwartz2002} for real-world choices.
 %
 Schwartz et al. have found that while some people are happy as long as their choices lead to satisfactory results, others are unhappy if their choices lead to good but nevertheless suboptimal results.
 %
@@ -578,10 +580,11 @@ The other two questions in the relaxed category each included three options whic
 %
 In light of the survey results, it is clear that to construct choices that unambiguously have ``no bad options'' the system should not only require that each option works towards a player goal, but that each option is balanced against all others.
 
+% TODO: HERE!
 
-\subsection{Expectations of Failure}
+\subsubsection{Balancing Failures}
 
-Another incorrect hypothesis was that in the ``dilemma'' treatment participants would agree with the statement ``All of the options at this choice are about equally promising.''
+Another unsupported hypothesis was that in the ``dilemma'' treatment participants would agree with the statement ``All of the options at this choice are about equally promising.''
 %
 I expected this because one of the constraints of the ``dilemma'' treatment was that all of the threatened goals should have the same priority.
 %
@@ -592,11 +595,11 @@ However, even for the individual choice in the ``dilemma'' treatment where parti
   \centering
   \includegraphics[width=0.8\textwidth,page=3]{fig/choices-cropped.pdf}
   \caption{A histogram of options selected by participants at the three different ``dilemma'' choices (each labeled by seed).}
-  \label{fig:dilchoices}
+  \label{fig:s1-dilchoices}
 \end{figure}
 
 
-\Cref{fig:dilchoices} shows the options that participants said they would choose for the three dilemma choices.
+\Cref{fig:s1-dilchoices} shows the options that participants said they would choose for the three dilemma choices.
 %
 For the first two choices, option 2 is a clear loser, and looking at the choices, it's easy to see why.
 %
@@ -605,6 +608,42 @@ Both of those choices (which are nearly identical) involve being attacked by a d
 In both choices, option 2 is an option to attack the dragon yourself, but of course you have neither the ``fighting'' skill nor a weapon, and the dragon has both.
 %
 Although you also lack relevant skills for the other options, making a desperate attempt to flee from or pacify a dragon seems like a better choice than fighting it (at the very least, it did to all of my participants).
+
+
+There are three factors contributing to the system's divergence from players' analysis of the options.
+%
+The first has to do with the granularity of expectations, the second with the granularity of goal priorities, and the third with stacking goals.
+
+
+First, there are some clear arguments available to players as to why fighting might be a worse option than fleeing (for example) in an unfavorable situation.
+%
+One is that fighting presents a \emph{greater risk} of a bad result, and another is that fighting is directly related to a \emph{categorically worse} result.
+%
+The first argument has to do with the granularity of expectations: \dunyazad/ just recognizes events as \prq{unlikely}{,} \prq{neutral}{,} or \prq{likely}{.}
+%
+In this case, it reasons that since both fleeing and fighting are \prq{likely}{} to \prq{fail}{} the goal of avoiding the present threat, both options fail a high-priority goal.
+%
+However, given that all options are marked negatively, the prospect of fleeing evokes more hope for unwarranted success than the prospect of fighting.
+%
+This could be expressed in \dunyazad/ by introducing evaluations like \prq{somewhat\_likely}{} and \prq{very\_likely}{} that would distinguish these cases.
+%
+The \prq{skill\_link}{} mechanism would have to be updated to give estimates of these levels of likelihood for different actions in different circumstances, of course.
+
+
+Another argument a player could make as to why fighting is worse than fleeing in this situation has to do with the valence of the results.
+%
+Internally, \dunyazad/ recognizes that the \prq{attack}{} option is likely to \prq{fail}{} both the \prq{avoid\_threats\_to}{} and \prq{preserve\_health}{} goals, while the \prq{flee}{} option is only expected to \prq{fail}{} the \prq{avoid\_threats\_to}{} goal.
+%
+However, as \dunyazad/ is written now, it treats an option that indicates one high-priority goal failure no differently form one that indicates multiple failures.
+%
+Particularly for choice structures which are supposed to have balanced options, some kind of counting logic would be useful to determine when one option is better or worse than another, even when they're in the same general category.
+
+
+In the same vein, one could argue that even without counting how many goals fail, the \prq{preserve\_health}{} goal should be higher-priority than the \prq{avoid\_threats\_to}{} goal.
+%
+In part because of complexity concerns (although I have not tested this extensively) I made a decision to limit \dunyazad/ to two priority levels.
+%
+One could imagine instead a partially directed ``more-important-than'' graph between all player goals at each timepoint, which would be another way for \dunyazad/ to realize that fighting is worse than fleeing in this case.
 
 
 The problem here is that the system's representation of player expectations is not fine-grained enough.
@@ -620,39 +659,36 @@ In this case, even when told that the situation is hopeless (or perhaps especial
 Based on this data, the system should be improved by adding more detail to its assessments of goal failure and success.
 
 
-\subsection{Outcome Clarity}
+Any one of these corrections would help this particular case, but especially given that \dunyazad/ also has difficulty producing balanced positive options as mentioned in the previous sub-section, I suspect a more focused approach would be better.
+%
+After all, the likelihood reasoning \emph{is} doing a good job of predicting which options players will view positively or negatively; it just has a hard time figuring out whether options are equally positive or equally negative.
+%
+Rather than further overload the current reasoning, an additional subsystem dedicated to direct relative analysis of options should be added.
+%
+This system could separately maintain more-nuanced representations of goal priorities and outcome likelihoods, and then build arguments as to why each option is more- or less-desirable than each other option.
+%
+In many cases, this nuanced relative analysis could be short-circuited when the old low-fidelity analysis detects a difference.
 
 
-\begin{figure}[!h]
+In terms of the choice analysis method presented in \cref{ch:choice-poetics}, this exact problem was already mentioned in \cref{sec:cp-relative-option-analysis} (see the second paragraph where it talks about the balance of impacts).
+%
+I hypothesized here that \dunyazad/ would be able to fake a more detailed analysis by just insuring that the threatened goals had equal stakes, but that turned out not to be true.
+%
+In this case, what was learned from \dunyazad/'s failure backs up the theory: dilemmas are a case which needs closer inspection.
+%
+Getting this experimental result is still useful, because it provides a concrete example of why this is the case.
+
+
+\subsubsection{Outcome Clarity}
+
+
+\begin{figure}[!p]
   \includegraphics[width=\textwidth]{fig/obvious-q5-q7.pdf}
-  \caption{A graph of responses to questions 5 and 7 under the ``obvious'' treatment by seed.}
-  \label{fig:obviousq57}
+  \caption{A graph of responses to questions 5 and 7 under the ``obvious'' treatment by seed. For question 5, the choice with seed 64487 is clearly different from the other two, and for question 7, the choice with seed 21105 is the one that stands out. \Cref{fig:s1-seed-64487,fig:s1-seed-21105} show the text of the divergent choices.}
+  \label{fig:s1-obviousq57}
 \end{figure}
 
-
-Although I expected participants to agree that options were balanced for ``dilemma'' choices, I expected them to disagree for ``obvious'' choices.
-%
-Here again my hypothesis was not supported by my data.
-%
-A per-choice analysis of question 5 in the ``obvious'' condition (\cref{fig:obviousq57}) shows that again, one choice is divergent from the other two.
-%
-\Cref{fig:ch64487} shows that choice, which compared to the other two ``obvious'' choices is low-stakes (one of the other choices starts with a dragon attack, the other with bandits attacking some merchants).
-
-
-Not only are the stakes for this choice low, but they are unclear.
-%
-What exactly does the player hope to gain by gossiping or by telling a story?
-%
-Perhaps friendship or some useful information, but those potential rewards seem both uncertain (even given a ``successful'' action) and questionably useful.
-%
-In contrast (albeit a contrast that participants did not see directly) the utility of fleeing from an attacking monster is clear, even if it is uncertain whether you will succeed.
-%
-Furthermore, there aren't any obvious risks associated with options 1 and 3, so even if the player is missing a relevant skill, they might still be worth trying.
-%
-Given this combination of low stakes, a dubious reward for the most-successful-seeming option, and seemingly consequence-free options all around, it is not hard to see how some might find these options ``about equally promising.''
-
-
-\begin{figure}[!h]
+\begin{figure}[!p]
 \centering
 \fbox{
 \parbox{0.95\columnwidth}{
@@ -673,27 +709,10 @@ What do you do?
 }
 }
   \caption{The ``obvious'' choice with seed 64487.}
-  \label{fig:ch64487}
+  \label{fig:s1-seed-64487}
 \end{figure}
 
-
-On the other hand, the system's attempt to construct an obvious choice in this case was still mostly successful.
-%
-7 of 9 participants who saw this choice ``strongly agreed'' with the statement ``There is a clear best option at this choice'' and 8 of those 9 picked option \#2 as the option they would choose.
-%
-While it might seem like a contradiction to agree (as 3 participants did) with both the statement that a choice has equally promising options and the statement that it has a clear best option, this highlights the difference between outcomes-focused evaluation of individual options and choice-oriented option comparison.
-%
-The phrasing of ``All of the options at this choice are about equally promising,'' suggests evaluating each option independently and comparing those values roughly.
-%
-In contrast, ``There is a clear best option at this choice,'' suggests comparing the options against each other to find one that is better than the others.
-%
-The fact that people often make decisions inconsistent with simple utility calculation is well-known (see e.g., \citep{Tversky1993}), so it should not be surprising that a context in which someone is asked to make a choice might elicit a different response than a context in which someone is asked to rate responses.
-
-
-\subsection{Conflicting Goals}
-
-
-\begin{figure}[!h]
+\begin{figure}[!p]
 \centering
 \fbox{
 \parbox{0.95\columnwidth}{
@@ -714,37 +733,125 @@ What do you do?
 }
 }
   \caption{The ``obvious'' choice with seed 21105.}
-  \label{fig:ch21105}
+  \label{fig:s1-seed-21105}
 \end{figure}
+
+
+Not only did I expect participants to agree that options were balanced for ``dilemma'' choices, but I also expected them to disagree for ``obvious'' choices.
+%
+Here again my hypothesis was not supported by the data.
+%
+A per-choice analysis of question 5 in the ``obvious'' condition (the top half of \cref{fig:s1-obviousq57}) shows that again, one choice is divergent from the other two.
+%
+\Cref{fig:s1-seed-64487} shows that middle choice, which compared to the other two ``obvious'' choices is low-stakes (one of the other choices starts with a dragon attack, the other with bandits attacking some merchants).
+
+
+
+Not only are the stakes for this choice low, but they are unclear.
+%
+What exactly does the player hope to gain by gossiping or by telling a story?
+%
+Perhaps friendship or some useful information, but those potential rewards seem both uncertain (even given a ``successful'' action) and questionably useful.
+%
+In contrast (albeit a contrast that participants did not see directly) the utility of fleeing from an attacking monster is clear, even if it is uncertain whether you will succeed.
+%
+Furthermore, there aren't any obvious risks associated with options 1 and 3, so even if the player is missing a relevant skill, they might still be worth trying.
+%
+Given this combination of low stakes, a dubious reward for the most-successful-seeming option, and seemingly consequence-free options all around, it is not hard to see how some might find these options ``about equally promising.''
+
+
+On the other hand, the system's attempt to construct an obvious choice in this case was still somewhat successful.
+%
+7 of 9 participants who saw this choice ``strongly agreed'' with the statement ``There is a clear best option at this choice'' and 8 of those 9 picked option \#2 as the option they would choose.
+%
+While it might seem like a contradiction to agree (as 3 participants did) with both the statement that a choice has equally promising options and the statement that it has a clear best option, this highlights the difference between outcomes-focused evaluation of individual options and choice-oriented option comparison.
+%
+The phrasing of ``All of the options at this choice are about equally promising,'' suggests evaluating each option independently and comparing those values roughly.
+%
+In contrast, ``There is a clear best option at this choice,'' suggests comparing the options against each other to find one that is better than the others.
+%
+The fact that people often make decisions inconsistent with simple utility calculation is well-known (see e.g., \citep{Tversky1993}), so it should not be surprising that a context in which someone is asked to make a decision might elicit a different response than a context in which someone is asked to rate responses.
+
+
+The implications for choice poetics are interesting, because choice poetics is concerned with both mindsets.
+%
+At least in terms of impact on the player, there's clearly a difference between a choice where all of the options seem ``about equally promising'' and where that's definitely not the case, even if both choices have ``a clear best option.''
+%
+Choices where options seem equally promising but most players choose a particular route regardless might even be good candidates for the focus of regret.
+%
+For example, if it turns out that the ``clear best option'' leads to failure and players are forced to revisit the original decision, having seen some potential in the alternatives they're more likely to feel that the choice was fair, and thus blame their own decision for the consequences.
+%
+At the same time, if the designer can be confident that most players will go down the ``obvious'' route first even without making the contrast with the other options huge, they can assume that most players will experience the regretful path as opposed to choosing the ultimately correct option the first time.
+
+
+Despite the interesting revelations prompted by this case, \dunyazad/ does actually have a problem here: it is analyzing outcomes according to the game mechanics that it knows about, but the players in this case aren't playing a game: they're experiencing a single choice with very little context.
+%
+If someone had played a few of \dunyazad/'s output stories already, they'd have a view of the possibility space much more similar to \dunyazad/'s, especially in terms of the outcomes of actions like \prq{gossip}{} and \prq{tell\_story}{.}
+%
+If the players knew what to expect from both success and failure at these actions, and had a stronger sense of the role skills play in determining outcomes, they wouldn't get their hopes up, and the choice \emph{would} be ``obvious.''
+
+
+That is the deeper issue here as well: the simple notions of ``success'' and ``failure'' when performing an action often don't correspond to overall positive an negative results when an action isn't clearly oriented towards some pressing player goal.
+%
+For example, an attempt to ``gossip'' despite lacking the relevant skill seems like it might still yield interesting results, and it isn't likely to be disastrous.
+%
+The same is not true of attacking an enemy: when they're more skilled or better-armed, there's a clear sense of danger (and of what is at stake).
+%
+In other words, \dunyazad/ is doing a good job of manipulating player expectations when it is heavy-handed, threatening high-priority player goals to make options appear hopeful or doomed.
+%
+However, when \dunyazad/ attempts to use low-priority goals in the same fashion, players don't follow its lead: ``My gossiping probably won't go `as intended?' Well, it might still be awesome!''
+
+
+The simplest response to this is to just tread carefully when creating using low-stakes choices and assume that some of them aren't going to get the result you want, while making sure to use high-stakes choices if a particular property like obviousness is critical.
+%
+In the longer term, \dunyazad/ should recognize things like the desire to explore rather than always travel the beaten path (especially when the stakes are low).
+%
+At the same time, one area for future work is goal-probing questions, which would allow \dunyazad/ to ask the player (either directly or indirectly) to indicate their goals.
+%
+These questions would serve two purposes: first, they would allow \dunyazad/ to dynamically determine which goals (including low-priority goals) the player thinks are important.
+%
+Second, these questions when successful subtly influence players by committing them to a goal: one a player affirms a goal, they are more likely to behave consistent with that goal in the future.
+
+
+\subsubsection{Conflicting Goals}
 
 
 Our hypothesis that respondents would not find ``obvious'' choices difficult highlights a different choice in the ``obvious'' category.
 %
-Our data did not support this hypothesis, and as shown in \cref{fig:obviousq57}, the choice with seed 21105 accounts for the majority of all responses that contradict my hypothesis.
+Our data did not support this hypothesis, and as shown in \cref{fig:s1-obviousq57}, the choice with seed 21105 accounts for the majority of all responses that contradict it.
 %
-That choice is shown in \cref{fig:ch21105}, and from the system's perspective, it satisfies the definition of an obvious choice (see page \pageref{page:choicetypes}) because the second option ``achieves'' a player goal, while neither the first nor the third do, and both the first and third ``threaten'' a player goal.
+That choice is shown in \cref{fig:s1-seed-21105}, and from the system's perspective, it satisfies the definition of an obvious choice (see page \pageref{page:choicetypes}) because the second option ``achieves'' a player goal, while neither the first nor the third do, and both the first and third ``threaten'' a player goal.
 
 
 The perceived difficulty of this decision probably stems from the fact that it pits two player goals against one another: the goal of self-preservation is best served by option 2, but the goal of helping others in need is best served by one of the other options.
 %
-Based on this, I plan to change the system's idea of an ``obvious'' choice to better capture these dynamics.
+This is similar to the lack of distinction between threatening one and two goals encountered above.
 %
-Even when one option at a choice clearly has the most-positive outcome for the player considering all goals to be equal, when that choice pits multiple goals against one another, it may be very difficult indeed (this is exactly the form of some morality thought experiments).
+Even when one option at a choice clearly has the most-positive outcome for the player considering all goals to be equal, when that choice pits multiple goals against one another, it may be very difficult indeed.
+%
+In fact, choices with these structures may give rise to an entirely different set of poetic concerns that involves moral judgements (this is exactly how some morality thought experiments are constructed, for example).
+%
+A difficult decision between two desirable or undesirable outcomes feels completely different from a decision between two outcomes each justified by competing moral principles, and it can resonate powerfully to the broader narrative structures of a story.
+%
+In its current state, \dunyazad/ doesn't reason about morality at all: it makes no distinction between goals in terms of their root motivations, and it has no compunction about how a result is achieved as long as no player goals are threatened in the process.
+%
+While \dunyazad/ gets perhaps surprisingly far without these capabilities, they're clearly important and can come up by accident even when \dunyazad/ isn't trying to make use of them.
 
 
-However, a detailed inspection of the answer set that resulted in this choice as I was analyzing my data reveals another problem with the system.
+That said, a detailed inspection of the answer set that resulted in this choice reveals another problem with the system: ignoring the lack of moral reasoning, it's simply not working as intended.
 %
-The system actually thinks that travelling onwards serves the goal of preventing the threat to the merchant (because if the player travels onwards, that entire situation is left behind and therefore the threat no longer exists) while it has no conception that this serves a goal of self-preservation (although it understands that interfering by either means threatens the player's safety).
+In this case, \dunyazad/ actually thinks that travelling onwards serves the goal of preventing the threat to the merchant (because if the player travels onwards, that entire situation is left behind and therefore the threat no longer exists) while it has no conception that this serves a goal of self-preservation (although it understands that interfering by either means threatens the player's safety).
 %
-There are thus two more changes to the system prompted by this data: first a bug-fix related to the consequences of travelling onwards, and second, the addition of relative goal relevance across options: the idea that if all but one option threatens an important goal, then the remaining option can be seen as indirectly supporting that goal even if none of its outcomes directly further that goal.
+There are thus two more changes to the system suggested by this data: first a bug-fix related to the consequences of travelling onwards, and second, the addition of relative goal relevance across options: the idea that if all but one option threatens an important goal, then the remaining option can be seen as indirectly supporting that goal even if none of its outcomes directly further that goal.
 %
 Without running this experiment, I would eventually have found and fixed the ``travel onwards'' bug, but I may not have thought to make the second change.
 %
-In this case, my data served to help find and diagnose an anomaly in my system, which turned out to involve both an error in the code, but at the same time also pointed to two positive changes for my choice structure model: adding an explicit notion of goal conflict and a notion of relative goal relevance when all but one option relates to a goal in the same way.
+In this case, the data served to help find and diagnose an anomaly in my system, which turned out to involve an error in the code, but at the same time also pointed to two future goals for the choice structure model: adding explicit moral reasoning, and a notion of relative goal relevance when all but one option relates to a goal in the same way.
 
-\subsection{Stakes and Consequences}
 
-Our final unsupported hypothesis was that participants would feel more strongly that ``dilemma'' choices had important consequences than that ``obvious'' choices did.
+\subsubsection{Stakes and Consequences}
+
+The final unsupported hypothesis was that participants would feel more strongly that ``dilemma'' choices had important consequences than that ``obvious'' choices did.
 %
 This hypothesis was based on the idea that consequences might seem more relevant (and thus important) when a decision was more difficult.
 %
@@ -754,29 +861,29 @@ Given that one of my ``obvious'' choices seemed difficult to many participants a
 \begin{figure}[!h]
   \includegraphics[width=\textwidth]{fig/stakes-q8.pdf}
   \caption{A graph of responses to question 8 across all treatments by question stakes.}
-  \label{fig:stakesq8}
+  \label{fig:s1-stakesq8}
 \end{figure}
 
 
 What is interesting is the effect of the choice stakes on this question.
 %
-Our similar hypothesis that participants would agree more in the ``dilemma'' case than the ``relaxed'' case \emph{was} supported by the data, and one big difference between those two treatments is the stakes associated with them.\footnote{A statistical analysis of the assertion that participants agree more with the statement that a choice's stakes are low in the ``relaxed'' case than the ``dilemma'' case (not one of my original hypotheses) reveals a strong significant effect ($p = 2.88\times10^{-5}$; $r = 53\%$).}
+Our similar hypothesis that participants would agree more in the ``dilemma'' case than the ``relaxed'' case \emph{was} supported by the data, and one big difference between those two treatments is the stakes associated with them.\footnote{A statistical analysis of the assertion that participants agree more with the statement that a choice's stakes are low in the ``relaxed'' case than the ``dilemma'' case (not one of my original hypotheses) reveals a strong significant effect ($p = 2.88\times10^{-5}$; effect size 76\%).}
 %
-In fact, when analyzing the data for question 8 according to stakes rather than the three treatments, high-stakes choices overwhelmingly seem as if they will have important consequences, while low-stakes choices are mixed (see \cref{fig:stakesq8}).
+In fact, when analyzing the data for question 8 according to stakes rather than the three treatments, high-stakes choices overwhelmingly seem as if they will have important consequences, while low-stakes choices are mixed (see \cref{fig:s1-stakesq8}).
 
 
-A statistical test confirms the obvious: the high-stakes condition elicits significantly more agreement on question 8 than a uniform distribution ($p = 4.9\times10^{-6}$; $r = 55$\%).
+Statistics confirm the obvious: not only did the high-stakes condition elicits significantly more agreement on question 8 than the low-stakes condition ($p = 2.14\times10^{-8}$; effect size 79\%), it was also significantly above a uniform distribution ($p = 4.9\times10^{-6}$; effect size 78\%).
 %
 Because all of the ``relaxed'' choices were low-stakes by design, there is of course correlation between the stakes and the treatments, but the 35 high-stakes cases were about evenly distributed between the ``obvious'' and ``dilemma'' treatments (16 in ``obvious'' and 19 in ``dilemma'').
 %
-Such an overwhelming effect (none of the 35 respondents across who saw a high-stakes choices thought it would \emph{not} have important consequences) further indicates that the system is successful in predicting player goals (at least the important player goals): choices where the system thought that an important player goal was affected corresponded almost totally with situations where players felt that consequences were important.
+Such an overwhelming effect (none of the 35 respondents who saw a high-stakes choices thought it would \emph{not} have important consequences) further indicates that the system is successful in predicting high-stakes player goals: for 94\% of choices where the system thought that an important player goal was affected, players agreed at least somewhat that the consequences seemed important.
 
 
-\section{Conclusion}
+\subsection{Conclusions}
 
-Overall, my study confirmed \dunyazad/'s ability to construct choices based on player expectations.
+Overall, this study confirmed \dunyazad/'s ability to construct choices based on player expectations when certain criteria are met.
 %
-Notably, many of my failed hypotheses involved situations where several options together affected how a choice was perceived:
+Notably, many of the failed hypotheses involved situations where several options together affected how a choice was perceived:
 %
 \begin{itemize}
   \item For question 1 (``There are no bad options at this choice.'') relative rather than absolute judgements of what is a ``bad'' option may have come into play.
@@ -787,36 +894,31 @@ Notably, many of my failed hypotheses involved situations where several options 
 These results point to several possible improvements for \dunyazad/, and collectively reinforce the importance of considering choices holistically when evaluating choice poetics.
 
 
-Based on my results, I plan to upgrade \dunyazad/ in several ways:
+As already discussed, there are a number of changes that could be made to \dunyazad/ based on these results:
 %
 \begin{itemize}
-  \item I plan to implement separate ``satisfaction'' and ``maximization'' player decision modes so that the system can reason about how difficult a decision might seem whichever decision modality a player is using.
-  \item I will upgrade \dunyazad/'s system for estimating how individual options affect goals by adding more detail so that it can further distinguish different magnitudes of risk and reward.
-  \item I will have \dunyazad/ represent players' uncertainty about the possible outcomes of actions like ``gossip'' and ``tell story'' so that it can have a clearer picture of which options seem promising.
-  \item I will implement a model of goal conflicts and more detailed relative goal priorities. This would also allow \dunyazad/ to further support role-playing by allowing different players to choose options which imply different goal priorities.
-  \item I will implement the idea of relative goal relevance: if all but one option at a choice either threatens or enables a goal, then the remaining option implicitly does the opposite.
+  \item Implement separate ``satisfaction'' and ``maximization'' player decision modes so that the system can reason about how difficult a decision might seem whichever decision modality a player is using.
+  \item Upgrade \dunyazad/'s system for estimating how individual options affect goals by adding more detail so that it can further distinguish different magnitudes of risk and reward.
+  \item Have \dunyazad/ represent players' uncertainty about the possible outcomes of actions like ``gossip'' and ``tell story'' so that it can have a clearer picture of which options seem promising in low-stakes situations.
+  \item Implement goal-probing questions (either direct or indirect) that allow the system to gain direct knowledge about player goals, especially for low-stakes options. This would also allow \dunyazad/ to further support role-playing by allowing different players to choose options which imply different goals or goal priorities.
+  \item Implement a model of goal conflicts and more detailed relative goal priorities including moral reasoning.
+  \item Implement the idea of relative goal relevance: if all but one option at a choice either threatens or enables a goal, then the remaining option implicitly does the opposite.
 \end{itemize}
 %
-These changes should make \dunyazad/ even more successful at constructing choices which produce particular player expectations (and thus which can produce specific poetic effects).
+These changes could make \dunyazad/ even more successful at constructing choices which produce particular player expectations (and thus which can produce specific poetic effects).
 %
-They are also in line with my goal of getting \dunyazad/ to generate choices with more complex poetics, such as choices that elicit regret or confusion.
+They are also in line with my goal of getting \dunyazad/ to generate choices with more complex poetics, such as choices that elicit regret or prompt deliberation.
 
 
-Of course, the success of this study can serve as the basis for future studies.
+One important functionality of \dunyazad/ not tested in this first study was its ability to judge outcomes.
 %
-One important functionality of \dunyazad/ not tested here was its ability to judge outcomes.
+This study did largely verify that \dunyazad/'s player expectations about options are working, and it can generate outcomes that both support and betray those expectations.
 %
-Given its player expectations about options (which I now know are often accurate) \dunyazad/ can currently generate outcomes that both support and betray those expectations.
-%
-Another study could be conducted to test this functionality, as well as some of the choice poetics involved.
+\Cref{sec:exp-retrospective} uses this functionality to test how accurate \dunyazad/'s estimates of retrospective perceptions are.
 
-
-Finally, a long-term goal for \dunyazad/ is more player-specific choice generation.
-%
-Even without running interactively, \dunyazad/ can construct sequences of choices where early choices determine player preferences or behavior and lead to regions of a story with divergent choice structures based on the earlier decisions.
-%
-Given this kind of capability, \dunyazad/ could not only follow an author's static instructions about what poetics to use, but it could offer choices tailored to players based on the choices they have made.
 
 \section{Experiment II: Retrospective Impressions}
 
 \label{sec:exp-retrospective}
+
+% TODO: HERE
