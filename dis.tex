@@ -11,6 +11,7 @@
 \usepackage{tgschola}
 \usepackage{tgheros}
 \usepackage{microtype}
+\usepackage{bm}
 
 % Figures, Tables, Enumerations, and Itemizes
 \usepackage{graphicx}
@@ -25,6 +26,7 @@
 \usepackage{xcolor}
 \usepackage{manyfoot}
 \newfootnote{Star}
+\usepackage{multirow}
 
 % Misc
 \usepackage[hyphens]{url}
@@ -71,7 +73,14 @@
 \def\sIqVIIabbr/{7. Difficult choice.}
 \def\sIqVIIIabbr/{8. Consequences.}
 
-\def\pad/{\hspace*{-0.2em}}
+\def\sIIqoptIabbr/{1. Clear best option.}
+\def\sIIqoptIIabbr/{2. Option balance.}
+\def\sIIqoptIIIabbr/{3. No bad options.}
+\def\sIIqoptIVabbr/{4. No good options.}
+\def\sIIqoptVabbr/{5. Low stakes.}
+
+% Times symbol with tight kerning
+\def\sqtimes{\!\!\times\!\!}
 
 \newcommand{\work}[1]{{\slshape #1}}
 \newcommand{\exchar}[1]{`\texttt{#1}'\xspace}
@@ -83,7 +92,13 @@
 \newcommand{\svind}{\vspace*{0.3em}}
 \newcommand{\vind}{\vspace*{0.5em}}
 \newcommand{\cg}[1]{{\color{gray} #1}}
-\newcommand{\significant}[1]{{\color{cyan} #1}}
+\newcommand{\significant}[1]{\textbf{#1}}
+\newcommand{\insignificant}[1]{{\color{cyan} #1}}
+\def\nsighcolor/{blue}
+\newcommand{\tenp}{\multicolumn{3}{|c|}{-}}
+\newcommand{\tenplast}{\multicolumn{3}{|c}{-}}
+\newcommand{\tesig}[3]{\significant{#1} & \significant{#2} & \significant{#3}}
+\newcommand{\tensig}[2]{\insignificant{#1} & \insignificant{#2} & \insignificant{$\times$}}
 \newcommand{\quotebox}[1]{%
 {%
 \setlength{\fboxsep}{8pt}%
@@ -119,7 +134,7 @@
 % Preface
 \input{front.tex}
 
-\doublespacing
+\setstretch{1.5}
 
 \mainmatter
 
