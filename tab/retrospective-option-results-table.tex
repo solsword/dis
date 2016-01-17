@@ -1,0 +1,61 @@
+\begin{tabular}{l | c|c|c | c|c|c | c|c|c}
+\multicolumn{1}{c|}{Question} &%
+  \multicolumn{3}{|p{8em}|}{Expected Success} &%
+  \multicolumn{3}{|p{7.5em}|}{Obvious Success} &%
+  \multicolumn{3}{|p{8em}}{Expected Failure} \\
+\cline{2-10}
+&%
+  \multicolumn{3}{|p{8em}|}{Unexp. Failure} &%
+  \multicolumn{3}{|p{7.5em}|}{Obvious Trap} &%
+  \multicolumn{3}{|p{8em}}{Unexp. Success} \\
+\hline
+\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIoptobviousabbr/} &%
+  \tensig{D}{0.987} &%
+  \tesig{A}{$\bm{1.1\sqtimes 10^{-5}}$}{74\%} &%
+  \tensig{D}{0.541} \\
+\cline{2-10}
+&%
+  \tensig{D}{0.081} &%
+  \tesig{A}{0.002}{67\%} &%
+  \tensig{D}{0.690} \\
+\hline
+\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIoptbalancedabbr/} &%
+  \tensig{A}{0.645} &%
+  \tesig{D}{0.001}{68\%} &%
+  \tensig{A}{0.536} \\
+\cline{2-10}
+&%
+  \tensig{A}{0.589} &%
+  \tensig{D}{0.058} &%
+  \tensig{A}{0.773} \\
+\hline
+\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIoptnobadabbr/} &%
+  \tensig{A}{0.701} &%
+  \tesig{D}{0.001}{68\%} &%
+  \tesig{D}{0.040}{61\%} \\
+\cline{2-10}
+&%
+  \tensig{A}{0.657} &%
+  \tesig{D}{0.021}{62\%} &%
+  \tesig{D}{0.015}{63\%} \\
+\hline
+\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIoptnogoodabbr/} &%
+  \tesig{D}{$\bm{5.5\sqtimes 10^{-6}}$}{75\%} &%
+  \tesig{D}{$\bm{7.4\sqtimes 10^{-6}}$}{75\%} &%
+  \tensig{A}{0.129} \\
+\cline{2-10}
+&%
+  \tesig{D}{0.010}{64\%} &%
+  \tesig{D}{0.007}{65\%} &%
+  \tensig{A}{0.852} \\
+\hline
+\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIoptstakesabbr/} &%
+  \tensig{D}{0.163} &%
+  \tensig{D}{0.145} &%
+  \tensig{D}{0.400} \\
+\cline{2-10}
+&%
+  \tensig{D}{0.205} &%
+  \tensig{D}{0.146} &%
+  \tesig{D}{0.002}{67\%} \\
+\end{tabular}

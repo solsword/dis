@@ -923,69 +923,239 @@ This study did largely verify that \dunyazad/'s player expectations about option
 
 % TODO: HERE
 
+\begin{figure}[!p]
+  \centering
+  \includegraphics[width=\textwidth]{{fig/cropped-outcomes-report-01-opt.obvious}.pdf}
+  \includegraphics[width=\textwidth]{{fig/cropped-outcomes-report-02-opt.balanced}.pdf}
+  \includegraphics[width=\textwidth]{{fig/cropped-outcomes-report-03-opt.nobad}.pdf}
+  \includegraphics[width=\textwidth]{{fig/cropped-outcomes-report-04-opt.nogood}.pdf}
+  \includegraphics[width=\textwidth]{{fig/cropped-outcomes-report-05-opt.stakes}.pdf}
+  \includegraphics[width=\textwidth]{fig/outcomes-legend.pdf}
+  \caption[Retrospecitve option results]{Option-related results from the retrospective study. Cf. \cref{fig:s1-report}.}
+  \label{fig:s2-option-report}
+\end{figure}
+
+\begin{figure}[!p]
+  \centering
+  \includegraphics[width=\textwidth]{{fig/cropped-outcomes-report-10-out.fair}.pdf}
+  \includegraphics[width=\textwidth]{{fig/cropped-outcomes-report-11-out.unfair}.pdf}
+  \includegraphics[width=\textwidth]{{fig/cropped-outcomes-report-12-out.sense}.pdf}
+  \includegraphics[width=\textwidth]{{fig/cropped-outcomes-report-13-out.broken}.pdf}
+  \includegraphics[width=\textwidth]{fig/outcomes-legend.pdf}
+  \caption[Retrospective fair/unfair \& sense/nonsense results]{Fair/unfair and sense/nonsense results from the retrospective study. Setup is the same as \cref{fig:s1-report}.}
+  \label{fig:s2-outcome-report-fair-sense}
+\end{figure}
+
+\begin{figure}[!p]
+  \centering
+  \includegraphics[width=\textwidth]{{fig/cropped-outcomes-report-06-out.good}.pdf}
+  \includegraphics[width=\textwidth]{{fig/cropped-outcomes-report-07-out.bad}.pdf}
+  \includegraphics[width=\textwidth]{{fig/cropped-outcomes-report-14-out.happy}.pdf}
+  \includegraphics[width=\textwidth]{{fig/cropped-outcomes-report-15-out.regret}.pdf}
+  \includegraphics[width=\textwidth]{fig/outcomes-legend.pdf}
+  \caption[Retrospective good/bad \& satisifed/dissatisfied results]{Good/bad and satisfied/dissatisfied results from the retrospective study. Setup is the same as \cref{fig:s1-report}.}
+  \label{fig:s2-outcome-report-valence-satisfaction}
+\end{figure}
+
+\begin{figure}[!p]
+  \centering
+  \includegraphics[width=\textwidth]{{fig/cropped-outcomes-report-08-out.expected}.pdf}
+  \includegraphics[width=\textwidth]{{fig/cropped-outcomes-report-09-out.unexpected}.pdf}
+  \includegraphics[width=\textwidth]{fig/outcomes-legend.pdf}
+  \caption[Retrospective expected/unexpected results]{Expected/unexpected results from the retrospective study. Setup is the same as \cref{fig:s1-report}.}
+  \label{fig:s2-outcome-report-surprise}
+\end{figure}
 
 \begin{table}[!p]
 \centering
 \bgroup
 \def\arraystretch{1.3}
 \setlength{\tabcolsep}{0.4em}
-\begin{tabular}{l | c|c|c | c|c|c | c|c|c}
-\multicolumn{1}{c|}{Question} & \multicolumn{3}{|p{8em}|}{Expected Success} & \multicolumn{3}{|p{7.5em}|}{Obvious Success} & \multicolumn{3}{|p{8em}}{Expected Failure} \\
-\cline{2-10}
-                              & \multicolumn{3}{|p{8em}|}{Unexp. Failure} & \multicolumn{3}{|p{7.5em}|}{Obvious Trap} & \multicolumn{3}{|p{8em}}{Unexp. Success} \\
-\hline
-\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIqoptIabbr/} &%
-  \tensig{D}{0.987} &%
-  \tesig{A}{$\bm{1.1\sqtimes 10^{-5}}$}{74\%} &%
-  \tensig{D}{0.541} \\
-\cline{2-10}
-&%
-  \tensig{D}{0.081} &%
-  \tesig{A}{0.002}{67\%} &%
-  \tensig{D}{0.690} \\
-\hline
-\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIqoptIIabbr/} &%
-  \tensig{A}{0.645} &%
-  \tesig{D}{0.001}{67\%} &%
-  \tensig{A}{0.536} \\
-\cline{2-10}
-&%
-  \tensig{A}{0.589} &%
-  \tensig{D}{0.058} &%
-  \tensig{A}{0.773} \\
-\hline
-\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIqoptIIIabbr/} &%
-  \tensig{A}{0.701} &%
-  \tesig{D}{0.001}{68\%} &%
-  \tesig{D}{0.040}{61\%} \\
-\cline{2-10}
-&%
-  \tensig{A}{0.657} &%
-  \tesig{D}{0.021}{62\%} &%
-  \tesig{D}{0.015}{63\%} \\
-\hline
-\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIqoptIVabbr/} &%
-  \tesig{D}{$\bm{5.5\sqtimes 10^{-6}}$}{75\%} &%
-  \tesig{D}{$\bm{7.4\sqtimes 10^{-6}}$}{75\%} &%
-  \tensig{A}{0.129} \\
-\cline{2-10}
-&%
-  \tesig{D}{0.01}{64\%} &%
-  \tesig{D}{0.007}{65\%} &%
-  \tensig{A}{0.852} \\
-\hline
-% HERE
-\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIqoptVabbr/}   &%
-  \tensig{D}{0.163} &%
-  \tensig{D}{0.145} &%
-  \tensig{D}{0.400} \\
-\cline{2-10}
-&%
-  \tensig{D}{0.205} &%
-  \tensig{D}{0.146} &%
-  \tesig{D}{0.002}{67\%} \\
-\end{tabular}
+\input{tab/retrospective-option-results-table.tex}
 \egroup
-\caption[Retrospective option results]{The results for the option-related hypotheses in the retrospective experiment. Each pair of rows lists results for a single question; each column stacks results for two conditions (listed at the top) which have identical \prq{option\_feel}{} constraints, and thus in theory should elicit similar responses. Each entry indicates the hypothesis (`D' for `disagree' and `A' for `agree'), the $p$-value, and the common-language effect size for confirmed hypotheses (which are marked in bold instead of \nsighcolor/ where $p < 0.05$).}
+\caption[Retrospective option results]{The results for the option-related hypotheses in the retrospective experiment. Each pair of rows lists results for a single question; each column stacks results for two conditions (listed at the top) which have identical \prq{option\_feel}{} constraints, and thus in theory should elicit similar responses. Each entry indicates the hypothesis (`D' for `disagree' and `A' for `agree'), the $p$-value, and the common-language effect size for confirmed hypotheses (which are marked in bold instead of \nsighcolor/ where $p < 0.05$).} % TODO: Make this a one-liner to fit on the same page as the figure above...
   \label{tab:s2-option-results}
 \end{table}
+
+\begin{table}[p]
+\centering
+\bgroup
+\def\arraystretch{1.3}
+\setlength{\tabcolsep}{0.4em}
+\input{tab/retrospective-positive-outcomes-results-table.tex}
+\egroup
+\caption[Retrospective positive outcome results]{TODO: HERE}
+  \label{tab:s2-option-results}
+\end{table}
+
+\begin{table}[!p]
+\centering
+\bgroup
+\def\arraystretch{1.3}
+\setlength{\tabcolsep}{0.4em}
+\input{tab/retrospective-negative-outcomes-results-table.tex}
+\egroup
+\caption[Retrospective negative outcome results]{TODO: HERE}
+  \label{tab:s2-option-results}
+\end{table}
+
+
+%\begin{table}[!p]
+%\centering
+%\bgroup
+%\def\arraystretch{1.3}
+%\setlength{\tabcolsep}{0.4em}
+%\begin{tabular}{l | c|c|c | c|c|c}
+%\multicolumn{1}{c|}{Question} &%
+%  \multicolumn{3}{|p{12em}|}{Expected Success \&} &%
+%  \multicolumn{3}{|p{12em}|}{Unexp. Success \&} \\ 
+%\cline{2-10}
+%&%
+%  \multicolumn{3}{|p{12em}|}{Obvious Success [main]} &%
+%\multicolumn{3}{|p{12em}|}{Obvious Trap [alt]} \\
+%\hline
+%\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIqoutFAIRabbr/} &%
+%  \tesig{A}{$\bm{2.6\sqtimes 10^{-11}}$}{86\%} &%
+%  \tesig{}{$\bm{1.\sqtimes 10^{-}}$}{\%} \\
+%\cline{2-10}
+%&%
+%  \tesig{A}{$\bm{2.1\sqtimes 10^{-8}}$}{82\%} &%
+%  \tesig{}{$\bm{1.\sqtimes 10^{-}}$}{\%} \\
+%\hline
+%\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIqoutUNFAIRabbr/} &%
+%  \tesig{D}{$\bm{2.1\sqtimes 10^{-10}}$}{84\%} &%
+%  \tesig{}{$\bm{1.\sqtimes 10^{-}}$}{\%} \\
+%\cline{2-10}
+%&%
+%  \tesig{D}{$\bm{3.5\sqtimes 10^{-8}}$}{82\%} &%
+%  \tesig{}{$\bm{1.\sqtimes 10^{-}}$}{\%} \\
+%\hline
+%\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIqoutSENSEabbr/} &%
+%  \tesig{A}{$\bm{1.9\sqtimes 10^{-9}}$}{82\%} &%
+%  \tesig{}{$\bm{1.\sqtimes 10^{-}}$}{\%} \\
+%\cline{2-10}
+%&%
+%  \tesig{A}{$\bm{5.1\sqtimes 10^{-10}}$}{86\%} &%
+%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
+%\hline
+%\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIqoutNONSENSEabbr/} &%
+%  \tesig{D}{$\bm{9.2\sqtimes 10^{-10}}$}{83\%} &%
+%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
+%\cline{2-10}
+%&%
+%  \tesig{D}{$\bm{3.9\sqtimes 10^{-8}}$}{82\%} &%
+%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
+%\hline
+%\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIqoutGOODabbr/}   &%
+%  \tesig{A}{$\bm{8.2\sqtimes 10^{-12}}$}{86\%} &%
+%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
+%\cline{2-10}
+%&%
+%  \tesig{A}{$\bm{5.7\sqtimes 10^{-8}}$}{81\%} &%
+%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
+%\hline
+%\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIqoutBADabbr/}   &%
+%  \tesig{D}{$\bm{1.5\sqtimes 10^{-12}}$}{87\%} &%
+%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
+%\cline{2-10}
+%&%
+%  \tesig{D}{$\bm{1.3\sqtimes 10^{-8}}$}{83\%} &%
+%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
+%\hline
+%\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIqoutSATabbr/}   &%
+%  \tesig{A}{$\bm{5.8\sqtimes 10^{-11}}$}{85\%} &%
+%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
+%\cline{2-10}
+%&%
+%  \tesig{A}{$\bm{1.7\sqtimes 10^{-9}}$}{85\%} &%
+%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
+%\hline
+%\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIqoutDISSATabbr/}   &%
+%  \tesig{D}{$\bm{5.5\sqtimes 10^{-10}}$}{83\%} &%
+%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
+%\cline{2-10}
+%&%
+%  \tesig{D}{$\bm{1.0\sqtimes 10^{-6}}$}{79\%} &%
+%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
+%\hline
+%\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIqoutEXPabbr/}   &%
+%  \tesig{A}{0.006}{65\%} &%
+%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
+%\cline{2-10}
+%&%
+%  \tesig{A}{$\bm{4.3\sqtimes 10^{-5}}$}{74\%} &%
+%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
+%\hline
+%\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIqoutUNEXPabbr/}   &%
+%  \tesig{D}{$\bm{3.5\sqtimes 10^{-6}}$}{75\%} &%
+%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
+%\cline{2-10}
+%&%
+%  \tesig{D}{$\bm{2.5\sqtimes 10^{-5}}$}{75\%} &%
+%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
+%\end{tabular}
+%\egroup
+%\caption[]{}
+%\label{tab:s2-option-results}
+%\end{table}
+%
+%
+%\begin{table}[!p]
+%\centering
+%\bgroup
+%\def\arraystretch{1.3}
+%\setlength{\tabcolsep}{0.4em}
+%\begin{tabular}{l | c|c|c | c|c|c}
+%\multicolumn{1}{c|}{Question} &%
+%  \multicolumn{3}{|p{12em}|}{Expected Failure \&} &%
+%  \multicolumn{3}{|p{12em}|}{Unexp. Failure \&} \\ 
+%\cline{2-10}
+%&%
+%  \multicolumn{3}{|p{12em}|}{Obvious Success [alt]} &%
+%\multicolumn{3}{|p{12em}|}{Obvious Trap [main]} \\
+%\hline
+%% HERE
+%\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIqoutIabbr/} &%
+%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} &%
+%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
+%\cline{2-10}
+%&%
+%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} &%
+%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
+%\hline
+%\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIqoutIIabbr/} &%
+%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} &%
+%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
+%\cline{2-10}
+%&%
+%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} &%
+%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
+%\hline
+%\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIqoutIIIabbr/} &%
+%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} &%
+%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
+%\cline{2-10}
+%&%
+%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} &%
+%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
+%\hline
+%\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIqoutIVabbr/} &%
+%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} &%
+%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
+%\cline{2-10}
+%&%
+%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} &%
+%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
+%\hline
+%\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIqoutVabbr/}   &%
+%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} &%
+%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
+%\cline{2-10}
+%&%
+%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} &%
+%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
+%\end{tabular}
+%\egroup
+%\caption[]{}
+%\label{tab:s2-option-results}
+%\end{table}

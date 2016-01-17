@@ -1,0 +1,5 @@
+#!/bin/sh
+# TODO: Gather results from the first experiment as well!
+cp ~/programming/dunyazad/experiments/outcomes-experiment/retrospective-*-table.tex tab
+cp ~/programming/dunyazad/experiments/outcomes-experiment/reports/legend.pdf fig/outcomes-legend.pdf
+cp ~/programming/dunyazad/experiments/outcomes-experiment/reports/cropped-outcomes-report-*.pdf fig/
