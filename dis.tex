@@ -74,22 +74,39 @@
 \def\sIqVIIabbr/{7. Difficult choice.}
 \def\sIqVIIIabbr/{8. Consequences.}
 
-\def\sIIoptobviousabbr/{1. Clear best option.}
-\def\sIIoptbalancedabbr/{2. Option balance.}
-\def\sIIoptnobadabbr/{3. No bad options.}
-\def\sIIoptnogoodabbr/{4. No good options.}
-\def\sIIoptstakesabbr/{5. Low stakes.}
+%\def\sIIoptobviousabbr/{1. Clear best option.}
+%\def\sIIoptbalancedabbr/{2. Option balance.}
+%\def\sIIoptnobadabbr/{3. No bad options.}
+%\def\sIIoptnogoodabbr/{4. No good options.}
+%\def\sIIoptstakesabbr/{5. Low stakes.}
 
-\def\sIIoutfairabbr/{1. Fair}
-\def\sIIoutunfairabbr/{5. Unfair}
-\def\sIIoutsenseabbr/{2. Sense}
-\def\sIIoutbrokenabbr/{8. Nonsense}
-\def\sIIoutgoodabbr/{9. Good}
-\def\sIIoutbadabbr/{3. Bad}
-\def\sIIouthappyabbr/{4. Satisfying}
-\def\sIIoutregretabbr/{11. Dissatisfying}
-\def\sIIoutexpectedabbr/{10. Expected}
-\def\sIIoutunexpectedabbr/{6. Unexpected}
+\def\sIIoptobviousabbr/{Clear best}
+\def\sIIoptbalancedabbr/{Balanced}
+\def\sIIoptnobadabbr/{No bad}
+\def\sIIoptnogoodabbr/{No good}
+\def\sIIoptstakesabbr/{Low stakes}
+
+%\def\sIIoutfairabbr/{1. Fair}
+%\def\sIIoutunfairabbr/{5. Unfair}
+%\def\sIIoutsenseabbr/{2. Sense}
+%\def\sIIoutbrokenabbr/{8. Nonsense}
+%\def\sIIoutgoodabbr/{9. Good}
+%\def\sIIoutbadabbr/{3. Bad}
+%\def\sIIouthappyabbr/{4. Satisfying}
+%\def\sIIoutregretabbr/{11. Dissatisfying}
+%\def\sIIoutexpectedabbr/{10. Expected}
+%\def\sIIoutunexpectedabbr/{6. Unexpected}
+
+\def\sIIoutfairabbr/{Fair}
+\def\sIIoutunfairabbr/{Unfair}
+\def\sIIoutsenseabbr/{Sense}
+\def\sIIoutbrokenabbr/{Nonsense}
+\def\sIIoutgoodabbr/{Good}
+\def\sIIoutbadabbr/{Bad}
+\def\sIIouthappyabbr/{Satisfying}
+\def\sIIoutregretabbr/{Dissatisfying}
+\def\sIIoutexpectedabbr/{Expected}
+\def\sIIoutunexpectedabbr/{Unexpected}
 
 % Times symbol with tight kerning
 \def\sqtimes{\!\!\times\!\!}
@@ -107,8 +124,10 @@
 \newcommand{\significant}[1]{\textbf{#1}}
 \newcommand{\insignificant}[1]{{\color{cyan} #1}}
 \def\nsighcolor/{blue}
-\newcommand{\tenp}{\multicolumn{3}{|c|}{-}}
-\newcommand{\tenplast}{\multicolumn{3}{|c}{-}}
+%\newcommand{\tenp}{\multicolumn{3}{|c|}{-}}
+%\newcommand{\tenplast}{\multicolumn{3}{|c}{-}}
+\newcommand{\tenp}{\multicolumn{3}{c}{-}}
+\newcommand{\tenplast}{\multicolumn{3}{c}{-}}
 \newcommand{\tesig}[3]{\significant{#1} & \significant{#2} & \significant{#3}}
 \newcommand{\tensig}[2]{\insignificant{#1} & \insignificant{#2} & \insignificant{$\times$}}
 \newcommand{\quotebox}[1]{%

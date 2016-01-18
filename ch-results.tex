@@ -916,10 +916,159 @@ This study did largely verify that \dunyazad/'s player expectations about option
 %
 \Cref{sec:exp-retrospective} uses this functionality to test how accurate \dunyazad/'s estimates of retrospective perceptions are.
 
+% TODO: Reformat tables to match!!
 
 \section{Experiment II: Retrospective Impressions}
 
 \label{sec:exp-retrospective}
+
+The results from testing \dunyazad/'s prospective impression subsystem were largely successful, so I ran another experiment to test the retrospective impression system.
+%
+In this experiment both prospective and retrospective impression constraints were used to create six kinds of choices:
+
+\begin{itemize}
+  \item \textbf{Expected Success}--These choices have three options which present themselves as leading to success, and each option has a successful outcome. In terms of \prq{outcome\_feel}{} values (cf. \cref{tab:dunyazad-outcome-feel-structures}) each option at these choices is an \prq{expected\_success}{} option. No matter which option a participant selects, they will be picking an option that suggests success, and they will get a successful outcome (as far as \dunyazad/ understands things).
+  \item \textbf{Expected Failure}--The opposite of expected success: every option suggests and results in failure. Internally, each option is an \prq{expected\_failure}{.}
+  \item \textbf{Unexpected Failure}--These choices consist of three \prq{unfair}{} options. In other words, each option seems as though it will be successful, but each ultimately results in failure. These choices should appear largely the same as ``expected success'' choices before an option is chosen.
+  \item \textbf{Unexpected Success}--The opposite of unexpected failures, these choices consist of three \prq{miracle}{} options--each indicates failure but results in success. These choices mimic ``expected failure'' options until the player selects an option and sees an outcome.
+  \item \textbf{Obvious Success}--These choices have a single \prq{expected\_success}{} option and two \prq{expected\_failure}{} options, forming an \prq{obvious}{} \prq{option\_structure}{.} The outcomes of each choice align with what the option text suggests: the ``good'' option leads to success and the others lead to failure.
+  \item \textbf{Obvious Failure}--These choices have a single \prq{unfair}{} option and two options which are either \prq{miracle}{}s or \prq{nice\_gamble}{}s. Just like ``obvious success'' choices, their \prq{option\_structure}{} is \prq{obvious}{.} Of course, instead of leading to the expected results, each option results in the opposite of what it suggests.
+\end{itemize}
+
+These six choice structures were designed to manipulate three variables: valence of outcomes, expectedness of outcomes, and the presence of viable alternatives.
+%
+Note that due to the study design, each participant only ever saw a single choice, they could not form judgements based on comparing choices across categories.
+%
+The bulk of the hypotheses were designed simply to verify that the participants agreed with \dunyazad/'s internal evaluation of these variables, but there were a few hypotheses designed to probe for possible relationships between these six conditions.
+%
+Overall the results show that \dunyazad/ did a good job producing positive outcomes, but struggled with negative outcomes, and (partially as a result of this) had some trouble producing unexpected results.
+%
+Despite these problems, the data reveal some interesting interactions between the three underlying variables, such as a difference in satisfaction based on the presence or absence of viable alternatives and a relationship between the valence of unexpected outcomes and their perceived fairness.
+
+
+\subsection{Method}
+
+The experimental setup for this experiment was nearly identical to the setup for the prospective impressions experiment described in \cref{sec:exp-prospective}.
+%
+The major differences are as follows:
+
+\begin{itemize}
+  \item%
+    As already mentioned, there were six types of choice generated, rather than 3, for a total of 18 choices (three per condition, just as in the original experiment).
+
+  \item%
+    In an attempt to avoid some of the problems with low-stakes choices in the original experiment, every choice generated was required to have high stakes.
+
+  \item%
+    Rather than allowing \dunyazad/ to pick any setup it wanted, the three choices in each condition were generated using fixed setups (\prq{market}{,}, \prq{monster\_attack}{,} and \prq{threatened\_innocents}{}).
+    %
+    This helped insure that the setup text wasn't a significant variable between the cases, and that each case would include a variety of setups.
+    %
+    Setup parameters were still allowed to vary freely; the \prq{market}{} setup in particular has multiple possible configurations.
+
+  \item%
+    Unlike the first survey, where participants were asked to pick the option that they ``would have chosen,'' participants in this study were instructed:
+    %
+    ``Please read the following short story which presents you with a choice, make a decision, and then answer the questions about that choice below.''
+    %
+    The choices were presented with a radio button next to each option, and hovering over the text of each option highlighted it.
+    %
+    When the participant clicked anywhere over the text of an option, the outcome text for that option would be displayed in the space directly below it (moving any following options down).
+    %
+    At the same time, the selected option text and the outcome text were highlighted in bold and the radio button for the selected option was filled in, while the non-selected options were faded to gray and their radio buttons were disabled.
+    %
+    Once an option was selected the highlight-on-hover and click-to-choose functionality were disabled.
+    %
+    Immediately before the option texts the phrase ``To choose, click on an option below. Once you make a decision you will not be able to change it,'' appeared to make sure that participants understood the format.
+    %
+    The option selected by the player was recorded as part of the study data; every single participant selected an option and thus saw an outcome.
+
+  \item%
+    Whereas the first survey asked questions about options without letting the participant make a decision, this survey had participants answer questions after making a decision and seeing an outcome.
+    %
+    This approach was designed to maintain the flow of the setup into the choice; asking a set of survey questions after seeing the choice but before making a decision would have an impact on the poetics of the choice.
+    %
+    The result of this decision was that participants already knew one of the outcomes when answering questions about the options, which could have changed their answers.
+    %
+    The data in the first survey therefore is more informative about option-related poetics.
+    %
+    To counteract this somewhat, the following text appeared before the option questions:
+    %
+    ``For these questions, consider just the options presented, and ignore the outcome of the option that you chose.''
+    %
+    Of course, complying with such a request is not entirely possible, but again, the option-related questions in this survey were only present to establish a point of comparison with the first study, and were not the focus of the results.
+
+  \item%
+    Participants were still recruited using Amazon Mechanical Turk, but for this study, each participant was paid \$2.00 instead of \$0.50.
+    %
+    This was partially because this study involved more questions, and partially because of the desire to pay more fairly for participants' time.
+
+  \item%
+    Instead of showing each choice to 10 subjects, each choice was shown to 15 subjects.
+    %
+    With a total of 18 choices this meant that there were 270 participants.
+    %
+    As with the previous experiment, some submissions were rejected because they failed to answer screening questions correctly (the same two screening questions were used, one asking for age confirmation and the other an attention check within the body of the survey ).
+    %
+    There were 10 rejected responses, and these were resubmitted to Amazon so that a new participant was found, so there a total of 280 responses recorded.
+    %
+    The rejected responses were not used in the analysis.
+
+  \item%
+    Unfortunately, the system for ensuring that the same participant did not take the survey more than once was configured improperly at the beginning of data collection, and some participants submitted multiple responses (across different conditions).
+    %
+    When the issue was discovered it was corrected, and all responses from individuals who saw more than one choice were not used during data analysis (to preserve the condition that judgements were not based on cross-category comparisons).
+    %
+    A total of 65 responses from 14 individuals who submitted more than one survey were removed, reducing the total number of valid responses from 270 to 205.
+    %
+    Luckily, because workers who accepted multiple tasks generally did not do more than one from the same batch, the impact of this error was distributed fairly evenly.
+    %
+    After filtering out these responses and accounting for places where valid responses were missing a response to a single question, each individual condition still had between 32 and 36 valid responses, and each choice had between 8 and 14.
+    %
+    Thus while the statistical power of the study was reduced, the problem wasn't severe enough to call into question the validity of the results.
+
+  \item%
+    For this study, data was only filtered based on approval of the submission and the duplicates issue.
+    %
+    This meant that data from respondents who left one or more items blank was still included in the analysis.
+    %
+    Before doing the first study, I was worried that leaving a question blank might be a sign that someone was completing the survey haphazardly, and I wanted to filter out such respones.
+    %
+    After seeing the data from the first survey, including the distribution of response times, I was much less worried about this issue, and although leaving a question blank might be a sign that a participant was distracted, they might still be answering the other items honestly, especially if they answered the trick question correctly (as every single response that was accepted and wasn't a duplicate did).
+    %
+    The second study also included a mechanism that changed the color of each response to green to encourage participants to fill out every question.
+    %
+    In the end there were a total of only 13 missing responses out of the 3280 items seen by non-duplicated participants whose submissions were accepted.
+    %
+    The most-impacted single item was the statement ``[...] there are no options that seem bad [...],'' which was missing 5 of the 205 responses that it should have had.
+
+  \item%
+    Option Questions % TODO: HERE
+
+  \item%
+    Outcome Questions % TODO: HERE
+
+  \item%
+    Motivation Questions % TODO: HERE
+
+  \item%
+    Unlike the first survey, this survey included an optional text area at the end for any additional feedback participants wanted to share.
+    %
+    This additional feedback was not analyzed, but responses were used to help with approval decisions (several participants indicated honest confusion about some aspect of the age/fluency question; their responses were accepted).
+\end{itemize}
+
+Besides these differences, the details of this survey were the same as the first survey, including the format of response options and the framing of the various sections.
+%
+Of course, this survey included a different set of hypotheses.
+
+\subsection{Hypotheses}
+
+\subsection{Results}
+
+\subsection{Discussion}
+
+\subsection{Conclusions}
+
 
 % TODO: HERE
 
@@ -999,163 +1148,57 @@ This study did largely verify that \dunyazad/'s player expectations about option
   \label{tab:s2-option-results}
 \end{table}
 
+\begin{table}[!p]
+\centering
+\bgroup
+\def\arraystretch{1.3}
+\setlength{\tabcolsep}{0.6em}
+\input{tab/retrospective-free-vs-forced-failure-results-table.tex}
+\egroup
+\caption[Retrospective free vs. forced failure results]{TODO: HERE}
+  \label{tab:s2-option-results}
+\end{table}
 
-%\begin{table}[!p]
-%\centering
-%\bgroup
-%\def\arraystretch{1.3}
-%\setlength{\tabcolsep}{0.4em}
-%\begin{tabular}{l | c|c|c | c|c|c}
-%\multicolumn{1}{c|}{Question} &%
-%  \multicolumn{3}{|p{12em}|}{Expected Success \&} &%
-%  \multicolumn{3}{|p{12em}|}{Unexp. Success \&} \\ 
-%\cline{2-10}
-%&%
-%  \multicolumn{3}{|p{12em}|}{Obvious Success [main]} &%
-%\multicolumn{3}{|p{12em}|}{Obvious Trap [alt]} \\
-%\hline
-%\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIqoutFAIRabbr/} &%
-%  \tesig{A}{$\bm{2.6\sqtimes 10^{-11}}$}{86\%} &%
-%  \tesig{}{$\bm{1.\sqtimes 10^{-}}$}{\%} \\
-%\cline{2-10}
-%&%
-%  \tesig{A}{$\bm{2.1\sqtimes 10^{-8}}$}{82\%} &%
-%  \tesig{}{$\bm{1.\sqtimes 10^{-}}$}{\%} \\
-%\hline
-%\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIqoutUNFAIRabbr/} &%
-%  \tesig{D}{$\bm{2.1\sqtimes 10^{-10}}$}{84\%} &%
-%  \tesig{}{$\bm{1.\sqtimes 10^{-}}$}{\%} \\
-%\cline{2-10}
-%&%
-%  \tesig{D}{$\bm{3.5\sqtimes 10^{-8}}$}{82\%} &%
-%  \tesig{}{$\bm{1.\sqtimes 10^{-}}$}{\%} \\
-%\hline
-%\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIqoutSENSEabbr/} &%
-%  \tesig{A}{$\bm{1.9\sqtimes 10^{-9}}$}{82\%} &%
-%  \tesig{}{$\bm{1.\sqtimes 10^{-}}$}{\%} \\
-%\cline{2-10}
-%&%
-%  \tesig{A}{$\bm{5.1\sqtimes 10^{-10}}$}{86\%} &%
-%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
-%\hline
-%\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIqoutNONSENSEabbr/} &%
-%  \tesig{D}{$\bm{9.2\sqtimes 10^{-10}}$}{83\%} &%
-%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
-%\cline{2-10}
-%&%
-%  \tesig{D}{$\bm{3.9\sqtimes 10^{-8}}$}{82\%} &%
-%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
-%\hline
-%\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIqoutGOODabbr/}   &%
-%  \tesig{A}{$\bm{8.2\sqtimes 10^{-12}}$}{86\%} &%
-%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
-%\cline{2-10}
-%&%
-%  \tesig{A}{$\bm{5.7\sqtimes 10^{-8}}$}{81\%} &%
-%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
-%\hline
-%\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIqoutBADabbr/}   &%
-%  \tesig{D}{$\bm{1.5\sqtimes 10^{-12}}$}{87\%} &%
-%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
-%\cline{2-10}
-%&%
-%  \tesig{D}{$\bm{1.3\sqtimes 10^{-8}}$}{83\%} &%
-%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
-%\hline
-%\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIqoutSATabbr/}   &%
-%  \tesig{A}{$\bm{5.8\sqtimes 10^{-11}}$}{85\%} &%
-%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
-%\cline{2-10}
-%&%
-%  \tesig{A}{$\bm{1.7\sqtimes 10^{-9}}$}{85\%} &%
-%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
-%\hline
-%\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIqoutDISSATabbr/}   &%
-%  \tesig{D}{$\bm{5.5\sqtimes 10^{-10}}$}{83\%} &%
-%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
-%\cline{2-10}
-%&%
-%  \tesig{D}{$\bm{1.0\sqtimes 10^{-6}}$}{79\%} &%
-%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
-%\hline
-%\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIqoutEXPabbr/}   &%
-%  \tesig{A}{0.006}{65\%} &%
-%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
-%\cline{2-10}
-%&%
-%  \tesig{A}{$\bm{4.3\sqtimes 10^{-5}}$}{74\%} &%
-%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
-%\hline
-%\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIqoutUNEXPabbr/}   &%
-%  \tesig{D}{$\bm{3.5\sqtimes 10^{-6}}$}{75\%} &%
-%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
-%\cline{2-10}
-%&%
-%  \tesig{D}{$\bm{2.5\sqtimes 10^{-5}}$}{75\%} &%
-%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
-%\end{tabular}
-%\egroup
-%\caption[]{}
-%\label{tab:s2-option-results}
-%\end{table}
-%
-%
-%\begin{table}[!p]
-%\centering
-%\bgroup
-%\def\arraystretch{1.3}
-%\setlength{\tabcolsep}{0.4em}
-%\begin{tabular}{l | c|c|c | c|c|c}
-%\multicolumn{1}{c|}{Question} &%
-%  \multicolumn{3}{|p{12em}|}{Expected Failure \&} &%
-%  \multicolumn{3}{|p{12em}|}{Unexp. Failure \&} \\ 
-%\cline{2-10}
-%&%
-%  \multicolumn{3}{|p{12em}|}{Obvious Success [alt]} &%
-%\multicolumn{3}{|p{12em}|}{Obvious Trap [main]} \\
-%\hline
-%% HERE
-%\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIqoutIabbr/} &%
-%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} &%
-%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
-%\cline{2-10}
-%&%
-%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} &%
-%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
-%\hline
-%\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIqoutIIabbr/} &%
-%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} &%
-%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
-%\cline{2-10}
-%&%
-%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} &%
-%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
-%\hline
-%\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIqoutIIIabbr/} &%
-%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} &%
-%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
-%\cline{2-10}
-%&%
-%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} &%
-%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
-%\hline
-%\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIqoutIVabbr/} &%
-%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} &%
-%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
-%\cline{2-10}
-%&%
-%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} &%
-%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
-%\hline
-%\multirow{2}{7em}{\hangpara{1.3em}{1}\sIIqoutVabbr/}   &%
-%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} &%
-%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
-%\cline{2-10}
-%&%
-%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} &%
-%  \tesig{}{$\bm{2.1\sqtimes 10^{-8}}$}{\%} \\
-%\end{tabular}
-%\egroup
-%\caption[]{}
-%\label{tab:s2-option-results}
-%\end{table}
+\begin{table}[!p]
+\centering
+\bgroup
+\def\arraystretch{1.3}
+\setlength{\tabcolsep}{0.6em}
+\input{tab/retrospective-chosen-vs-inevitable-success-results-table.tex}
+\egroup
+\caption[Retrospective chosen vs. inevitable success results]{TODO: HERE}
+  \label{tab:s2-option-results}
+\end{table}
+
+\begin{table}[!p]
+\centering
+\bgroup
+\def\arraystretch{1.3}
+\setlength{\tabcolsep}{0.6em}
+\input{tab/retrospective-good-vs-bad-unexpected-results-table.tex}
+\egroup
+\caption[Retrospective good vs. bad unexpected results]{TODO: HERE}
+  \label{tab:s2-option-results}
+\end{table}
+
+\begin{table}[!p]
+\centering
+\bgroup
+\def\arraystretch{1.3}
+\setlength{\tabcolsep}{0.6em}
+\input{tab/retrospective-expected-vs-unexpected-failure-results-table.tex}
+\egroup
+\caption[Retrospective expected vs. unexpected failure results]{TODO: HERE}
+  \label{tab:s2-option-results}
+\end{table}
+
+\begin{table}[!p]
+\centering
+\bgroup
+\def\arraystretch{1.3}
+\setlength{\tabcolsep}{0.6em}
+\input{tab/retrospective-expected-vs-unexpected-success-results-table.tex}
+\egroup
+\caption[Retrospective expected vs. unexpected success results]{TODO: HERE}
+  \label{tab:s2-option-results}
+\end{table}

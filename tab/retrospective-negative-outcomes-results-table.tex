@@ -1,89 +1,81 @@
-\begin{tabular}{l | c|c|c | c|c|c}
-\multicolumn{1}{c|}{Question} &%
-  \multicolumn{3}{|p{12em}|}{Expected Failure} &%
-  \multicolumn{3}{|p{12em}}{Unexp. Failure} \\
-\cline{2-7}
+\begin{tabular}{l  c  c c c  c  c c c}
+\toprule
+\multirow{2}{5em}{Question} &%
+ & \multicolumn{3}{c}{Expected Failure} &%
+ & \multicolumn{3}{c}{Unexp. Failure} \\
 &%
-  \multicolumn{3}{|p{12em}|}{Obvious Success [alt]} &%
-  \multicolumn{3}{|p{12em}}{Obvious Trap [main]} \\
-\hline
+ & \multicolumn{3}{c}{Obv. Success [alt]} &%
+ & \multicolumn{3}{c}{Obv. Failure [main]} \\
+\toprule
+\midrule
 \multirow{2}{8em}{\hangpara{1.3em}{1}\sIIoutfairabbr/} &%
-  \tesig{A}{0.003}{67\%} &%
-  \tensig{D}{0.471} \\
-\cline{2-7}
+ & \tesig{A}{0.001}{68\%} &%
+ & \tensig{D}{0.343} \\
 &%
-  \tensig{A}{0.434} &%
-  \tensig{D}{0.502} \\
-\hline
+ & \tensig{A}{0.274} &%
+ & \tensig{D}{0.460} \\
+\midrule
 \multirow{2}{8em}{\hangpara{1.3em}{1}\sIIoutunfairabbr/} &%
-  \tesig{D}{0.021}{62\%} &%
-  \tensig{A}{0.634} \\
-\cline{2-7}
+ & \tesig{D}{0.017}{63\%} &%
+ & \tensig{A}{0.634} \\
 &%
-  \tesig{D}{0.020}{66\%} &%
-  \tensig{A}{0.462} \\
-\hline
+ & \tesig{D}{0.024}{65\%} &%
+ & \tensig{A}{0.419} \\
+\midrule
 \multirow{2}{8em}{\hangpara{1.3em}{1}\sIIoutsenseabbr/} &%
-  \tesig{A}{$\bm{1.4\sqtimes 10^{-4}}$}{72\%} &%
-  \tensig{D}{0.794} \\
-\cline{2-7}
+ & \tesig{A}{$\bm{1.2\sqtimes 10^{-4}}$}{72\%} &%
+ & \tensig{D}{0.716} \\
 &%
-  \tesig{A}{0.011}{67\%} &%
-  \tensig{D}{0.505} \\
-\hline
+ & \tesig{A}{0.012}{67\%} &%
+ & \tensig{D}{0.508} \\
+\midrule
 \multirow{2}{8em}{\hangpara{1.3em}{1}\sIIoutbrokenabbr/} &%
-  \tesig{D}{$\bm{6.8\sqtimes 10^{-4}}$}{69\%} &%
-  \tensig{A}{0.988} \\
-\cline{2-7}
+ & \tesig{D}{$\bm{4.2\sqtimes 10^{-4}}$}{70\%} &%
+ & \tensig{A}{0.981} \\
 &%
-  \tesig{D}{0.003}{70\%} &%
-  \tensig{A}{0.821} \\
-\hline
+ & \tesig{D}{$\bm{6.2\sqtimes 10^{-4}}$}{74\%} &%
+ & \tensig{A}{0.783} \\
+\midrule
 \multirow{2}{8em}{\hangpara{1.3em}{1}\sIIoutgoodabbr/} &%
-  \tensig{D}{0.159} &%
-  \tesig{D}{$\bm{2.6\sqtimes 10^{-5}}$}{73\%} \\
-\cline{2-7}
+ & \tensig{D}{0.129} &%
+ & \tesig{D}{$\bm{2.6\sqtimes 10^{-5}}$}{73\%} \\
 &%
-  \tensig{D}{0.660} &%
-  \tesig{D}{0.009}{66\%} \\
-\hline
+ & \tensig{D}{0.519} &%
+ & \tesig{D}{0.006}{67\%} \\
+\midrule
 \multirow{2}{8em}{\hangpara{1.3em}{1}\sIIoutbadabbr/} &%
-  \tensig{A}{0.845} &%
-  \tesig{A}{$\bm{4.4\sqtimes 10^{-4}}$}{69\%} \\
-\cline{2-7}
+ & \tensig{A}{0.762} &%
+ & \tesig{A}{$\bm{1.7\sqtimes 10^{-4}}$}{71\%} \\
 &%
-  \tensig{A}{0.907} &%
-  \tesig{A}{0.022}{64\%} \\
-\hline
+ & \tensig{A}{0.919} &%
+ & \tesig{A}{0.014}{65\%} \\
+\midrule
 \multirow{2}{8em}{\hangpara{1.3em}{1}\sIIouthappyabbr/} &%
-  \tenp  &%
-  \tesig{D}{0.024}{62\%} \\
-\cline{2-7}
+ & \tenp  &%
+ & \tesig{D}{0.024}{62\%} \\
 &%
-  \tenp  &%
-  \tensig{D}{0.818} \\
-\hline
+ & \tenp  &%
+ & \tensig{D}{0.809} \\
+\midrule
 \multirow{2}{8em}{\hangpara{1.3em}{1}\sIIoutregretabbr/} &%
-  \tenp  &%
-  \tesig{A}{$\bm{1.8\sqtimes 10^{-4}}$}{71\%} \\
-\cline{2-7}
+ & \tenp  &%
+ & \tesig{A}{$\bm{3.7\sqtimes 10^{-4}}$}{70\%} \\
 &%
-  \tenp  &%
-  \tensig{A}{0.925} \\
-\hline
+ & \tenp  &%
+ & \tensig{A}{0.897} \\
+\midrule
 \multirow{2}{8em}{\hangpara{1.3em}{1}\sIIoutexpectedabbr/} &%
-  \tesig{A}{0.040}{61\%} &%
-  \tesig{D}{0.002}{67\%} \\
-\cline{2-7}
+ & \tesig{A}{0.031}{61\%} &%
+ & \tesig{D}{$\bm{9.5\sqtimes 10^{-4}}$}{68\%} \\
 &%
-  \tensig{A}{0.211} &%
-  \tensig{D}{0.232} \\
-\hline
+ & \tensig{A}{0.129} &%
+ & \tensig{D}{0.168} \\
+\midrule
 \multirow{2}{8em}{\hangpara{1.3em}{1}\sIIoutunexpectedabbr/} &%
-  \tesig{D}{$\bm{4.7\sqtimes 10^{-4}}$}{70\%} &%
-  \tensig{A}{0.233} \\
-\cline{2-7}
+ & \tesig{D}{$\bm{2.9\sqtimes 10^{-4}}$}{70\%} &%
+ & \tensig{A}{0.184} \\
 &%
-  \tesig{D}{0.048}{63\%} &%
-  \tensig{A}{0.352} \\
+ & \tesig{D}{0.036}{64\%} &%
+ & \tensig{A}{0.313} \\
+\bottomrule
 \end{tabular}
