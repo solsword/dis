@@ -10,6 +10,7 @@
 % Fonts & Kerning
 \usepackage{tgschola}
 \usepackage{tgheros}
+\usepackage{pifont}
 \usepackage{microtype}
 \usepackage{bm}
 
@@ -28,6 +29,7 @@
 \newfootnote{Star}
 \usepackage{multirow}
 \usepackage{booktabs}
+\usepackage{array}
 
 % Misc
 \usepackage[hyphens]{url}
@@ -56,57 +58,58 @@
 \def\gea/{\texttt{achieves}}
 \def\gem/{\texttt{motivates}}
 
-\def\sIqIshort/{1. There are no bad options at this choice.}
-\def\sIqIIshort/{2. There is a clear best option at this choice.}
-\def\sIqIIIshort/{3. The stakes for this choice are low.}
-\def\sIqIVshort/{4. There are no good options at this choice.}
-\def\sIqVshort/{5. All [options] are about equally promising.}
-\def\sIqVIshort/{6. There are options at this choice. [\ldots]}
-\def\sIqVIIshort/{7. This is a difficult choice to make.}
-\def\sIqVIIIshort/{8. This choice [has] important consequences.}
+\def\lc/{\cg{*}}
 
-\def\sIqIabbr/{1. No bad options.}
-\def\sIqIIabbr/{2. Clear best option.}
-\def\sIqIIIabbr/{3. Low stakes.}
-\def\sIqIVabbr/{4. No good options.}
-\def\sIqVabbr/{5. Option balance.}
-\def\sIqVIabbr/{6. [trick]. [\ldots]}
-\def\sIqVIIabbr/{7. Difficult choice.}
-\def\sIqVIIIabbr/{8. Consequences.}
+\def\eIobviousabbr/{Obvious}
+\def\eIrelaxedabbr/{Relaxed}
+\def\eIdilemmaabbr/{Dilemma}
 
-%\def\sIIoptobviousabbr/{1. Clear best option.}
-%\def\sIIoptbalancedabbr/{2. Option balance.}
-%\def\sIIoptnobadabbr/{3. No bad options.}
-%\def\sIIoptnogoodabbr/{4. No good options.}
-%\def\sIIoptstakesabbr/{5. Low stakes.}
+\def\eIqIshort/{1. There are no bad options at this choice.}
+\def\eIqIIshort/{2. There is a clear best option at this choice.}
+\def\eIqIIIshort/{3. The stakes for this choice are low.}
+\def\eIqIVshort/{4. There are no good options at this choice.}
+\def\eIqVshort/{5. All [options] are about equally promising.}
+\def\eIqVIshort/{6. There are options at this choice. [\ldots]}
+\def\eIqVIIshort/{7. This is a difficult choice to make.}
+\def\eIqVIIIshort/{8. This choice [has] important consequences.}
 
-\def\sIIoptobviousabbr/{Clear best}
-\def\sIIoptbalancedabbr/{Balanced}
-\def\sIIoptnobadabbr/{No bad}
-\def\sIIoptnogoodabbr/{No good}
-\def\sIIoptstakesabbr/{Low stakes}
+\def\eInobadabbr/{1. No bad options.}
+\def\eIclearbestabbr/{2. Clear best option.}
+\def\eIlowstakesabbr/{3. Low stakes.}
+\def\eInogoodabbr/{4. No good options.}
+\def\eIbalancedabbr/{5. Option balance.}
+\def\eItrickabbr/{6. [trick]. [\ldots]}
+\def\eIdifficultabbr/{7. Difficult choice.}
+\def\eIconsequencesabbr/{8. Consequences.}
 
-%\def\sIIoutfairabbr/{1. Fair}
-%\def\sIIoutunfairabbr/{5. Unfair}
-%\def\sIIoutsenseabbr/{2. Sense}
-%\def\sIIoutbrokenabbr/{8. Nonsense}
-%\def\sIIoutgoodabbr/{9. Good}
-%\def\sIIoutbadabbr/{3. Bad}
-%\def\sIIouthappyabbr/{4. Satisfying}
-%\def\sIIoutregretabbr/{11. Dissatisfying}
-%\def\sIIoutexpectedabbr/{10. Expected}
-%\def\sIIoutunexpectedabbr/{6. Unexpected}
+\def\eIIexpectedsuccessabbr/{Expected Success}
+\def\eIIexpectedfailureabbr/{Expected Failure}
+\def\eIIunexpectedsuccessabbr/{Unexp. Success}
+\def\eIIunexpectedfailureabbr/{Unexp. Failure}
+\def\eIIobvioussuccessabbr/{Obvious Success}
+\def\eIIobviousfailureabbr/{Obvious Failure}
+\def\eIIobvioussuccessmainabbr/{Obv. Success [main]}
+\def\eIIobviousfailuremainabbr/{Obv. Failure [main]}
+\def\eIIobvioussuccessaltabbr/{Obv. Success [alt]}
+\def\eIIobviousfailurealtabbr/{Obv. Failure [alt]}
 
-\def\sIIoutfairabbr/{Fair}
-\def\sIIoutunfairabbr/{Unfair}
-\def\sIIoutsenseabbr/{Sense}
-\def\sIIoutbrokenabbr/{Nonsense}
-\def\sIIoutgoodabbr/{Good}
-\def\sIIoutbadabbr/{Bad}
-\def\sIIouthappyabbr/{Satisfying}
-\def\sIIoutregretabbr/{Dissatisfying}
-\def\sIIoutexpectedabbr/{Expected}
-\def\sIIoutunexpectedabbr/{Unexpected}
+\def\eIIoptobviousabbr/{Clear best}
+\def\eIIoptbalancedabbr/{Balanced}
+\def\eIIoptnobadabbr/{No bad}
+\def\eIIoptnogoodabbr/{No good}
+\def\eIIoptstakesabbr/{Low stakes}
+
+\def\eIIoutfairabbr/{Fair}
+\def\eIIoutunfairabbr/{Unfair}
+\def\eIIoutsenseabbr/{Sense}
+\def\eIIoutbrokenabbr/{Broken}
+\def\eIIoutgoodabbr/{Good}
+\def\eIIoutbadabbr/{Bad}
+\def\eIIouthappyabbr/{Satisfying}
+\def\eIIoutregretabbr/{Dissatisfying}
+\def\eIIoutexpectedabbr/{Expected}
+\def\eIIoutunexpectedabbr/{Unexpected}
+\def\eIIouttrickabbr/{[Trick]}
 
 % Times symbol with tight kerning
 \def\sqtimes{\!\!\times\!\!}
@@ -127,7 +130,6 @@
 %\newcommand{\tenp}{\multicolumn{3}{|c|}{-}}
 %\newcommand{\tenplast}{\multicolumn{3}{|c}{-}}
 \newcommand{\tenp}{\multicolumn{3}{c}{-}}
-\newcommand{\tenplast}{\multicolumn{3}{c}{-}}
 \newcommand{\tesig}[3]{\significant{#1} & \significant{#2} & \significant{#3}}
 \newcommand{\tensig}[2]{\insignificant{#1} & \insignificant{#2} & \insignificant{$\times$}}
 \newcommand{\quotebox}[1]{%
@@ -142,6 +144,26 @@
 \end{center}%
 }%
 }
+
+\newlength{\mydefheight}
+\newsavebox{\mydefbox}
+\newcommand{\mydef}[3]{%
+\savebox{\mydefbox}{%
+  \fbox{\parbox{\dimexpr\linewidth-1em-#1}{#3}}%
+}%
+\settoheight{\mydefheight}{\usebox{\mydefbox}}%
+%\addtolength{\mydefheight}{\mydefheight}%
+\addtolength{\mydefheight}{1.5\baselineskip}%
+%\the\mydefheight
+\parbox[b][\dimexpr\mydefheight][c]{#1}{%
+#2%
+}%
+\hspace{1em}%
+\parbox[b][\dimexpr\mydefheight][c]{\dimexpr\linewidth-1em-#1}{%
+#3%
+}%
+}
+
 
 \DeclareRobustCommand\encircle[1]{% NON-HEVEA
 \tikz[baseline=(X.base)]  % NON-HEVEA
