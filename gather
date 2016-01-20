@@ -1,6 +1,13 @@
 #!/bin/sh
+# Tables
 cp ~/programming/dunyazad/experiments/single-choice-experiment/prospective-*-results-table.tex tab/
 cp ~/programming/dunyazad/experiments/outcomes-experiment/reports/retrospective-*-table.tex tab/
+# Figures
 cp ~/programming/dunyazad/experiments/outcomes-experiment/reports/legend.pdf fig/outcomes-legend.pdf
+cp ~/programming/dunyazad/experiments/outcomes-experiment/reports/detailed-legend.pdf fig/detailed-outcomes-legend.pdf
 cp ~/programming/dunyazad/experiments/outcomes-experiment/reports/cropped-outcomes-report-*.pdf fig/
 cp ~/programming/dunyazad/experiments/outcomes-experiment/reports/cropped-choices-*.pdf fig/
+cp ~/programming/dunyazad/experiments/outcomes-experiment/reports/cropped-extra-outcomes-report-by-setup-05-opt.stakes.pdf fig/
+cp ~/programming/dunyazad/experiments/outcomes-experiment/reports/cropped-detailed-report-*.pdf fig/
+cp ~/programming/dunyazad/experiments/outcomes-experiment/reports/motives-*.pdf fig/
+cp ~/programming/dunyazad/experiments/outcomes-experiment/reports/framed-*.tex fig/

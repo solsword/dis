@@ -366,7 +366,7 @@ Of the responses which remained, further filtering was performed:
 %
 \begin{itemize}
   \item Responses where the answer to question 6 wasn't ``1 - strongly disagree'' were dropped. These indicate a responder who isn't paying close attention to the survey.
-  \item Responses where the total time spent on the task was less than or equal to 90 seconds were dropped. Answering all 8 questions in just 90 seconds is probably not possible if each question is given reasonable consideration (the median response time was 240 seconds before filtering and 280 seconds after filtering).
+  \item Responses where the total time spent on the task was less than or equal to 90 seconds were dropped. Answering all 8 questions in just 90 seconds is probably not possible if each question is given reasonable consideration. The median response time was 240 seconds (4:00) before filtering and 280 seconds (4:40) after filtering, although these times are simply the time between a participant accepting and submitting a task; they don't necessarily work on the task exclusively during that time, and in general accepting several tasks before doing them is a common pattern of behavior.
   \item Responses where any question was left blank were dropped. Given the ``neutral'' response option and the content of the survey, leaving a question blank is more likely a sign of lack of attention than of hesitation to answer.
 \end{itemize}
 %
@@ -530,9 +530,9 @@ The effect sizes in \cref{tab:e1-between-results} range from 63\% to 83\%, with 
 
 Besides the single-treatment and between-treatment hypotheses, all three of the stakes hypotheses were confirmed.
 %
-For the first (low-stakes choices would elicit agreement that their stakes were low) the $p$ value was 0.0047 and the effect size was 65\%.
+For the first (low-stakes choices would elicit agreement that their stakes were low) the $p$-value was 0.0047 and the effect size was 65\%.
 %
-The second stakes hypothesis (that high-stakes choices would elicit disagreement with the same statement) had a $p$ value of 0.0011 and an effect size of 70\%.
+The second stakes hypothesis (that high-stakes choices would elicit disagreement with the same statement) had a $p$-value of 0.0011 and an effect size of 70\%.
 %
 Finally, the backup hypothesis (that agreement would be higher in the low-stakes case than the high-stakes case) was a given as the first two were confirmed; it had $p = 9.7\times10^{-11}$ and an effect size of 83\%.
 
@@ -1454,50 +1454,60 @@ The hypotheses are still an important point of reference, however, as they help 
 
 \subsection{Results}
 
-\begin{itemize}
-  \item%
-    %
-    As with the previous experiment, some submissions were rejected because they failed to answer screening questions correctly (the same two screening questions were used, one asking for age confirmation and the other an attention check within the body of the survey ).
-    %
-    There were 10 rejected responses, and these were resubmitted to Amazon so that a new participant was found, so there a total of 280 responses recorded.
-    %
-    The rejected responses were not used in the analysis.
-
-  \item%
-    Unfortunately, the system for ensuring that the same participant did not take the survey more than once was configured improperly at the beginning of data collection, and some participants submitted multiple responses (across different conditions).
-    %
-    When the issue was discovered it was corrected, and all responses from individuals who saw more than one choice were not used during data analysis (to preserve the condition that judgements were not based on cross-category comparisons).
-    %
-    A total of 65 responses from 14 individuals who submitted more than one survey were removed, reducing the total number of valid responses from 270 to 205.
-    %
-    Luckily, because workers who accepted multiple tasks generally did not do more than one from the same batch, the impact of this error was distributed fairly evenly.
-    %
-    After filtering out these responses and accounting for places where valid responses were missing a response to a single question, each individual condition still had between 32 and 36 valid responses, and each choice had between 8 and 14.
-    %
-    Thus while the statistical power of the study was reduced, the problem wasn't severe enough to call into question the validity of the results.
-
-  \item%
-    For this study, data was only filtered based on submission approval and the duplicates issue.
-    %
-    This meant that data from respondents who left some items blank was still included in the analysis.
-    %
-    Before doing the first study, I was worried that leaving a question blank might be a sign that someone was completing the survey haphazardly, and I wanted to filter out such respones.
-    %
-    After seeing the data from the first survey, including the distribution of response times, I was much less worried about this issue, and although leaving a question blank might be a sign that a participant was distracted, they might still be answering the other items honestly, especially if they answered the trick question correctly (as every single response that was accepted and wasn't a duplicate did).
-    %
-    The second study also included a mechanism that changed the color of each response to green to encourage participants to fill out every question.
-    %
-    In the end there were a total of only 13 missing responses out of the 3075 items seen by non-duplicated participants whose submissions were accepted.
-    %
-    The most-impacted single item was the statement ``[...] there are no options that seem bad [...],'' which was missing 5 of the 205 responses that it should have had.
-\end{itemize}
-
-\subsection{Discussion}
-
-\subsection{Conclusions}
+As with the previous experiment, some submissions were rejected because they failed to answer screening questions correctly (the same two screening questions were used, one asking for age confirmation and the other an attention check within the body of the survey).
+%
+There were 10 rejected responses, and these were resubmitted to Amazon so that a new participant was found, so there a total of 280 responses including rejections.
+%
+The rejected responses were not used in the analysis.
 
 
-% TODO: HERE
+Unfortunately, the system for ensuring that the same participant did not take the survey more than once was configured improperly at the beginning of data collection, and some participants submitted multiple responses (across different conditions).
+%
+When the issue was discovered it was corrected, and all responses from individuals who saw more than one choice were not used during data analysis (to preserve the condition that judgements were not based on cross-category comparisons).
+%
+A total of 65 responses from 14 individuals who submitted more than one survey were removed, reducing the total number of valid responses from 270 to 205.
+%
+Luckily, because workers who accepted multiple tasks generally did not do more than one from the same batch, the impact of this error was distributed fairly evenly.
+%
+After filtering out these responses and accounting for places where valid responses were missing an individual item, each condition still had between 32 and 36 valid responses, and each choice had between 8 and 14.
+%
+Thus while the statistical power of the study was reduced, the problem wasn't severe enough to call into question the validity of the results.
+
+
+Unlike the first study, data was only filtered based on submission approval and this multiple-submission issue.
+%
+This meant that data from respondents who left some items blank was still included in the analysis.
+%
+Before doing the first study, I was worried that leaving a question blank might be a sign that someone was completing the survey haphazardly, and I wanted to filter out such responses.
+%
+After seeing the data from the first survey, including the distribution of response times, I was much less worried about this issue, and although leaving a question blank might be a sign that a participant was distracted, they might still be answering the other items honestly, especially if they answered the trick question correctly (as every single response that was accepted and wasn't a duplicate did).
+%
+The second study also included a mechanism that changed the color of each response to green to encourage participants to fill out every question.
+%
+In the end there were a total of only 13 missing responses out of the 3075 hypothesis-related Likert items seen by non-multiple-participants whose submissions were accepted.
+%
+The most-impacted single item was the statement ``[...] there are no options that seem bad [...],'' which was missing 5 of the 205 responses that it should have had.
+
+
+\subsubsection{Response Times}
+
+The median response time was 672 seconds (11:12) before filtering and 592 seconds (9:52) after filtering, which is in line with this survey being a little more than twice as long as the first survey.
+%
+The minimum accepted response time was 155 seconds (2:35) which did not seem short enough to filter out categorically, especially as a quick look at the answers given did not suggest random responses.
+%
+There were a total of eight accepted responses that were completed in less than 240 seconds (4:00).
+%
+The fact that the median decreased significantly after filtering likely has to do with the filtering of multiple responses from individual participants.
+%
+Normally if a worker on Mechanical Turk wants to do more than one task from a single category, they will accept a batch of tasks and then proceed to work through them, to ensure that other workers don't use up the remaining tasks while they work on one.
+%
+This means that their response times will be linearly increasing, because the response time is just the time between accepting and submitting a task.
+%
+This also means that multiple-submitters will account for more than their fair share of long-response-time submissions, and so filtering them out will tend to reduce the median response time.
+%
+Even workers who only submit a single task are likely doing other tasks on Mechanical Turk and may engage in the same accept-to-reserve behavior, which is why I did not consider filtering out responses that took ``too long.''
+%
+Without clever instrumentation of the survey page, the data only provides an upper bound on the time that it actually takes a worker to complete a task.
 
 \begin{figure}[!p]
   \centering
@@ -1542,7 +1552,39 @@ The hypotheses are still an important point of reference, however, as they help 
   \label{fig:e2-outcome-report-surprise}
 \end{figure}
 
-\begin{table}[!p]
+\subsubsection{Summary}
+
+A summary of the results appears in \cref{fig:e2-option-report,fig:e2-outcome-report-fair-sense,fig:e2-outcome-report-valence-satisfaction,fig:e2-outcome-report-surprise}, which have the same format as \cref{fig:e1-report}.
+%
+\Cref{fig:e2-option-report} includes all of the option-related questions, and can be compared directly to results in \cref{fig:e1-report}, especially for the last four conditions, which correspond in pairs to the ``obvious'' and ``dilemma'' conditions of the first experiment, respectively.
+%
+In \cref{fig:e2-outcome-report-fair-sense,fig:e2-outcome-report-valence-satisfaction,fig:e2-outcome-report-surprise}, the questions are ordered such that complimentary question pairs are adjacent, and comparing the data visually there seems to be a good deal of symmetry between these pairs, as expected.
+%
+Overall, the data indicate that \dunyazad/ is better at creating positive expectations and results than negative ones: compare the incredibly one-sided results for the \prq{expected\_success}{} condition to the much more mixed results for \prq{expected\_failure}{,} for example.
+
+
+As mentioned above, each of the rows in these figures represents between 32 and 36 responses, depending on the condition.
+%
+The sub-cases (e.g., \prq{obvious\_failure[main]}{} vs. \prq{obvious\_failure[alt]}{}) are not separated here, although they are analyzed separately for some of the hypotheses.
+%
+For the \prq{obvious\_success}{} condition, 25 of the 33 responses fell into the [main] sub-case, while the remaining 8 participants chose an option other than the one that \dunyazad/ expected would be most promising.
+%
+For the \prq{obvious\_failure}{} condition, the [main] sub-case contained 20 of the 35 responses, while the [alt] sub-case contained the remaining 15.
+%
+Note that each condition can be broken down into three individual choices, and there is a general expectation that these three choices will elicit generally similar responses, as they are constructed using the same set of constraints (although they are required to use three different setups).
+%
+Slight variation between choices within a condition should not disrupt the overall results, of course, but if there is significant divergence, it may be a sign that \dunyazad/'s internal reasoning about a choice doesn't agree with how participants experience that choice.
+
+
+\subsubsection{Option Results}
+
+\Cref{tab:e2-option-results} shows the results for the option-related hypotheses, with significant results listed in bold.
+%
+Note that in line with the results of the first study, none of the low-confidence hypotheses were supported by the data.
+%
+These hypotheses (marked with `\lc/') involved predictions which don't hold up if participants judge options relative to each other instead of in absolute terms, and the prospective study indicated strongly that this was the case for many participants.
+
+\begin{table}[!t]
 \centering
 \bgroup
 \def\arraystretch{1.3}
@@ -1553,6 +1595,216 @@ The hypotheses are still an important point of reference, however, as they help 
   \label{tab:e2-option-results}
 \end{table}
 
+
+
+One immediate pattern in these results is the lack of support for the ``low stakes'' hypotheses.
+%
+In our initial study, the hypothesis that choices which \dunyazad/ labelled as high-stakes would appear that way to participants was clearly confirmed by the data, with a $p$-value of 0.0011 and an effect size of 70\% (a strong effect).
+%
+In this study, every single choice was required to be high-stakes, but only in a single case (the \prq{unexpected\_success}{} condition) was the relevant hypothesis confirmed.
+%
+One reason why this might be the case is that in this study, \dunyazad/ was not allowed to control either the setup or the stakes of the choices, whereas in the initial study \dunyazad/ was free to control both.
+%
+The high-stakes choices in this study therefore necessarily included choices with \prq{market}{} setups, where it is impossible for \dunyazad/ to construct a scenario that directly threatens the player's character.
+%
+A breakdown of responses to the stakes question across all conditions by setup (\cref{fig:e2-stakes-by-setup}) seems to confirm that the \prq{market}{} setup is a problem: it elicits an even split between agree and disagree responses while the other two setups lean towards disagreeing.
+
+To test this theory, I did a followup analysis with three hypotheses--each individual setup as a condition was hypothesized to elicit disagreement with the low stakes statement.
+%
+The results of this analysis confirmed my suspicions.
+%
+The test for the \prq{market}{} hypothesis does not reject the null hypothesis ($p = 0.502$), while the tests for the \prq{threatened\_innocents}{} and \prq{monster\_attack}{} hypotheses are confirmed ($p = 0.041$; effect size 60\% and $p = 0.0093$; effect size 64\% respectively).
+%
+Essentially, when \dunyazad/ creates choices without constraints regarding their stakes, the high-stakes choices that it does create are in fact perceived to be high-stakes by players.
+%
+However, when \dunyazad/ is specifically asked to create high-stakes choices using certain fixed setups, such as the \prq{market}{} setup, it doesn't manage to create choices that are convincingly high-stakes.
+%
+Whether this means that the perception of stakes has more to do with the setup text than the actual content of the options and/or outcomes is an open question that could be tested.
+
+\begin{figure}[!t]
+  \centering
+  \includegraphics[width=\textwidth]{{fig/cropped-extra-outcomes-report-by-setup-05-opt.stakes}.pdf}
+\hspace*{1.5pt}\includegraphics[width=\textwidth]{fig/outcomes-legend.pdf}
+  \caption[Retrospective stakes results by setup]{Stakes results across all conditions grouped by the setup used.}
+  \label{fig:e2-stakes-by-setup}
+\end{figure}
+
+
+Besides the unconfirmed stakes hypotheses, there were two other places where high-confidence option-related hypothesis were not confirmed by the data.
+%
+The first is in the \prq{expected\_failure}{} case for the ``no bad'' statement.
+%
+Although the \prq{unexpected\_success}{} condition, which in theory generates identically-suggestive options, was confirmed to disagree with this statement, the data did not support this hypothesis for the \prq{expected\_failure}{} condition.
+%
+Of course, this condition is one susceptible to being undermined by relative value judgements: if all of the options seem bad, one might reason that it doesn't matter which is chosen, and therefore none of them are ``bad'' in the sense that choosing them would be a mistake.
+%
+It is telling that the obvious cases confirmed corresponding hypotheses: when a single positive option was present alongside negative options, participants strongly rejected the notion that there were ``no bad options'' present.
+
+\begin{figure}[!b]
+  \centering
+  {\sffamily Expected Failure}
+  \includegraphics[width=\textwidth]{{fig/cropped-detailed-report-expected_failure-02-opt.nobad}.pdf}
+  {\sffamily Unexpected Success}
+  \includegraphics[width=\textwidth]{{fig/cropped-detailed-report-unexpected_success-02-opt.nobad}.pdf}
+  \includegraphics[width=\textwidth]{fig/detailed-outcomes-legend.pdf}
+  \caption[Retrospective dilemma ``no bad options'' results]{Results for the ``no bad options'' statement in the \prq{expected\_failure}{} (top) and \prq{unexpected\_success}{} (bottom) conditions, grouped by choice. Each choice is identified by the numeric seed that was used to create it.}
+  \label{fig:e2-extra-nobad}
+\end{figure}
+
+
+But what about the difference between the \prq{expected\_failure}{} and \prq{unexpected\_success}{} cases?
+%
+\Cref{fig:e2-extra-nobad} shows the results for each individual choice in both cases, and there isn't a clear culprit.
+%
+The choice with seed 58403 is the single choice among the six in that figure that elicited the most agreement with the statement, but it still tilts towards disagreement.
+%
+Given that both conditions include a substantial minority of ``agree'' and even ``strongly agree'' responses, there doesn't seem to be a clear underlying reason for the division in the results.
+%
+What is clear is that giving \dunyazad/ the ability to make relative rather than purely absolute value judgements should be a high priority.
+
+\begin{figure}[!b]
+  \centering
+  {\sffamily Expected Failure}
+  \includegraphics[width=\textwidth]{{fig/cropped-detailed-report-expected_failure-03-opt.nogood}.pdf}
+  {\sffamily Unexpected Success}
+  \includegraphics[width=\textwidth]{{fig/cropped-detailed-report-unexpected_success-03-opt.nogood}.pdf}
+  \includegraphics[width=\textwidth]{fig/detailed-outcomes-legend.pdf}
+  \caption[Retrospective dilemma ``no good options'' results]{Results for the ``no good options'' statement in the \prq{expected\_failure}{} (top) and \prq{unexpected\_success}{} (bottom) conditions, grouped by choice.}
+  \label{fig:e2-extra-nogood}
+\end{figure}
+
+
+The final point of interest among the option-related results was the data's failure to support the hypotheses that the \prq{expected\_failure}{} and \prq{unexpected\_success}{} cases would be viewed as having ``no good options.''
+%
+Again, the dilemma case in the first experiment produced reactions that supported an equivalent hypothesis, so this result is somewhat surprising.
+%
+Here however the reasons for this discrepancy are clear.
+
+
+\Cref{fig:e2-extra-nogood} shows the responses for these cases, and it is clear that the choices with seeds 87991, 8015, 47794, and 33152 are not yielding the expected results: participants are indicating that there is at least one good option at these choices.
+%
+\Cref{fig:e2-seed-87991} shows the choice with seed 87991, and the problem is immediately apparent: \dunyazad/ has used a \prq{travel\_onwards}{} action as a ``clearly bad result.''
+%
+This is a result of an overcorrection from the problems with \prq{travel\_onwards}{} that were discovered during the first study.
+%
+In that study, \prq{travel\_onwards}{} was a cure-all option which could get rid of any problem due to the way that it handled switching scenes.
+%
+For this second study, that bug was fixed, and instead, \prq{travel\_onwards}{} is marked as failing any goals relating to unresolved situations that it leaves behind. 
+%
+In this case, \dunyazad/ thinks that the  player will have an \prq{avoid\_accusations}{} goal with respect to the accused merchant, and simply leaving the merchant behind clearly fails this goal.
+
+\begin{figure}[t]
+\fseed{87991}
+\caption[``Expected failure choice 87991]{The choice with seed 87991 minus the framing (which is mostly the same between choices). Boxed numbers before each outcome indicate the number of participants that chose that outcome. Note the popularity of the third option.}
+\label{fig:e2-seed-87991}
+\end{figure}
+
+
+Of course, the underlying problem here is goal prioritization.
+%
+If given an good option to save the merchant, many players are eager to do so, but when such options are risky, they prefer to preserve their own safety.
+%
+With \dunyazad/'s two-level goal priority system, which was unchanged from the first experiment, it's not possible to represent this complexity.
+%
+Under the current system then, instead of \prq{travel\_onwards}{} being seen as an option with too few consequences, it is seen as an option with too many consequences.
+%
+The choice with seed 8015 also includes a \prq{travel\_onwards}{} option in a similar situation, and the inclusion of these options was likely the reason that players felt that the \prq{expected\_failure}{} cases actually \emph{did} have some good options.
+
+
+\begin{figure}[h]
+\fseed{47794}
+\caption[``Unexpected success choice 47794]{The choice with seed 47794 minus its framing. Boxed numbers indicate the number of participants that selected each outcome.}
+\label{fig:e2-seed-47794}
+\end{figure}
+
+
+Recall that the \prq{unexpected\_success}{} case exhibited the same problem, however.
+%
+The reason for this was different, however, because neither the choice with seed 47794 nor the choice with seed 33152 had \prq{travel\_onwards}{} options.
+%
+Instead, the reason that these choices were rated as having at least one good option is probably their outcomes.
+%
+Because participants saw an outcome before answering any questions, the responses to the option questions could have been affected by the outcomes seen.
+%
+\Cref{fig:e2-seed-47794} shows the choice with seed 47794, and looking at it reveals a likely explanation for the ``no good options'' response.
+
+
+As shown in that figure, six of ten participants who saw that choice chose the first option, and were ``unexpectedly'' successful.
+%
+But remember that \dunyazad/'s notion of what is expected is written in terms of system-wide rules: ``normally'' someone missing the negotiation skill should \emph{always} fail to talk someone else down, so if such an action succeeds the result is unexpected.
+%
+This kind of expectation is something that players would learn if they interacted with the system over a period of time, but participants in this study only saw a single choice.
+%
+Faced with a positive outcome, it would be natural to conclude that perhaps the negotiation skill isn't important after all, and therefore that the option that was chosen was a good one.
+%
+This line of reasoning would not be available to players before seeing an outcome, but as stated before, the risk of such influences was intentionally accepted as the price of a more natural decision-making experience.
+
+
+Because the choice with seed 33152 included a very similar \prq{talk\_down}{} option which was also quite popular, this outcome-dependent effect can explain the failed hypothesis in the \prq{unexpected\_success}{} condition.
+%
+Unfortunately, the impact of this effect and the \prq{travel\_onwards}{} issue affecting the choices with seeds 87991 and 8015 is not negligible.
+%
+When it comes to evaluating the outcome-related hypotheses, these choices didn't convey the intended prospecitve poetics, and this could impact their retrospective poetics as well.
+%
+Additionally, two other choices--the \prq{obvious\_success}{} choices with seeds 47371 and 20739--also included \prq{travel\_onwards}{} options.
+%
+These are shown in \cref{fig:e2-seeds-47371-20739}.
+%
+Luckily, the choice with seed 47371 happens to give participants an option to pursue the goal of saving the merchant that's more attractive than the \prq{travel\_onwards}{} option, so the same problem doesn't occur.
+%
+In fact, this is a good example of correct use of \prq{travel\_onwards}{} as an option that seems bad, which is reinforced by the fact that zero participants chose it.
+%
+However, based on the option popularities in choice 20739, that choice has the same problems as choices 47794 and 33152: the ``correct'' option involves some perceived risk or cost (in this case giving away an item to resolve the situation) and so simply ignoring the merchant's plight is seen as acceptable.
+
+
+\begin{figure}[p]
+\fseed{47371} \\
+\fseed{20739}
+\caption[``Obvious success choices 47371 and 20739]{The \prq{obvious\_success}{} choices 47371 and 20739 minus framing. Boxed numbers indicate the number of participants who saw each outcome.}
+\label{fig:e2-seeds-47371-20739}
+\end{figure}
+
+
+Note that these options are in the \prq{obvious\_succeess}{} condition, and as such participants who saw them are divided into the \prq{[main]}{} and \prq{[alt]}{} sub-cases according to which option they chose.
+%
+For choice 47794, all 11 participants who chose option 2 are in the \prq{[main]}{} sub-case, while the other two participants are in the \prq{[alt]}{} sub-case.
+%
+For choice 20739, there are only two participants that the system thinks chose the ``correct'' option, and the majority of participants are put into the \prq{[alt]}{} sub-case.
+%
+This means that the meaning of the sub-cases is somewhat changed from its intent.
+%
+The \prq{[alt]}{} cases are supposed to consist of participants who intentionally chose a non-positive option despite the presence of a positive one, and as such they are assumed to be quite small, to the point that not many hypotheses were proposed which included \prq{[alt]}{} cases.
+%
+Because of \dunyazad/'s failure to predict the complexities of player goals, the \prq{[alt]}{} case consists largely of participants who thought they were choosing the best option available, but who disagreed with \dunyazad/'s evaluation of what that was.
+%
+Of course, although these effects diminish the number of participants in the \prq{[main]}{} cases, at least their meaning is not diluted very much: only a few participants from poorly-formed choices like 20739 wound up choosing the options that \dunyazad/ considered best, and so only a few participants in the \prq{[main]}{} cases weren't choosing what they thought was an obviously superior option.
+
+\begin{figure}[b]
+\fseed{99500}
+\caption[``Unexpected success choice 99500]{The choice with seed 99500 minus framing. Boxed numbers indicate the number of participants that selected each outcome.}
+\end{figure}
+
+Before moving on to the outcome results, there is one more choice that stands out as a little bit odd:
+
+% TODO: 99500
+
+
+\subsubsection{Outcome Results}
+
+By 
+
+% TODO: Mention these three!!
+%\fseed{95923} // "risky" vs. costly
+%\fseed{46585} // unprovoked transformation seems bad
+%\fseed{40550} // costly!
+
+\subsection{Discussion}
+
+\subsection{Conclusions}
+
+
+% TODO: HERE
+
 \begin{table}[p]
 \centering
 \bgroup
@@ -1561,7 +1813,7 @@ The hypotheses are still an important point of reference, however, as they help 
 \input{tab/retrospective-positive-outcomes-results-table.tex}
 \egroup
 \caption[Retrospective positive outcome results]{TODO: HERE}
-  \label{tab:e2-option-results}
+  \label{tab:e2-positive-outcome-results}
 \end{table}
 
 \begin{table}[!p]
@@ -1572,7 +1824,7 @@ The hypotheses are still an important point of reference, however, as they help 
 \input{tab/retrospective-negative-outcomes-results-table.tex}
 \egroup
 \caption[Retrospective negative outcome results]{TODO: HERE}
-  \label{tab:e2-option-results}
+  \label{tab:e2-negative-outcome-results}
 \end{table}
 
 \begin{table}[!p]
@@ -1583,7 +1835,7 @@ The hypotheses are still an important point of reference, however, as they help 
 \input{tab/retrospective-free-vs-forced-failure-results-table.tex}
 \egroup
 \caption[Retrospective free vs. forced failure results]{TODO: HERE}
-  \label{tab:e2-option-results}
+  \label{tab:e2-free-vs-forced-failure-results}
 \end{table}
 
 \begin{table}[!p]
@@ -1594,7 +1846,7 @@ The hypotheses are still an important point of reference, however, as they help 
 \input{tab/retrospective-chosen-vs-inevitable-success-results-table.tex}
 \egroup
 \caption[Retrospective chosen vs. inevitable success results]{TODO: HERE}
-  \label{tab:e2-option-results}
+  \label{tab:e2-chosen-vs-inevitable-success-results}
 \end{table}
 
 \begin{table}[!p]
@@ -1605,7 +1857,7 @@ The hypotheses are still an important point of reference, however, as they help 
 \input{tab/retrospective-good-vs-bad-unexpected-results-table.tex}
 \egroup
 \caption[Retrospective good vs. bad unexpected results]{TODO: HERE}
-  \label{tab:e2-option-results}
+  \label{tab:e2-good-vs-bad-unexpected-results}
 \end{table}
 
 \begin{table}[!p]
@@ -1616,7 +1868,7 @@ The hypotheses are still an important point of reference, however, as they help 
 \input{tab/retrospective-expected-vs-unexpected-failure-results-table.tex}
 \egroup
 \caption[Retrospective expected vs. unexpected failure results]{TODO: HERE}
-  \label{tab:e2-option-results}
+  \label{tab:e2-expected-vs-unexpected-failure-results}
 \end{table}
 
 \begin{table}[!p]
@@ -1627,5 +1879,20 @@ The hypotheses are still an important point of reference, however, as they help 
 \input{tab/retrospective-expected-vs-unexpected-success-results-table.tex}
 \egroup
 \caption[Retrospective expected vs. unexpected success results]{TODO: HERE}
-  \label{tab:e2-option-results}
+  \label{tab:e2-expected-vs-unexpected-success-results}
 \end{table}
+
+
+\begin{figure}[!p]
+  % TODO: Consistent colors between graphs in this table!
+  \begin{tabular}{>{\hspace*{-4pt}}c@{} c@{}}
+\sffamily Motives for Deciding & \sffamily Consistency of Motives \\[0.5em]
+\includegraphics[width=0.495\textwidth]{{fig/motives-motives}.pdf}&%
+\includegraphics[width=0.495\textwidth]{{fig/motives-consistency}.pdf} \\[1em]
+\sffamily Reasons for Positive Evaluations & \sffamily Reasons for Negative Evaluations \\[0.5em]
+\includegraphics[width=0.495\textwidth]{{fig/motives-judge.good}.pdf} &
+\includegraphics[width=0.495\textwidth]{{fig/motives-judge.bad}.pdf} \\
+  \end{tabular}
+  \caption[Retrospective study motive results]{Histograms of responses to the four motive questions.}
+  \label{fig:e2-motive-results}
+\end{figure}
