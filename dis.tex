@@ -13,6 +13,7 @@
 \usepackage{pifont}
 \usepackage{microtype}
 \usepackage{bm}
+\usepackage[english]{babel}
 
 % Figures, Tables, Enumerations, and Itemizes
 \usepackage{graphicx}
@@ -33,6 +34,7 @@
 
 % Misc
 \usepackage[hyphens]{url}
+\usepackage{blindtext} % TODO: Get rid of this...
 
 % Bibliography
 \usepackage{natbib}
@@ -105,11 +107,29 @@
 \def\eIIoutbrokenabbr/{Broken}
 \def\eIIoutgoodabbr/{Good}
 \def\eIIoutbadabbr/{Bad}
-\def\eIIouthappyabbr/{Satisfying}
-\def\eIIoutregretabbr/{Dissatisfying}
+\def\eIIouthappyabbr/{Satisfied}
+\def\eIIoutregretabbr/{Dissatisfied}
 \def\eIIoutexpectedabbr/{Expected}
 \def\eIIoutunexpectedabbr/{Unexpected}
 \def\eIIouttrickabbr/{[Trick]}
+
+\newcommand{\obv}[1]{\prq{obvious}{#1}}
+\newcommand{\rlx}[1]{\prq{relaxed}{#1}}
+\newcommand{\dlm}[1]{\prq{dilemma}{#1}}
+
+\newcommand{\exps}[1]{\prq{expected\_success}{#1}}
+\newcommand{\expf}[1]{\prq{expected\_failure}{#1}}
+\newcommand{\unxs}[1]{\prq{unexpected\_success}{#1}}
+\newcommand{\unxf}[1]{\prq{unexpected\_failure}{#1}}
+\newcommand{\obvs}[1]{\prq{obvious\_success}{#1}}
+\newcommand{\obvf}[1]{\prq{obvious\_failure}{#1}}
+\newcommand{\obvsm}[1]{\prq{obvious\_success[main]}{#1}}
+\newcommand{\obvsa}[1]{\prq{obvious\_success[alt]}{#1}}
+\newcommand{\obvfm}[1]{\prq{obvious\_failure[main]}{#1}}
+\newcommand{\obvfa}[1]{\prq{obvious\_failure[alt]}{#1}}
+
+\newcommand{\casem}[1]{\prq{[main]}{#1}}
+\newcommand{\casea}[1]{\prq{[alt]}{#1}}
 
 % Times symbol with tight kerning
 \def\sqtimes{\!\!\times\!\!}

@@ -11,3 +11,6 @@ cp ~/programming/dunyazad/experiments/outcomes-experiment/reports/cropped-extra-
 cp ~/programming/dunyazad/experiments/outcomes-experiment/reports/cropped-detailed-report-*.pdf fig/
 cp ~/programming/dunyazad/experiments/outcomes-experiment/reports/motives-*.pdf fig/
 cp ~/programming/dunyazad/experiments/outcomes-experiment/reports/framed-*.tex fig/
+# TODO: Better?
+cp fig/outcomes-legend.pdf fig/outcomes-legend-custom.pdf
+cp fig/detailed-outcomes-legend.pdf fig/detailed-outcomes-legend-custom.pdf
