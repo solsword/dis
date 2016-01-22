@@ -150,7 +150,7 @@ Besides these things, which can change from one state to the next as a result of
 \centering
 %\includegraphics[width=\textwidth]{fig/dunyazad-states.pdf}
 TODO: HERE
-\caption[\dunyazad/'s State Predicates]{Predicates used to describe states in \dunyazad/.}
+\caption[\dunyazad/'s state predicates]{Predicates used to describe states in \dunyazad/.}
 \label{fig:dunyazad-states}
 \end{figure}
 
@@ -204,7 +204,7 @@ surface\_property(name,inst(item,treasure\_5),"perfume").
 }
 }
 }
-\caption[\dunyazad/ State Example]{An example scene description using \dunyazad/'s internal representation, showing the most-relevant predicates. In real output, each of these predicates except the \prq{surface\_property}{} would be tied to a specific timepoint, and there would be many more \prq{surface\_property}{} predicates describing things like the name of each instance and whether it is plural or singular. Note that each instance is assigned a unique identifier that ends with a number.}
+\caption[\dunyazad/ state example]{An example scene description using \dunyazad/'s internal representation, showing the most-relevant predicates. In real output, each of these predicates except the \prq{surface\_property}{} would be tied to a specific timepoint, and there would be many more \prq{surface\_property}{} predicates describing things like the name of each instance and whether it is plural or singular. Note that each instance is assigned a unique identifier that ends with a number.}
 \label{fig:dunyazad-state-example}
 \end{figure}
 
@@ -277,7 +277,7 @@ Representation:\svind \\
 }
 }
 }
-\caption[\dunyazad/ Action Example]{An example of action representation in \dunyazad/. Note that even outcomes which do not occur (\prq{o(enraged, enraged)}{} in this case) have their potential consequences noted via \prq{consequence\_of}{} predicates, but only outcomes that do occur (as specified by the \prq{at(<timepoint>, outcome(option(<opt>), o(<outvar>, <outval>)))}{} predicates) have actual consequences. }
+\caption[\dunyazad/ action example]{An example of action representation in \dunyazad/. Note that even outcomes which do not occur (\prq{o(enraged, enraged)}{} in this case) have their potential consequences noted via \prq{consequence\_of}{} predicates, but only outcomes that do occur (as specified by the \prq{at(<timepoint>, outcome(option(<opt>), o(<outvar>, <outval>)))}{} predicates) have actual consequences. }
 \label{fig:dunyazad-action-example}
 \end{figure}
 
@@ -313,7 +313,7 @@ This way of representing actions thus helps the system reason about how the play
   \pr{dispel}       & \pr{pay\_off}           & \pr{steal}
 \end{tabular}
 \endgroup
-\caption[List of Actions in \dunyazad/]{The 23 actions currently defined in \dunyazad/. The \prq{arrive}{} and \prq{pursue}{} actions aren't currently used because the system has no setups that motivate them.}
+\caption[List of actions in \dunyazad/]{The 23 actions currently defined in \dunyazad/. The \prq{arrive}{} and \prq{pursue}{} actions aren't currently used because the system has no setups that motivate them.}
 \label{tab:dunyazad-action-list}
 \end{table}
 
@@ -470,7 +470,7 @@ If constituent constraints are removed, the results are often nonsensical; if ae
   \cg{[content]} These files define the actions, goals, potentials, and setups that \dunyazad/ can use, along with its ontology of actors and items.
 \end{hangparas}%
 \end{minipage}%
-\caption[\dunyazad/ Constraints Inventory]{An inventory of \dunyazad/'s constraints organized by file and by constraint type.}
+\caption[\dunyazad/ constraints inventory]{An inventory of \dunyazad/'s constraints organized by file and by constraint type.}
 \label{tab:dunyazad-constraints-inventory}
 \end{table}
 
@@ -587,11 +587,19 @@ Each of the seven steps of choice analysis described in \cref{sec:goal-based-cho
     %
     The predicates created by \file{goals.lp} are \prq{at(<timepoint>, player\_goal(<goal>))}{} predicates which specify the goals of the player for each timepoint, and \prq{at(<timepoint>, goal\_stakes(<goal>, <priority>))}{} predicates which assign priorities to each goal.
 
+
     Although this static goal analysis works reasonably well, an interesting opportunity for future work presents itself here.
     %
     Not only could \dunyazad/ benefit from dynamic goal analysis, as a system that produces choice-based narratives, it could incorporate explicit choices-of-goals as part of the stories it generates, and use the results of these choices as direct statements of player intent rather than relying on authorial guesswork.
     %
     This would require a major overhaul of the goals system, however, and goals might have to be represented as mutable states of the world, which would place an additional burden on the solver.
+
+    \label{sec:dunyazad-modes-of-engagement}
+    One thing that should be mentioned here is that \dunyazad/'s goal assumptions are targeted at players whose mode of engagement is a mix of avatar and power play.
+    %
+    There are no goals related to character believability of the protagonist, nor are there goals related to things like curiosity.
+    %
+    These could in principle be declared just like the current goals, but \dunyazad/ focuses on avatar and power play because these are the modes that its genre traditionally encourages.
 
   \item %
     \textbf{Likelihood Analysis} \\
@@ -1254,7 +1262,7 @@ The merchant is selling an oboe and he is selling his ancient grimoire.
 \vspace*{-1em}
 \end{enumerate}
 }
-\caption[Example Output]{An example of \dunyazad/'s text output. In an interactive output format{\footnotemark} the outcome text would be hidden until an option was chosen. Note the awkward pronominalization in the option text.
+\caption[Example output]{An example of \dunyazad/'s text output. In an interactive output format{\footnotemark} the outcome text would be hidden until an option was chosen. Note the awkward pronominalization in the option text.
 }
 \label{fig:dunyazad-text-example}
 \end{figure}

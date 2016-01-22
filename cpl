@@ -1,4 +1,5 @@
 #!/bin/bash
+#(/usr/bin/xelatex -file-line-error $* 2>&1) \
 GREP="grep --color=always --line-buffered"
 (/usr/bin/pdflatex -file-line-error $* 2>&1) \
  | $GREP -vP "^\s*((\[|\]|\(|\))\s*)+$" \

@@ -11,9 +11,11 @@
 \usepackage{tgschola}
 \usepackage{tgheros}
 \usepackage{pifont}
+\usepackage{amsfonts}
 \usepackage{microtype}
 \usepackage{bm}
 \usepackage[english]{babel}
+\usepackage[nohyphen]{underscore}
 
 % Figures, Tables, Enumerations, and Itemizes
 \usepackage{graphicx}
@@ -113,9 +115,17 @@
 \def\eIIoutunexpectedabbr/{Unexpected}
 \def\eIIouttrickabbr/{[Trick]}
 
+\def\eIImotivesshort/{[Which] motive(s) contributed to your decision? [...]}
+\def\eIIjudgegoodshort/{[How do you define a ``good'' outcome]?}
+\def\eIIjudgebadshort/{[How you define a ``bad'' outcome]?}
+\def\eIIconsistencyshort/{Do [you] approach [all experiences] [the same way]?}
+\def\eIIothershort/{If you have any other feedback you'd like to give, [enter it here].}
+
 \newcommand{\obv}[1]{\prq{obvious}{#1}}
 \newcommand{\rlx}[1]{\prq{relaxed}{#1}}
 \newcommand{\dlm}[1]{\prq{dilemma}{#1}}
+
+\newcommand{\abr}{\discretionary{}{}{}}
 
 \newcommand{\exps}[1]{\prq{expected\_success}{#1}}
 \newcommand{\expf}[1]{\prq{expected\_failure}{#1}}
@@ -123,10 +133,10 @@
 \newcommand{\unxf}[1]{\prq{unexpected\_failure}{#1}}
 \newcommand{\obvs}[1]{\prq{obvious\_success}{#1}}
 \newcommand{\obvf}[1]{\prq{obvious\_failure}{#1}}
-\newcommand{\obvsm}[1]{\prq{obvious\_success[main]}{#1}}
-\newcommand{\obvsa}[1]{\prq{obvious\_success[alt]}{#1}}
-\newcommand{\obvfm}[1]{\prq{obvious\_failure[main]}{#1}}
-\newcommand{\obvfa}[1]{\prq{obvious\_failure[alt]}{#1}}
+\newcommand{\obvsm}[1]{\prq{obvious\_success\abr[main]}{#1}}
+\newcommand{\obvsa}[1]{\prq{obvious\_success\abr[alt]}{#1}}
+\newcommand{\obvfm}[1]{\prq{obvious\_failure\abr[main]}{#1}}
+\newcommand{\obvfa}[1]{\prq{obvious\_failure\abr[alt]}{#1}}
 
 \newcommand{\casem}[1]{\prq{[main]}{#1}}
 \newcommand{\casea}[1]{\prq{[alt]}{#1}}
