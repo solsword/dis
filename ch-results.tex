@@ -116,7 +116,7 @@ Instead, I generated three different choices per treatment, and showed each choi
 
 \begin{figure}[!h]
 \quotebox{
-  \slshape
+  \quoteshape
 You come to a tavern and decide to rest for a while. 
 %
 A merchant is bored and a noble is bored and an innkeeper seems knowledgeable. 
@@ -152,7 +152,7 @@ The framing for each choice differed only in the skills presented and the fictio
 
 \begin{figure}[!h]
 \quotebox{
-  \slshape
+  \quoteshape
 You are about to set out on an epic journey. You are are heading towards towards the distant country of Jyv\"asky, hoping to earn fame and fortune.
 %
 You have some perfume and a book of legends, and you have skill: literacy, you have skill: musician, and you have skill: healing. 
@@ -178,14 +178,14 @@ Each survey was divided into three sections.
 %
 The first section ``Preliminaries'' began with a prompt that read:
 \begin{quote}
-  \slshape
+  \quoteshape
 To provide useful data for this survey, you must be at least 18 years old and able to read English. To confirm this (and to confirm that you aren't a bot), please answer the following question.
 \end{quote}
 %
 This section just contained the following question designed to ensure that subjects were at least 18 years old and had basic English proficiency:
 %
 \begin{quote}
-  \slshape
+  \quoteshape
 If you're at least 18 years old, please don't write ``Age of years eighteen least at am I that confirm I,'' as the answer here, instead write that sentence backwards, ended with an exclamation point. If not, please do a different HIT, as I cannot use your data in my results, and thus I will not accept your response.
 \end{quote}
 
@@ -193,14 +193,14 @@ If you're at least 18 years old, please don't write ``Age of years eighteen leas
 The second section of the survey was titled ``The Choice'' and began with a prompt:
 %
 \begin{quote}
-  \slshape
+  \quoteshape
 Please read the following short story which presents you with a choice, then answer the questions about that choice below.
 \end{quote}
 %
 In this section, each survey displayed one of the nine generated choices, followed by a single multiple-choice question:
 %
 \begin{quote}
-  \slshape
+  \quoteshape
 If you were reading this story, which option would you pick?
 \end{quote}
 %
@@ -210,14 +210,14 @@ This question had three options: ``Option 1,'' ``Option 2,'' and ``Option 3.''
 The final section of the survey was titled ``Opinion Questions'' and began with a prompt:
 %
 \begin{quote}
-  \slshape
+  \quoteshape
 Please rate your agreement with the following statements, from 1 (strongly disagree) to 5 (strongly agree).
 \end{quote}
 %
 This section contained the following 8 Likert items in this fixed order\footnote{These were individual Likert items which did not compose a Likert scale, as the goal of the survey was to directly measure opinions, and there were no underlying psychological variables presumed to be giving rise to behavior.} (the quotes were part of the survey):
 %
 \begin{enumerate}
-    \slshape
+    \quoteshape
     \setstretch{1.2}
   \item ``There are no bad options at this choice.''
   \item ``There is a clear best option at this choice.''
@@ -232,7 +232,7 @@ This section contained the following 8 Likert items in this fixed order\footnote
 Each question in this section was followed by the same five numbered options presented vertically:
 %
 \begin{enumerate}
-    \slshape
+    \quoteshape
     \setstretch{1.2}
   \item strongly disagree
   \item somewhat disagree
@@ -276,9 +276,10 @@ In both cases, a confirmation of a hypothesis was taken to be significant for $p
 \begin{center}
 \bgroup
 \def\arraystretch{1.3}
-\begin{tabular}{l|c c c}
+\begin{tabular}{p{19.9em} c c c}
+\toprule
 Question & Obvious & Relaxed & Dilemma \\
-\hline
+\midrule
 \eIqIshort/    &     -    &  agree   & disagree \\
 \eIqIIshort/   &  agree   &     -    & disagree \\
 \eIqIIIshort/  &     -    &  agree   &     -    \\
@@ -287,6 +288,7 @@ Question & Obvious & Relaxed & Dilemma \\
 \eIqVIshort/   &     -    &     -    &     -    \\
 \eIqVIIshort/  & disagree &     -    &  agree   \\
 \eIqVIIIshort/ &     -    &     -    &  agree   \\
+\bottomrule
 \end{tabular}
 \egroup
 \end{center}
@@ -327,9 +329,10 @@ Across all 3 treatments, there were a total of 13 single-treatment and 9 between
 \begin{table}
 \bgroup
 \def\arraystretch{1.3}
-\begin{tabular}{l | c}
+\begin{tabular}{p{19.9em} c}
+\toprule
 Question & Hypotheses \\
-\hline
+\midrule
 \eIqIshort/    & relaxed $>$ dilemma \\
 \eIqIIshort/   & obvious $>$ dilemma \\
 \eIqIIIshort/  & - \\
@@ -338,6 +341,7 @@ Question & Hypotheses \\
 \eIqVIshort/   & - \\
 \eIqVIIshort/  & dilemma $>$ obvious \& relaxed \\
 \eIqVIIIshort/ & dilemma $>$ obvious \& relaxed \\
+\bottomrule
 \end{tabular}
 \egroup
 \caption[Prospective between-treatment hypotheses by treatment]{Prospective between-treatment hypotheses by treatment. The ``$>$'' signs indicate more agreement relative to an alternate treatment. ``$>$ obvious \& relaxed'' indicates that that treatment is hypothesized to be more-agreed-with than both of those treatments individually (two separate hypotheses).}
@@ -554,7 +558,7 @@ That particular question is shown in \cref{fig:e1-seed-4897}, and reveals one po
 \centering
 \fbox{
 \parbox{0.95\columnwidth}{
-  \slshape
+  \quoteshape
 You come to a tavern and decide to rest for a while.
 %
 A noble is bored and a peasant is bored and a merchant is selling a book of herbal lore.
@@ -590,7 +594,7 @@ It would take more data to discern whether this distinction is what is at work h
 
 Although \dunyazad/ does not reason about this, it is to some degree aware of the distinction between the question with seed 4897 and the other two questions in that treatment.
 %
-The constraints for the \rlx{} condition were that each option either ``enables'' or ``achieves'' a goal (in the technical senses; see page \pageref{page:choicetypes}), and in this case, the system generated two options that ``achieved'' a goal and one that merely ``enabled'' a goal, thus creating a distinction even on its own terms.
+The constraints for the \rlx{} condition were that each option either ``enables'' or ``achieves'' a goal (in the technical senses; see page \pageref{page:option-analysis} in \cref{page:option-analysis}), and in this case, the system generated two options that ``achieved'' a goal and one that merely ``enabled'' a goal, thus creating a distinction even on its own terms.
 %
 The other two questions in the \rlx{} category each included three options which ``achieved'' a goal.
 %
@@ -708,7 +712,7 @@ Getting this experimental result is still useful, because it provides a concrete
 \centering
 \fbox{
 \parbox{0.95\columnwidth}{
-  \slshape
+  \quoteshape
 You come to a tavern and decide to rest for a while.
 %
 A merchant is bored and a peasant seems knowledgeable and an innkeeper seems knowledgeable.
@@ -732,7 +736,7 @@ What do you do?
 \centering
 \fbox{
 \parbox{0.95\columnwidth}{
-  \slshape
+  \quoteshape
 You come across some bandits attacking a merchant.
 %
 The bandits are threatening the merchant.
@@ -836,7 +840,7 @@ Our hypothesis that respondents would not find \obv{} choices difficult highligh
 %
 Our data did not support this hypothesis, and as shown in \cref{fig:e1-obviousq57}, the choice with seed 21105 accounts for the majority of all responses that contradict it.
 %
-That choice is shown in \cref{fig:e1-seed-21105}, and from the system's perspective, it satisfies the definition of an obvious choice (see page \pageref{page:choicetypes}) because the second option ``achieves'' a player goal, while neither the first nor the third do, and both the first and third ``threaten'' a player goal.
+That choice is shown in \cref{fig:e1-seed-21105}, and from the system's perspective, it satisfies the definition of an obvious choice (see \cref{tab:prospective-impressions}) because the second option ``achieves'' a player goal, while neither the first nor the third do, and both the first and third ``threaten'' a player goal.
 
 
 The perceived difficulty of this decision probably stems from the fact that it pits two player goals against one another: the goal of self-preservation is best served by option two, but the goal of helping others in need is best served by one of the other options.
@@ -1045,11 +1049,11 @@ The following five option statements (listed by their internal labels) were incl
 %
 {
   \setstretch{1.0}
-  \mydef{5em}{\raggedleft\textbf{\eIIoptobviousabbr/}}{\hangparas{1.5em}{1}\slshape 1. ``Considering just the options, there seems to be a clear best option at this choice.''} \\
-  \mydef{5em}{\raggedleft\textbf{\eIIoptbalancedabbr/}}{\hangparas{1.5em}{1}\slshape 2. ``Ignoring outcomes, the options at this choice all seem about equally good (or bad).''} \\
-  \mydef{5em}{\raggedleft\textbf{\eIIoptnobadabbr/}}{\hangparas{1.5em}{1}\slshape 3. ``Ignoring outcomes, there are no options that seem bad at this choice.''} \\
-  \mydef{5em}{\raggedleft\textbf{\eIIoptnogoodabbr/}}{\hangparas{1.5em}{1}\slshape 4. ``Ignoring outcomes, none of the options at this choice seem good.''} \\
-  \mydef{5em}{\raggedleft\textbf{\eIIoptstakesabbr/}}{\hangparas{1.5em}{1}\slshape 5. ``Considering just the options, the stakes for this choice seem low.''} \\
+  \mydef{5em}{\raggedleft\textbf{\eIIoptobviousabbr/}}{\hangparas{1.5em}{1}\quoteshape 1. ``Considering just the options, there seems to be a clear best option at this choice.''} \\
+  \mydef{5em}{\raggedleft\textbf{\eIIoptbalancedabbr/}}{\hangparas{1.5em}{1}\quoteshape 2. ``Ignoring outcomes, the options at this choice all seem about equally good (or bad).''} \\
+  \mydef{5em}{\raggedleft\textbf{\eIIoptnobadabbr/}}{\hangparas{1.5em}{1}\quoteshape 3. ``Ignoring outcomes, there are no options that seem bad at this choice.''} \\
+  \mydef{5em}{\raggedleft\textbf{\eIIoptnogoodabbr/}}{\hangparas{1.5em}{1}\quoteshape 4. ``Ignoring outcomes, none of the options at this choice seem good.''} \\
+  \mydef{5em}{\raggedleft\textbf{\eIIoptstakesabbr/}}{\hangparas{1.5em}{1}\quoteshape 5. ``Considering just the options, the stakes for this choice seem low.''} \\
 }
 
 
@@ -1057,17 +1061,17 @@ In addition to option statements, this survey included statements about the outc
 %
 {
 \setstretch{1.0}
-\mydef{7em}{\raggedleft\textbf{\eIIoutfairabbr/}}{\hangparas{1.5em}{1}\slshape 1. ``Given the options available, the outcome I got is fair.''} \\
-\mydef{7em}{\raggedleft\textbf{\eIIoutsenseabbr/}}{\hangparas{1.5em}{1}\slshape 2. ``The outcome that I got makes sense given the option that I selected.''} \\
-\mydef{7em}{\raggedleft\textbf{\eIIoutbadabbr/}}{\hangparas{1.5em}{1}\slshape 3. ``I got a bad outcome.''} \\
-\mydef{7em}{\raggedleft\textbf{\eIIouthappyabbr/}}{\hangparas{1.5em}{1}\slshape 4. ``I'm happy with the option that I chose.''} \\
-\mydef{7em}{\raggedleft\textbf{\eIIoutunfairabbr/}}{\hangparas{1.5em}{1}\slshape 5. ``The outcome that I got is unfair, given the options available.''} \\
-\mydef{7em}{\raggedleft\textbf{\eIIoutunexpectedabbr/}}{\hangparas{1.5em}{1}\slshape 6. ``The outcome that I got is completely unexpected.''} \\
-\mydef{7em}{\raggedleft\textbf{\eIIouttrickabbr/}}{\hangparas{1.5em}{1}\slshape 7. ``There is an outcome.'' (This is a trick question to test whether you're paying attention. Please simply indicate that you are in complete \emph{disagreement}.)} \\
-\mydef{7em}{\raggedleft\textbf{\eIIoutbrokenabbr/}}{\hangparas{1.5em}{1}\slshape 8. ``There might be a problem with this choice--the outcome I got does not make sense.''} \\
-\mydef{7em}{\raggedleft\textbf{\eIIoutgoodabbr/}}{\hangparas{1.5em}{1}\slshape 9. ``The outcome that I got is a good outcome.''} \\
-\mydef{7em}{\raggedleft\textbf{\eIIoutexpectedabbr/}}{\hangparas{1.5em}{1}\slshape 10. ``I pretty much expected the outcome that I got.''} \\
-\mydef{7em}{\raggedleft\textbf{\eIIoutregretabbr/}}{\hangparas{1.5em}{1}\slshape 11. ``I wish I had chosen a different option.''} \\
+\mydef{7em}{\raggedleft\textbf{\eIIoutfairabbr/}}{\hangparas{1.5em}{1}\quoteshape 1. ``Given the options available, the outcome I got is fair.''} \\
+\mydef{7em}{\raggedleft\textbf{\eIIoutsenseabbr/}}{\hangparas{1.5em}{1}\quoteshape 2. ``The outcome that I got makes sense given the option that I selected.''} \\
+\mydef{7em}{\raggedleft\textbf{\eIIoutbadabbr/}}{\hangparas{1.5em}{1}\quoteshape 3. ``I got a bad outcome.''} \\
+\mydef{7em}{\raggedleft\textbf{\eIIouthappyabbr/}}{\hangparas{1.5em}{1}\quoteshape 4. ``I'm happy with the option that I chose.''} \\
+\mydef{7em}{\raggedleft\textbf{\eIIoutunfairabbr/}}{\hangparas{1.5em}{1}\quoteshape 5. ``The outcome that I got is unfair, given the options available.''} \\
+\mydef{7em}{\raggedleft\textbf{\eIIoutunexpectedabbr/}}{\hangparas{1.5em}{1}\quoteshape 6. ``The outcome that I got is completely unexpected.''} \\
+\mydef{7em}{\raggedleft\textbf{\eIIouttrickabbr/}}{\hangparas{1.5em}{1}\quoteshape 7. ``There is an outcome.'' (This is a trick question to test whether you're paying attention. Please simply indicate that you are in complete \emph{disagreement}.)} \\
+\mydef{7em}{\raggedleft\textbf{\eIIoutbrokenabbr/}}{\hangparas{1.5em}{1}\quoteshape 8. ``There might be a problem with this choice--the outcome I got does not make sense.''} \\
+\mydef{7em}{\raggedleft\textbf{\eIIoutgoodabbr/}}{\hangparas{1.5em}{1}\quoteshape 9. ``The outcome that I got is a good outcome.''} \\
+\mydef{7em}{\raggedleft\textbf{\eIIoutexpectedabbr/}}{\hangparas{1.5em}{1}\quoteshape 10. ``I pretty much expected the outcome that I got.''} \\
+\mydef{7em}{\raggedleft\textbf{\eIIoutregretabbr/}}{\hangparas{1.5em}{1}\quoteshape 11. ``I wish I had chosen a different option.''} \\
 }
 %
 Underlying these statements were 5 concepts which were each addressed by a pair of statements with counterbalanced answers.
@@ -1082,14 +1086,14 @@ Although the outcome questions were the main focus of this study, some questions
 These questions were prefaced with the prompt:
 %
 \begin{quote}
-  \slshape
+  \quoteshape
 Please answer the following questions about your motivations for making the decision you made, as well as about your motivations and goals in general when playing/reading interactive stories.
 \end{quote}
 %
 The first question asked directly about motivation:
 %
 \begin{quote}
-  \slshape
+  \quoteshape
   1. Which of the following motive(s) contributed to your decision? (pick one or more) \\
   %
   (Note: no submissions will be rejected based on this information; wanting to get this survey done quickly is a perfectly valid reason for making a decision.) \\
@@ -1119,7 +1123,7 @@ The responses to this question were labelled respectively as \pr{speed}, \pr{cur
 In a similar vein, the next question asked about how players evaluate outcomes:
 %
 \begin{quote}
-  \slshape
+  \quoteshape
   2. Which of the following judgement(s) contributes to how you generally define a ``good'' outcome in interactive experiences like the one you just played? (pick one or more) \\
   \begin{itemize}
     \item[\ding{111}] I feel an outcome is good when something good happens to my character in the story world.
@@ -1136,7 +1140,7 @@ These responses were labelled respectively as \pr{avatar}, \pr{interest}, \pr{ro
 Directly following was effectively the same question but for ``bad'' outcomes:
 %
 \begin{quote}
-  \slshape
+  \quoteshape
   3. Which of the following judgement(s) contributes to how you generally define a ``bad'' outcome in interactive experiences like the one you just played? (pick one or more)
   \begin{itemize}
     \item[\ding{111}] I feel an outcome is bad when something bad happens to my character in the story world.
@@ -1156,7 +1160,7 @@ The final question in the motives section asked about consistency of motives.
 Unlike the other questions in this section, it forced participants to select a single response (although it still had an ``other'' response):
 %
 \begin{quote}
-  \slshape
+  \quoteshape
   4. Do you feel you approach all interactive experiences (e.g., Choose-Your-Own-Adventure novels, video games, tabletop role-playing games, etc.) with a consistent set of motivations and judgements, or do your motivations and judgements change from story to story?
   \begin{itemize}
     \item[\ding{109}] I feel that my motivations and judgements are the same no matter what interactive story I'm playing.
@@ -1274,7 +1278,7 @@ Taken together, these hypotheses are designed to ensure that \dunyazad/'s choice
 \setlength{\tabcolsep}{0.6em}
 \input{tab/retrospective-free-vs-forced-failure-hypotheses-table.tex}
 \egroup
-\caption[Retrospective free vs. forced failure hypotheses]{Relative hypotheses regarding free vs. forced failures. Hypotheses marked with a `\lc/' are low-confidence hypotheses.}
+\caption[Retrospective free vs\@. forced failure hypotheses]{Relative hypotheses regarding free vs\@. forced failures. Hypotheses marked with a `\lc/' are low-confidence hypotheses.}
   \label{tab:e2-free-vs-forced-failure-hypotheses}
 \end{table}
 
@@ -1283,7 +1287,7 @@ As with the first study, there are some hypotheses about the relative agreement 
 These hypotheses are probing for a variety of interaction effects which may or may not be present, as opposed to trying to verify that \dunyazad/ is working as intended.
 
 
-The first such proposed effect is roughly state as: ``Unexpected failure is more acceptable when a choice seems free vs. forced.''
+The first such proposed effect is roughly state as: ``Unexpected failure is more acceptable when a choice seems free vs\@. forced.''
 %
 In other words, I suspected that when a promising outcome leads to failure, players will be more unhappy if that seemed to be the only promising outcome, rather than one of several promising outcomes.
 %
@@ -1307,12 +1311,12 @@ When I formulated these hypotheses I was most confident in the effects on percep
 \setlength{\tabcolsep}{0.6em}
 \input{tab/retrospective-chosen-vs-inevitable-success-hypotheses-table.tex}
 \egroup
-\caption[Retrospective chosen vs. inevitable success hypotheses]{Relative hypotheses regarding chosen vs. inevitable successes.}
+\caption[Retrospective chosen vs\@. inevitable success hypotheses]{Relative hypotheses regarding chosen vs\@. inevitable successes.}
   \label{tab:e2-chosen-vs-inevitable-success-hypotheses}
 \end{table}
 
 
-Another proposed difference was between the \exps{} and \obvsm{} cases.
+Another proposed difference was between the \exps{} case and the \obvsm{} case.
 %
 Both of these involve expected success outcomes, the only difference being whether other outcomes at the choice were promising or not.
 %
@@ -1332,7 +1336,7 @@ As with the free-vs-forced hypotheses above, these hypotheses were predicting a 
 \setlength{\tabcolsep}{0.6em}
 \input{tab/retrospective-good-vs-bad-unexpected-hypotheses-table.tex}
 \egroup
-\caption[Retrospective good vs. bad unexpected hypotheses]{Relative hypotheses regarding good vs. bad surprises.}
+\caption[Retrospective good vs\@. bad unexpected hypotheses]{Relative hypotheses regarding good vs\@. bad surprises.}
 \label{tab:e2-good-vs-bad-unexpected-hypotheses}
 \end{table}
 
@@ -1341,7 +1345,7 @@ Yet another predicted effect was a difference in perceived fairness between good
 %
 In both the unexpected failure and unexpected success case, \dunyazad/ effectively contradicts the normal effects of skill and item possession on the outcomes of actions to produce an effect that it labels as either \prq{unfair}{} or a \prq{miracle}{.}
 %
-In both cases, it could be argued that these outcomes are ``unfair,'' although perhaps in two possible senses of the word (``unjust'' vs. ``cheating'').
+In both cases, it could be argued that these outcomes are ``unfair,'' although perhaps in two possible senses of the word (``unjust'' vs\@. ``cheating'').
 %
 The prediction in this case is that participants will respond more strongly to negative surprises than to positive surprises, being more likely to label negative surprises as ``unfair'' or ``broken'' than positive surprises.
 
@@ -1353,7 +1357,7 @@ The prediction in this case is that participants will respond more strongly to n
 \setlength{\tabcolsep}{0.6em}
 \input{tab/retrospective-expected-vs-unexpected-failure-hypotheses-table.tex}
 \egroup
-\caption[Retrospective expected vs. unexpected failure hypotheses]{Relative hypotheses regarding expected vs. unexpected failures.}
+\caption[Retrospective expected vs\@. unexpected failure hypotheses]{Relative hypotheses regarding expected vs\@. unexpected failures.}
 \label{tab:e2-expected-vs-unexpected-failure-hypotheses}
 \end{table}
 
@@ -1374,7 +1378,7 @@ Because there are two conditions that give rise to unexpected failures, there ar
 \setlength{\tabcolsep}{0.6em}
 \input{tab/retrospective-expected-vs-unexpected-success-hypotheses-table.tex}
 \egroup
-\caption[Retrospective expected vs. unexpected success hypotheses]{Relative hypotheses regarding expected vs. unexpected successes.}
+\caption[Retrospective expected vs\@. unexpected success hypotheses]{Relative hypotheses regarding expected vs\@. unexpected successes.}
 \label{tab:e2-expected-vs-unexpected-success-hypotheses}
 \end{table}
 
@@ -1531,7 +1535,7 @@ Overall, the data indicate that \dunyazad/ is better at creating positive expect
 
 As mentioned above, each of the rows in these figures represents between 32 and 36 responses, depending on the condition.
 %
-The sub-cases (e.g., \obvfm{} vs. \obvfa{}) are not separated here, although they are analyzed separately for some of the hypotheses.
+The sub-cases (e.g., \obvfm{} vs\@. \obvfa{}) are not separated here, although they are analyzed separately for some of the hypotheses.
 %
 For the \obvs{} condition, 25 of the 33 responses fell into the [main] sub-case, while the remaining 8 participants chose an option other than the one that \dunyazad/ expected would be most promising.
 %
@@ -1554,7 +1558,7 @@ These hypotheses (marked with `\lc/') involved predictions which don't hold up i
 \centering
 \bgroup
 \def\arraystretch{1.3}
-\setlength{\tabcolsep}{0.4em}
+\setlength{\tabcolsep}{0.35em}
 \input{tab/retrospective-option-results-table.tex}
 \egroup
 \caption[Retrospective option results]{Option-related results in the retrospective experiment. Each row lists results for a single question; each column stacks results for two conditions (listed at the top) with identical \prq{option\_feel}{} constraints. Each entry indicates the hypothesis (`D' for `disagree' and `A' for `agree'), the $p$-value, and the common-language effect size for confirmed hypotheses (which are marked in bold instead of \nsighcolor/ where $p < 0.05$).} % TODO: Make this a one-liner to fit on the same page as the figure above...
@@ -1602,7 +1606,7 @@ Besides the unconfirmed stakes hypotheses, there were two other places where hig
 %
 The first is in the \expf{} case for the ``no bad'' statement.
 %
-Although the \unxs{} condition, which in theory generates identically-suggestive options, was confirmed to disagree with this statement, the data did not support this hypothesis for the \expf{} condition.
+Although the \unxs{} condition, which in theory generates options which set identical expectations, was confirmed to disagree with this statement, the data did not support this hypothesis for the \expf{} condition.
 %
 Of course, this condition is one susceptible to being undermined by relative value judgements: if all of the options seem bad, one might reason that it doesn't matter which is chosen, and therefore none of them are ``bad'' in the sense that choosing them would be a mistake.
 %
@@ -1620,7 +1624,7 @@ It is telling that the \prq{obvious\_}{} cases confirmed corresponding hypothese
 \end{figure}
 
 
-But what about the difference between the \expf{} and \unxs{} cases?
+But what about the difference between the \expf{} case and the \unxs{} case?
 %
 \Cref{fig:e2-extra-nobad} shows the results for each individual choice in both cases, and there isn't a clear culprit.
 %
@@ -1719,7 +1723,7 @@ Because the choice with seed 33152 included a very similar \prq{talk\_down}{} op
 %
 Unfortunately, the impact of this effect and the \prq{travel\_onwards}{} issue affecting the choices with seeds 87991 and 8015 is not negligible.
 %
-When it comes to evaluating the outcome-related hypotheses, these choices didn't convey the intended prospecitve poetics, and this could impact their retrospective poetics as well.
+When it comes to evaluating the outcome-related hypotheses, these choices didn't convey the intended prospective poetics, and this could impact their retrospective poetics as well.
 
 
 \subsubsection{Problems with \prq{travel\_onwards}{}}
@@ -1785,7 +1789,7 @@ Of course, it doesn't help that the option text doesn't clearly state your inten
 In fact, one of the comments in the ``other'' free text response to the motivation question reveals exactly this kind of cost analysis in action:
 
 \begin{quote}
-  \slshape
+  \quoteshape
 You only really had 2 options. I wouldn't want to give up the gold if I didn't have to. So just negotiation made the most sense.
 \end{quote}
 
@@ -1850,7 +1854,7 @@ In particular, surprising negative outcomes were more consistently rated as actu
 \begin{table}[!p]
 \centering
 \bgroup
-\def\arraystretch{1.3}
+\def\arraystretch{1.2}
 \setlength{\tabcolsep}{0.4em}
 \input{tab/retrospective-positive-outcomes-results-table.tex}
 \egroup
@@ -1861,7 +1865,7 @@ In particular, surprising negative outcomes were more consistently rated as actu
 \begin{table}[!p]
 \centering
 \bgroup
-\def\arraystretch{1.3}
+\def\arraystretch{1.2}
 \setlength{\tabcolsep}{0.4em}
 \input{tab/retrospective-negative-outcomes-results-table.tex}
 \egroup
@@ -1935,7 +1939,7 @@ Because of this, getting a good result was not surprising, and the corresponding
   \label{fig:e2-obvious-failure-detail}
 \end{figure}
 
-\subsubsection{Outcome Text vs. States}
+\subsubsection{Outcome Text vs\@. States}
 
 \begin{figure}[!p]
 \centering%
@@ -2161,7 +2165,7 @@ There is much more to be said about the results of the outcome hypotheses and \d
 %
 These hypotheses were grouped into five topics which each probed for evidence of a different proposed effect, as discussed in the ``Relative Outcome Hypotheses'' subsection of \cref{sec:e2-hypotheses}.
 
-\subsubsection{Free vs. Forced Unexpected Failure}
+\subsubsection{Free vs\@. Forced Unexpected Failure}
 
 The first such group predicted broadly that unexpected failure would be perceived as more acceptable when it seemed to be the result of a free choice rather than a forced one.
 %
@@ -2175,7 +2179,7 @@ Stated another way, participants who experienced an unexpected failure at a choi
 \input{tab/retrospective-free-vs-forced-failure-results-table.tex} \\[3ex]
 \input{tab/retrospective-free-vs-forced-failure-extra-results-table.tex}
 \egroup
-\caption[Retrospective free vs. forced failure results]{%
+\caption[Retrospective free vs\@. forced failure results]{%
 Retrospective hypotheses for the claim that ``Unexpected failure is more acceptable when it happens at a freely-chosen option than when the player feels there are no viable alternative options.''
 %
 The bottom half shows the results when choice 8638 is allowed to stand in for the entire \obvfm{} case.
@@ -2218,7 +2222,7 @@ Although more data would be needed to pin down this effect, it seems clear that 
 If options perceived as viable alternatives are available, players will be both less satisfied with their decision (unsurprisingly) but they will also be more likely to label the result as one that makes sense, and less likely to label it as surprising (though not more likely to label it as expected).
 
 
-\subsubsection{Chosen vs. Inevitable Success}
+\subsubsection{Chosen vs\@. Inevitable Success}
 
 \begin{table}[!p]
 \centering
@@ -2227,7 +2231,7 @@ If options perceived as viable alternatives are available, players will be both 
 \setlength{\tabcolsep}{0.6em}
 \input{tab/retrospective-chosen-vs-inevitable-success-results-table.tex}
 \egroup
-\caption[Retrospective chosen vs. inevitable success results]{Retrospective between-conditions hypotheses concerning differences between expected successful outcomes in cases where the alternative options are either both positive or both negative.}
+\caption[Retrospective chosen vs\@. inevitable success results]{Retrospective between-conditions hypotheses concerning differences between expected successful outcomes in cases where the alternative options are either both positive or both negative.}
   \label{tab:e2-chosen-vs-inevitable-success-results}
 \end{table}
 
@@ -2240,7 +2244,7 @@ If options perceived as viable alternatives are available, players will be both 
 \includegraphics[width=\textwidth]{{fig/cropped-detailed-report-obvious\string_success(main)-10-out.good}.pdf}\\
 \includegraphics[width=\textwidth]{{fig/cropped-detailed-report-obvious\string_success(main)-11-out.happy}.pdf}\\
 \includegraphics[width=\textwidth]{fig/detailed-outcomes-legend-custom.pdf}
-\caption[Retrospective chosen vs. inevitable data summary]{Summary of the data in the \exps{} and \obvsm{} conditions for the ``good'' and ``satisfied'' items. The ``bad'' and ``dissatisfied'' items are not show but are similarly one-sided in the opposite direction. The last rows in the \obvsm{} case are negligible as they contain only 2 of the 25 samples in each plot (the problems with choice 20739 were discussed earlier).}
+\caption[Retrospective chosen vs\@. inevitable data summary]{Summary of the data in the \exps{} and \obvsm{} conditions for the ``good'' and ``satisfied'' items. The ``bad'' and ``dissatisfied'' items are not show but are similarly one-sided in the opposite direction. The last rows in the \obvsm{} case are negligible as they contain only 2 of the 25 samples in each plot (the problems with choice 20739 were discussed earlier).}
 \label{fig:e2-chosen-vs-inevitable-success-detail}
 \end{figure}
 
@@ -2269,11 +2273,11 @@ Another approach would be to ask participants to directly rate \emph{how} good o
 \setlength{\tabcolsep}{0.6em}
 \input{tab/retrospective-good-vs-bad-unexpected-results-table.tex}
 \egroup
-\caption[Retrospective good vs. bad unexpected results]{Results for hypotheses asserting that unexpected positive outcomes will be perceived as more fair and less broken than unexpected negative outcomes.}
+\caption[Retrospective good vs\@. bad unexpected results]{Results for hypotheses asserting that unexpected positive outcomes will be perceived as more fair and less broken than unexpected negative outcomes.}
   \label{tab:e2-good-vs-bad-unexpected-results}
 \end{table}
 
-\subsubsection{Good vs. Bad Unexpected Results}
+\subsubsection{Good vs\@. Bad Unexpected Results}
 
 \Cref{tab:e2-good-vs-bad-unexpected-results} shows the results for another proposed effect: that unexpected good results would be seen as more fair and less broken than unexpected bad results.
 %
@@ -2284,7 +2288,7 @@ This is not a controversial hypothesis, and it was confirmed on all counts by th
 An interesting followup would be to attempt to assess whether gradations of better and worse results have a linear effect on perceptions of fairness and sense or whether there is some kind of inflection point between the extremes used in this study.
 
 
-\subsubsection{Expected vs. Unexpected Failures}
+\subsubsection{Expected vs\@. Unexpected Failures}
 
 \begin{table}[!b]
 \centering
@@ -2293,7 +2297,7 @@ An interesting followup would be to attempt to assess whether gradations of bett
 \setlength{\tabcolsep}{0.6em}
 \input{tab/retrospective-expected-vs-unexpected-failure-results-table.tex}
 \egroup
-\caption[Retrospective expected vs. unexpected failure results]{Results for hypotheses predicting that unexpected failures will be viewed as more negative than expected failures.}
+\caption[Retrospective expected vs\@. unexpected failure results]{Results for hypotheses predicting that unexpected failures will be viewed as more negative than expected failures.}
   \label{tab:e2-expected-vs-unexpected-failure-results}
 \end{table}
 
@@ -2304,7 +2308,7 @@ This proposed effect is in line with theories of outcome evaluation including bo
 We predicted that not only the valence items but also the satisfaction items would be affected, and compared both expected success conditions (\unxf{} and \obvfm{}) against the \expf{} condition.
 
 
-The results, shown in \cref{tab:e2-expected-vs-unexpected-failure-results}, confirm most of the hypotheses, except for the satisfaction hypotheses relating to the \obvfm{} vs. \expf{} comparison.
+The results, shown in \cref{tab:e2-expected-vs-unexpected-failure-results}, confirm most of the hypotheses, except for the satisfaction hypotheses relating to the \obvfm{} vs\@. \expf{} comparison.
 %
 In light of the \obvfm{} condition's mixed satisfaction results, the lack of confirmation for the last two hypotheses is not surprising, in fact it would be surprising if they had been confirmed, because the \obvf{} cases include competing influences for the satisfaction items, as discussed above.
 %
@@ -2323,7 +2327,7 @@ Of course, this last effect is more likely due to the valence of the alternative
 {\sffamily Obvious Failure [main]}\\
 \includegraphics[width=\textwidth]{{fig/cropped-detailed-report-obvious\string_failure(main)-10-out.good}.pdf}\\
 \includegraphics[width=\textwidth]{fig/detailed-outcomes-legend-custom.pdf}
-\caption[Retrospective expected vs. unexpected failure summary]{Summary of the data in the \expf{,} \unxf{,} and \obvfm{} conditions for the ``good'' item. All of these should have elicited general disagreement, but choices 87991, 8015, and to some degree 28306 did not live up to this expectation.}
+\caption[Retrospective expected vs\@. unexpected failure summary]{Summary of the data in the \expf{,} \unxf{,} and \obvfm{} conditions for the ``good'' item. All of these should have elicited general disagreement, but choices 87991, 8015, and to some degree 28306 did not live up to this expectation.}
 \label{fig:e2-expected-vs-unexpected-failure-detail}
 \end{figure}
 
@@ -2345,21 +2349,21 @@ In this case these problems happened to push things in favor of confirming the h
 \setlength{\tabcolsep}{0.6em}
 \input{tab/retrospective-expected-vs-unexpected-failure-results-filtered-custom-table.tex}
 \egroup
-\caption[Retrospective expected vs. unexpected failure results revisited]{Results for hypotheses predicting that unexpected failures will be viewed as more negative than expected failures, using only choices which fit the expected structure of each condition. Compare with \cref{tab:e2-expected-vs-unexpected-failure-results}.}
+\caption[Retrospective expected vs\@. unexpected failure results revisited]{Results for hypotheses predicting that unexpected failures will be viewed as more negative than expected failures, using only choices which fit the expected structure of each condition. Compare with \cref{tab:e2-expected-vs-unexpected-failure-results}.}
   \label{tab:e2-expected-vs-unexpected-failure-filtered-results}
 \end{table}
 
 
 The results after filtering out the suspect choices are shown in \cref{tab:e2-expected-vs-unexpected-failure-filtered-results}.
 %
-Although the effect is still (narrowly) confirmed for the \expf{} vs. \unxf{} case, the \obvfm{} case no longer shows a strong effect.
+Although the effect is still (narrowly) confirmed for the \expf{} vs\@. \unxf{} case, the \obvfm{} case no longer shows a strong effect.
 %
 Interestingly, the effect seems to be significantly stronger for negatively-worded questions than for positively-worded ones.
 %
 Whether or not the option structure of the obvious case interferes with this effect for the valence items as it almost certainly does for the satisfaction items is open for debate, the data collected here don't support either argument.
 
 
-\subsubsection{Expected vs. Unexpected Success}
+\subsubsection{Expected vs\@. Unexpected Success}
 
 \begin{table}[!b]
 \centering
@@ -2368,13 +2372,13 @@ Whether or not the option structure of the obvious case interferes with this eff
 \setlength{\tabcolsep}{0.6em}
 \input{tab/retrospective-expected-vs-unexpected-success-results-table.tex}
 \egroup
-\caption[Retrospective expected vs. unexpected success results]{Results for hypotheses predicting that unexpected success will be seen as more positive than expected success.}
+\caption[Retrospective expected vs\@. unexpected success results]{Results for hypotheses predicting that unexpected success will be seen as more positive than expected success.}
   \label{tab:e2-expected-vs-unexpected-success-results}
 \end{table}
 
 A corollary of the previous proposed effect in decision affect theory is that unexpected positive results will be viewed as more-positive than expected positive results (consistency theory in this case would disagree).
 %
-We also tested this prediction against our data, but ran into the same problem that we did when trying to compare chosen vs. inevitable success: our data was oversaturated.
+We also tested this prediction against our data, but ran into the same problem that we did when trying to compare chosen vs\@. inevitable success: our data was oversaturated.
 %
 \Cref{fig:e2-chosen-vs-inevitable-success-detail} demonstrated this for the \obvsm{} and \exps{} cases, \cref{fig:e2-expected-vs-unexpected-success-detail} shows that this carries over to the \unxs{} case as well (data for the three other items involved in these hypotheses are not shown, but were similarly saturated).
 %
@@ -2382,7 +2386,7 @@ Although there were a few responses that were affected by \dunyazad/'s quirks, e
 %
 There was simply not enough room on the scale for a subtle shift in valence to register.
 %
-As with the chosen vs. inevitable success case, running a study with broader scales or asking for a direct evaluation of the degree of goodness/satisfaction would be viable techniques for pursing this effect further.
+As with the chosen vs\@. inevitable success case, running a study with broader scales or asking for a direct evaluation of the degree of goodness/satisfaction would be viable techniques for pursing this effect further.
 %
 In any case, the data that we gathered do not provide enough information to argue either for or against the presence of this effect.
 
@@ -2395,7 +2399,7 @@ In any case, the data that we gathered do not provide enough information to argu
 {\sffamily Obvious Success [main]}\\
 \includegraphics[width=\textwidth]{{fig/cropped-detailed-report-obvious\string_success(main)-11-out.happy}.pdf}\\
 \includegraphics[width=\textwidth]{fig/detailed-outcomes-legend-custom.pdf}
-\caption[Retrospective expected vs. unexpected success summary]{Summary of the data in the \expf{,} \unxf{,} and \obvfm{} conditions for the ``good'' item. All of these should have elicited general disagreement, but choices 87991, 8015, and to some degree 28306 did not live up to this expectation.}
+\caption[Retrospective expected vs\@. unexpected success summary]{Summary of the data in the \expf{,} \unxf{,} and \obvfm{} conditions for the ``good'' item. All of these should have elicited general disagreement, but choices 87991, 8015, and to some degree 28306 did not live up to this expectation.}
 \label{fig:e2-expected-vs-unexpected-success-detail}
 \end{figure}
 
@@ -2472,7 +2476,7 @@ Each (except the last) essentially names an aspect of motivation that is predict
 For example, the \pr{avatar} motive--which corresponds to viewing situations from the point of view of the player's character, i.e., from within the story--was predicted to be commonly employed in making decisions as well as in evaluating individual options as both good and bad.
 
 \begin{table}[!b]
-\begin{tabular}{p{3.5em} p{5.5em} >{\slshape}p{24em}}
+\begin{tabular}{p{3.5em} p{5.5em} >{\quoteshape}p{24em}}
 \vspace{-2.5ex}\ldelim{\{}{18}{3.5em}[\raggedleft \noindent Motive\hspace{0.2em}]%
 & \pr{speed} & I'm taking an online survey. I just chose an option quickly so that I could complete the survey. \\[2ex]
 & \pr{curious} & I was just curious to find out what would happen if I chose the option I did. \\[2ex]
@@ -2483,12 +2487,12 @@ For example, the \pr{avatar} motive--which corresponds to viewing situations fro
 & \pr{other} & Other (please explain):
 \end{tabular}
 \vspace{1ex}
-\caption[Motive answer labels]{Anwers to the motive question by label.}
+\caption[Motive answer labels]{Answers to the motive question by label.}
 \label{tab:e2-motive-answers}
 \end{table}
 
 \begin{table}[!p]
-\begin{tabular}{p{3.5em} p{5.5em} >{\slshape}p{24em}}
+\begin{tabular}{p{3.5em} p{5.5em} >{\quoteshape}p{24em}}
 \vspace{-2ex}\ldelim{\{}{15}{3.5em}[\raggedleft \parbox{3.2em}{Good \\ When}\hspace{0.2em}]%
 & \pr{avatar} & I feel an outcome is good when something good happens to my character in the story world. \\[2ex]
 & \pr{interest} & I feel an outcome is good if it is an interesting development in the story. \\[2ex]
@@ -2506,7 +2510,7 @@ For example, the \pr{avatar} motive--which corresponds to viewing situations fro
 & \pr{progress} & I feel an outcome is bad when it prevents me from making progress towards beating a game. \\[2ex]
 & \pr{other} & Other (please explain):
 \end{tabular}
-\caption[Evaluation answer labels]{Anwers to the evaluation questions by label.}
+\caption[Evaluation answer labels]{Answers to the evaluation questions by label.}
 \label{tab:e2-eval-answers}
 \end{table}
 
@@ -2531,7 +2535,7 @@ However, the strong grouping of results is an indication that responses aren't s
 \centering
 {\sffamily Motives for Deciding}
 \includegraphics[width=\textwidth]{{fig/cropped-motives-multi-motives}.pdf}
-  \caption[Top decision motives]{Unique motive combinations accounting for at least 5\% of the total repsonses. There were a total of 45 unique response combinations.}
+  \caption[Top decision motives]{Unique motive combinations accounting for at least 5\% of the total responses. There were a total of 45 unique response combinations.}
   \label{fig:e2-motive-multi-motive-results}
 \end{figure}
 
@@ -2593,7 +2597,7 @@ It's also the case that these shortfalls don't fundamentally invalidate that goa
 %
 After all, when \dunyazad/ \emph{doesn't} make a mistake, it can be eerily good at creating choices that a variety of people respond to in the same way: an obvious choice like choice 47371 can convince 11/13 participants to choose the option that the system thinks is best.
 %
-Although \dunyazad/ is somewhat ham-handed in its construction of options, remember that it is only guidance in selecting actions and outcomes is the operationalization of goal-based choice analysis described in \cref{sec:dunyazad-choice-generaton}.
+Although \dunyazad/ is somewhat ham-handed in its construction of options, remember that it is only guidance in selecting actions and outcomes is the operationalization of goal-based choice analysis described in \cref{sec:dunyazad-choice-generation}.
 %
 The success of \dunyazad/'s better choices is convincing proof that the goal-based choice analysis method offers at least some insight into how players make decisions.
 
@@ -2663,3 +2667,118 @@ The draw of \dunyazad/'s well-crafted obvious answers was almost irresistible, a
 Although it accomplished this often through drastic contrasts instead of the more subtle differences between options that a human author might use, the point is that it was able to recognize and deploy those contrasts successfully using the goal-based evaluation framework presented here.
 %
 For this reason these studies are not only a confirmation of \dunyazad/'s capabilities (and an inventory of its shortfalls) as a system, but also an endorsement of goal-based choice analysis as a useful tool for understanding how players will view choices.
+
+\subsection{Impressions Revisited}
+
+\label{sec:results-prospective-caveats}
+\label{sec:results-retrospective-caveats}
+
+\Cref{sec:cp-relative-option-analysis} promised that this chapter would revisit the prospective impressions that it put forward in light of experimental results.
+%
+Between the first and second experiment, the dilemma, depressing, empowering, obvious, and relaxed prospective structures were used to create choices, and the feedback on those choices has exposed several ways that they can break down.
+%
+\Cref{tab:prospective-impressions-redux} lists the original definitions of those choices, along with some extra details that should be taken into account during analysis.
+
+
+Likewise, \cref{tab:retrospective-impressions-redux} lists caveats for the retrospective impressions from \cref{tab:retrospective-impressions}.
+%
+In neither case do the results completely invalidate a definition.
+%
+Instead, results that show flaws in \dunyazad/'s mechanical reasoning serve to highlight the human faculties that must be brought to bear on the problem.
+%
+For example, \dunyazad/'s current lacks the ability to properly reason about moral injunctions, such as ``You must help others,'' which are limited by exceptions like ``Unless you must put yourself at risk to do so.''
+%
+Luckily, humans have this capacity, and the fact that its lack can derail the construction of an obvious choice in \dunyazad/'s case is evidence that humans should be careful to exercise it when evaluating such choices (or when constructing them themselves).
+%
+Thus each flaw in \dunyazad/, as long as  it's cause can be identified, becomes a useful warning for humans interested in choice analysis.
+%
+Of course, this is exactly the property that makes answer set programming an attractive approach for \dunyazad/'s technical implementation: using ASP makes it possible for \dunyazad/'s implementation of choice poetics to be as transparent as possible, and thereby facilitates this process of turning problems into advice.
+
+
+\begin{table}[!p]
+\begingroup
+\renewcommand*{\arraystretch}{1.5}
+\begin{tabular}{p{4.5em}p{18.5em}p{10em}}
+\toprule
+\textbf{Label} & \textbf{Criteria} & \textbf{Caveats}\\
+\midrule
+\textbf{Dilemma}%
+&\cg{Exactly two options, each of which hinders one of two different high-priority player goals.
+%
+The priorities of the goals and the severity of the consequences should be balanced and neither option should enable or advance any goals (even low-priority ones).}
+%
+& Proper goal balance is difficult to achieve.
+%
+Moral injunctions often have exceptions that need to be considered. \\
+%
+\textbf{Depres-sing}%
+& \cg{Every option hinders at least one high-priority goal.
+%
+No option should enable or advance any high-priority goals.}
+%
+& Options should create clear negative expectations, especially if they have positive outcomes. \\
+%
+\textbf{Empower-ing}%
+&\cg{Every option advances a player goal, and may threaten one or more goals but does not hinder any.}
+%
+& If option costs are not balanced, it may collapse to ``obvious.'' \\
+%
+\textbf{Obvious}%
+&\cg{One option that advances a high-priority player goal without hindering any (although it may threaten some), while none of the rest of the options enable any high-priority goals, and each of them threatens some goal.}
+%
+& The ``correct'' option must take costs into account.
+%
+``Bad'' options should clearly indicate which goal(s) they threaten. \\
+%
+\textbf{Relaxed}
+&\cg{There are no option expectations involving high-priority goals (positive or negative), and there are no threatens expectations (and thus no hinders expectations).}
+%
+& A slight difference between options can make satisficers worried.
+%
+Try to contrast stakes with those of previous choices. \\
+\bottomrule
+\end{tabular}
+\endgroup
+\caption[Prospective impressions revisited]{The prospective impression labels from \cref{tab:prospective-impressions} that were used in the experiments, showing caveats exposed by the results.}
+\label{tab:prospective-impressions-redux}
+\end{table}
+
+\begin{table}[!p]
+\begingroup
+\renewcommand*{\arraystretch}{1.5}
+\begin{tabular}{p{4.5em}p{14.5em}p{14em}}
+\toprule
+\textbf{Label} & \textbf{Criteria} & \textbf{Caveats} \\
+\midrule
+\textbf{Expected Success}
+& \cg{The option selected advances a player goal without hindering any, and its outcome is both predictable and positive.}
+%
+& Resource costs should be taken into account.
+%
+Positive outcome states can be described negatively. \\
+%
+\textbf{Expected Failure}
+& \cg{The option selected hinders a player goal and doesn't advance any, and its outcome is both predictable and negative.}
+%
+& Badness of outcomes may be evaluated relative to expected outcomes of other choices. \\
+\textbf{Unfair}
+& \cg{The selected option must be expected to advance at least one high-priority player goal, while not hindering any.
+%
+It must also have an unexpected and largely negative outcome.}
+%
+& May be perceived as broken if no attractive alternative options were present. Inherently chaotic actions dampen expectations of success. \\
+\textbf{Miracle}
+& \cg{The selected option must be expected to fail at least one high-priority goal, while not advancing any.
+%
+It must have an unexpected and overall positive outcome.}
+%
+& As for expected successes, descriptive text is important, not just ``story-world result.''
+%
+Positive results are seen as less surprising than negative ones. \\
+\bottomrule
+\end{tabular}
+\endgroup
+\caption[Retrospective impressions revisited]{Several retrospective impression labels from \cref{tab:retrospective-impressions}, along with caveats exposed by the results.}
+\label{tab:retrospective-impressions-redux}
+\end{table}
+

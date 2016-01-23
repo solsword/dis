@@ -96,8 +96,9 @@ For example, Yee makes fine distinctions between different motivations grouped i
 \begingroup
 \renewcommand*{\arraystretch}{1.5}
 \begin{tabular}{p{5em}p{10em}p{10em}p{6.9em}}
+\toprule
 \textbf{Mode} & \textbf{Decision Process} & \textbf{Example} & \textbf{\citep{Yee2006}} \\
-\hline
+\midrule
 \textbf{Avatar Play} & Decide as if you were in the character's situation. & When picking a pet, pick the cat because you like cats. & Role-Playing, Customization, Escapism \\
 \textbf{Role Play} & Decide in order to act out a persona. & Choose the wizard character class because you want to play a shy, bookish person. & Role-Playing, Customization, Escapism \\
 \textbf{Power Play} & Choose options that advance game metrics like score, beating other players, or quick completion. & Sacrifice an ally to obtain a powerful item because it helps you beat the game more quickly. & Advancement, Mechanics, Competition, Teamwork \\
@@ -105,6 +106,7 @@ For example, Yee makes fine distinctions between different motivations grouped i
 \textbf{Social Play} & In a multiplayer situation, choose options because of social considerations. & Turn down a high-level quest in order to accompany your friend on a lower-level quest. & Socializing, \newline Relationship \\
 \textbf{Analyti-cal Play} & Make decisions in order to analyze the work. & Repeatedly load a saved game to explore every possibility at a choice. & \emph{none} \\
 \textbf{Critical Play} & Make decisions as performance to deconstruct or criticize a work. & Drive your character into poverty in order to demonstrate a game's biased depiction of poor people. & \emph{none} \\
+\bottomrule
 \end{tabular}
 \endgroup
 \caption[Modes of engagement]{Some common modes of engagement.}
@@ -133,8 +135,9 @@ Although no summary of possible poetic effects could hope to be complete, I have
 \begingroup
 \renewcommand*{\arraystretch}{1.5}
 \begin{tabular}{p{5.5em}p{14em}p{13.5em}}
+\toprule
 \textbf{Dimension} & \textbf{Description} & \textbf{Supported By} \\
-\hline
+\midrule
 \textbf{Absorption} & How much of the player's attention is focused on the game. & Outcomes that are believable given options. \\
 \textbf{Identifica-tion} & How comfortable the player feels in the role they play as their avatar. & Options that support player self-expression. \\
 \textbf{Transpor-tation} & The degree to which a player thinks in terms of the game world rather than the real world. & Choices where the available options cover what the player thinks should be possible. \\
@@ -143,6 +146,7 @@ Although no summary of possible poetic effects could hope to be complete, I have
 \textbf{Autonomy} & The player's ability to choose and pursue a variety of goals at their own discretion. & Choices between goals rather than between methods of pursuing a fixed goal; non-exclusive outcomes. \\
 \textbf{Responsi-bility} & Player feelings of responsibility for the actions of their avatar. & A mix of intentional outcomes that are good for and bad for other game characters. \\
 \textbf{Regret} & Player feelings of regret for an in-game decision. & Negative outcomes that result from tempting options but which are still believable. \\
+\bottomrule
 \end{tabular}
 \endgroup
 \caption[Dimensions of player experience]{Some aspects of player experience that are influenced by choice poetics.}
@@ -477,18 +481,20 @@ This is one of the benefits of a detailed analysis technique, in fact: developin
 \begingroup
 \renewcommand*{\arraystretch}{1.5}
 \begin{tabular}{p{4.5em}p{10em}p{18.5em}}
+\toprule
 \textbf{Label} & \textbf{Description} & \textbf{Criteria} \\
-\hline
+\midrule
 \textbf{Dilemma} & A difficult decision between two negative outcomes. & Exactly two options, each of which hinders one of two different high-priority player goals. The priorities of the goals and the severity of the consequences should be balanced and neither option should enable or advance any goals (even low-priority ones). \\
-\textbf{Depres-sing} & A choice where there's a goal which is hindered no matter what you choose. & There's a high-priority goal which is hindered by every option. No option should enable or advance any high-priority goals. \\
+\textbf{Depres-sing} & A choice where no matter which option you choose, there's a goal which is hindered . & Every option hinders at least one high-priority goal. No option should enable or advance any high-priority goals. \\
 \textbf{Empower-ing} & A choice where every option has a positive impact. & Every option advances a player goal, and may threaten one or more goals but does not hinder any. \\
 \textbf{Obvious} & A choice that has one option which is clearly better than the rest. & One option that advances a high-priority player goal without hindering any (although it may threaten some), while none of the rest of the options enable any high-priority goals, and each of them threatens some goal. \\
 \textbf{Relaxed} & A choice that has no impact on any high-priority goals and where no goals are threatened. & There are no option expectations involving high-priority goals (positive or negative), and there are no threatens expectations (and thus no hinders expectations). \\
 \textbf{Myster-ious} & A choice where there is no indication of which option is best or how the outcomes might affect things. & There are zero option expectations, including enables and threatens expectations. \\
-\textbf{Uncom-fortable} & A choice where the best option isn't very good, but it's better than the alternatives. & There's one option which is expected to enable an important player goal (but not to advance it), while every other option has some combination of threatens and hinders expectations. The enabling option also threatens and possibly hinders the goal that it enables. \\
+%\textbf{Uncom-fortable} & A choice where the best option isn't very good, but it's better than the alternatives. & There's one option which is expected to enable an important player goal (but not to advance it), while every other option has some combination of threatens and hinders expectations. The enabling option also threatens and possibly hinders the goal that it enables. \\
+\bottomrule
 \end{tabular}
 \endgroup
-\caption[Prospective choice impressions]{Several different prospective impression labels, with formal criteria based on option expectations and goal priorities. Note: see \cref{sec:results-prospective-caveats} for more precise versions of some of these labels as informed by experimental results.}
+\caption[Prospective choice impressions]{Several different prospective impression labels, with formal criteria based on option expectations and goal priorities. Note: see \cref{sec:results-prospective-caveats} for a detailed discussion of some of these labels informed by experimental results.}
 \label{tab:prospective-impressions}
 \end{table}
 
@@ -502,9 +508,7 @@ The labels in \cref{tab:prospective-impressions} and their criteria were develop
 
 As a preview of those results, one caveat that applies to the relaxed label is that some people will always seek a best possible outcome when given a choice, and thus even at a choice among supposedly positive outcomes options which appear to lead to \emph{relatively} worse outcomes may be seen as bad options.
 %
-See \cref{sec:results-prospective-caveats} for further discussion of some extra criteria that should be considered when assigning these labels.
-%
-That section also presents versions of these labels with revised criteria.
+See \cref{sec:results-prospective-caveats} for further discussion of some extra considerations for applying these labels.
 
 
 The labels presented here give an idea of how players will feel when faced with this choice before they make a decision.
@@ -669,17 +673,19 @@ Note that each option is treated independently, although prospective impressions
 \begingroup
 \renewcommand*{\arraystretch}{1.5}
 \begin{tabular}{p{4.5em}p{14em}p{14.5em}}
+\toprule
 \textbf{Label} & \textbf{Description} & \textbf{Criteria} \\
-\hline
+\midrule
 \textbf{Expected Success} & A predictable outcome that advances player goals. & The option selected advances a player goal without hindering any, and its outcome is both predictable and positive. \\
 \textbf{Expected Failure} & A predictable outcome that hinders player goals. & The option selected hinders a player goal and doesn't advance any, and its outcome is both predictable and negative. \\
 \textbf{Nice Gamble} & A choice that seemed like a gamble but that turned out well. & The option selected didn't advance or hinder any player goals, or it both advanced and hindered one or more goals that were approximately balanced. The outcome was largely unpredictable, but also largely good. The selected option was not distinctly worse-seeming than any other options. \\
 \textbf{Bad Gamble} & A choice that seemed like a gamble and didn't pay off. & As above, but with a largely negative outcome. \\
 \textbf{Unfair} & An option that seemed good but had unexpected negative consequences. & The selected option must be expected to advance at least one high-priority player goal, while not hindering any. It must also have an unexpected and largely negative outcome. \\
 \textbf{Miracle} & An option that seemed like a lost cause but that unexpectedly turned out well. & The selected option must be expected to fail at least one high-priority goal, while not advancing any. It must have an unexpected and overall positive outcome. \\
+\bottomrule
 \end{tabular}
 \endgroup
-\caption[Retrospective outcome impressions]{Several retrospective impression labels, with formal criteria based on option expectations, prospective impressions, and option assessments. Note: see \cref{sec:results-retrospective-caveats} for more precise versions of some of these labels as informed by experimental results.}
+\caption[Retrospective outcome impressions]{Several retrospective impression labels, with formal criteria based on option expectations, prospective impressions, and option assessments. Note: see \cref{sec:results-retrospective-caveats} for more precise versions of some of these informed by experimental results.}
 \label{tab:retrospective-impressions}
 \end{table}
 

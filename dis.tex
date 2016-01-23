@@ -1,4 +1,5 @@
 \documentclass[11pt,letterpaper,twoside,openright]{book}
+%\documentclass[11pt,letterpaper,twoside,openright,draft]{book}
 
 % Margins & Spacing
 %\usepackage{showframe}
@@ -12,9 +13,9 @@
 \usepackage{tgheros}
 \usepackage{pifont}
 \usepackage{amsfonts}
-\usepackage[protrusion=rmonly,expansion=rmonly]{microtype}
-\DeclareMicroTypeSet{rmonly}{family={rm*},}
-\DeclareMicroTypeSet{sfonly}{family={sf*},}
+\usepackage[protrusion,expansion,final]{microtype}
+\DeclareMicrotypeSet[protrusion,expansion]{rmonly}{family={rm*}}
+\DeclareMicrotypeSet[protrusion,expansion]{sfonly}{family={sf*}}
 \UseMicrotypeSet[protrusion,expansion]{rmonly}
 \usepackage{bm}
 \usepackage[english]{babel}
@@ -49,10 +50,10 @@
 % Custom commands
 \usepackage{xspace}
 
-\def\dunyazad/{{\slshape Dunyazad}}
-\def\minstrel/{{\slshape Minstrel}}
-\def\skald/{{\slshape Skald}}
-\def\problemplanets/{{\slshape Problem Planets}}
+\def\dunyazad/{{\itshape Dunyazad}}
+\def\minstrel/{{\itshape Minstrel}}
+\def\skald/{{\itshape Skald}}
+\def\problemplanets/{{\itshape Problem Planets}}
 
 \def\clingo/{\texttt{clingo}}
 
@@ -125,11 +126,13 @@
 \def\eIIconsistencyshort/{Do [you] approach [all experiences] [the same way]?}
 \def\eIIothershort/{If you have any other feedback you'd like to give, [enter it here].}
 
+\newcommand{\quoteshape}{\itshape}
+
 \newcommand{\obv}[1]{\prq{obvious}{#1}}
 \newcommand{\rlx}[1]{\prq{relaxed}{#1}}
 \newcommand{\dlm}[1]{\prq{dilemma}{#1}}
 
-\newcommand{\abr}{\discretionary{}{}{}}
+\def\abr/{\discretionary{}{}{}}
 
 \newcommand{\exps}[1]{\prq{expected\_success}{#1}}
 \newcommand{\expf}[1]{\prq{expected\_failure}{#1}}
@@ -137,10 +140,10 @@
 \newcommand{\unxf}[1]{\prq{unexpected\_failure}{#1}}
 \newcommand{\obvs}[1]{\prq{obvious\_success}{#1}}
 \newcommand{\obvf}[1]{\prq{obvious\_failure}{#1}}
-\newcommand{\obvsm}[1]{\prq{obvious\_success\abr[main]}{#1}}
-\newcommand{\obvsa}[1]{\prq{obvious\_success\abr[alt]}{#1}}
-\newcommand{\obvfm}[1]{\prq{obvious\_failure\abr[main]}{#1}}
-\newcommand{\obvfa}[1]{\prq{obvious\_failure\abr[alt]}{#1}}
+\newcommand{\obvsm}[1]{\prq{obvious\_success\abr/[main]}{#1}}
+\newcommand{\obvsa}[1]{\prq{obvious\_success\abr/[alt]}{#1}}
+\newcommand{\obvfm}[1]{\prq{obvious\_failure\abr/[main]}{#1}}
+\newcommand{\obvfa}[1]{\prq{obvious\_failure\abr/[alt]}{#1}}
 
 \newcommand{\casem}[1]{\prq{[main]}{#1}}
 \newcommand{\casea}[1]{\prq{[alt]}{#1}}
@@ -148,7 +151,7 @@
 % Times symbol with tight kerning
 \def\sqtimes{\!\!\times\!\!}
 
-\newcommand{\work}[1]{{\slshape #1}}
+\newcommand{\work}[1]{{\itshape #1}}
 \newcommand{\exchar}[1]{`\texttt{#1}'\xspace}
 \newcommand{\pr}[1]{\texttt{#1}}
 \newcommand{\file}[1]{\texttt{#1}}
@@ -157,7 +160,7 @@
 \newcommand{\ind}{\hspace*{0.8em}}
 \newcommand{\svind}{\vspace*{0.3em}}
 \newcommand{\vind}{\vspace*{0.5em}}
-\newcommand{\cg}[1]{{\color{gray} #1}}
+\newcommand{\cg}[1]{{\leavevmode\color{gray} #1}}
 \newcommand{\significant}[1]{\textbf{#1}}
 \newcommand{\insignificant}[1]{{\color{cyan} #1}}
 \def\nsighcolor/{blue}

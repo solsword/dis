@@ -126,14 +126,14 @@ One category of these template-expanding plans is the ``make-consistent'' plans.
 %
 These are triggered by consistency goals that arise when consistency-checking plans (triggered by the ``check consistency'' goals added by ``tell story'') find an inconsistent node.
 %
-For example, the \texttt{CheckGoalConsistency} plan (which satisfied the ``check consistency'' goal for \gng/ nodes) might find a goal which is lacking a motivating state.
+For example, the \texttt{Check\abr/Goal\abr/Consistency} plan (which satisfied the ``check consistency'' goal for \gng/ nodes) might find a goal which is lacking a motivating state.
 %
-In this case, it could trigger the \texttt{MakeConsistentMotivatingState} plan, which adds a new \gns/ node linked to the \gng/ node by a \gem/ edge and adds a new ``instantiate'' ALG targeting the added node.
+In this case, it could trigger the \texttt{Make\abr/Consistent\abr/Motivating\abr/State} plan, which adds a new \gns/ node linked to the \gng/ node by a \gem/ edge and adds a new ``instantiate'' ALG targeting the added node.
 %
 In this manner, the original story graph can be expanded during generation; \minstrel/ is not simply a complicated mad-libs system.
 
 
-Although \minstrel/ and \skald/ both contain more than 20 ALPs, the single ALP that is responsible for most of the story content generated is the \texttt{GeneralInstantiate} plan.
+Although \minstrel/ and \skald/ both contain more than 20 ALPs, the single ALP that is responsible for most of the story content generated is the \texttt{General\abr/Instantiate} plan.
 %
 This plan is quite simple at the code level: it looks at the node in consideration along with its neighbors in the story graph, and asks the imaginative recall system to fill in the node based on the story library.
 %

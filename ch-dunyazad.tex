@@ -50,7 +50,7 @@ Normal AI practice identifies a motivating theory and then attempts to build a s
 %
 In contrast, critical technical practice seeks to question common assumptions before embarking upon technical projects that use non-standard assumptions, thereby broadening the technical field.
 %
-\dunyazad/ as a project takes this a step further and sees its driving theory (thoice poetics) as a \emph{product} of technical practice rather than a precursor to it, integrating theory development tightly with system development.
+\dunyazad/ as a project takes this a step further and sees its driving theory (choice poetics) as a \emph{product} of technical practice rather than a precursor to it, integrating theory development tightly with system development.
 %
 \dunyazad/ thus not only actively questions its own theoretical assumptions: it changes them as a matter of course and in fact uses difficulties encountered during technical development to guide these changes.
 
@@ -415,7 +415,7 @@ If constituent constraints are removed, the results are often nonsensical; if ae
 
 \file{choice\_structure.lp} \\
   \cg{[constituent]} Motivation; relevance; redundancy; repetition.  \\
-  \cg{[aesthetic]} Narrative perspecive (second-person); setup variety; bans boredom and trick options. \\
+  \cg{[aesthetic]} Narrative perspective (second-person); setup variety; bans boredom and trick options. \\
   \cg{[poetic]} Story length and pacing.
 
   \file{core.lp} \\
@@ -585,7 +585,7 @@ Each of the seven steps of choice analysis described in \cref{sec:goal-based-cho
       \item The final goals assigned to the player presume that players are generally sympathetic: unless a character is actively threatening or accusing another (deemed `guilty' by the system), the player is assumed to have both \prq{avoid\_threats\_to}{} and \prq{avoid\_accusations}{} goals for that character. These goals mean that when the player encounters non-protagonists threatening or accusing each other, the system assumes that the player will want to help the victim. As above, these goals are high-priority.
     \end{itemize}
     %
-    The predicates created by \file{goals.lp} are \prq{at(<timepoint>, player\_goal(<goal>))}{} predicates which specify the goals of the player for each timepoint, and \prq{at(<timepoint>, goal\_stakes(<goal>, <priority>))}{} predicates which assign priorities to each goal.
+    The predicates created by \file{goals.lp} are \prq{at(\abr/<timepoint>,\abr/ player\_goal(\abr/<goal>))}{} predicates which specify the goals of the player for each timepoint, and \prq{at(\abr/<timepoint>,\abr/ goal\_stakes(\abr/<goal>,\abr/ <priority>))}{} predicates which assign priorities to each goal.
 
 
     Although this static goal analysis works reasonably well, an interesting opportunity for future work presents itself here.
@@ -608,10 +608,11 @@ Each of the seven steps of choice analysis described in \cref{sec:goal-based-cho
     %
     Recall that individual outcome components are labelled as likely or unlikely, rather than entire outcomes, as called for in \cref{sec:goal-based-choice-analysis}.
     %
-    This step produces the \prq{at(<timepoint>, likely\_outcome(<option>, <outcome>))}{} and \prq{at(<timepoint>, unlikely\_outcome(<option>, <outcome>))}{} predicates.
+    This step produces the \prq{at(\abr/<timepoint>,\abr/ likely\_outcome(\abr/<option>,\abr/ <outcome>))}{} and \prq{at(\abr/<timepoint>,\abr/ unlikely\_outcome(\abr/<option>,\abr/ <outcome>))}{} predicates.
 
   \item %
     \textbf{Option Analysis} \\
+    \label{page:option-analysis}
     %
     As explained in \cref{sec:goal-based-choice-analysis}, the option analysis step uses the results of goal and likelihood analysis to attach expectations to each option.
     %
@@ -625,22 +626,22 @@ Each of the seven steps of choice analysis described in \cref{sec:goal-based-cho
     %
     For the ``achieves'' and ``fails'' evaluations, the same analysis applies, but only outcome components marked as \prq{likely}{} are considered.
     %
-    The result of the option analysis constraints is a set of \prq{at(<timepoint>, expectation(<option>, <expectation>, <goal>))}{} that list the expectations for each option/goal pair.
+    The result of the option analysis constraints is a set of \prq{at(\abr/<timepoint>,\abr/ expectation(\abr/<option>,\abr/ <expectation>,\abr/ <goal>))}{} that list the expectations for each option/goal pair.
 
   \item %
     \textbf{Relative Option Analysis} \\
     %
-    Integrating goal priorities and option expectations, relative option analysis produces \prq{at(<timepoint>, option\_feel(<option>, <feel>))}{} predicates, which collapse the various expectations across goals at each option to produce a general evaluation of that option.
+    Integrating goal priorities and option expectations, relative option analysis produces \prq{at(\abr/<timepoint>,\abr/ option\_feel(\abr/<option>,\abr/ <feel>))}{} predicates, which collapse the various expectations across goals at each option to produce a general evaluation of that option.
     %
-    For example, if an option has at least one \prq{achieves}{} expectation and it has no \prq{threatens}{} or \prq{fails}{} expectations across all goals (only counting goals tied for highest priority at that option) an option is labeled as a \prq{sure\_thing}{.}
+    For example, if an option has at least one \prq{achieves}{} expectation and it has no \prq{threatens}{} or \prq{fails}{} expectations across all goals (only counting goals tied for highest priority at that option) an option is labeled as a \prq{sure\_\abr/thing}{.}
     %
-    These rules establish one or more \prq{option\_feel}{}s for each option, and these are further aggregated into \prq{option\_structure}{} assignments, which are the prospective impressions show in \cref{tab:prospective-impressions}.
+    These rules establish one or more \prq{option\_\abr/feel}{}s for each option, and these are further aggregated into \prq{option\_\abr/structure}{} assignments, which are the prospective impressions show in \cref{tab:prospective-impressions}.
     %
     These prospective impression assignments were the subject of the first experiment described in \cref{ch:results} and provide one primary means of controlling the kinds of choices \dunyazad/ generates.
     %
     Although they are discussed here as being `assigned' based on existing choice structures, because they're just predicates in an answer set program, they can be required and the solver will solve for answer sets that include them.
     %
-    Requiring these \prq{option\_structure}{} predicates thus allows an author (or experimenter) to generate choices that (hopefully) make a desired prospective impression on the player.
+    Requiring these \prq{option\_\abr/structure}{} predicates thus allows an author (or experimenter) to generate choices that (hopefully) make a desired prospective impression on the player.
 
   \item %
     \textbf{Outcome Component Analysis} \\
@@ -651,19 +652,19 @@ Each of the seven steps of choice analysis described in \cref{sec:goal-based-cho
     %
     These are directly deduced from the definitions of each goal combined with the states that a particular outcome component adds or removes.
     %
-    So for example, the \prq{o(success, dispelled)}{} possible outcome component of the \prq{dispel}{} action has a consequence which removes the \prq{polymorphed}{} property from the target of the action.
+    So for example, the \prq{o(\abr/success,\abr/ dispelled)}{} possible outcome component of the \prq{dispel}{} action has a consequence which removes the \prq{polymorphed}{} property from the target of the action.
     %
-    Because of this, any option that consists of a \prq{dispel}{} action with a polymorphed target will \prq{advance}{} the \prq{preserve\_original\_form}{} goal for the target actor, (because the \prq{polymorphed}{} state which is being removed \prq{fails}{} the \prq{preserve\_original\_form}{} goal).
+    Because of this, any option that consists of a \prq{dispel}{} action with a polymorphed target will \prq{advance}{} the \prq{preserve\_\abr/original\_\abr/form}{} goal for the target actor, (because the \prq{polymorphed}{} state which is being removed \prq{fails}{} the \prq{preserve\_\abr/original\_\abr/form}{} goal).
 
     Because of the way that goals are defined in \dunyazad/ this step of analysis is fairly trivial.
     %
     Of course, not all goals are simple to define in terms of a globally applicable set of states that triggers them.
     %
-    For example, the \prq{as\_intended}{} goal deals directly with outcomes as opposed to world states, which may be different depending on the context of an action.
+    For example, the \prq{as\_\abr/intended}{} goal deals directly with outcomes as opposed to world states, which may be different depending on the context of an action.
     %
-    Because of this, the \prq{as\_intended}{} goal definition has custom code which directly creates \prq{expectation}{} and \prq{outcome\_perception}{} predicates by considering which outcomes are likely (and which is the \prq{default\_intent}{,} as mentioned above).
+    Because of this, the \prq{as\_\abr/intended}{} goal definition has custom code which directly creates \prq{expectation}{} and \prq{outcome\_\abr/perception}{} predicates by considering which outcomes are likely (and which is the \prq{default\_\abr/intent}{,} as mentioned above).
     %
-    The \prq{avoid\_accusations}{} and \prq{avoid\_threats\_to}{} goals also have a bit of custom code to make them more urgent: when an accusation or threat state is present, actions which have no effect on that state are given \prq{fails}{} expectations and \prq{hinders}{} outcome perceptions.
+    The \prq{avoid\_\abr/accusations}{} and \prq{avoid\_\abr/threats\_\abr/to}{} goals also have a bit of custom code to make them more urgent: when an accusation or threat state is present, actions which have no effect on that state are given \prq{fails}{} expectations and \prq{hinders}{} outcome perceptions.
     %
     All other goals simply specify one or more states that \prq{advance}{,} \prq{hinder}{,} \prq{achieve}{,} or \prq{fail}{} them, as described above.
 
@@ -671,12 +672,12 @@ Each of the seven steps of choice analysis described in \cref{sec:goal-based-cho
     \textbf{Full Outcome Analysis} \\
     %
     Full outcome analysis concerns the expectedness and overall valence of the entire outcome of each option.
+    % TODO: Figure out how to do this non-manually!
+    In \dunyazad/, these are represented by the predicates \prq{at(\abr/<timepoint>,\abr/ outcome\_overall(\abr/<option>,\abr/ <evaluation>\abr/))}{,} \prq{at(\abr/<timepoint>,\abr/ outcome\_predictability(\abr/<option>,\abr/ <outcome>,\\ <predictability>))}{,} and \prq{at(\abr/<timepoint>,\abr/ overall\_predictability(\\ <option>,\abr/ <predictability>))}{.}
     %
-    In \dunyazad/, these are represented by \prq{at(<timepoint>, outcome\_overall(<option>, <evaluation>))}{,} \prq{at(<timepoint>, outcome\_predictability(<option>, <outcome>, <predictability>))}{,} and \prq{at(<timepoint>, overall\_predictability(<option>, <predictability>))}{} predicates.
+    The \prq{outcome\_\abr/overall}{} predicates summarize the individual \prq{outcome\_\abr/perception}{} predicates across all player goals and across different outcome components at an action.
     %
-    The \prq{outcome\_overall}{} predicates summarize the individual \prq{outcome\_perception}{} predicates across all player goals and across different outcome components at an action.
-    %
-    There are eight possible \prq{outcome\_overall}{} values:
+    There are eight possible \prq{outcome\_\abr/overall}{} values:
     %
     \begin{enumerate}
       \item \prq{great}{}--Reserved for options which achieve at least one player goal while neither failing nor hindering any.
@@ -695,7 +696,7 @@ Each of the seven steps of choice analysis described in \cref{sec:goal-based-cho
     %
     Most common cases avoid the ambiguous ``tradeoff'' label anyways, so not much information is lost.
 
-    Along with \prq{outcome\_overall}{} labels, this step assigns one of the following six \prq{outcome\_predictability}{} values to each outcome component and also (as \prq{overall\_predictability}{}) to each option:
+    Along with \prq{outcome\_\abr/overall}{} labels, this step assigns one of the following six \prq{outcome\_\abr/predictability}{} values to each outcome component and also (as \prq{overall\_\abr/predictability}{}) to each option:
     %
     \begin{enumerate}
       \item
@@ -739,20 +740,43 @@ Each of the seven steps of choice analysis described in \cref{sec:goal-based-cho
 \renewcommand*{\arraystretch}{1.5}
 {
 \centering
-\begin{tabular}{p{10em}|p{6.5em} p{7.5em} p{7em}}
-  Outcome Feel                &   Option Feels                                                          &   Overall \newline Predictabilities                                        &   Overall \newline Outcomes \\
-  \hline
-  \prq{expected\_success}{}   &   \prq{sure\_thing}{} \newline \prq{safe}{} \newline \prq{hopeful}{}    &   \prq{predictable}{} \newline \prq{expected}{}                            &   \prq{great}{} \newline \prq{good}{} \\
-  \hline
-  \prq{unfair}{}              &   \prq{sure\_thing}{} \newline \prq{safe}{} \newline \prq{hopeful}{}    &   \prq{unexpected}{} \newline \prq{unfair}{}                               &   \prq{bad}{} \newline \prq{awful}{} \\
-  \hline
-  \prq{nice\_gamble}{}        &   \prq{risky}{} \newline \prq{tradeoff}{} \newline \prq{irrelevant}{}   &   \prq{average}{} \newline \prq{unpredictable}{}                           &   \prq{great}{} \newline \prq{good}{} \newline \prq{worth\_it}{} \\
-  \hline
-  \prq{bad\_gamble}{}         &   \prq{risky}{} \newline \prq{tradeoff}{} \newline \prq{irrelevant}{}   &   \prq{average}{} \newline \prq{unpredictable}{}                           &   \prq{not\_worth\_it}{} \newline \prq{bad}{} \newline \prq{awful}{} \\
-  \hline
-  \prq{expected\_failure}{}   &   \prq{long\_shot}{} \newline \prq{bad}{} \newline \prq{doomed}{}       &   \prq{predictable}{} \newline \prq{expected}{} \newline \prq{average}{}   &   \prq{bad}{} \newline \prq{awful}{} \\
-  \hline
-  \prq{miracle}{}             &   \prq{long\_shot}{} \newline \prq{bad}{} \newline \prq{doomed}{}       &   \prq{unexpected}{} \newline \prq{unfair}{}                               &   \prq{great}{} \newline \prq{good}{} \newline \prq{worth\_it}{} \\
+\begin{tabular}{p{10em} p{6.5em} p{7.5em} p{6em}}
+\toprule
+\vspace{-1.5ex}\textbf{Outcome Feel}%
+& \vspace{-1.5ex}\textbf{Option Feels}%
+& \textbf{Overall \newline Predictabilities}%
+& \textbf{Overall \newline Outcomes} \\
+\midrule
+\prq{expected\_success}{}%
+& \prq{sure\_thing}{} \newline \prq{safe}{} \newline \prq{hopeful}{}%
+& \prq{predictable}{} \newline \prq{expected}{}%
+& \prq{great}{} \newline \prq{good}{} \\
+\midrule
+\prq{unfair}{}%
+& \prq{sure\_thing}{} \newline \prq{safe}{} \newline \prq{hopeful}{}%
+& \prq{unexpected}{} \newline \prq{unfair}{}%
+& \prq{bad}{} \newline \prq{awful}{} \\
+\midrule
+\prq{nice\_gamble}{}%
+& \prq{risky}{} \newline \prq{tradeoff}{} \newline \prq{irrelevant}{}%
+& \prq{average}{} \newline \prq{unpredictable}{}%
+& \prq{great}{} \newline \prq{good}{} \newline \prq{worth\_it}{} \\
+\midrule
+\prq{bad\_gamble}{}%
+& \prq{risky}{} \newline \prq{tradeoff}{} \newline \prq{irrelevant}{}%
+& \prq{average}{} \newline \prq{unpredictable}{}%
+& \prq{not\_worth\_it}{} \newline \prq{bad}{} \newline \prq{awful}{} \\
+\midrule
+\prq{expected\_failure}{}%
+& \prq{long\_shot}{} \newline \prq{bad}{} \newline \prq{doomed}{}%
+& \prq{predictable}{} \newline \prq{expected}{} \newline \prq{average}{}%
+& \prq{bad}{} \newline \prq{awful}{} \\
+\midrule
+\prq{miracle}{}%
+& \prq{long\_shot}{} \newline \prq{bad}{} \newline \prq{doomed}{}%
+& \prq{unexpected}{} \newline \prq{unfair}{}%
+& \prq{great}{} \newline \prq{good}{} \newline \prq{worth\_it}{} \\
+\bottomrule
 \end{tabular}
 }
 \endgroup
@@ -776,7 +800,7 @@ Each of the seven steps of choice analysis described in \cref{sec:goal-based-cho
     \dunyazad/ has six different \prq{outcome\_feel}{} structures that it recognizes, which are shown in \cref{tab:dunyazad-outcome-feel-structures}.
 
 
-    It's worth noting that contrary to \cref{fig:choice-analysis-method}, \dunyazad/ doesn't directly incorporate information from its option analysis step into its retorspective analysis.
+    It's worth noting that contrary to \cref{fig:choice-analysis-method}, \dunyazad/ doesn't directly incorporate information from its option analysis step into its retrospective analysis.
     %
     This is because it doesn't use this more nuanced information, just using the higher-level \prq{outcome\_overall}{} predicates.
     %
@@ -790,7 +814,7 @@ Each of the seven steps of choice analysis described in \cref{sec:goal-based-cho
     %
     In other words, they are idiosyncratic: \dunyazad/'s definition of an `obvious' choice might be one way to make choices obvious, but there could be other rules for constructing choices that also resulted in obviousness without necessarily having any overlap with the kinds of obvious choices that \dunyazad/ generates.
     %
-    Their idiosyncracy is not a problem, of course: we can still learn about obviousness from studying a subset of obvious choices, however, we need to be careful not to generalize our results too far.
+    Their idiosyncrasy is not a problem, of course: we can still learn about obviousness from studying a subset of obvious choices, however, we need to be careful not to generalize our results too far.
 
 
     Coming back to the results of retrospective analysis, these \prq{outcome\_feel}{} predicates give authors another high-level means of control over \dunyazad/.
@@ -804,7 +828,7 @@ As is hopefully clear from this description, \dunyazad/'s poetic constraints are
 %
 Although they operate simultaneously rather than sequentially, each step of analysis shown in \cref{fig:choice-analysis-method} corresponds to a set of constraints in \dunyazad/'s ASP code.
 %
-Of course, this is not simply a case of the code mimicking the theory: both the human-useable analysis method and the machine-usable code were designed together, with changes in each informing the development of the other.
+Of course, this is not simply a case of the code mimicking the theory: both the human-usable analysis method and the machine-usable code were designed together, with changes in each informing the development of the other.
 %
 Furthermore, the close parallels provided which extend to the structural level make this two-way information flow smoother, allowing both bug fixes to the code and caveats added to the theory to inform each other.
 
@@ -951,7 +975,7 @@ A variable substitution is indicated by a question mark followed by a variable n
 Different variables are supplied by \dunyazad/ in different contexts, and grammar expansions may also manually assign variables as shown above.
 
 
-The key in the first example above is \prq{action/attack/option}{,} which is used when \dunyazad/ needs to display option text for an \prq{attack}{} action: the text that the player will click on to trigger the action.
+The key in the first example above is \prq{action/\abr/attack/\abr/option}{,} which is used when \dunyazad/ needs to display option text for an \prq{attack}{} action: the text that the player will click on to trigger the action.
 %
 In this context, \dunyazad/ runs the grammar with all of the arguments of the current option's action bound as variables, so because the \prq{attack}{} action has \prq{aggressor}{} and \prq{target}{} arguments, those variables names can be used.
 %
@@ -984,7 +1008,7 @@ Another is that all grammar key-expansion relationships are assigned at compile 
 
 \subsection{Tags}
 
-The extra syntax that surrounds the variable expansions in the \prq{action/attack/option}{} example above is \dunyazad/'s approach to managing subject/verb agreement and pronominalization.
+The extra syntax that surrounds the variable expansions in the \prq{action/\abr/attack/\abr/option}{} example above is \dunyazad/'s approach to managing subject/verb agreement and pronominalization.
 %
 These are called `tags,' and they indicate a third, more dynamic type of substitution.
 %
@@ -1241,7 +1265,7 @@ The text overall is easier to read than a version that used determinate noun ref
 \afterpage{
 \begin{figure}[!h]
 \quotebox{
-    \slshape
+    \quoteshape
 You are about to set out on an epic journey. You are are heading towards towards the distant country of Jichish, hoping to earn fame and fortune.
 
 You have some perfume and a book of herbal lore, and you have skill: literacy, you have skill: wilderness lore, you have skill: musician, and you have skill: sorcery.
