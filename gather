@@ -10,6 +10,7 @@ cp ~/programming/dunyazad/experiments/outcomes-experiment/reports/cropped-choice
 cp ~/programming/dunyazad/experiments/outcomes-experiment/reports/cropped-extra-outcomes-report-by-setup-05-opt.stakes.pdf fig/
 cp ~/programming/dunyazad/experiments/outcomes-experiment/reports/cropped-detailed-report-*.pdf fig/
 cp ~/programming/dunyazad/experiments/outcomes-experiment/reports/motives-*.pdf fig/
+cp ~/programming/dunyazad/experiments/outcomes-experiment/reports/cropped-motives-*.pdf fig/
 cp ~/programming/dunyazad/experiments/outcomes-experiment/reports/framed-*.tex fig/
 # TODO: Better?
 cp fig/outcomes-legend.pdf fig/outcomes-legend-custom.pdf

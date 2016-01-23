@@ -12,7 +12,10 @@
 \usepackage{tgheros}
 \usepackage{pifont}
 \usepackage{amsfonts}
-\usepackage{microtype}
+\usepackage[protrusion=rmonly,expansion=rmonly]{microtype}
+\DeclareMicroTypeSet{rmonly}{family={rm*},}
+\DeclareMicroTypeSet{sfonly}{family={sf*},}
+\UseMicrotypeSet[protrusion,expansion]{rmonly}
 \usepackage{bm}
 \usepackage[english]{babel}
 \usepackage[nohyphen]{underscore}
@@ -31,6 +34,7 @@
 \usepackage{manyfoot}
 \newfootnote{Star}
 \usepackage{multirow}
+\usepackage{bigdelim}
 \usepackage{booktabs}
 \usepackage{array}
 
