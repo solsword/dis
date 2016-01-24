@@ -1,0 +1,10 @@
+#!/bin/sh
+./wf ch-intro.tex
+./wf ch-method.tex
+./wf ch-related-work.tex
+./wf ch-skald.tex
+./wf ch-choice-poetics.tex
+./wf ch-dunyazad.tex
+./wf ch-results.tex
+./wf ch-conclusion.tex
+cat wf-* > wf-all.lst

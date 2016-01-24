@@ -1,0 +1,4 @@
+#!/bin/sh
+grep includegraphics $1 | sed "s/.*includegraphics[^{]*{\\(.*.pdf\\)}.*$/\\1/" | sed "s/[}{]//g" | sed "s/\\\\string_/_/g"> wf-$1.lst
+grep "\\\\input" $1 | sed "s/.*\\input[^{]*{\\(.*\\)}.*$/\\1/" | sed "s/[}{]//g" | sed "s/\\\\string_/_/g" >> wf-$1.lst
+grep "fseed" $1 | sed "s/.*fseed{\\(.*\\)}.*$/fig\\/framed-seed-\\1.tex/" >> wf-$1.lst
