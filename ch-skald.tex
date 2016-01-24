@@ -70,8 +70,10 @@ Furthermore, \minstrel/ starts each new story by importing a story template from
 In \minstrel/ and \skald/, both of these resources are represented in a unique graph-based format which \minstrel/ uses to represent all story content.
 
 
-\begin{figure}
-\caption{TODO: HERE}
+\begin{figure}[!p]
+  \centering
+  \includegraphics[width=\textwidth]{fig/cropped-story-graph.pdf}
+  \caption[Example Skald story graph]{An example of a \skald/ story graph. It represents a story where Lancelot plans to kill a troll, attacks it with his sword and kills it, but becomes injured. After that, Lancelot wants to heal himself so he drinks a potion, but the potion kills him instead.}
 \label{fig:story-graph}
 \end{figure}
 
@@ -80,15 +82,9 @@ In \minstrel/ and \skald/, both of these resources are represented in a unique g
 %
 The four core node types are \gng/, \gna/, \gns/, and \gnb/ nodes, and they are usually found in \gng/-\gna/-\gns/ triangles linked by \gep/, \gei/, and \gea/ links.
 %
-Essentially, these \gng/-\gna/-\gns/ triples each represent a single event (along it its motivation and outcome) and they are linked to each other when the \gns/ of one triple has a \gem/ link to the \gng/ of another (see \cref{fig:story-graph}.
+Essentially, these \gng/-\gna/-\gns/ triples each represent a single event (along it its motivation and outcome) and they are linked to each other when the \gns/ of one triple has a \gem/ link to the \gng/ of another.
 %
-Within each node, the details of a particular \gng/, \gna/, \gns/, or \gnb/ are represented using conceptual dependency schemas (see \cref{fig:cd-nodes}).
-
-
-\begin{figure}
-\caption{TODO: HERE}
-\label{fig:cd-nodes}
-\end{figure}
+Within each node, the details of a particular \gng/, \gna/, \gns/, or \gnb/ are represented using conceptual dependency schemas, as shown in \cref{fig:story-graph}.
 
 
 A few of the stories from \minstrel/'s original library are described in Turner's dissertation, but Turner's complete library was not available to us.
@@ -151,6 +147,14 @@ For example, a scene where a knight slays a dragon might be recalled when buildi
 Intuitively, imaginative recall recognizes trolls and dragons are similar because they are both monsters, and so the scene where the knight slays the dragon is appropriate source material for the new story.
 
 
+\begin{figure}[!t]
+\centering
+\includegraphics[width=\textwidth]{fig/cropped-im-example.pdf}
+\caption[Imaginative recall example]{An example of imaginative recall using a Transform Recall Adapt method (TRAM). The original query (top left) must be Transformed (bottom left) before a match can be Recalled from the story library (bottom right). The match is then Adapted to fill in the query's target node (context nodes are discarded). Note that each empty slot is potentially connected with others in the graph, so that when ``Lancelot'' is chosen as the actor here other slots corresponding to that same actor will also be changed to ``Lancelot.''}
+\label{fig:im-example}
+\end{figure}
+
+
 Imaginative recall actually works via a three-step recursive process: Transform, recall, and adapt.
 %
 First, an input query is transformed so that it can more easily match story fragments from the story library.
@@ -159,19 +163,13 @@ Second, a matching fragment is picked out from the library.
 %
 Finally, the matching fragment is adapted so that it matches the context of the current story.
 %
-In the example above, the query is a scene in which a troll is killed.
+In \cref{fig:im-example}, the query is a scene in which a troll is killed.
 %
-This is shown in \cref{fig:im-example}: an \gna/ node liked to a \gns/ node with an \gei/ link.
+This is represented as an \gna/ node liked to a \gns/ node with an \gei/ link.
 %
-The \gna/ node specifies that the type of action is ``attack,'' and that a troll is the target, but the actor and tool in this case are still unknown (otherwise the story fragment would already be complete).
+The \gna/ node specifies that the type of action is ``fight,'' and that a troll is the target, but the actor and tool in this case are still unknown (otherwise the story fragment would already be complete).
 %
 The \gns/ node specifies that the troll has a health value of ``dead,'' and it doesn't have any unknowns.
-
-
-\begin{figure}
-\caption{TODO: HERE}
-\label{fig:im-example}
-\end{figure}
 
 
 Using this query, the imaginative recall system begins by searching for a direct match in the story library: a graph fragment in which all of the fields match with the query (for unknown fields of the query, any value can match).
@@ -191,11 +189,11 @@ Ultimately, the odds of a match increase as more TRAMs are applied, because each
 
 Coming back to our example, in the case of the troll being slain by an unknown actor, one available transformation is the ``GeneralizeActor'' transformation.
 %
-This TRAM says that a specific actor, like ``Lugthor the Troll,'' can be replaced with a generic actor of the specific actor's type (using a simple type ontology of actors).
+This TRAM says that a specific actor, like ``a troll,'' can be replaced with a generic actor of the specific actor's type (using a simple type ontology of actors).
 %
 In this case, the TRAM replaces all occurrences of the troll in the query fragment with ``a generic monster.''
 %
-After transformation, the new query is checked against the story library, and this time, there's a result: the scene where a knight kills a dragon now matches our fragment, because the dragon can match ``a generic monster.''
+After transformation, the new query is checked against the story library, and this time, there's a result: the scene where Lancelot the knight kills a dragon now matches our fragment, because the dragon can match ``a generic monster.''
 %
 Having Recalled a scene from the story library, the Adapt step is triggered.
 %
@@ -205,7 +203,7 @@ So the fragment from the library in which a knight slays a dragon is adapted by 
 %
 If multiple TRAMs had been necessary to find a match, their adapt steps would all have been applied in reverse order.
 %
-The adapted story fragment can be incorporated into the story, in this case our result is that a knight kills the troll with his lance (see \cref{fig:im-example}).
+The adapted story fragment can be incorporated into the story, in this case our result is that a knight kills the troll with his sword (see \cref{fig:im-example}).
 %
 The TRAM process has eliminated all of our initial unknowns, and this story fragment is now completed; the ALP system takes over again to select a new place fragment for imaginative recall.
 
