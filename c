@@ -1,5 +1,5 @@
 #!/bin/sh
 ./cpl dis
-bibtex dis
+biber dis
 ./cpl dis
 ./cpl dis

@@ -1,3 +1,5 @@
+*.bcf
+*.run.xml
 *.aux
 *.log
 *.pdf

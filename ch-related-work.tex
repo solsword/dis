@@ -2,13 +2,104 @@
 
 \label{ch:related-work}
 
-\section{Classical Narrative Theory}
+The work described in this document derives mainly from the tradition in computer science of building programs that generate narratives.
+%
+While one aim of this project is to build a program which can intentionally generate narrative choices (a computer science concern: ``How can we build a system that does X?'') another is to use such a program to learn more about the nature of such choices (a media theory concern: ``How does the construction of narrative choices shape player reactions?'').
+%
+Because of this, it also owes much to narratological theories which have nothing to do with computing, and to ideas related to the psychology of reading, decision-making, and persuasion.
+%
+The remainder of this chapter discusses these ideas that \dunyazad/ builds on in depth, starting with theories of narrative and moving on to computer systems that generate narrative.
+
+\section{Narrative Theory}
 %===============================================================================
 
-\cite{Aristotle1917}
-\cite{Freytag1894}
-\cite{Forster1927}
-\cite{Propp1973}
+\subsection{The Foundations of Narrative Theory}
+%===============================================================================
+
+Aristotle is one of the earliest scholars to discuss narrative theory, and his \work{Poetics} is a treatise on the inner workings of Greek drama \citep{Aristotle1917}.
+%
+Aristotle discussed which plot constructions were more effective than others, and identified basic types of dramatic plot, including the comedy and the tragedy, attempting to explain using examples what properties were important in these forms.
+%
+Although the idea that audience response is a simple function of the content of a narrative work has been recognized as na\"ive, the ideas of Aristotle sowed the seeds of modern narrative theory.
+%
+Along with other ancient critiques of drama, such as Horace's \work{Ars Poetica} \citep{Horace1783}, \work{Poetics} helped establish drama, and by extension narrative, as cites of critical study.
+
+
+An important next step in for narrative theory happened in 1894, when Gustav Freytag published \work{Technique of the Drama} \citep{Freytag1894}.
+%
+Freytag's ideas about the emotional arc of traditional dramas have become standard fare in today's classrooms when students first begin learning how to unpack meaning in narrative.
+%
+His work on the dramatic structure of the traditional 5-act drama represents a further step from critique or craft advice towards more formal theories of drama (and more generally, narrative).
+
+
+\subsection{Formalism and Structuralism}
+%===============================================================================
+
+In the early 20th century, this formalization of narrative theory was taken even farther by a group of Russian literary critics known as the Russian formalists.
+%
+These scholars were exemplified by Vladimir Propp, whose 1928 \work{Morphology of the Folk Tale} \citep{Propp1971} dissected common characters and scenes within a group of Russian folk-tales and come up with an abstracted representation which revealed fundamental similarities between the stories.
+%
+Propp observed that a simple grammar of a set of thirty-one basic `functions' could account for the plots of all of the stories that he was analysing, thus creating an abstract and formalist description of their common structure.
+%
+Although this formal structure has proved an attractive theory for computer scientists interested in creating stories, some contemporary literary theorists disagreed with Propp, asserting that Propp's analysis neglected many important aspects of a story, such as tone and mood.
+%
+In Prop's (and the formalists') attempts to understand similarities common to diverse narratives, he (and they) are forced to ignore many of the details that make individual stories stand out.
+%
+Although these details may be safely abstracted while still understanding the \emph{sequence of events} embedded in a particular story, they are often crucial to the \emph{audience's experience}, and thus to poetics.
+
+
+The Russian formalists began a movement within literary criticism that gave rise to the discipline of narratology.
+%
+Rather than explicating the details of an individual work or the works of an author or movement, scholars such as Greimas and Barthes sought structural theories that could explain broad phenomenon in many narrative contexts \citep{Barthes1975,Greimas1988}.
+%
+Central to narratology is the idea that to some degree, narratives can be separated into an abstract series of events (the \textit{fabula}, or story) and a particular telling of those events (the \textit{syuzhet}, or discourse).
+%
+While work like Propp's focuses almost myopically on story at the expense of discourse, some later narratologists focused on discourse-related effects such as focalization.
+%
+Narratologists created theories and methods of analysis that could be applied to a broad range of narrative contexts.
+%
+Particularly because of the abstract nature of these theories and methods, computer scientists interested in creating artificial story generators have drawn on them as inspiration for their systems.
+
+
+\subsection{Cognitive and Psychological Narrative Theories}
+%===============================================================================
+
+Although narratology grew out of literary criticism, in the late 20th century researchers in fields such as psychology and cognitive science began to approach narrative from a new perspective.
+%
+Psychologists were interested in questions such as ``Why do humans enjoy stories?'' or ``How do humans comprehend stories?''
+%
+They put forth models of narrative comprehension \citep{Kintsch1980,Brewer1982}, 
+% TODO: HERE
+
+\cite{Iran-Nejad1987}
+\cite{Oatley1995, Oatley1999}
+\cite{Mar2004, Mar2008}
+\cite{Zunshine2006}
+
+
+\section{Craft and Literary Criticism}
+%===============================================================================
+
+Another 
+
+Moving beyond drama, novelists, writing teachers, and critics of the 20th century (who often wore more than one of these hats) began to write down their own views on narrative for pedagogical and critical purposes.
+%
+Works like E. M. Forster's \work{Aspects of the Novel} \citep{Forster1927} offer insight into how producers and critics view narrative (in this context epitomized by the novel).
+%
+As someone who is acknowledged as skilled at the craft of narrative composition, Forster is in a unique place to observe and reveal underlying aspects common across different narrative contexts.
+
+
+At the same time, 
+
+\cite{Propp1971}
+
+
+\section{Theories of Interaction}
+%===============================================================================
+
+\cite{Huizinga1949}
+\cite{Bernstein1998}
+% TODO: Other hypertext theory authors...
 
 
 \section{The Foundations of Computational Narrative}
@@ -17,15 +108,6 @@
 \cite{Klein1971, Klein1973}
 \cite{Meehan1976}
 \cite{Lebowitz1984}
-
-
-\section{Modern Narrative Theories}
-%===============================================================================
-
-\cite{Iran-Nejad1987}
-\cite{Oatley1995, Oatley1999}
-\cite{Mar2004, Mar2008}
-\cite{Zunshine2006}
 
 
 \section{Modern Computational Narrative}
@@ -45,14 +127,6 @@
 
 \subsection{Other Related Systems}
 %-------------------------------------------------------------------------------
-
-
-\section{Theories of Interaction}
-%===============================================================================
-
-\cite{Huizinga1949}
-\cite{Bernstein1998}
-% TODO: Other hypertext theory authors...
 
 
 % TODO: Use this?
