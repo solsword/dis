@@ -145,7 +145,7 @@ Brenda Laurel's 1986 thesis titled \work{Toward the Design of a Computer-Based I
 %
 Laurel's thesis was a visionary description of a future medium in which computers would enable a drastically more interactive form of theater.
 %
-Along with other early work like Smith and Bates' 1989 \work{Towards a Theory of Narrative for Interactive Fiction} \citep{Smith1989} Laurel's thesis was inspired by interactive fiction software and looked forward to potential future forms of interactive narrative.
+Along with other early work like Sean Smith and Joseph Bates' 1989 \work{Towards a Theory of Narrative for Interactive Fiction} \citep{Smith1989} Laurel's thesis was inspired by interactive fiction software and looked forward to potential future forms of interactive narrative.
 
 
 Marie-Laure Ryan's \work{Possible Worlds, Artificial Intelligence, and Narrative Theory}, published in 1991, makes a slightly different connection between narrative and computers: it brings ideas from artificial intelligence (and philosophy) to bear on narratology \citep{Ryan1991}.
@@ -375,8 +375,11 @@ Studies of the psychology of everyday choices are thus only a starting point for
 
 
 
-\section{The Foundations of Computational Narrative}
+\section{Computational Narrative Systems}
 %===============================================================================
+
+\subsection{The Foundations of Computational Narrative}
+%-------------------------------------------------------------------------------
 
 While the theories of interactive (and traditional) narrative just discussed mainly relate to the development of choice poetics, \dunyazad/ also includes a system-building component.
 %
@@ -389,92 +392,248 @@ Two years later another publication about the project was simply titled \work{Au
 Klein and his collaborators created a computer representation of a mystery world that included some random elements, and thus generated different output each time it was run.
 %
 Although presented as an ``automatic novel writer'' most of the plot structure in their program's output was hard-coded in the form of events or actions scheduled to take place at particular times.
-
-\cite{Klein1971, Klein1973}
-\cite{Meehan1976}
-\cite{Lebowitz1984}
+%
+Still, as a first foray into narrative generation, their system was impressive, especially given the limitations of computer systems at that time.
 
 
-\section{Modern Computational Narrative}
+It did not take long for the idea of an artificial author to receive more attention.
+%
+In 1976, James Meehan published his thesis titled \work{The Metanovel: Writing Stories by Computer} \citep{Meehan1976}.
+%
+Influenced by Roger Schank (his advisor at Yale), Meehan built a program that allowed autonomous characters to build and carry out plans.
+%
+Based on the idea that fables were stories about problem-solving, his program would place characters in problematic situations and then narrate their execution of a plan to resolve their problems.
+%
+Much more dynamic than the system build by Klein, \work{Tale-Spin} (as Meehan dubbed it) became an inspiration for future work on narrative generation.
+%
+Although \dunyazad/ is neither plan-based nor character-driven, the echoes of these ideas are still present in the character motivation system, and in its reliance on canned dramatic situations which drive dynamic character reactions.
+
+
+Following Meehan at Yale, Natalie Dehn proposed a different model of story generation in 1981 \citep{Dehn1981}.
+%
+Her proposed system \work{Author} would simulate not the actions of characters, but instead the goals and plans of an author.
+%
+Dehn realized that for many plots, an explanation purely at the level of character motivations fails to account for many serendipitous events that make the work interesting.
+%
+However, if we appeal to an author who plans for things like suspense or foreshadowing, it is much easier to explain why events occur as they do.
+%
+Dehn accordingly planned a system that would simulate an author, thus inspiring an author-simulation-based model of narrative intelligence systems that remains popular today.
+
+
+Following Dehn, Michael Lebowitz published \work{Creating a Story-Telling Universe} in 1983, proposing a story-generation system for generating soap-opera episodes called \work{Universe} \citep{Lebowitz1983}.
+%
+Like \work{Author}, \work{Universe} worked at the author level, but it focused more on character creation, and it used hierarchical planning to assemble plots \citep{Lebowitz1984,Lebowitz1985}.
+%
+Most of \work{Universe}'s generation activity consisted of picking plot fragments that elaborated on higher-level plot fragments.
+%
+For example, \work{Universe} might start with a high-level plot fragment such as ``Mary breaks up with John,'' and then decide to instantiate this using ``Mary and John have a fight and Mary leaves John.''
+%
+Both ``Mary and John have a fight,'' and ``Mary leaves John,'' might themselves be abstract plot fragments with multiple possible instantiations, and the choice of instantiations at any level might depend on the character attributes of Mary and John.
+%
+Lebowitz' \work{Universe} approach is thus radically different from the forward-planning approach of Meehan and Dehn, and in some ways can be compared to a grammar-based or template-based system.
+
+
+As mentioned above, Brenda Laurel's dissertation on interactive theater was published in 1986 \citep{Laurel1986}, so around this time the idea of computer-generated narratives was supplemented by the idea of computer-mediate narratives.
+%
+\dunyazad/ ultimately sits between these two traditions, as it includes interactivity in the form of choices for the player to make, but focuses more on offline generation than on-line mediation.
+%
+Researchers have continued to develop non-interactive story generators, and two more landmark systems debuted in the 1990's: Scott Turner's \minstrel/ in 1993 and Rafael P\'{e}rez~y~P\'{e}rez' \work{Mexica} in 1999 \citep{Turner1993,PerezyPerez1999}.
+
+
+\minstrel/ was in fact the impetus for the creation of \dunyazad/ , as explained in \cref{ch:skald}.
+%
+It used the author-centric approach of Dehn and Lebowitz but relied heavily on a mechanism called imaginative recall which worked to re-use bits of remembered stories from a story library as parts of a new story.
+%
+Although Turner does not use the term, it was in large part a case-based reasoning system for story generation.
+
+
+\work{Mexica} took the author-centric approach and pushed it further, modelling not just authorial planning but also reflection \citep{PerezyPerez2001}.
+%
+After \work{Mexica} creates an episode, it reflects on it, revising in much the same way an author revises their work to create a finished product.
+%
+Although \dunyazad/ does not have a second-pass refinement step, nor does it explicitly simulate an author, it does devote much of its processing to reasoning about player perceptions.
+%
+In this regard it is more similar to a system like \work{Mexica} than it is to systems like \work{Tale-Spin} or \minstrel/ which do not explicitly reason about audience reception.
+
+
+\subsection{Modern Computational Narrative}
+%-------------------------------------------------------------------------------
+
+
+\subsubsection{Story Generators}
+%-------------------------------------------------------------------------------
+
+Following early efforts in computer-enabled story generation, a wide range of methods have been applied to this challenge.
+%
+Methods including case-based reasoning (beyond \minstrel/) \citep{Gervas2005}, computational analogy \citep{Zhu2010}, evolutionary algorithms \citep{Bui2010}, and crowd-sourcing \citep{Li2013} have been explored.
+%
+One particularly prolific vein of research has been planning-based story generators, exemplified by the work of R. Michael Young and Mark Riedl, among others \citep{Young1999,Riedl2004}.
+%
+These systems work at the author level, but nonetheless use planning to decide which characters will carry out what actions in service of author goals.
+%
+This line of research has been able to accommodate formal models of various narrative effects as additional constraints at the planning level, including things like suspense \citep{Cheong2006}, foreshadowing \citep{Bae2008}, and character conflict \citep{Ware2014}.
+%
+These planning-based story generators share a predicate representation of the world with \dunyazad/, and to some degree exhibit a similar reasoning process, which is able to integrate relatively arbitrary declarative constraints into the creation of stories.
+%
+As is evident, this approach has provided fertile ground for experimentation with particular psychological and critical theories of narrative because these models can be integrated as declarative constraints on the output without worrying about designing a process that can reliably produce specific effects.
+%
+Of course, \dunyazad/ at the moment is focused on constructing individual choices, and so its capabilities for reasoning across multiple actions are much more limited than those of a planner.
+%
+Because of this, one promising direction for future work would be to integrate \dunyazad/ with a narrative planner, letting the planner specify choice structures at each choice point and later relying on \dunyazad/ to construct the specifics of each choice.
+%
+Such a setup would involve solving some hard problems, however, such as how \dunyazad/ and the planner would communicate about the actions and outcomes that correspond to each option at a choice.
+
+
+\subsubsection{Interactive Narrative}
+%-------------------------------------------------------------------------------
+
+One of the earliest and most successful projects in interactive narrative was the Oz Project at Carnegie Mellon University.
+%
+Spearheaded by Joseph Bates (already mentioned in regards to theories of interactive narrative above, which also came out of this project), the Oz Project was a decade-long investigation into interactive fiction focused on stories supported by believable characters that could exhibit emotional reactions to a player's actions \citep{Bates1992}.
+%
+Using reactive planning architectures, the Oz project created virtual characters and then used these characters to tell stories.
+%
+The most successful system that resulted was Michael Mateas and Andrew Stern's \facade/ \citep{Mateas2002b}.
+%
+\facade/ was a true interactive drama that incorporated free-form text recognition input, procedural character animation, and a beat-based drama management system, putting players in the shoes of a visitor in the house of a pair of old friends as their marriage falls apart (or doesn't, depending on the player's actions).
+
+
+\facade/ combines multiple approaches including character simulation and drama management into a single experience, but these ideas have been explored by other projects as well.
+%
+The idea of drama management as an AI technique for improving player experience in interactive fiction was first proposed by Peter Weyhrauch in 1997 \citep{Weyhrauch1997}.
+%
+\facade/ incorporated some of the ideas of drama management, and then in 2006 two projects proposed new approaches.
+%
+Mark Nelson, David Roberts, and Charles Isbell worked with Michael Mateas on declarative optimization-based drama management, a perspective that saw the drama-manager's intervention in an interactive experience as an optimization problem \citep{Nelson2006}.
+%
+At the same time, Bradford Mott and James Lester saw drama management as a decision problem, which they addressed using dynamic decision networks in \work{Crystal Island}, an educational interactive narrative \citep{Mott2006}.
+%
+Mott and Lester's work is notable because they used a dynamic model of the player to inform their system's decisions.
+%
+Later approaches to drama management have included case-based drama management \citep{Sharma2010}, and collaborative filtering for personalized drama management \citep{Yu2013}.
+%
+Even when not the focus of research, many interactive narrative projects include some system for managing and directing player actions.
+
+
+Drama management usually takes the form of subtle manipulations of the world state that make certain actions more- or less-attractive (or simply unavailable) to the player in order to guide them towards a system-preferred path without taking away their agency entirely.
+%
+In this context \dunyazad/ could be a useful tool for drama management because it knows how to construct choices that not only evoke particular feelings but which also encourage the player to choose particular options.
+%
+The work of Hong Yu and Mark Riedl \citep{Yu2013} deserves further mention here because Yu and Riedl used Choose-Your-Own Adventure stories as the basis for their drama manager.
+%
+In order to combat player frustration, Yu and Riedl gathered data from many play-throughs of a digital version of a classic CYOA book and used player ratings to determine which decision paths led to more satisfying experiences.
+%
+At the same time, they developed alternate text for the options at each choice, and learned a model for which alternate option text was most enticing.
+%
+Then, when a new players interacted with their system, they could determine, based on the sequence of choices a player had made so far, which option similar players had found most rewarding in the path.
+%
+Using this desirability metric, they were further able to figure out which of their variant option texts would be most enticing for the desirable option (and least-enticing for the non-desirable options) and substitute those option texts, thus subtly influencing player choices.
+%
+In this manner, without ever changing the choices available to players, they were able to show that players influenced by their system reported more positive experiences overall.
+%
+Results like those of Yu and Riedl strongly motivate my work on \dunyazad/: If this kind of choice manipulation can be used to increase player satisfaction, a deeper understanding of choice poetics should be able to explain how they successfully influenced players, and a choice-generating system has an obvious use-case within interactive narrative.
+
+
+Another important influence on \dunyazad/ comes from Nicolas Szilas' \work{IDTension} system \citep{Szilas2003,Szilas2007}.
+%
+Like Mott and Lester's \work{U-Director}, \work{IDTension} incorporates a formal model of the player in making judgements about story construction.
+%
+\work{IDTension} also uses predicates to represent its story states, and reasons over them using logical rules.
+
+Its player model is used to score possible actions, and includes components for ethical consistency, motivation, conflict, and relevance.
+%
+Note that \work{IDTension}'s player model, like \dunyazad/'s, is static: it is a projection by the author about generic users, rather than an on-line measurement of an actual user.
+
+
+The idea of player modelling has been taken further by other systems, including  David Thue, Vadim Bulitko, and Marcia Spetch's \work{PaSSAGE} \citep{Thue2008}, which tries to identify player preferences and select appropriate content in response to these.
+%
+Other work has built on this approach, but although \dunyazad/ could potentially make good use of on-line player modelling, it's current player model is static.
+%
+The problem of recognizing and categorizing player behavior is a difficult one, but \dunyazad/ could also enable a new approach: because \dunyazad/ deliberately constructs choices, once can imagine a setup where it creates some choices designed explicitly to discriminate between player categorizations, and uses these strategically to gain information about a player unobtrusively.
+%
+This potential synergy between online player-modelling techniques and deliberate choice construction is a promising direction of future work enabled by \dunyazad/.
+
+
+One final interactive system with significant similarities to \dunyazad/ is Heather Barber and Daniel Kudenko's dilemma-based interactive fiction system \citep{Barber2007}.
+%
+Unlike most interactive narrative systems, Barber and Kudenko's project reasons explicitly about the choices it presents to the user: its main process for event generation is a planning system that continually tries to force the player's character into dilemmas.
+%
+Although Barber and Kudenko focus on only a single choice structure, they identify several specific variants of the dilemma (such as ``betrayal,'' which pits the character's needs against those of a friend, and ``favor,'' which positions the player as kingmaker between two other characters).
+%
+The five subspecies of dilemma that Barber and Kudenko identify are used in their system as templates for story situations, but their analysis is also a micro-theory within choice poetics.
+%
+\dunyazad/ reasons at a slightly higher level, using `dilemma' as a unified label for one kind of choice that it can produce, but extending it to distinguish Barber and Kudenko's sub-categories would be possible.
+%
+Ultimately, the strategy of using dilemmas to drive narrative engagement is one that \dunyazad/ should enable, along with strategies involving other choice structures.
+
+
+%\citep{Cavazza2002} // character-based
+%\citep{Theune2003} // agent-based
+%\citep{Aylett2005} // agent-based; emergent
+
+%\citep{Hartmann2005} // interactive w/ Propp
+
+%\citep{El-Nasr2007} // drama-theory-based
+
+%\citep{McCoy2010,McCoy2012} // prom week
+
+%\citep{Harrell2007} // poetry; conceptual blending
+
+\subsubsection{Studies of Narrative Choices}
+%-------------------------------------------------------------------------------
+
+In the past several years there has been a movement within computational narrative circles towards attempts to reproduce specific affects within generated and/or interactive stories.
+%
+Several of these have focused on topics that bear on choice poetics, including the topic of agency.
+%
+In 2012, Matthew Fendt, Brent Harrison, Stephen Ware, Rogelio Cardona-Rivera, and David Roberts conducted a study where participants played through a simple CYOA-style game (albeit with only a few sentences per `page') and answered questions about their perceptions of agency afterwards \citep{Fendt2012}.
+%
+They found that techniques like explicitly acknowledging a player's choice were quite effective at increasing the perception of agency within their story, which reinforces the notion that the poetics of an interactive narrative can depend on textual details as much as abstract events.
+%
+Although the applicability of their results to full-scale interactive fiction is not clear, their research is quite similar to the experiments presented in \cref{ch:results}.
+
+
+Another similar study by Rogelio Cardona-Rivera, Justus Robertson, Stephen Ware, Brent Harrison, David Roberts, and R. Michael Young explored player perceptions of the divergence of outcomes \citep{Cardona-Rivera2014}.
+%
+Again using a simplified CYOA format, they found that when choices had clearly diverging outcomes, they were perceived as more influential than choices whose options indicated similar outcomes.
+%
+Of course, this might be the case because those choices were in fact more meaningful, but regardless, a link between divergence of outcomes and agency is established.
+%
+From the perspective of choice poetics, these studies can be seen as investigations into individual facets of specific poetic effects.
+%
+While agency is a fascinating and important effect, however, there are other effects, even some unique to interactive contexts (like regret) that are deserving of study, and results like this also need to be placed within a broader theoretical context.
+%
+Accordingly, one of the goals of \dunyazad/ as a project is to establish a broad context for choice poetics and lay down theoretical foundations within which specific effects like agency or regret can be talked about as parts of a larger space.
+
+
+%\subsection{Other Related Systems}
+%-------------------------------------------------------------------------------
+
+%\citep{Montfort2009} // curveship
+
+%\citep{Mitchell2012} // rereading
+
+%\citep{Evans2014} // versu
+
+
+\section{\dunyazad/'s Position}
 %===============================================================================
 
-
-\subsection{Interactive Narrative}
-%-------------------------------------------------------------------------------
-
-\cite{Laurel1986}
-% TODO: Other IntNar theory authors...
-
-
-\subsection{Constraint-Based Systems}
-%-------------------------------------------------------------------------------
+As both a theoretical and practical project, \dunyazad/ inherits much from existing systems and theories.
+%
+It can been seen as a specialization or extension of several existing theories, including procedural rhetoric, operational logics, formalist narratology, link poetics, and theories of agency.
+%
+It also owes much to several related fields, such as the psychology of real-world decisions, the cognitive psychology of reading, and of course theories of interactive narrative.
+%
+As a technical effort, it grows out of rich traditions in both static narrative generation and interactive narrative, and it further draws inspiration from craft advice and critical resources directed at authors of both traditional and interactive narratives.
 
 
-\subsection{Other Related Systems}
-%-------------------------------------------------------------------------------
-
-
-% TODO: Use this?
-%\section{Related Work}
+What distinguishes \dunyazad/ from related projects is first a focus on choices as a poetic form, and second, a commitment to simultaneous and mutually-informative theory and system development.
 %
-%This study is part of a recent trend focusing on choices in narrative, and several groups have published interesting results.
-%%
-%In 2011, Thue, Bulitko, Spetch, and Romanuik demonstrated \work{PaSSAGE}'s ability to increase player perceptions of agency by selecting content that players liked more \citep{Thue2011}.
-%%
-%This study demonstrated a link between desirable content and perceptions of agency.
-%%
-%The \work{PaSSAGE} system itself does directly construct choices, however, nor does it consider choice poetics in its operation.
-%Instead, it uses online player modelling to determine what kinds of content a player prefers, and selects from pre-written quest alternatives based on that.
+By privileging the explicit discrete choice as the object of study, a variety of interesting effects and interactions are brought into focus that do not necessarily seem important in the broader contexts such as `interactive narrative' or `hypertext.'
 %
+This focus also allows an investigation of specific mechanisms, taking a question like ``How can interactive narratives bias players' decisions?'' and reformulating it as ``What specific arrangements of framings, options, and outcomes can cause a player to feel that a choice is obvious?''
 %
-%Fendt, Harrison, Ware, Cardona-Rivera, and Roberts showed that direct feedback after players make a choice can create an illusion of agency, albeit in an extremely simple interactive narrative \citep{Fendt2012}.
-%%
-%In this study, the choices were part of a hand-written adventure game, whereas \dunyazad/ generates choices on its own.
-%%
-%This study concentrated on how different choice structures (mainly in terms of outcome text) affected players' perceptions of agency.
+Furthermore, the development of a generative system which operationalizes the theoretical answer to produce obvious choices allows the theory to be ``field-tested,'' and experimental results can be used to directly inform the theory.
 %
-%
-%In a similar study, Cardona-Rivera, Robertson, Ware, Harrison, Roberts, and Young found that choices where the options lead to significantly divergent outcomes increase feelings of agency relative to choices with similar outcomes \citep{Cardona-Rivera2014}.
-%%
-%Again this study used hand-written content as the test material; it focused on the connections between agency and divergence of outcomes.
-%
-%
-%In another study using the Choose-Your-Own-Adventure format, Yu and Riedl were able to predict and influence players' choices using collaborative filtering \citep{Yu2013}.
-%%
-%Like the Fendt et al. and Cardona-Rivera et al. studies, this study used hand-written text, but this study chose to adapt two existing Choose-Your-Own-Adventure books for their study, rather than creating their own stories.
-%%
-%This resulted in much more complex and sophisticated stories, which more closely mimics the actual conditions of entertainment consumption.
-%%
-%Yu and Riedl's system did not generate options, however, it simply selected which options to present at a choice out of a number of hand-written alternatives that conveyed different motives for choosing a particular path.
-%%
-%This is a form of choice construction (since the exact options are dynamic) but the framing and outcomes are not dynamic and the options themselves are not constructed by the system but merely selected.
-%
-%Nevertheless, Yu and Riedl succeeded in using collaborative filtering to predict which of several motivations for taking the same action would be most appealing to players, and they were able to use a drama manager to guide players' choices.
-%%
-%Although their system only focused on guiding each player towards content that the collaborative filtering predicted that player would enjoy, one could imagine a more complex version that might try to influence players' perceptions of the choices themselves.
-%%
-%In contrast to Yu and Riedl's system, \dunyazad/ uses a logical model of player expectations that includes authorial input. 
-%%
-%While collaborative filtering allows a system to make user-specific adjustments and potentially allows fine-grained discrimination of player preferences, it is also quite opaque.
-%%
-%\dunyazad/'s logical model, while not adaptive, is more useful for informing a theory of choice poetics, and as our results demonstrate, it gets the job done.
-%%
-%That said, the use of online player data is something highly desirable for a system like \dunyazad/, and implementing something like Yu and Riedl's collaborative filtering is a tempting direction for future work.
-%
-%
-%These studies are mostly focused on a single particular aspect of choice poetics (such as agency) whereas \dunyazad/ attempts to address constructing poetic choices more broadly.
-%%
-%Additionally, none of the studies mentioned thus far involved narrative generation systems that construct stories from raw material.
-%%
-%Considering constructive systems that are similar to \dunyazad/, Szilas' \work{IDtension} and El-Nasr's \work{Mirage} both stand out as interactive narrative systems rooted in theories about how narrative works \citep{Szilas2003,El-Nasr2007}.
-%%
-%\work{IDtension} is based on traditional dramatic theory (i.e., normal poetics) whereas \work{Mirage} incorporates theories of drama in the theatrical sense.
-%%
-%\dunyazad/ is also guided by a narrative theory: it is based on choice poetics--the theory of how choices are perceived by an audience \citep{Mawhorter2014}.
-%%
-%In this paper, we focus on \dunyazad/'s ability to generate individual choices that manipulate player expectations--obvious choices, relaxed choices, and dilemmas.
-%%
-%In some ways, this is reminiscent of recent narrative generation systems that have focused on specific traditional poetic effects, such as \work{Suspenser} (focused on suspense) and \work{Prevoyant} (focused on foreshadowing) \citep{Cheong2006,Bae2008}.
-
-
-\section{}
+Although there are many systems and theories that resemble individual aspects of \dunyazad/, as the following chapters demonstrate, \dunyazad/ as a project is much more than the sum of its parts.
