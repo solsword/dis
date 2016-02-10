@@ -1,23 +1,51 @@
+This document describes a research approach that uses artificial intelligence (by way of a generative system) as a tool to explore the poetics of narrative choices (such as those found in Choose-Your-Own-Adventure books).
+%
 Building on lessons learned from a rational reconstruction of Scott Turner's \minstrel/, \dunyazad/ is a novel system which generates narrative choices.
 %
-\dunyazad/ is one product of a methodology which uses artificial intelligence to guide the development of a theory, the other product in this case being an analytical framework for understanding the poetics of narrative choices.
+Developed in tandem is a theoretical framework for analyzing choices based on player goals, as part of a broader theory of \emph{choice poetics}.
 %
-Two experiments involving human subjects have largely confirmed \dunyazad/'s capabilities, and have helped advance choice poetics.
+Two experiments involving human subjects have confirmed that \dunyazad/ is able to successfully generate a variety of choices, and both its successes and failures have informed the theory that drives it.
 
 
 The research questions addressed involve both computer science and narrative theory, namely: ``How can a computer automatically generate choices that achieve specific poetic effects?'' and ``What poetic effects can choices accomplish within a narrative and how can those be recognized by examining said choices?''
 %
-As one might expect, the answers provided here are somewhat limited in scope.
+Regarding the second question, \cref{ch:choice-poetics} outlines a broad theoretical framework for understanding choice poetics which emphasizes the importance of taking player motivations into account.
 %
-\dunyazad/ is in fact a program that automatically generates choices with specific qualities, but its repertoire is certainly not ``any poetic effect,'' and as with all such systems, some of the credit for its achievements rests with me, the author, so whether it truly constructs its choices automatically is subject to debate.
+This framework acknowledges that in interactive narratives, choices are an essential part of poetic effects like transportation, agency, autonomy, responsibility, and regret.
 %
-My theory of choice poetics on the other hand helps explain what choices can accomplish in narratives and how to recognize their effects, but it is focused only on explicit, discrete choices, and it only identifies some possible effects.
+Within this framework, a method for analyzing choices relative to player goals is developed, which breaks down the process of understanding a choice into seven discrete steps.
 %
-Despite their limitations, both the system and theory that I developed break new ground, and hopefully they can pave the way for further research into both choice poetics and choice-generating AI systems.
+By separating notions like player goals, goal priorities, outcome likelihoods, option expectations, and outcome evaluations, goal-based choice analysis aims to help dissect a player's perception of a choice and give authors and critics a tool for talking about how choices work within a narrative.
 
 
-This document begins by outlining my earlier work with Brandon Tearse on \skald/, a rational reconstruction of \minstrel/, and then describes \dunyazad/, which was inspired by my work on \skald/.
+Regarding to the first research question above, \dunyazad/ is a technical demonstration that a direct operationalization of goal-based choice analysis can effectively generate narrative choices with specific low-level poetic effects, such as obviousness.
 %
-It also describes choice poetics, the theory that informs and is informed by \dunyazad/'s choice-generation system, and presents the results of two experiments using human subjects that largely confirm \dunyazad/'s ability to produce choices with specific qualities.
+\dunyazad/ uses answer-set programming to encode the inferences used in goal-based choice analysis as logical rules, and it can then solve for choices which meet criteria specified in terms of analytical labels like ``this choice is a dilemma.''
 %
-Finally, it includes guidelines for pursuing the hybrid AI-driven research approach I used to jointly develop choice poetics and \dunyazad/, and highlights some of the unique benefits of this research methodology.
+Because answer-set programming offers a direct path from theory to code, the choices that \dunyazad/ constructs can be understood in terms of the rules of goal-based choice analysis which enabled them.
+
+
+This last aspect is what allows \dunyazad/ to productively contribute back to the theory of choice poetics: when it generates a choice which doesn't live up to the desired label, the answer set behind that choice serves as a proof that goal-based choice analysis would mis-characterize similar choices.
+%
+Any unaccounted for aspects of that choice can then be noted as important considerations in the theory, and corresponding rules can be added to \dunyazad/ to alter its generative space.
+%
+This process is amplified when the choices \dunyazad/ generates are evaluated not just by its author, but in an experimental setting.
+%
+Accordingly, this document presents the results of two experiments involving 90 and 270 participants which looked at how choices generated by \dunyazad/ were perceived in terms of their options and outcomes.
+%
+The results of these experiments confirmed \dunyazad/'s ability to generate relaxed, obvious, and dilemma choices, as well as choices with both expected and surprising outcomes.
+%
+However, \dunyazad/ was not exclusively successful, and its failures were informative, emphasizing the importance of moral reasoning in the case of conflicting goals and of relative goal analysis when judging whether options seem balanced or not. 
+%
+These results point to directions for improving the system, and these improvements correspond with further developments of the theory of choice poetics.
+
+
+In the broader context of research into generative systems, \dunyazad/ represents both a system with a novel domain and a new application for a generative system.
+%
+In following the rules laid out for it, \dunyazad/ makes no assumptions whatsoever, in contrast to the `common sense' and myriad biases that a human would employ given the same instructions.
+%
+Because of this, it acts as a check against these assumptions, regularly coming up with examples which violate them, and which thereby help elaborate the definitions of the underlying concepts that it is using.
+%
+If \dunyazad/'s goal was to persuade or entertain, these edge cases would be failures, but employed as a tool for reflection, they are successes, because they lead to a deeper understanding of choice poetics.
+%
+Hopefully, \dunyazad/ is a convincing argument in favor of a new form of critical technical practice, where technical progress can be seen as not merely in need of critical contextualization but also as a tool that enables deeper critical insight.

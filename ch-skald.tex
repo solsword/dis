@@ -6,7 +6,7 @@
 %
 Like \minstrel/, it has an underlying graph-based representation of stories, and constructs new graphs via a case-based reasoning process that draws on a fixed library of pre-authored story graphs.
 %
-I worked on \skald/ with Brandon Tearse, and together we re-created \minstrel/'s original functionality and then used \skald/ to study \minstrel/'s strengths and weaknesses \cite{Tearse2011, Tearse2012, Tearse2014}.
+I worked on \skald/ with Brandon Tearse, and together we re-created \minstrel/'s original functionality and then used \skald/ to study \minstrel/'s strengths and weaknesses \citep{Tearse2011, Tearse2012, Tearse2014}.
 %
 This section explains how \skald/ works, and then discusses what we learned from building it, and ultimately, why I was unsatisfied with Turner's imaginative recall process for constructing stories.
 
@@ -17,7 +17,7 @@ This section explains how \skald/ works, and then discusses what we learned from
 
 Before getting in to the details of \skald/, a brief note about rational reconstruction, which was our methodology for constructing \skald/ based on \minstrel/.
 %
-Rational reconstruction begins with in-depth study of an existing system, so that it can be understood at an algorithmic level.
+As a technical approach in computer science, rational reconstruction begins with in-depth study of an existing system, so that it can be understood at an algorithmic level (see e.g., \citep{Peinado2006}, which is closely related to \skald/, or \citep{Musen1995}).
 %
 If the system is available for direct study, this includes inspecting the source code and running the original system to see how it behaves.
 %
@@ -30,9 +30,11 @@ The reason not to use the original code is that developing new code is a means o
 %
 Large software projects often contain implicit architectural decisions that are the result of idiosyncrasies in the original code.
 %
-The original programmer(s) may have been unaware of these decisions, as in their implementation the programming language or some other feature of their code design precluded some alternatives.
+The original programmer(s) may have been unaware of these decisions, as in their implementation the programming language, or some other feature of their code design, precluded some alternatives.
 %
 By developing a separate codebase, often in a different programming language from the original, rational reconstruction projects can expose these implicit properties of the original software, and thus learn more about the algorithm being investigated.
+%
+Rational reconstruction as a technical approach thus echoes rational reconstruction as a philosophical or historical approach in that it works ``from the outside'' and seeks formal systems of representation that differ from those of its subject as a means of creating a productive alternative perspective (see e.g. \citep{Lakatos1971} for several examples of how rational reconstruction has been applied to the history of science).
 
 
 For our work on \skald/, we got in touch with Turner, who graciously offered to supply us with magnetic tapes containing \minstrel/'s source code.
@@ -91,7 +93,7 @@ A few of the stories from \minstrel/'s original library are described in Turner'
 %
 Because of this, we created our own ad-hoc story library by hand-authoring several stories that we thought would provide interesting source material.
 %
-One of the things we learned from this was that \minstrel/'s story library must be carefully managed to avoid generating malformed stories.
+One of the things we learned from this was that \minstrel/'s story library must be carefully managed to avoid generating malformed stories (this point is discussed in more detail in both \citep{Tearse2012} and \citep{Tearse2014}).
 %
 In particular, whenever there are multiple ways to represent the same concept in terms of story graph nodes, if different stories in the library use different encodings, the results of the imaginative recall process may be poor.
 %
@@ -106,7 +108,7 @@ Each plan is invoked in response to an author-level goal (ALG) and can itself ad
 %
 There can be multiple plans which can satisfy a single goal, in which case they are tried in a fixed order until one is found whose preconditions are met.
 %
-ALGs are storied in a priority queue, and if a selected plan fails to achieve the current goal, that goal is re-enqueued at a lower priority level (until it falls below a priority threshold at which it is marked as permanently failed).
+ALGs are stored in a priority queue, and if a selected plan fails to achieve the current goal, that goal is re-enqueued at a lower priority level (until it falls below a priority threshold at which it is marked as permanently failed).
 
 
 This system allows the results of one plan to inform the operations of another when they both consider overlapping regions of the growing story graph.
@@ -235,7 +237,7 @@ The process of generating interesting stories while avoiding nonsensical ones us
 
 \section{Problems with \problemplanets/}
 
-\label{sct:problem-planets-problems}
+\label{sec:problem-planets-problems}
 
 In fact, this is exactly the issue that we ran into when we tried to build \problemplanets/, a choose-your-own-adventure-style game about climate change that was going to use \skald/ as a narrative generation engine.
 %
@@ -271,6 +273,10 @@ Although Turner did include a few consistency-checking ALPs in \minstrel/, as we
 Our architecture was shifting towards one in which imaginative recall supplied creative but often too-much-so results, and a complex system of rules implemented by a tangle of ALPs tried to force these results to be consistent.
 %
 Effectively, we were trying to write a programmatic definition of what made a story consistent within the ALP system.
+%
+Ultimately, this problem is fundamental to case-based approaches to story generation: either the case library must be rigorously maintained and developed to account for the intricacies of how retrieved cases are joined into a story, or some other system must fix up mis-matched cases after recall.
+%
+In either case, a limiting factor emerges: either the effort required to maintain the story library, or the system's ability to understand and thus repair mis-matched story content.
 
 
 Additionally, we wanted the stories to be interactive, and so we decided to generate choices by simply having the story graphs branch and allowing the user to select a path when this happened.
@@ -279,7 +285,7 @@ We quickly found that this approach required careful hand-selection of branching
 %
 Only at very specific points in a story is it appropriate to present choices to the player, and the range of options that are reasonable is tightly constrained.
 %
-For choices to be dynamically generated a strong model of character motivation is necessary, so that options can include a set of motivated actions without including unmotivated or irrelevant ones.
+For choices to be dynamically generated, a strong model of character motivation is necessary, so that options can include a set of motivated actions without including unmotivated or irrelevant ones.
 %
 Furthermore, different options at a choice point can't be generated sequentially by a system designed for generating linear stories.
 %

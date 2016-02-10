@@ -23,11 +23,16 @@ But the main contribution of this document is actually an example of a hybrid re
 Said research method is applied to choice-based narratives, and in fact I have built the first narrative generation system that creates choices via explicit reasoning about how players perceive options and outcomes.
 
 
-The idea of using AI (and AI research) as a means to explore other subjects goes back to Phil Agre's idea of critical technical practice \citep{Agre1997}: engaging in technical AI research while addressing and respecting the critical implications of that work.
+This research method is an extension of Phil Agre's idea of critical technical practice \citep{Agre1997}: engaging in technical AI research while addressing and respecting the critical implications of that work.
 %
+Rather than proposing that \dunyazad/ as a generative system helps us understand human perceptions of choices by accurately modelling how humans think, I am using \dunyazad/ as a tool to generate inhuman perceptions of choices, and by reflecting on how these differ from human perceptions, finding a new perspective that illuminates the assumptions and biases of the human perception of choices.
+%
+In Agre's words, I am ``[approaching] technical work in the spirit of reductio ad absurdum: faced with a technical difficulty, [I am] diagnosing it as deeply as possible,'' \citep{Agre1997} and in fact I am intentionally pursuing technical difficulties precisely because interrogating them can help develop the details of an underlying theory.
+
+
 In my case, I am using a formal model of narrative choices to test and explore what I call ``choice poetics:'' a narrative theory of audience response to choice structures.
 %
-Both the process of constructing such a formal model and experiments that can be performed with it can help develop the theory of choice poetics.
+Both the process of constructing such a formal model and the experiments that can be performed with it can help develop the theory of choice poetics.
 %
 At the same time, the AI system relies on the theory, and the result of the research is thus both an improved theory of choice poetics and a novel AI architecture for generating narrative choices.
 
@@ -44,14 +49,14 @@ In particular, the ability of any case-based story generation system to recombin
 
 Based on this limitation, I built \dunyazad/, a choice-based-narrative generator which focuses on deep reasoning about a narrow story domain using answer-set programming.
 %
-\dunyazad/ is also designed to generate narrative choices, rather than linear narratives, as this problem has not received sufficient much attention in the literature until now.
+\dunyazad/ is also designed to generate narrative choices, rather than linear narratives, as this problem has not received sufficient attention in the literature until now.
 %
 While developing \dunyazad/, I also began to develop a theory of choice poetics--a theory of how audiences respond to different choice structures.
 %
 The main contribution of my work is thus both a theory (choice poetics) and a system (\dunyazad/) which both explore new territory around choices in games.
 
 
-Finally, as \dunyazad/ has reached a stage where it can generate individual choices targeting some specific poetic effects, I have run two experiment to see how people actually react to the choices it generates.
+Finally, as \dunyazad/ has reached a stage where it can generate individual choices targeting some specific poetic effects, I have run two experiments to see how people actually react to the choices it generates.
 %
 The results of these experiments have helped me improve the system, but they also have some implications for the underlying theory.
 %
@@ -79,7 +84,7 @@ This technique exposes new information about the reconstructed architecture when
 %
 Building \skald/, we found ourselves unable to reproduce the quality of \minstrel/'s example stories with any regularity.
 %
-After performing some experiments, we came to the conclusion (supported, in retrospect, by the language of Turner's dissertation) that \minstrel/ was more a proof-of-concept for case-based story generation than a robust and extensible system.
+After performing some experiments, we came to the conclusion (supported, in retrospect, by the language of Turner's dissertation) that \minstrel/ was more a proof-of-concept for case-based story generation than a robust and extensible system (see \cref{sec:problem-planets-problems}).
 
 
 \minstrel/'s example stories were high-quality because \minstrel/ was carefully tuned to produce examples of what was possible for case-based story generation.
@@ -150,9 +155,9 @@ While \cref{ch:dunyazad} describes how \dunyazad/ works in detail, \cref{ch:resu
 
 % TODO: Maybe include citations for my papers in this section?
 
-Before diving into the main body of work, \cref{ch:method} lays out the research methodology that has guided my work on \dunyazad/, and \cref{ch:related-work} introduced related work to put what follows into context.
+Before diving into the main body of work, \cref{ch:method} lays out the research methodology that has guided my work on \dunyazad/, and \cref{ch:related-work} introduces related work to put what follows into context.
 %
-\cref{ch:skald} describes how \skald/ works and its relationship to \minstrel/, and \cref{sct:problem-planets-problems} goes into detail about the problems we encountered building \problemplanets/ and the inspiration for \dunyazad/.
+\Cref{ch:skald} describes how \skald/ works and its relationship to \minstrel/, and \cref{sec:problem-planets-problems} goes into detail about the problems we encountered building \problemplanets/ and the inspiration for \dunyazad/.
 
 
 \Cref{ch:choice-poetics} describes the foundations of a theory of choice poetics, and \cref{ch:dunyazad} goes on to describe how \dunyazad/ works and which parts of the theory it operationalizes.
