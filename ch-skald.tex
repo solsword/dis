@@ -227,10 +227,33 @@ However, despite the potential of \minstrel/'s imaginative recall process, it is
 When building \skald/ we imagined that after providing a new story library containing roughly a dozen stories and doing some minor tuning, we'd be able to have \skald/ generate dozens to hundreds of new stories that included significant variations.
 %
 Unfortunately, what we found was that the authoring of the story library, the story templates, as well as the particular TRAMs and ALPs all had to be carefully balanced against each other to avoid nonsensical results.
+
+
+In our early evaluations of the TRAM system (see \citep{Tearse2011}), we found that generating 1000 results for a single TRAM query using our new library resulted in an average of only 35.2\% sensible results: the remaining 64.8\% of results were somehow nonsensical (note that these numbers included duplicate results).
 %
-In Turner's dissertation, in fact, he mentions a trial run where \minstrel/ is asked to generated stories repeatedly, in which the coherence of the stories breaks down after only 6 reasonable results.
+We tested several alternate configurations, and found that by removing some TRAMs which generalized queries too strongly, we could increase the sense-to-nonsense ratio and get an average of 92.4\% sensible results (again including duplicates).
 %
-So rather than a robust generation engine with the capacity for creative feats, \minstrel/ is a carefully balanced system designed to demonstrate the possibility of such feats.
+Unfortunately, the removal of these TRAMs reduced the number of unique results per 1000 queries from an average of 69.4 to an average of 12, and it accordingly reduced the average number of significant differences expected between any two results from  6.9 to 3.1 (where a significant difference is something like substitution of one character for another; see \citep{Tearse2011} for methodological details).
+%
+This result was early evidence of the shape of the tradeoff between sense and variety in results, but it only involved the TRAM system.
+
+
+Once the full reconstruction of \minstrel/ was complete, including the ALP system, we took some more measurements of TRAM query results in the context of generating full stories (see \citep{Tearse2012}).
+%
+We compared a vanilla version of \skald/ with a version that used modified boredom and TRAM selection systems in an attempt to trade off some variety for more consistency.
+%
+The modified version was able to resolve TRAM queries using much less effort (72.2\% vs. 59\% direct matches; 7.7 vs. 13.8 average TRAMs tried per successful query) largely due to the relaxed boredom restrictions.
+%
+However, the average number of TRAMs used in each non-direct match fell from 2.38 in the vanilla configuration to 1.39 in the modified version: in other words, the modified version's stories were in general more similar to story content in the library than the vanilla version's results.
+%
+Based on the earlier experiment, this reduced usage of TRAMs translates to more narratively consistent results at the expense of variety. 
+%
+We had thus successfully found a mechanism for trading variety for consistency, but not a method for increasing one without sacrificing the other.
+
+
+In fact, in Turner's dissertation, he mentions a trial run where \minstrel/ is asked to generate stories repeatedly based on a single template, in which the coherence of the stories breaks down after only 6 reasonable results (see page 672 of \citep{Turner1993}).
+%
+Rather than a robust generation engine with the capacity for creative feats, therefore, \minstrel/ is more like a carefully balanced system designed to demonstrate the possibility of such feats.
 %
 The process of generating interesting stories while avoiding nonsensical ones using \minstrel/ inevitably involves looking at its output and altering the ALPs, TRAMs, and/or story library to correct errors.
 
@@ -250,9 +273,9 @@ Given this design, \skald/ would have to be capable of generating stories unsupe
 
 What we discovered during this process was that \skald/ alone was incapable of consistent unsupervised generation.
 %
-No matter what we did, \skald/ produced internally inconsistent or otherwise incoherent stories within the first dozen or so it generated in a batch.
+Despite our ability to trade off coherence and consistency to some degree, even when boredom and the TRAM system were set up to maximize consistency, \skald/ would produce internally inconsistent or otherwise incoherent stories within the first dozen or so it generated in a batch.
 %
-This was consistent with Turner's result of 6 stories in a run before incoherence of course, but our efforts to control \skald/ led us to the conclusion that we needed to go beyond the imaginative recall framework to achieve better consistency. 
+This was consistent with Turner's result of 6 stories in a run before incoherence and with the results of our earlier experiments of course, but our efforts to control \skald/ led us to the conclusion that we needed to go beyond the imaginative recall framework to achieve better consistency. 
 %
 In particular, we explored the idea that expanding the story library might give \skald/ more reach, but the opposite turned out to be true: expanding the story library only gave the TRAM system more room to make mistakes.
 
@@ -274,9 +297,9 @@ Our architecture was shifting towards one in which imaginative recall supplied c
 %
 Effectively, we were trying to write a programmatic definition of what made a story consistent within the ALP system.
 %
-Ultimately, this problem is fundamental to case-based approaches to story generation: either the case library must be rigorously maintained and developed to account for the intricacies of how retrieved cases are joined into a story, or some other system must fix up mis-matched cases after recall.
+This problem is fundamental to case-based approaches to story generation: either the case library must be rigorously maintained and developed to account for the intricacies of how retrieved cases are joined into a story, or some other system must fix up mis-matched cases after recall.
 %
-In either case, a limiting factor emerges: either the effort required to maintain the story library, or the system's ability to understand and thus repair mis-matched story content.
+In either case, a limiting factor emerges: the effort required to maintain the story library in the first case, or the system's ability to understand and thus repair mis-matched story content in the second.
 
 
 Additionally, we wanted the stories to be interactive, and so we decided to generate choices by simply having the story graphs branch and allowing the user to select a path when this happened.
@@ -287,7 +310,7 @@ Only at very specific points in a story is it appropriate to present choices to 
 %
 For choices to be dynamically generated, a strong model of character motivation is necessary, so that options can include a set of motivated actions without including unmotivated or irrelevant ones.
 %
-Furthermore, different options at a choice point can't be generated sequentially by a system designed for generating linear stories.
+Furthermore, interesting options at a choice point can't simply be generated sequentially by a system designed for generating linear stories.
 %
 Instead, the system must be aware that all of the options are presented to the player at once, and generate the entire set of options taking this into consideration.
 
