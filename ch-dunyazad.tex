@@ -1,6 +1,6 @@
 \chapter{\dunyazad/}
 
-\label{ch:dunyazad}
+\label{ch:dunyazad}%
 
 As stated in the introduction, \dunyazad/ has two purposes as a project: first, to produce a \emph{system}, and second, to produce a \emph{theory}.
 %
@@ -8,7 +8,7 @@ The system is a novel story generator that is focused on generating interesting 
 %
 The theory is a theory of choice poetics: a theory about how specific choice structures give rise to certain feelings, such as regret.
 %
-In order to satisfy these two goals, \dunyazad/ uses an answer set solver to turn a logical criteria for a certain kind of choice into an instance of such a choice--this it it's core operating principle.
+In order to satisfy these two goals, \dunyazad/ uses an answer set solver to turn a logical criteria for a certain kind of choice into an instance of such a choice---this is its core operating principle.
 
 
 \dunyazad/'s code therefore largely consists of a set of logical statements describing what a choice structure is and when choices fit into one of several categories.
@@ -37,7 +37,7 @@ Finally, \cref{sec:dunyazad-summary} summarizes the entire system and works thro
 %\section{Goals}
 
 \section{ASP and Critical Technical Practice}
-\label{sec:dunyazad-asp-and-ctp}
+\label{sec:dunyazad-asp-and-ctp}%
 
 The idea of critical technical practice started as a call for technical practitioners (and especially AI researchers) to be more aware of the limits placed on their technical approaches by the central metaphors of their fields.
 %
@@ -46,16 +46,18 @@ In Phil Agre's 1997 \work{Computation and Human Experience} he describes a proce
 This process can be used to drive innovation and find hidden limitations in a technical field by scrutinizing it using the tools of critical theory.
 
 
-Normal AI practice identifies a motivating theory and then attempts to build a system that faithfully operationalizes that theory, taking the theory for granted as an immutable truth.
+One common AI practice identifies a motivating theory from another discipline and then attempts to build a system that faithfully operationalizes that theory, taking the theory for granted as a known truth.
 %
-In contrast, critical technical practice seeks to question common assumptions before embarking upon technical projects that use non-standard assumptions, thereby broadening the technical field.
+In contrast, critical technical practice seeks to question common assumptions (in particular through the application of critical theory) and then embark upon technical projects that use non-standard assumptions, thereby broadening the technical field.
 %
-\dunyazad/ as a project takes this a step further and sees its driving theory (choice poetics) as a \emph{product} of technical practice rather than a precursor to it, integrating theory development tightly with system development.
+\dunyazad/ as a project pursues a different relationship between theory and practice by seeing its driving theory (choice poetics) as both a \emph{product} of technical practice and a precursor to it, integrating theory development tightly with system development so that both the theory and the system are developed in dialogue with each other.
 %
-\dunyazad/ thus not only actively questions its own theoretical assumptions: it changes them as a matter of course and in fact uses difficulties encountered during technical development to guide these changes.
+\dunyazad/ thus questions its theoretical assumptions as a matter of course and in fact uses difficulties encountered during technical development to prompt changes in the theory of choice poetics.
+%
+In fact, \dunyazad/ can be seen as using artificial intelligence as a tool of criticism in the refinement of a theory, just as much as it uses theory to guide the development of an artificial intelligence.
 
 
-In order to jointly develop \dunyazad/ as a system and choice poetics as a theory, a special technical approach is required--this is where answer set programming comes in.
+In order to jointly develop \dunyazad/ as a system and choice poetics as a theory, a special technical approach is required---this is where answer set programming comes in.
 %
 One could imagine choice-point generators constructed using many different technologies, from case-based reasoning to something as complicated as neural networks.
 %
@@ -63,7 +65,7 @@ However, most of these would fail to achieve the level of \emph{transparency} re
 %
 In a neural-network based approach, for example, it would be very difficult to understand which part of the underlying theory is responsible for a particular generated choice structure, and even more difficult to use experimental results to inform changes in the theory.
 %
-Answer-set programming as a technical approach is thus motivated by the goal of developing choice poetics along side a technical system for generating choices.
+Answer-set programming as a technical approach is thus motivated by the goal of developing choice poetics alongside a technical system for generating choices.
 
 
 The reason that answer-set programming is useful for critical technical practice is that answer set programs consist of a series of logical statements which dictate which combinations of predicates are allowed in the output.
@@ -75,7 +77,7 @@ Sometimes this process is laborious, as many rules may chain together to allow a
 Furthermore, because those logical statements correspond directly to elements of the underlying theory, the relationship between that theory and the program's output is visible.
 
 % TODO: Better example here?
-As an example, \dunyazad/ has rules that define one way in which a choice can be obvious--by having exactly one option which suggests a positive outcome and one or more options all of which suggest negative outcomes.
+As an example, \dunyazad/ has rules that define one way in which a choice can be obvious---by having exactly one option which suggests a positive outcome and one or more options all of which suggest negative outcomes.
 %
 Originally, the criterion that the other options must suggest negative outcomes was not present, but upon looking at generated choices, some clearly didn't fit an intuitive test for obviousness because of their inclusion of neutral options.
 %
@@ -101,9 +103,9 @@ In \dunyazad/, answer-set programming supports the aims of critical technical pr
 
 
 \section{Choice Generation}
-\label{sec:dunyazad-choice-generation}
+\label{sec:dunyazad-choice-generation}%
 
-\dunyazad/ generates choices by solving a complicated logic problems.
+\dunyazad/ generates choices by solving complicated logic problems.
 %
 These problems are set up so that any solution will take the form of a choice, and further constraints can dictate certain properties of that choice (for example, that it must be an obvious choice).
 %
@@ -287,8 +289,8 @@ However, the definition of \prq{talk\_down}{} stipulates that the outcome \prq{o
 
 \begin{enumerate}
   \item The target is convinced to calm down (\prq{o(attitude, convinced)}{} and \prq{o(enraged, not\_enraged)}{}), in which case they stop threatening whoever they were threatening.
-  \item The target is unconvinced, and nothing changes (\prq{o(attitude, convinced)}{} along with \prq{o(enraged, not\_enraged)}{}).
-  \item The target is unconvinced, and gets mad at the person who tried to convince them (\prq{o(attitude, convinced)}{} along with \prq{o(enraged, enraged)}{}).
+  \item The target is unconvinced, and nothing changes (\prq{o(attitude, unconvinced)}{} along with \prq{o(enraged, not\_enraged)}{}).
+  \item The target is unconvinced, and gets mad at the person who tried to convince them (\prq{o(attitude, unconvinced)}{} along with \prq{o(enraged, enraged)}{}).
 \end{enumerate}
 
 Note that for a traditional planning system, because each combination of outcome variables has a different effect on the world state, each action would have to be broken into multiple sub-actions with fixed pre- and post-conditions.
@@ -315,7 +317,7 @@ This way of representing actions thus helps the system reason about how the play
 \end{table}
 
 
-Besides defining outcomes, actions also define how skills affect their outcomes, but asserting that certain outcome values are linked to the presence or absence of particular skills on the part of one or more participants of the action.
+Besides defining outcomes, actions also define how skills affect their outcomes, by asserting that certain outcome values are linked to the presence or absence of particular skills on the part of one or more participants of the action.
 %
 These links are denoted by \prq{skill\_link}{} predicates, and tools may also be involved.
 %
@@ -371,9 +373,9 @@ Although the \prq{market}{} setup eclipses the \prq{healer}{} setup in terms of 
 
 As mentioned above, not every timepoint includes setup-induced state changes: they only occur for the \prq{root}{} node and for timepoints that follow \prq{travel\_onwards}{} actions.
 %
-Internally, \dunyazad/ refers to everything that occurs between one setup and the \prq{travel\_onwards}{} events which follow that setup on each branch from it as a `vignette.'
+Internally, \dunyazad/ refers to everything that occurs between one setup and the \prq{travel\_onwards}{} events which follow that setup on each branch from it as a vignette.
 %
-The states associated with a setup are introduced after the \prq{travel\_onwards}{} action first removes all states associated with the old location--only states directly associated with a protagonist (such as an injury sustained or an item acquired) are retained.
+The states associated with a setup are introduced after the \prq{travel\_onwards}{} action first removes all states associated with the old location---only states directly associated with a protagonist (such as an injury sustained or an item acquired) are retained.
 %
 Because \dunyazad/ effectively solves entire timepoints at once, however, the particular configuration of a setup's flexible elements can be changed at the same time that the actions, arguments, and outcomes of options are being decided.
 %
@@ -474,13 +476,13 @@ If constituent constraints are removed, the results are often nonsensical; if ae
 The major topics covered by the constituent constraints are as follows:
 %
 \begin{itemize}
-  \item Incapacitation--constraints that prevent injured actors from taking vigorous actions like fighting, and prevent dead actors from doing anything.
-  \item Motivation--these constraints require that the actor that initiates each action have a motivation for taking that action.
-  \item Relevance--constraints which require that actions address an existing important potential. These get rid of situations where someone fighting for their life might stop to buy fruit, for example.
-  \item Redundancy--these constraints prevent two options at the same choice from being redundant.
-  \item Repetition--these constraints prevent direct repetition: repeated actions at subsequent timepoints and repeated use of the same setup for subsequent vignettes.
-  \item Outcome likelihoods--these constraints describe how skills and tools make certain outcomes more or less likely. Without them, outcomes would have no relation to the skills and tools of the participating actors.
-  \item Vignette scoping--constraints that determine when \prq{travel\_onwards}{} actions are appropriate and thus where new setups should be applied.
+  \item Incapacitation---constraints that prevent injured actors from taking vigorous actions like fighting, and prevent dead actors from doing anything.
+  \item Motivation---these constraints require that the actor that initiates each action have a motivation for taking that action.
+  \item Relevance---constraints which require that actions address an existing important potential. These get rid of situations where someone fighting for their life might stop to buy fruit, for example.
+  \item Redundancy---these constraints prevent two options at the same choice from being redundant.
+  \item Repetition---these constraints prevent direct repetition: repeated actions at subsequent timepoints and repeated use of the same setup for subsequent vignettes.
+  \item Outcome likelihoods---these constraints describe how skills and tools make certain outcomes more or less likely. Without them, outcomes would have no relation to the skills and tools of the participating actors.
+  \item Vignette scoping---constraints that determine when \prq{travel\_onwards}{} actions are appropriate and thus where new setups should be applied.
 \end{itemize}
 %
 Along with the representational constraints discussed above, these constituent constraints force answer sets to represent something that resembles a story, as opposed to a random mish-mash of incomprehensible actions.
@@ -494,10 +496,10 @@ The aesthetic constraints take things one step further and isolate a particular 
 As shown in \cref{tab:dunyazad-constraints-inventory} there are several different categories:
 %
 \begin{itemize}
-  \item Narrative perspective--these constraints require that all actions at choice points be initiated by the protagonist(s) and that all other actions are initiated by non-protagonists, effectively establishing a loose second-person narrative perspective.
-  \item Setup variety--These constraints force \dunyazad/ to use a variety of setups over the course of a story, rather than just revisiting a few. This goes beyond prohibiting direct repetition and establishes a ``breadth'' requirement: before you can repeat a setup for the $n$th time, you must have used a total of at least $n+1$ unique setups (including the setup in question).
-  \item Boredom--Beyond the repetition constituent constraints, these constraints target things like repeated failed attempts to solve the same problem, or the recurrence of a problem within a single scene. Although not something that would seem obviously broken to readers, these possibilities were deemed less interesting and prohibited.
-  \item Trick options--If there are multiple protagonists and one has the skill necessary to perform a certain action while another lacks it, giving the player the option of having the unskilled protagonist perform that action is a kind of trick and this can feel very bad for the player as they're essentially not given the most rational option (which would be to have the skilled party member perform the action) but at the same time reminded of its presence. These constraints simply rule out this possibility, even though one could imagine using it for dramatic effect.
+  \item Narrative perspective---these constraints require that all actions at choice points be initiated by the protagonist(s) and that all other actions are initiated by non-protagonists, effectively establishing a loose second-person narrative perspective.
+  \item Setup variety---These constraints force \dunyazad/ to use a variety of setups over the course of a story, rather than just revisiting a few. This goes beyond prohibiting direct repetition and establishes a ``breadth'' requirement: before you can repeat a setup for the $n$th time, you must have used a total of at least $n+1$ unique setups (including the setup in question).
+  \item Boredom---Beyond the repetition constituent constraints, these constraints target things like repeated failed attempts to solve the same problem, or the recurrence of a problem within a single scene. Although not something that would seem obviously broken to readers, these possibilities were deemed less interesting and prohibited.
+  \item Trick options---If there are multiple protagonists and one has the skill necessary to perform a certain action while another lacks it, giving the player the option of having the unskilled protagonist perform that action is a kind of trick and this can feel very bad for the player as they're essentially not given the most rational option (which would be to have the skilled party member perform the action) but at the same time reminded of its presence. These constraints simply rule out this possibility, even though one could imagine using it for dramatic effect.
 \end{itemize}
 
 
@@ -508,7 +510,7 @@ In particular, there are not enough related to ensuring that long-term actions f
 This is an open area of future work for \dunyazad/: developing stronger plot structures across multiple actions would allow it to produce interesting short stories and thus to support more complicated experiments.
 
 \subsection{Poetic Constraints}
-\label{sec:dunyazad-poetic-constraints}
+\label{sec:dunyazad-poetic-constraints}%
 
 \dunyazad/'s poetic constraints are mechanisms for authorial control.
 %
@@ -519,8 +521,8 @@ These constraints are thus not about declaring what is universally acceptable or
 The bulk of these constraints form \dunyazad/'s operationalization of choice poetics, but a few are concerned with other effects:
 %
 \begin{itemize}
-  \item Surprising outcomes--Using the notion of likely and unlikely outcomes based on skills and tools, \dunyazad/ labels outcomes which are deemed unlikely as `surprising.' In an earlier version, `surprising' outcomes were prohibited altogether, now it's up to the author whether or not to allow them.
-  \item Story length and pacing--\dunyazad/ has rules for constraining how many actions must occur before a story ends, and how many of these must be choices as opposed to simple events.
+  \item Surprising outcomes---Using the notion of likely and unlikely outcomes based on skills and tools, \dunyazad/ labels outcomes which are deemed unlikely as `surprising.' In an earlier version, `surprising' outcomes were prohibited altogether, now it's up to the author whether or not to allow them.
+  \item Story length and pacing---\dunyazad/ has rules for constraining how many actions must occur before a story ends, and how many of these must be choices as opposed to simple events.
 \end{itemize}
 %
 Besides these two categories of constraint, \dunyazad/'s poetic constraints are focused on choice poetics, and in particular, implementing the goal-based choice analysis method described in \cref{sec:goal-based-choice-analysis} and illustrated in \cref{fig:choice-analysis-method}.
@@ -554,182 +556,182 @@ The idea of potential outcomes also has a direct analogue: these are the other p
 Each of the seven steps of choice analysis described in \cref{sec:goal-based-choice-analysis} has a corresponding set of rules in \dunyazad/ which depend on the rules for earlier steps:
 %
 \begin{enumerate}
-  \item %
-    \textbf{Goal Analysis} \\
-    %
-    This step is quite simple in \dunyazad/: the file \file{goals.lp} includes rules that directly state the player's goals in every situation.
-    %
-    Of course, forcing the author to estimate the player's goals like this is not perfect, but results so far indicate that it works tolerably well.
-    %
-    Individual content files that specify how each goal works provide rules for determining the priority of the goal in a given situation (this is binary, either `high' or `low').
-    %
-    These files also define at least one state that \prq{achieves}{,} \prq{fails}{,} \prq{hinders}{,} or \prq{advances}{} the goal.
-    %
-    For example, the \prq{preserve\_health}{} goal always has high priority and specifies that the states \prq{injured}{} and \prq{killed}{} both \prq{fail}{} the goal when true of the goal's target.
-    %
-    \file{goals.lp} then specifies that at every timepoint, the player has a \prq{preserve\_health}{} goal for each protagonist, allowing \dunyazad/ to understand that an action which might have an outcome that kills a protagonist will be viewed by the player as carrying some risk.
-    %
-    The full list of player goals assumed by the system is as follows:
-    %
-    \begin{itemize}
-      \item The player always has a \prq{preserve\_health}{} goal for each protagonist. As mentioned above, these goals are always high-priority and are failed by the \prq{injured}{} and \prq{killed}{} states.
-      \item The player always has an \prq{avoid\_threats\_to}{} goal for each protagonist. Actions which cause \prq{threatening}{} relationships with a protagonist as the object \prq{hinder}{} these goals, as do actions which allow such a state to persist (i.e., actions which don't have a consequence that resolves such a state when one exists). These goals are always high-priority.
-      \item The player always has an \prq{avoid\_accusations}{} goal for each protagonist. These goals work just like \prq{avoid\_threats\_to}{} goals but for the \prq{accusing}{} relationship, which indicates that someone is being accused of a crime. As with \prq{avoid\_threats\_to}{}, these goals are high-priority.
-      \item The player always has a \prq{preserve\_original\_form}{} goal for each protagonist. The \prq{polymorph}{} action represents a magic spell that can turn someone into a chicken; these goals assume that this is a state to be avoided an reversed whenever possible. These goals are high-priority.
-      \item Whenever an item has been stolen from a protagonist, the player has a \prq{reclaim\_property}{} goal for that item/protagonist. This goal is achieved when the \prq{has\_item}{} relation holds between the original owner and the item, and it it always high-priority.
-      \item The player always has an \prq{as\_intended}{} goal for each protagonist. These goals make use of the \prq{default\_intent}{} predicates specified in the definition of each action. Essentially, each action declares one or more outcome components to be its default intent: the outcome that the initiator of the action is hoping for. In the case of the \prq{attack}{} action, for example, the outcome component \prq{o(success, victory)}{} is a \prq{default\_intent}{}. When a \prq{default\_intent}{} outcome component is present, the \prq{as\_intended}{} goal of the action's initiator is achieved, when absent, the goal is failed. These goals are always low-priority, because they don't represent any particular bad or good states: there are many situations where an unintended outcome can be good for a character, and actual good or bad results are more important than things going as intended.
-      \item The player always has a \prq{have\_tool\_for}{} goal for each skill of each protagonist. These goals are achieved by possessing an item which counts as a tool for a particular skill, and they are always low-priority. The assumption that the player will have these goals is probably the weakest such, as players may not always remember at each moment what skills they have and which ones they have tools for. However, the presence of these goals means that trading items for goods or services can have value, and they can differentiate good trades from bad ones. In situations where players had a chance to play multiple stories, players would be more likely to consider these goals when making choices.
-      \item The final goals assigned to the player presume that players are generally sympathetic: unless a character is actively threatening or accusing another (deemed `guilty' by the system), the player is assumed to have both \prq{avoid\_threats\_to}{} and \prq{avoid\_accusations}{} goals for that character. These goals mean that when the player encounters non-protagonists threatening or accusing each other, the system assumes that the player will want to help the victim. As above, these goals are high-priority.
-    \end{itemize}
-    %
-    The predicates created by \file{goals.lp} are \prq{at(\abr/<timepoint>,\abr/ player\_goal(\abr/<goal>))}{} predicates which specify the goals of the player for each timepoint, and \prq{at(\abr/<timepoint>,\abr/ goal\_stakes(\abr/<goal>,\abr/ <priority>))}{} predicates which assign priorities to each goal.
+\item %
+\textbf{Goal Analysis} \\
+%
+This step is quite simple in \dunyazad/: the file \file{goals.lp} includes rules that directly state the player's goals in every situation.
+%
+Of course, forcing the author to estimate the player's goals like this is not perfect, but results so far indicate that it works tolerably well.
+%
+Individual content files that specify how each goal works provide rules for determining the priority of the goal in a given situation (this is binary, either `high' or `low').
+%
+These files also define at least one state that \prq{achieves}{,} \prq{fails}{,} \prq{hinders}{,} or \prq{advances}{} the goal.
+%
+For example, the \prq{preserve\_health}{} goal always has high priority and specifies that the states \prq{injured}{} and \prq{killed}{} both \prq{fail}{} the goal when true of the goal's target.
+%
+\file{goals.lp} then specifies that at every timepoint, the player has a \prq{preserve\_health}{} goal for each protagonist, allowing \dunyazad/ to understand that an action which might have an outcome that kills a protagonist will be viewed by the player as carrying some risk.
+%
+The full list of player goals assumed by the system is as follows:
+%
+\begin{itemize}
+\item The player always has a \prq{preserve\_health}{} goal for each protagonist. As mentioned above, these goals are always high-priority and are failed by the \prq{injured}{} and \prq{killed}{} states.
+\item The player always has an \prq{avoid\_threats\_to}{} goal for each protagonist. Actions which cause \prq{threatening}{} relationships with a protagonist as the object \prq{hinder}{} these goals, as do actions which allow such a state to persist (i.e., actions which don't have a consequence that resolves such a state when one exists). These goals are always high-priority.
+\item The player always has an \prq{avoid\_accusations}{} goal for each protagonist. These goals work just like \prq{avoid\_threats\_to}{} goals but for the \prq{accusing}{} relationship, which indicates that someone is being accused of a crime. As with \prq{avoid\_threats\_to}{}, these goals are high-priority.
+\item The player always has a \prq{preserve\_original\_form}{} goal for each protagonist. The \prq{polymorph}{} action represents a magic spell that can turn someone into a chicken; these goals assume that this is a state to be avoided an reversed whenever possible. These goals are high-priority.
+\item Whenever an item has been stolen from a protagonist, the player has a \prq{reclaim\_property}{} goal for that item/protagonist. This goal is achieved when the \prq{has\_item}{} relation holds between the original owner and the item, and it it always high-priority.
+\item The player always has an \prq{as\_intended}{} goal for each protagonist. These goals make use of the \prq{default\_intent}{} predicates specified in the definition of each action. Essentially, each action declares one or more outcome components to be its default intent: the outcome that the initiator of the action is hoping for. In the case of the \prq{attack}{} action, for example, the outcome component \prq{o(success, victory)}{} is a \prq{default\_intent}{}. When a \prq{default\_intent}{} outcome component is present, the \prq{as\_intended}{} goal of the action's initiator is achieved, when absent, the goal is failed. These goals are always low-priority, because they don't represent any particular bad or good states: there are many situations where an unintended outcome can be good for a character, and actual good or bad results are more important than things going as intended.
+\item The player always has a \prq{have\_tool\_for}{} goal for each skill of each protagonist. These goals are achieved by possessing an item which counts as a tool for a particular skill, and they are always low-priority. The assumption that the player will have these goals is probably the weakest such, as players may not always remember at each moment what skills they have and which ones they have tools for. However, the presence of these goals means that trading items for goods or services can have value, and they can differentiate good trades from bad ones. In situations where players had a chance to play multiple stories, players would be more likely to consider these goals when making choices.
+\item The final goals assigned to the player presume that players are generally sympathetic: unless a character is actively threatening or accusing another (deemed `guilty' by the system), the player is assumed to have both \prq{avoid\_threats\_to}{} and \prq{avoid\_accusations}{} goals for that character. These goals mean that when the player encounters non-protagonists threatening or accusing each other, the system assumes that the player will want to help the victim. As above, these goals are high-priority.
+\end{itemize}
+%
+The predicates created by \file{goals.lp} are \prq{at(\abr/<timepoint>,\abr/ player\_goal(\abr/<goal>))}{} predicates which specify the goals of the player for each timepoint, and \prq{at(\abr/<timepoint>,\abr/ goal\_stakes(\abr/<goal>,\abr/ <priority>))}{} predicates which assign priorities to each goal.
 
 
-    Although this static goal analysis works reasonably well, an interesting opportunity for future work presents itself here.
-    %
-    Not only could \dunyazad/ benefit from dynamic goal analysis, as a system that produces choice-based narratives, it could incorporate explicit choices-of-goals as part of the stories it generates, and use the results of these choices as direct statements of player intent rather than relying on authorial guesswork.
-    %
-    This would require a major overhaul of the goals system, however, and goals might have to be represented as mutable states of the world, which would place an additional burden on the solver.
+Although this static goal analysis works reasonably well, an interesting opportunity for future work presents itself here.
+%
+Not only could \dunyazad/ benefit from dynamic goal analysis, as a system that produces choice-based narratives, it could incorporate explicit choices-of-goals as part of the stories it generates, and use the results of these choices as direct statements of player intent rather than relying on authorial guesswork.
+%
+This would require a major overhaul of the goals system, however, and goals might have to be represented as mutable states of the world, which would place an additional burden on the solver.
 
-    \label{sec:dunyazad-modes-of-engagement}
-    One thing that should be mentioned here is that \dunyazad/'s goal assumptions are targeted at players whose mode of engagement is a mix of avatar and power play.
-    %
-    There are no goals related to character believability of the protagonist, nor are there goals related to things like curiosity.
-    %
-    These could in principle be declared just like the current goals, but \dunyazad/ focuses on avatar and power play because these are the modes that its genre traditionally encourages.
+\label{sec:dunyazad-modes-of-engagement}%
+One thing that should be mentioned here is that \dunyazad/'s goal assumptions are targeted at players whose mode of engagement is a mix of avatar and power play.
+%
+There are no goals related to character believability of the protagonist, nor are there goals related to things like curiosity.
+%
+These could in principle be declared just like the current goals, but \dunyazad/ focuses on avatar and power play because these are the modes that its genre traditionally encourages.
 
-  \item %
-    \textbf{Likelihood Analysis} \\
-    %
-    This step is already performed by \dunyazad/'s constituent constraints, using the \prq{skill\_link}{} predicates supplied by action definitions along with information on the skills and tools available to the actors involved in each action. 
-    %
-    Recall that individual outcome components are labelled as likely or unlikely, rather than entire outcomes, as called for in \cref{sec:goal-based-choice-analysis}.
-    %
-    This step produces the \prq{at(\abr/<timepoint>,\abr/ likely\_outcome(\abr/<option>,\abr/ <outcome>))}{} and \prq{at(\abr/<timepoint>,\abr/ unlikely\_outcome(\abr/<option>,\abr/ <outcome>))}{} predicates.
+\item %
+\textbf{Likelihood Analysis} \\
+%
+This step is already performed by \dunyazad/'s constituent constraints, using the \prq{skill\_link}{} predicates supplied by action definitions along with information on the skills and tools available to the actors involved in each action. 
+%
+Recall that individual outcome components are labelled as likely or unlikely, rather than entire outcomes, as called for in \cref{sec:goal-based-choice-analysis}.
+%
+This step produces the \prq{at(\abr/<timepoint>,\abr/ likely\_outcome(\abr/<option>,\abr/ <outcome>))}{} and \prq{at(\abr/<timepoint>,\abr/ unlikely\_outcome(\abr/<option>,\abr/ <outcome>))}{} predicates.
 
-  \item %
-    \textbf{Option Analysis} \\
-    \label{page:option-analysis}
-    %
-    As explained in \cref{sec:goal-based-choice-analysis}, the option analysis step uses the results of goal and likelihood analysis to attach expectations to each option.
-    %
-    In the code, goal predicates specify which state(s) affect them, and the likelihood of all possible outcomes is known, so option analysis it straightforward.
-    %
-    First, all possible option components are considered and if any of them has a negative consequence for a goal, that goal is considered to be ``threatened'' by that option.
-    %
-    Similarly, any positive consequence entails a ``enables'' relationship.
-    %
-    Since each option has multiple outcome components, a single goal may be both ``threatened'' and ``enabled'' by the same option, of course.
-    %
-    For the ``achieves'' and ``fails'' evaluations, the same analysis applies, but only outcome components marked as \prq{likely}{} are considered.
-    %
-    The result of the option analysis constraints is a set of \prq{at(\abr/<timepoint>,\abr/ expectation(\abr/<option>,\abr/ <expectation>,\abr/ <goal>))}{} that list the expectations for each option/goal pair.
+\item %
+\textbf{Option Analysis} \\
+\label{page:option-analysis}%
+%
+As explained in \cref{sec:goal-based-choice-analysis}, the option analysis step uses the results of goal and likelihood analysis to attach expectations to each option.
+%
+In the code, goal predicates specify which state(s) affect them, and the likelihood of all possible outcomes is known, so option analysis is straightforward.
+%
+First, all possible option components are considered and if any of them has a negative consequence for a goal, that goal is considered to be ``threatened'' by that option.
+%
+Similarly, any positive consequence entails a ``enables'' relationship.
+%
+Since each option has multiple outcome components, a single goal may be both ``threatened'' and ``enabled'' by the same option, of course.
+%
+For the ``achieves'' and ``fails'' evaluations, the same analysis applies, but only outcome components marked as \prq{likely}{} are considered.
+%
+The result of the option analysis constraints is a set of \prq{at(\abr/<timepoint>,\abr/ expectation(\abr/<option>,\abr/ <expectation>,\abr/ <goal>))}{} that list the expectations for each option/goal pair.
 
-  \item %
-    \textbf{Relative Option Analysis} \\
-    %
-    Integrating goal priorities and option expectations, relative option analysis produces \prq{at(\abr/<timepoint>,\abr/ option\_feel(\abr/<option>,\abr/ <feel>))}{} predicates, which collapse the various expectations across goals at each option to produce a general evaluation of that option.
-    %
-    For example, if an option has at least one \prq{achieves}{} expectation and it has no \prq{threatens}{} or \prq{fails}{} expectations across all goals (only counting goals tied for highest priority at that option) an option is labeled as a \prq{sure\_\abr/thing}{.}
-    %
-    These rules establish one or more \prq{option\_\abr/feel}{}s for each option, and these are further aggregated into \prq{option\_\abr/structure}{} assignments, which are the prospective impressions show in \cref{tab:prospective-impressions}.
-    %
-    These prospective impression assignments were the subject of the first experiment described in \cref{ch:results} and provide one primary means of controlling the kinds of choices \dunyazad/ generates.
-    %
-    Although they are discussed here as being `assigned' based on existing choice structures, because they're just predicates in an answer set program, they can be required and the solver will solve for answer sets that include them.
-    %
-    Requiring these \prq{option\_\abr/structure}{} predicates thus allows an author (or experimenter) to generate choices that (hopefully) make a desired prospective impression on the player.
+\item %
+\textbf{Relative Option Analysis} \\
+%
+Integrating goal priorities and option expectations, relative option analysis produces \prq{at(\abr/<timepoint>,\abr/ option\_feel(\abr/<option>,\abr/ <feel>))}{} predicates, which collapse the various expectations across goals at each option to produce a general evaluation of that option.
+%
+For example, if an option has at least one \prq{achieves}{} expectation and it has no \prq{threatens}{} or \prq{fails}{} expectations across all goals (only counting goals tied for highest priority at that option) an option is labeled as a \prq{sure\_\abr/thing}{.}
+%
+These rules establish one or more \prq{option\_\abr/feel}{}s for each option, and these are further aggregated into \prq{option\_\abr/structure}{} assignments, which are the prospective impressions show in \cref{tab:prospective-impressions}.
+%
+These prospective impression assignments were the subject of the first experiment described in \cref{ch:results} and provide one primary means of controlling the kinds of choices \dunyazad/ generates.
+%
+Although they are discussed here as being `assigned' based on existing choice structures, because they're just predicates in an answer set program, they can be required and the solver will solve for answer sets that include them.
+%
+Requiring these \prq{option\_\abr/structure}{} predicates thus allows an author (or experimenter) to generate choices that (hopefully) make a desired prospective impression on the player.
 
-  \item %
-    \textbf{Outcome Component Analysis} \\
-    %
-    Using player goal information and information about all possible outcomes of each action, outcome component analysis maps the relationships between every possible outcome component and each goal.
-    %
-  These relationships have four basic values, similar to the \prq{expectation}{} predicates generated by the option analysis step: \prq{advances}{,} \prq{hinders}{,} \prq{achieves}{,} and \prq{fails}{.}
-    %
-    These are directly deduced from the definitions of each goal combined with the states that a particular outcome component adds or removes.
-    %
-    So for example, the \prq{o(\abr/success,\abr/ dispelled)}{} possible outcome component of the \prq{dispel}{} action has a consequence which removes the \prq{polymorphed}{} property from the target of the action.
-    %
-    Because of this, any option that consists of a \prq{dispel}{} action with a polymorphed target will \prq{advance}{} the \prq{preserve\_\abr/original\_\abr/form}{} goal for the target actor, (because the \prq{polymorphed}{} state which is being removed \prq{fails}{} the \prq{preserve\_\abr/original\_\abr/form}{} goal).
+\item %
+\textbf{Outcome Component Analysis} \\
+%
+Using player goal information and information about all possible outcomes of each action, outcome component analysis maps the relationships between every possible outcome component and each goal.
+%
+These relationships have four basic values, similar to the \prq{expectation}{} predicates generated by the option analysis step: \prq{advances}{,} \prq{hinders}{,} \prq{achieves}{,} and \prq{fails}{.}
+%
+These are directly deduced from the definitions of each goal combined with the states that a particular outcome component adds or removes.
+%
+So for example, the \prq{o(\abr/success,\abr/ dispelled)}{} possible outcome component of the \prq{dispel}{} action has a consequence which removes the \prq{polymorphed}{} property from the target of the action.
+%
+Because of this, any option that consists of a \prq{dispel}{} action with a polymorphed target will \prq{advance}{} the \prq{preserve\_\abr/original\_\abr/form}{} goal for the target actor, (because the \prq{polymorphed}{} state which is being removed \prq{fails}{} the \prq{preserve\_\abr/original\_\abr/form}{} goal).
 
-    Because of the way that goals are defined in \dunyazad/ this step of analysis is fairly trivial.
-    %
-    Of course, not all goals are simple to define in terms of a globally applicable set of states that triggers them.
-    %
-    For example, the \prq{as\_\abr/intended}{} goal deals directly with outcomes as opposed to world states, which may be different depending on the context of an action.
-    %
-    Because of this, the \prq{as\_\abr/intended}{} goal definition has custom code which directly creates \prq{expectation}{} and \prq{outcome\_\abr/perception}{} predicates by considering which outcomes are likely (and which is the \prq{default\_\abr/intent}{,} as mentioned above).
-    %
-    The \prq{avoid\_\abr/accusations}{} and \prq{avoid\_\abr/threats\_\abr/to}{} goals also have a bit of custom code to make them more urgent: when an accusation or threat state is present, actions which have no effect on that state are given \prq{fails}{} expectations and \prq{hinders}{} outcome perceptions.
-    %
-    All other goals simply specify one or more states that \prq{advance}{,} \prq{hinder}{,} \prq{achieve}{,} or \prq{fail}{} them, as described above.
+Because of the way that goals are defined in \dunyazad/ this step of analysis is fairly trivial.
+%
+Of course, not all goals are simple to define in terms of a globally applicable set of states that triggers them.
+%
+For example, the \prq{as\_\abr/intended}{} goal deals directly with outcomes as opposed to world states, which may be different depending on the context of an action.
+%
+Because of this, the \prq{as\_\abr/intended}{} goal definition has custom code which directly creates \prq{expectation}{} and \prq{outcome\_\abr/perception}{} predicates by considering which outcomes are likely (and which is the \prq{default\_\abr/intent}{,} as mentioned above).
+%
+The \prq{avoid\_\abr/accusations}{} and \prq{avoid\_\abr/threats\_\abr/to}{} goals also have a bit of custom code to make them more urgent: when an accusation or threat state is present, actions which have no effect on that state are given \prq{fails}{} expectations and \prq{hinders}{} outcome perceptions.
+%
+All other goals simply specify one or more states that \prq{advance}{,} \prq{hinder}{,} \prq{achieve}{,} or \prq{fail}{} them, as described above.
 
-  \item %
-    \textbf{Full Outcome Analysis} \\
-    %
-    Full outcome analysis concerns the expectedness and overall valence of the entire outcome of each option.
-    % TODO: Figure out how to do this non-manually!
-    In \dunyazad/, these are represented by the predicates \prq{at(\abr/<timepoint>,\abr/ outcome\_overall(\abr/<option>,\abr/ <evaluation>\abr/))}{,} \prq{at(\abr/<timepoint>,\abr/ outcome\_predictability(\abr/<option>,\abr/ <outcome>,\\ <predictability>))}{,} and \prq{at(\abr/<timepoint>,\abr/ overall\_predictability(\\ <option>,\abr/ <predictability>))}{.}
-    %
-    The \prq{outcome\_\abr/overall}{} predicates summarize the individual \prq{outcome\_\abr/perception}{} predicates across all player goals and across different outcome components at an action.
-    %
-    There are eight possible \prq{outcome\_\abr/overall}{} values:
-    %
-    \begin{enumerate}
-      \item \prq{great}{}--Reserved for options which achieve at least one player goal while neither failing nor hindering any.
-      \item \prq{good}{}--Options which would be \prq{great}{}, except that they merely advance at least one player goal as opposed to achieving any.
-      \item \prq{tradeoff}{}--Options which both achieve one goal and fail another, or which both advance one goal and hinder another (without either achieving or failing any).
-      \item \prq{worth\_it}{}--Options where the best outcome achieves a goal, but the worst outcome hinders a (presumably different) goal.
-      \item \prq{not\_worth\_it}{}--Options where the worst outcome fails a goal, while the best outcome advances a goal.
-      \item \prq{bad}{}--Options where no goals are achieved or advanced, and the worst outcome hinders a goal.
-      \item \prq{awful}{}--\prq{bad}{} options where a goal is failed instead of merely hindered.
-      \item Neutral--Options where no outcome is relevant to any player goal.
-    \end{enumerate}
-    %
-    Note that for all of these evaluations, only top-priority goals are considered (i.e., if there is at least one high-priority goal, only high-priority goals count; if not then low-priority goals can come into play).
-    %
-    Summarizing the potentially complex per-outcome-component evaluations from the outcome component analysis step like this helps make the retrospective analysis more tractable (both for humans and for the solver).
-    %
-    Most common cases avoid the ambiguous ``tradeoff'' label anyways, so not much information is lost.
+\item %
+\textbf{Full Outcome Analysis} \\
+%
+Full outcome analysis concerns the expectedness and overall valence of the entire outcome of each option.
+% TODO: Figure out how to do this non-manually!
+In \dunyazad/, these are represented by the predicates \prq{at(\abr/<timepoint>,\abr/ outcome\_overall(\abr/<option>,\abr/ <evaluation>\abr/))}{,} \prq{at(\abr/<timepoint>,\abr/ outcome\_predictability(\abr/<option>,\abr/ <outcome>,\\ <predictability>))}{,} and \prq{at(\abr/<timepoint>,\abr/ overall\_predictability(\\ <option>,\abr/ <predictability>))}{.}
+%
+The \prq{outcome\_\abr/overall}{} predicates summarize the individual \prq{outcome\_\abr/perception}{} predicates across all player goals and across different outcome components at an action.
+%
+There are eight possible \prq{outcome\_\abr/overall}{} values:
+%
+\begin{enumerate}
+\item \prq{great}{}---Reserved for options which achieve at least one player goal while neither failing nor hindering any.
+\item \prq{good}{}---Options which would be \prq{great}{}, except that they merely advance at least one player goal as opposed to achieving any.
+\item \prq{tradeoff}{}---Options which both achieve one goal and fail another, or which both advance one goal and hinder another (without either achieving or failing any).
+\item \prq{worth\_it}{}---Options where the best outcome achieves a goal, but the worst outcome hinders a (presumably different) goal.
+\item \prq{not\_worth\_it}{}---Options where the worst outcome fails a goal, while the best outcome advances a goal.
+\item \prq{bad}{}---Options where no goals are achieved or advanced, and the worst outcome hinders a goal.
+\item \prq{awful}{}---\prq{bad}{} options where a goal is failed instead of merely hindered.
+\item Neutral---Options where no outcome is relevant to any player goal.
+\end{enumerate}
+%
+Note that for all of these evaluations, only top-priority goals are considered (i.e., if there is at least one high-priority goal, only high-priority goals count; if not then low-priority goals can come into play).
+%
+Summarizing the potentially complex per-outcome-component evaluations from the outcome component analysis step like this helps make the retrospective analysis more tractable (both for humans and for the solver).
+%
+Most common cases avoid the ambiguous ``tradeoff'' label anyways, so not much information is lost.
 
-    Along with \prq{outcome\_\abr/overall}{} labels, this step assigns one of the following six \prq{outcome\_\abr/predictability}{} values to each outcome component and also (as \prq{overall\_\abr/predictability}{}) to each option:
-    %
-    \begin{enumerate}
-      \item
-        %
-        \prq{predictable}{}--An outcome component is \prq{predictable}{} when its value is the sole likely value for its variable.
-        %
-        An entire option is \prq{predictable}{} when every single important outcome component (an outcome component that affects one or more goals tied for the highest priority) is \prq{predictable}{}, and there is at least one such outcome component.
-        %
-      \item \prq{expected}{}--An outcome component is \prq{expected}{} when it is one of several likely values for its variable.
-        %
-        An entire option is \prq{expected}{} when every outcome at that option is either \prq{predictable}{,} \prq{expected}{,} or \prq{average}{,} and they're not \emph{all} \prq{average}{} (nor are all components unimportant).
-        %
-      \item \prq{average}{}--These outcome components aren't likely, but neither are they unlikely, and no other values for their variable are likely, while at least one is unlikely.
-        %
-        In other words, an outcome component is \prq{average}{} when a variable avoids an unlikely value but the value that it takes on isn't deemed likely.
-        %
-        An entire option is \prq{average}{} if every one of its important outcome components is average, and it has at least one important outcome.
+Along with \prq{outcome\_\abr/overall}{} labels, this step assigns one of the following six \prq{outcome\_\abr/predictability}{} values to each outcome component and also (as \prq{overall\_\abr/predictability}{}) to each option:
+%
+\begin{enumerate}
+\item
+%
+\prq{predictable}{}---An outcome component is \prq{predictable}{} when its value is the sole likely value for its variable.
+%
+An entire option is \prq{predictable}{} when every single important outcome component (an outcome component that affects one or more goals tied for the highest priority) is \prq{predictable}{}, and there is at least one such outcome component.
+%
+\item \prq{expected}{}---An outcome component is \prq{expected}{} when it is one of several likely values for its variable.
+%
+An entire option is \prq{expected}{} when every outcome at that option is either \prq{predictable}{,} \prq{expected}{,} or \prq{average}{,} and they're not \emph{all} \prq{average}{} (nor are all components unimportant).
+%
+\item \prq{average}{}---These outcome components aren't likely, but neither are they unlikely, and no other values for their variable are likely, while at least one is unlikely.
+%
+In other words, an outcome component is \prq{average}{} when a variable avoids an unlikely value but the value that it takes on isn't deemed likely.
+%
+An entire option is \prq{average}{} if every one of its important outcome components is average, and it has at least one important outcome.
 
-      \item \prq{unpredictable}{}--An outcome component is \prq{unpredictable}{} if for its variable, there are no likely or unlikely values, or if all values for its variable are unlikely.
-        %
-        An option as a whole is \prq{unpredictable}{} if it has at least one \prq{unpredictable}{} component and no \prq{unexpected}{} or \prq{unfair}{} components (counting only important outcome components).
-      \item \prq{unexpected}{}--An \prq{unexpected}{} outcome component is one where an \prq{unlikely}{} value is selected despite the presence of at least one \prq{neutral}{} value, but no actually \prq{likely}{} values are possible.
-        %
-        For an option to be labeled \prq{unexpected}{} as a whole, it must have at least one important \prq{unexpected}{} component and no \prq{unfair}{} components.
-      \item \prq{unfair}{}--An \prq{unfair}{} option component is one where an \prq{unlikely}{} value has been selected for a variable over a possible \prq{likely}{} value.
-        %
-        Every option that has an important \prq{unfair}{} outcome component is considered \prq{unfair}{} as a whole.
-    \end{enumerate}
+\item \prq{unpredictable}{}---An outcome component is \prq{unpredictable}{} if for its variable, there are no likely or unlikely values, or if all values for its variable are unlikely.
+%
+An option as a whole is \prq{unpredictable}{} if it has at least one \prq{unpredictable}{} component and no \prq{unexpected}{} or \prq{unfair}{} components (counting only important outcome components).
+\item \prq{unexpected}{}---An \prq{unexpected}{} outcome component is one where an \prq{unlikely}{} value is selected despite the presence of at least one \prq{neutral}{} value, but no actually \prq{likely}{} values are possible.
+%
+For an option to be labeled \prq{unexpected}{} as a whole, it must have at least one important \prq{unexpected}{} component and no \prq{unfair}{} components.
+\item \prq{unfair}{}---An \prq{unfair}{} option component is one where an \prq{unlikely}{} value has been selected for a variable over a possible \prq{likely}{} value.
+%
+Every option that has an important \prq{unfair}{} outcome component is considered \prq{unfair}{} as a whole.
+\end{enumerate}
 
-    There are actually two other predictability values that are used only for entire options: \prq{irrelevant}{} (used for options that are entirely lacking in \prq{outcome\_perception}{} predicates) and \prq{unrecognized}{} (used as a catch-all for situations that don't fit any other label).
-    %
-    As with the \prq{outcome\_overall}{} summarization, building \prq{overall\_predictability}{} predicates reduces the complexity of possible \prq{outcome\_predictability}{} configurations to a few cases which cover common situations.
-    %
-    In the same way that this is useful for efficient analysis (and more detailed analysis is always possible when necessary), it is helpful when authoring constraints (and likewise, constraints directly targeting complex \prq{outcome\_predictability}{} situations can be written if necessary).
-    %
-    The \prq{outcome\_overall}{} and \prq{overall\_predictability}{} predicates from this step are used alongside the \prq{outcome\_feel}{} predicates from relative option analysis as inputs for retrospective analysis.
+There are actually two other predictability values that are used only for entire options: \prq{irrelevant}{} (used for options that are entirely lacking in \prq{outcome\_perception}{} predicates) and \prq{unrecognized}{} (used as a catch-all for situations that don't fit any other label).
+%
+As with the \prq{outcome\_overall}{} summarization, building \prq{overall\_predictability}{} predicates reduces the complexity of possible \prq{outcome\_predictability}{} configurations to a few cases which cover common situations.
+%
+In the same way that this is useful for efficient analysis (and more detailed analysis is always possible when necessary), it is helpful when authoring constraints (and likewise, constraints directly targeting complex \prq{outcome\_predictability}{} situations can be written if necessary).
+%
+The \prq{outcome\_overall}{} and \prq{overall\_predictability}{} predicates from this step are used alongside the \prq{outcome\_feel}{} predicates from relative option analysis as inputs for retrospective analysis.
 
 
 \begin{table}[!p]
@@ -787,36 +789,38 @@ Each of the seven steps of choice analysis described in \cref{sec:goal-based-cho
 \label{tab:dunyazad-outcome-feel-structures}
 \end{table}
 
-  \item %
-    \textbf{Retrospective Analysis} \\
-    %
-    By comparing outcomes with option feels, an overall impression of a choice can be obtained.
-    %
-    These are represented using \prq{at(<timepoint>, outcome\_feel(<option>, <feel>))}{} predicates.
-    %
-    \dunyazad/ has six different \prq{outcome\_feel}{} structures that it recognizes, which are shown in \cref{tab:dunyazad-outcome-feel-structures}.
+\item %
+\textbf{Retrospective Analysis} \\
+%
+By comparing outcomes with option feels, an overall impression of a choice can be obtained.
+%
+These are represented using \prq{at(<timepoint>, outcome\_feel(<option>, <feel>))}{} predicates.
+%
+\dunyazad/ has six different \prq{outcome\_feel}{} structures that it recognizes, which are shown in \cref{tab:dunyazad-outcome-feel-structures}.
 
 
-    It's worth noting that contrary to \cref{fig:choice-analysis-method}, \dunyazad/ doesn't directly incorporate information from its option analysis step into its retrospective analysis.
-    %
-    This is because it doesn't use this more nuanced information, just using the higher-level \prq{outcome\_overall}{} predicates.
-    %
-    This connects to a deeper point: as a tool for automated analysis of choices, \dunyazad/ would not perform very well, because it's definitions are intentionally narrow.
-    %
-    The reason for this is twofold: first, broad definitions are harmful during generation, because they make it easier to produce things which don't actually fit the categories they are supposed to represent.
-    %
-    Second, scope and to some degree breadth of definitions was limited by effort--with more work, these could be improved.
-    %
-    Because of these limitations, \dunyazad/'s formal definitions of various properties are designed to be sufficient, but never necessary conditions for the effects they describe.
-    %
-    In other words, they are idiosyncratic: \dunyazad/'s definition of an `obvious' choice might be one way to make choices obvious, but there could be other rules for constructing choices that also resulted in obviousness without necessarily having any overlap with the kinds of obvious choices that \dunyazad/ generates.
-    %
-    Their idiosyncrasy is not a problem, of course: we can still learn about obviousness from studying a subset of obvious choices, however, we need to be careful not to generalize our results too far.
+It's worth noting that contrary to \cref{fig:choice-analysis-method}, \dunyazad/ doesn't directly incorporate information from its option analysis step into its retrospective analysis.
+%
+This is because it doesn't use this more nuanced information, just using the higher-level \prq{outcome\_overall}{} predicates.
+%
+This connects to a deeper point: as a tool for automated analysis of choices, \dunyazad/ would not perform very well, because its definitions are intentionally narrow.
+%
+The reason for this is twofold: first, broad definitions are harmful during generation, because they make it easier to produce things which don't actually fit the categories they are supposed to represent.
+%
+Second, scope and to some degree breadth of definitions was limited by effort---with more work, these could be improved.
+%
+Because of these limitations, \dunyazad/'s formal definitions of various properties are designed to be sufficient, but never necessary conditions for the effects they describe.
+%
+In other words, they are idiosyncratic: \dunyazad/'s definition of an `obvious' choice might be one way to make choices obvious, but there could be other rules for constructing choices that also resulted in obviousness without necessarily having any overlap with the kinds of obvious choices that \dunyazad/ generates.
+%
+Their idiosyncrasy is not a problem, of course: we can still learn about obviousness from studying a subset of obvious choices.
+%
+However, we need to be careful not to generalize our results too far.
 
 
-    Coming back to the results of retrospective analysis, these \prq{outcome\_feel}{} predicates give authors another high-level means of control over \dunyazad/.
-    %
-    As with the \prq{option\_feel}{} predicates, constraints requiring the presence of a particular \prq{outcome\_feel}{} force \dunyazad/ to produce choices that include such options (if it can), and this is how the second experiment described in \cref{ch:results} was set up.
+Coming back to the results of retrospective analysis, these \prq{outcome\_feel}{} predicates give authors another high-level means of control over \dunyazad/.
+%
+As with the \prq{option\_feel}{} predicates, constraints requiring the presence of a particular \prq{outcome\_feel}{} force \dunyazad/ to produce choices that include such options (if it can), and this is how the second experiment described in \cref{ch:results} was set up.
 
 \end{enumerate}
 
@@ -827,14 +831,14 @@ Although they operate simultaneously rather than sequentially, each step of anal
 %
 Of course, this is not simply a case of the code mimicking the theory: both the human-usable analysis method and the machine-usable code were designed together, with changes in each informing the development of the other.
 %
-Furthermore, the close parallels provided which extend to the structural level make this two-way information flow smoother, allowing both bug fixes to the code and caveats added to the theory to inform each other.
+Furthermore, the close parallels provided, which extend to the structural level, make this two-way information flow smoother, allowing both bug fixes to the code and caveats added to the theory to inform each other.
 
 \section{High-Level Control}
-\label{sec:dunyazad-control}
+\label{sec:dunyazad-control}%
 
 \dunyazad/'s ASP rules allow it to represent an entire story without any trouble, but the complexity of the problem of generating an answer set when all elements of a story are left unconstrained is prohibitive.
 %
-In theory \dunyazad/'s rules allow an entire story's worth of content to be solved for, but in practice, given the exponential runtime complexity of the solving algorithm and the size of the problems that \dunyazad/ can create, this is impractical.
+In theory, \dunyazad/'s rules allow an entire story's worth of content to be solved for, but in practice, given the exponential runtime complexity of the solving algorithm and the size of the problems that \dunyazad/ can create, this is impractical.
 %
 Some simple statistics illustrate this: when asked to generate a single ``relaxed'' choice, \dunyazad/ produced a problem with 1,066,956 atoms and 24,974,521 rules, according to the output of \prog{clasp --stats}.
 %
@@ -857,10 +861,10 @@ The high-level control even goes a step further: the process of filling in infor
 %
 The four steps for filling in a timepoint are defined in the file \file{grow.lp}:
 \begin{enumerate}
-  \item \prq{initialize\_node}{}--This phase involves choosing a setup for the target timepoint if necessary and locking down the starting state of the timepoint, including any changes introduced by the chosen setup. Player goals for a timepoint can also be discovered during this phase. Values for any variable elements of a setup must be chosen during this phase.
-  \item \prq{build\_options}{}--The bulk of \dunyazad/'s constraints are tied to this phase, which solves for the options and outcomes at a timepoint.
-  \item \prq{add\_branch\_nodes}{}--This phase adds successor links to the target timepoint and creates new successor timepoints if necessary. It's also responsible for transferring state between timepoints. The only decisions made during this phase are whether or not two branches which have exactly equivalent world states should link to the same timepoint or to two different timepoints, so running it separately loses little.
-  \item \prq{add\_surface}{}--This phase doesn't change any of the essential facts of the story, but merely adds \prq{surface\_property}{} predicates and the like for the convenience of the English generation code. There are currently no constraints that link surface properties to story world state, so there is no cost associated with running this phase separately.
+  \item \prq{initialize\_node}{}---This phase involves choosing a setup for the target timepoint if necessary and locking down the starting state of the timepoint, including any changes introduced by the chosen setup. Player goals for a timepoint can also be discovered during this phase. Values for any variable elements of a setup must be chosen during this phase.
+  \item \prq{build\_options}{}---The bulk of \dunyazad/'s constraints are tied to this phase, which solves for the options and outcomes at a timepoint.
+  \item \prq{add\_branch\_nodes}{}---This phase adds successor links to the target timepoint and creates new successor timepoints if necessary. It's also responsible for transferring state between timepoints. The only decisions made during this phase are whether or not two branches which have exactly equivalent world states should link to the same timepoint or to two different timepoints, so running it separately loses little.
+  \item \prq{add\_surface}{}---This phase doesn't change any of the essential facts of the story, but merely adds \prq{surface\_property}{} predicates and the like for the convenience of the English generation code. There are currently no constraints that link surface properties to story world state, so there is no cost associated with running this phase separately.
 \end{enumerate}
 
 Although four phases are defined, the control code actually makes a compromise for the sake of greater flexibility and only runs two separate problems per timepoint.
@@ -895,11 +899,11 @@ Ultimately, the high-level Python code is relatively straightforward, with the e
 
 
 \section{English Generation}
-\label{sec:dunyazad-english}
+\label{sec:dunyazad-english}%
 
 Once iterative story generation has finished filling in the timepoints of a story with predicates that represent states, events, and choices, all of that information needs to be made playable.
 %
-The obvious format is hypertext, but some practical problems and some even real generative work are entailed by the transformation from predicates to text.
+The obvious format is hypertext, but some practical problems and even some real generative work are entailed by the transformation from predicates to text.
 %
 \dunyazad/ doesn't yet do anything groundbreaking in terms of discourse, but the experiments that it has been used in do depend on its basic text generation capabilities.
 
@@ -953,14 +957,14 @@ The only valid flag currently is `S' for `sentence' which after expansion capita
 %
 Variable assignments are given by an \exchar{@} symbol followed by \prq{<var>=<value>}{.}
 %
-Any number of variable assignments may be given, and as shown, both variables
+Any number of variable assignments may be given and, as shown, both variables
 and grammar expansions can be nested in each other.
 %
 In this example, the key \prq{misc/you\_ask\_for}{} will be looked up and a random expansion for it will be chosen.
 %
-Within text generated by that expansion and its children (if any), the variable \prq{statement} will take on the literal value \prq{[[action/?\_action/option]]}{.}
+Within text generated by that expansion and its children (if any), the variable \prq{statement}{} will take on the literal value \prq{[[action/?\_action/option]]}{.}
 %
-If the expansion text includes a reference to that variable, of course, when the variable is substituted a further grammar expansion will be present, but the exact key to be looked up will depend on the value of the variable \prq{\_action}{} at the time of the substitution of the \prq{statement} variable.
+If the expansion text includes a reference to that variable, of course, when the variable is substituted a further grammar expansion will be present, but the exact key to be looked up will depend on the value of the variable \prq{\_action}{} at the time of the substitution of the \prq{statement}{} variable.
 
 
 \subsection{Variable Expansion}
@@ -1065,7 +1069,7 @@ Only when a slot is empty is new information stored upon encountering a noun tha
 %
 These rules are an attempt to avoid confusing situations where, for example, two `it's can be mixed up.
 %
-To compliment this system, the slot values are forcibly cleared at certain points (such as between setup text and action text) to avoid using too many pronouns (note the occurrence of `the bandits' in the pronominalized text above instead of `them,' which would sound a bit weird).
+To complement this system, the slot values are forcibly cleared at certain points (such as between setup text and action text) to avoid using too many pronouns (note the occurrence of `the bandits' in the pronominalized text above instead of `them,' which would sound a bit weird).
 
 
 
@@ -1081,11 +1085,11 @@ N\#you/they V\#ask/prs/you \\
 
 Timeshift is the only valid directive, and it takes one argument: a tense to shift into, or the special value `pop,' which returns to the previous tense (tense shifts are maintained in a stack, with the top shift overriding all below it).
 %
-In this example, it is used to take option text that would be given as the action of a secondary protagonist and turn it into a request from the main character for the secondary character to perform that action.
+In this example, it is used to take option text that would be given as the action of a secondary protagonist and turn it into a request from the main character for the secondary character to perform that action (in order to maintain second-person focalization).
 %
-Recall that the \prq{statement}{} variable will have a value which looks like \prq{[[actions/attack/option]]}{} because of the forced assignment in the \prq{misc/you\_ask\_for}{} expansion shown above (assuming that \prq{\_action} has the value \prq{attack}{}).
+Recall that the \prq{statement}{} variable will have a value which looks like \prq{[[actions/attack/option]]}{} because of the forced assignment in the \prq{misc/you\_ask\_for}{} expansion shown above (assuming that \prq{\_action}{} has the value \prq{attack}{}).
 %
-In this case, which is chosen by the Python code when an option represents the action of a protagonist other than the main character, the \prq{aggressor} variable will hold the identifier of that other character, who let's call Michael.
+In this case, which is chosen by the Python code when an option represents the action of a protagonist other than the main character, the \prq{aggressor}{} variable will hold the identifier of that other character, who let's call Michael.
 %
 The innermost grammar substitution would therefore normally produce text along the lines of:
 
@@ -1093,7 +1097,7 @@ The innermost grammar substitution would therefore normally produce text along t
   Michael attacks the bandits.
 \end{quote}
 
-However, that text has been placed between the two \prq{timeshift} directives shown above, and so it will be shifted from the present tense (as specified in the original verb tag) into the infinitive tense, resulting in:
+However, that text has been placed between the two \prq{timeshift}{} directives shown above, and so it will be shifted from the present tense (as specified in the original verb tag) into the infinitive tense, resulting in:
 
 \begin{quote}
   Michael to attack the bandits.
@@ -1148,7 +1152,7 @@ If there are multiple predicate sets that can match a condition, \dunyazad/ cons
 %
 Internally, \dunyazad/ parses each precondition and looks for matches in the fact set, allowing uppercase names to take on any value (even a compound predicate).
 %
-It proceeds to bind any uppercase names to the values required by the math(es) found, and for each match, recursively attempts to match the rest of the preconditions subject to that binding.
+It proceeds to bind any uppercase names to the values required by the match(es) found and, for each match, recursively attempts to match the rest of the preconditions subject to that binding.
 %
 The end result works a bit like variables in ASP constraints, and allows fairly complex preconditions, although negation has not been implemented, and only conjunction is allowed.
 %
@@ -1163,7 +1167,7 @@ To allow for meaningful preconditions, a handful of special variable names start
   \item \prq{\_Act}{} matches the name of the current action. It is only valid when \prq{\_Opt}{} is.
 \end{itemize}
 %
-These variables allow conditions to be predicated on things like the outcomes of the current action (which as predicates include information about the current timepoint and option).
+These variables allow conditions to be expressed over things like the outcomes of the current action (which as predicates include information about the current timepoint and option).
 %
 Note that preconditions may not contain normal variable substitutions, grammar expansions, or tags, because they are not evaluated in the same way that grammars are.
 
@@ -1182,7 +1186,8 @@ Another trick that \dunyazad/ has up its sleeve is wildcard keys.
 The grammar keys are organized into a directory-like structure with key elements separated by \exchar{/} characters.
 %
 When an entire path element consists of one of the \exchar{?} and \exchar{*} wildcard characters they take on a special meaning.
-%
+
+
 The \exchar{*} wildcard is simpler: written in a grammar expansion, it means that keys must match up to that point, but afterwards may contain any path elements, which will be ignored for matching purposes.
 %
 \exchar{*} wildcards may only occur as the final element of a key, and may only occur in grammar expansions, not in key definitions.
@@ -1263,7 +1268,7 @@ The text overall is easier to read than a version that used determinate noun ref
 \begin{figure}[!h]
 \quotebox{
     \quoteshape
-You are about to set out on an epic journey. You are are heading towards towards the distant country of Jichish, hoping to earn fame and fortune.
+You are about to set out on an epic journey. You are are heading towards the distant country of Jichish, hoping to earn fame and fortune.
 
 You have some perfume and a book of herbal lore, and you have skill: literacy, you have skill: wilderness lore, you have skill: musician, and you have skill: sorcery.
 
@@ -1324,8 +1329,8 @@ One could re-implement it using an entirely different theory of choice poetics, 
 
 From the perspective of generative systems, \dunyazad/ makes the statement: ``Generating narrative choices intentionally is computationally tractable, and here's one way to do it.''
 %
-Ideally this chapter is a convincing demonstration of that, but, \dunyazad/ has ambitions well beyond being a working generative system.
+Ideally this chapter is a convincing demonstration of that, but \dunyazad/ has ambitions well beyond being a working generative system.
 %
-In the \cref{ch:results}, I will discuss the results of two experiments that both demonstrate \dunyazad/'s capabilities as a generative system and provide useful insight into choice poetics by leveraging its capacity as a tool for theory development.
+In \cref{ch:results}, I will discuss the results of two experiments that both demonstrate \dunyazad/'s capabilities as a generative system and provide useful insight into choice poetics by leveraging its capacity as a tool for theory development.
 
-\label{sec:dunyazad-summary}
+\label{sec:dunyazad-summary}%

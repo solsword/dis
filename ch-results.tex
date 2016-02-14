@@ -6,7 +6,7 @@
 
 The goal of this chapter is to demonstrate \dunyazad/'s ability to manage player reactions by generating distinct choice structures.
 %
-Because it uses answer set programming, \dunyazad/'s choice generation system not only generates choices, but itself constitutes a theory of choice poetics.
+Because of the way it uses answer set programming, \dunyazad/'s choice generation system not only generates choices, but itself constitutes a theory of choice poetics.
 %
 Survey data presented here thus not only validate that players' perceptions match \dunyazad/'s intent, but also inform the theory of choice poetics.
 %
@@ -15,13 +15,13 @@ Statistical analysis of the data indicates that \dunyazad/ is largely successful
 These unexpected results are in fact one of the larger goals of \dunyazad/ as a project: by operationalizing choice poetics, \dunyazad/ enables experiments which can reveal details that wouldn't be obvious from simply observing human-authored choices, because as a computer program, \dunyazad/ makes \emph{inhuman} mistakes.
 
 
-The results presented here are of course limited by \dunyazad/'s specificity: \dunyazad/ has a particular approach for creating e.g., ``obvious'' choices and information about properties of it's ``obvious'' choices doesn't necessarily generalize to all obvious choices.
+The results presented here are of course limited by \dunyazad/'s specificity: \dunyazad/ has a particular approach for creating e.g., ``obvious'' choices and information about properties of its ``obvious'' choices doesn't necessarily generalize to all obvious choices.
 %
 Largely, however, the extra considerations that this data suggests should be taken into account \emph{do} generalize, because they apply to any analysis or generation scheme which uses a particular subset of \dunyazad/'s constraints.
 %
 For example, one result that will be discussed suggests that when trying to figure out how players will evaluate different options, analysis in terms of absolute values is insufficient.
 %
-This result (which is unsurprising, as it echoes psychological research on real-life choices) clearly isn't something that's likely to be limited to just the particular choices that \dunyazad/ generates (in terms of genre or any other factor).
+This result (which is unsurprising, as it echoes psychological research on real-life choices \citep{Schwartz2002}) clearly isn't something that's likely to be limited to just the particular choices that \dunyazad/ generates (in terms of genre or any other factor).
 %
 There might be some cases where humans do use only absolute value judgements, but until specific conditions under which this is true are found, it's safer to assume that both absolute and relative value judgements between options should be accounted for.
 %
@@ -37,6 +37,17 @@ In \dunyazad/, these are represented using \prq{option\_feel}{} predicates, as d
 After analyzing the results of the first experiment, I conducted a second experiment focused on retrospective impressions, which are the results of retrospective analysis and are represented by \prq{outcome\_feel}{} predicates.
 %
 \Cref{sec:exp-prospective} describes the details of the first experiment, along with much of the details of the experimental setup that are common to both experiments, while \cref{sec:exp-retrospective} describes the second experiment.
+
+
+Both experiments broadly confirmed \dunyazad/'s abilities to generate the kinds of choices it was asked to, but also uncovered areas where it struggled.
+%
+In particular, \dunyazad/ has trouble balancing options to create true dilemmas because it does not have a sufficiently detailed model of player goal priorities, and it has trouble analyzing situations where multiple goals oppose each other, especially when such situations constitute a moral dilemma.
+%
+Additionally, it has trouble reasoning about actions which expend resources in service of a goal, and its indirect management of expectations can sometimes leave something to be desired.
+%
+All of these shortcomings suggest future work, of course, but also prompt reflection on the goal-based choice analysis method from \cref{sec:goal-based-choice-analysis}.
+%
+Accordingly, \cref{sec:results-prospective-caveats} revisits some of the concepts from goal-based-choice-analysis in light of these results.
 
 
 \section{Experiment I: Prospective Impressions}
@@ -518,9 +529,9 @@ In particular, the fact that all of the stakes hypotheses were confirmed indicat
 On a treatment-by-treatment basis, the observed properties were:
 %
 \begin{itemize}
-  \item \obv{} choices -- Participants tended to agree that \obv{} choices had a clear best option (question 2) and they tended to disagree with the statement that they had no good options (question 4). I expected that participants would disagree that all of the options were equally promising (question 5) and that these choices were difficult (question 7) but in both cases the data did not confirm these expectations.
-  \item \rlx{} choices -- Participants tended to agree that the stakes for these choices were low (question 3) and they tended to disagree with the statement that these choices had no good options (question 4). I expected participants to agree that these choices had no bad options (question 1) but the data did not support this hypothesis.
-  \item \dlm{} choices -- Participants tended to disagree that there were ``no bad options'' at these choices (question 1) and agree that there were ``no good options'' at these choices (question 4). Furthermore, they disagreed with the statement that these choices had a clear best option (question 2), and agreed that these choices were difficult and had important consequences (questions 7 and 8). However, I expected participants to agree that all options at these choices were about equally promising, but the data did not support this hypothesis.
+  \item \obv{} choices---Participants tended to agree that \obv{} choices had a clear best option (question 2) and they tended to disagree with the statement that they had no good options (question 4). I expected that participants would disagree that all of the options were equally promising (question 5) and that these choices were difficult (question 7) but in both cases the data did not confirm these expectations.
+  \item \rlx{} choices---Participants tended to agree that the stakes for these choices were low (question 3) and they tended to disagree with the statement that these choices had no good options (question 4). I expected participants to agree that these choices had no bad options (question 1) but the data did not support this hypothesis.
+  \item \dlm{} choices---Participants tended to disagree that there were ``no bad options'' at these choices (question 1) and agree that there were ``no good options'' at these choices (question 4). Furthermore, they disagreed with the statement that these choices had a clear best option (question 2), and agreed that these choices were difficult and had important consequences (questions 7 and 8). However, I expected participants to agree that all options at these choices were about equally promising, but the data did not support this hypothesis.
 \end{itemize}
 %
 Overall, the data support \dunyazad/'s ability to control stakes and outcome valences, but they show that it has a bit of trouble making outcomes seem similar.
@@ -943,12 +954,12 @@ The results from testing \dunyazad/'s prospective impression subsystem were larg
 In this experiment both prospective and retrospective impression constraints were used to create six kinds of choices:
 
 \begin{itemize}
-  \item \textbf{Expected Success}--These choices have three options which present themselves as leading to success, and each option has a successful outcome. In terms of \prq{outcome\_feel}{} values (cf. \cref{tab:dunyazad-outcome-feel-structures}) each option at these choices is an \exps option. No matter which option a participant selects, they will be picking an option that suggests success, and they will get a successful outcome (as far as \dunyazad/ understands things).
-  \item \textbf{Expected Failure}--The opposite of expected success: every option suggests and results in failure. Internally, each option is an \expf{.}
-  \item \textbf{Unexpected Failure}--These choices consist of three \prq{unfair}{} options. In other words, each option seems as though it will be successful, but each ultimately results in failure. These choices should appear largely the same as \exps{} choices before an option is chosen.
-  \item \textbf{Unexpected Success}--The opposite of unexpected failures, these choices consist of three \prq{miracle}{} options--each indicates failure but results in success. These choices mimic ``expected failure'' options until the player selects an option and sees an outcome.
-  \item \textbf{Obvious Success}--These choices have a single \exps{} option and two \expf{} options, forming an \obv{} \prq{option\_structure}{.} The outcomes of each choice align with what the option text suggests: the ``good'' option leads to success and the others lead to failure.
-  \item \textbf{Obvious Failure}--These choices have a single \prq{unfair}{} option and two options which are either \prq{miracle}{}s or \prq{nice\_gamble}{}s. Just like ``obvious success'' choices, their \prq{option\_structure}{} is \obv{.} Of course, instead of leading to the expected results, each option results in the opposite of what it suggests.
+  \item \textbf{Expected Success}---These choices have three options which present themselves as leading to success, and each option has a successful outcome. In terms of \prq{outcome\_feel}{} values (cf. \cref{tab:dunyazad-outcome-feel-structures}) each option at these choices is an \exps option. No matter which option a participant selects, they will be picking an option that suggests success, and they will get a successful outcome (as far as \dunyazad/ understands things).
+  \item \textbf{Expected Failure}---The opposite of expected success: every option suggests and results in failure. Internally, each option is an \expf{.}
+  \item \textbf{Unexpected Failure}---These choices consist of three \prq{unfair}{} options. In other words, each option seems as though it will be successful, but each ultimately results in failure. These choices should appear largely the same as \exps{} choices before an option is chosen.
+  \item \textbf{Unexpected Success}---The opposite of unexpected failures, these choices consist of three \prq{miracle}{} options---each indicates failure but results in success. These choices mimic ``expected failure'' options until the player selects an option and sees an outcome.
+  \item \textbf{Obvious Success}---These choices have a single \exps{} option and two \expf{} options, forming an \obv{} \prq{option\_structure}{.} The outcomes of each choice align with what the option text suggests: the ``good'' option leads to success and the others lead to failure.
+  \item \textbf{Obvious Failure}---These choices have a single \prq{unfair}{} option and two options which are either \prq{miracle}{}s or \prq{nice\_gamble}{}s. Just like ``obvious success'' choices, their \prq{option\_structure}{} is \obv{.} Of course, instead of leading to the expected results, each option results in the opposite of what it suggests.
 \end{itemize}
 
 These six choice structures were designed to manipulate three variables: valence of outcomes, expectedness of outcomes, and the presence of viable alternatives.
@@ -1064,7 +1075,7 @@ In addition to option statements, this survey included statements about the outc
 \mydef{7em}{\raggedleft\textbf{\eIIoutunfairabbr/}}{\hangparas{1.5em}{1}\quoteshape 5. ``The outcome that I got is unfair, given the options available.''} \\
 \mydef{7em}{\raggedleft\textbf{\eIIoutunexpectedabbr/}}{\hangparas{1.5em}{1}\quoteshape 6. ``The outcome that I got is completely unexpected.''} \\
 \mydef{7em}{\raggedleft\textbf{\eIIouttrickabbr/}}{\hangparas{1.5em}{1}\quoteshape 7. ``There is an outcome.'' (This is a trick question to test whether you're paying attention. Please simply indicate that you are in complete \emph{disagreement}.)} \\
-\mydef{7em}{\raggedleft\textbf{\eIIoutbrokenabbr/}}{\hangparas{1.5em}{1}\quoteshape 8. ``There might be a problem with this choice--the outcome I got does not make sense.''} \\
+\mydef{7em}{\raggedleft\textbf{\eIIoutbrokenabbr/}}{\hangparas{1.5em}{1}\quoteshape 8. ``There might be a problem with this choice---the outcome I got does not make sense.''} \\
 \mydef{7em}{\raggedleft\textbf{\eIIoutgoodabbr/}}{\hangparas{1.5em}{1}\quoteshape 9. ``The outcome that I got is a good outcome.''} \\
 \mydef{7em}{\raggedleft\textbf{\eIIoutexpectedabbr/}}{\hangparas{1.5em}{1}\quoteshape 10. ``I pretty much expected the outcome that I got.''} \\
 \mydef{7em}{\raggedleft\textbf{\eIIoutregretabbr/}}{\hangparas{1.5em}{1}\quoteshape 11. ``I wish I had chosen a different option.''} \\
@@ -1261,7 +1272,7 @@ At the same time, the left column covers expected results (where the option indi
 %
 The third underlying variable in this study, namely, whether the options at a choice seemed to indicate similar or divergent outcomes, was not expected to cause any ``disagree'' predictions to become ``agree'' predictions or vie versa, which is why each cell in this table can list two hypotheses.
 %
-\cref{tab:e2-outcome-hypotheses} represents a total of 76 individual hypotheses, which makes a total of 106 flat ``agree'' or ``disagree'' hypotheses when combined with the 30 hypotheses in \cref{tab:e2-option-hypotheses}.
+\Cref{tab:e2-outcome-hypotheses} represents a total of 76 individual hypotheses, which makes a total of 106 flat ``agree'' or ``disagree'' hypotheses when combined with the 30 hypotheses in \cref{tab:e2-option-hypotheses}.
 %
 Taken together, these hypotheses are designed to ensure that \dunyazad/'s choices have the properties \dunyazad/ assumes they have in terms of both what is suggested by their options and in terms of how their outcomes are interpreted.
 
@@ -1575,7 +1586,7 @@ The high-stakes choices in this study therefore necessarily included choices wit
 %
 A breakdown of responses to the stakes question across all conditions by setup (\cref{fig:e2-stakes-by-setup}) seems to confirm that the \prq{market}{} setup is a problem: it elicits an even split between agree and disagree responses while the other two setups lean towards disagreeing.
 
-To test this theory, I did a followup analysis with three hypotheses--each individual setup as a condition was hypothesized to elicit disagreement with the low stakes statement.
+To test this theory, I did a followup analysis with three hypotheses---each individual setup as a condition was hypothesized to elicit disagreement with the low stakes statement.
 %
 The results of this analysis confirmed my suspicions.
 %
@@ -1596,7 +1607,7 @@ Whether this means that the perception of stakes has more to do with the setup t
 \end{figure}
 
 
-\subsubsection{Expected Failure--No Bad Options?}
+\subsubsection{Expected Failure---No Bad Options?}
 
 Besides the unconfirmed stakes hypotheses, there were two other places where high-confidence option-related hypothesis were not confirmed by the data.
 %
@@ -1645,7 +1656,7 @@ In future studies, it might also be more productive to just ask participants to 
 \end{figure}
 
 
-\subsubsection{Dilemma Cases--Competing Goals}
+\subsubsection{Dilemma Cases---Competing Goals}
 
 Another point of interest among the option-related results was the data's failure to support the hypotheses that the \expf{} and \unxs{} cases would be viewed as having ``no good options.''
 %
@@ -1691,7 +1702,7 @@ The choice with seed 8015 also includes a \prq{travel\_onwards}{} option in a si
 \end{figure}
 
 
-\subsubsection{Dilemma Cases--Outcomes Affect Option Perception}
+\subsubsection{Dilemma Cases---Outcomes Affect Option Perception}
 
 Recall that the \unxs{} case exhibited the same problem.
 %
@@ -1725,7 +1736,7 @@ When it comes to evaluating the outcome-related hypotheses, these choices didn't
 \subsubsection{Problems with \prq{travel\_onwards}{}}
 
 
-Besides choices in the two dilemma conditions, two other choices--the \obvs{} choices with seeds 47371 and 20739--also included \prq{travel\_onwards}{} options.
+Besides choices in the two dilemma conditions, two other choices---the \obvs{} choices with seeds 47371 and 20739---also included \prq{travel\_onwards}{} options.
 %
 These are shown in \cref{fig:e2-seeds-47371-20739}.
 %
@@ -1797,7 +1808,7 @@ Of course, the quote above reveals another problem: the choice with seed 95923 w
 %
 How did \dunyazad/ justify having two options that include positive skill indications?
 %
-In this case, \dunyazad/ has found what amounts to a loophole in its rules: the ``bad'' options at an obvious choice are allowed to be merely ``risky''--the reasoning is that compared to a really good option, a risky option will still be clearly inferior.
+In this case, \dunyazad/ has found what amounts to a loophole in its rules: the ``bad'' options at an obvious choice are allowed to be merely ``risky''---the reasoning is that compared to a really good option, a risky option will still be clearly inferior.
 %
 Because the \prq{talk\_down}{} action includes a risk that the target will begin accusing the initiator instead of their original victim, and because internally, having the negotiation skill doesn't guarantee success, \dunyazad/ views the first option as a ``risky'' one: one that has an unsubstantiated benefit but also a potential drawback.
 %
@@ -2084,7 +2095,7 @@ Although one would expect such outcomes to be perceived as bad (which they were)
 %
 If a participant truly thinks that the option they picked is the only good option, then despite a negative result, they should not believe that picking a different option would lead to a better outcome.
 %
-Of course, it's not the case that they clearly \emph{wouldn't} want to try a different option--the outcome they got \emph{was} bad--so neither enthusiastic agreement nor firm denial seem like appropriate responses.
+Of course, it's not the case that they clearly \emph{wouldn't} want to try a different option---the outcome they got \emph{was} bad---so neither enthusiastic agreement nor firm denial seem like appropriate responses.
 
 
 The answers that we got reflected these competing impulses: the ``satisfied'' and ``dissatisfied'' statements both received a substantial number of neutral responses in the \obvfm{} condition, and the non-neutral responses were about evenly split overall, as shown in \cref{fig:e2-obvious-failure-main-detail-regret-expected}.
@@ -2468,7 +2479,7 @@ The hypotheses aren't statistical in nature, and just serve to establish some ex
 %
 Each (except the last) essentially names an aspect of motivation that is predicted to be widespread and asks if a simple majority of participants indicated that they used/experienced that motivation.
 %
-For example, the \pr{avatar} motive--which corresponds to viewing situations from the point of view of the player's character, i.e., from within the story--was predicted to be commonly employed in making decisions as well as in evaluating individual options as both good and bad.
+For example, the \pr{avatar} motive---which corresponds to viewing situations from the point of view of the player's character, i.e., from within the story---was predicted to be commonly employed in making decisions as well as in evaluating individual options as both good and bad.
 
 \begin{table}[!b]
 \begin{tabular}{p{3.5em} p{5.5em} >{\quoteshape}p{24em}}
