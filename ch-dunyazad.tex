@@ -617,13 +617,13 @@ As explained in \cref{sec:goal-based-choice-analysis}, the option analysis step 
 %
 In the code, goal predicates specify which state(s) affect them, and the likelihood of all possible outcomes is known, so option analysis is straightforward.
 %
-First, all possible option components are considered and if any of them has a negative consequence for a goal, that goal is considered to be ``threatened'' by that option.
+First, all possible outcome components of an option are considered and if any of them has a negative consequence for a goal, that option \lbl{threatens} that goal.
 %
-Similarly, any positive consequence entails a ``enables'' relationship.
+Similarly, any positive consequence entails an \lbl{enables} relationship (the \prq{threatens}{} and \prq{enables}{} predicates in the code are used for the \lbl{threatens} and \lbl{enables} labels from \cref{ch:choice-poetics}).
 %
-Since each option has multiple outcome components, a single goal may be both ``threatened'' and ``enabled'' by the same option, of course.
+Since each option has multiple outcome components, a single goal may be both threatened and enabled by the same option, of course.
 %
-For the ``achieves'' and ``fails'' evaluations, the same analysis applies, but only outcome components marked as \prq{likely}{} are considered.
+For the \lbl{advances} and \lbl{hinders} evaluations (represented in code by \prq{achieves}{} and \prq{fails}{} predicates), the same analysis applies, but only outcome components marked as \prq{likely}{} are considered.
 %
 The result of the option analysis constraints is a set of \prq{at(\abr/<timepoint>,\abr/ expectation(\abr/<option>,\abr/ <expectation>,\abr/ <goal>))}{} that list the expectations for each option/goal pair.
 
