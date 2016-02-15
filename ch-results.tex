@@ -954,12 +954,12 @@ The results from testing \dunyazad/'s prospective impression subsystem were larg
 In this experiment both prospective and retrospective impression constraints were used to create six kinds of choices:
 
 \begin{itemize}
-  \item \textbf{Expected Success}---These choices have three options which present themselves as leading to success, and each option has a successful outcome. In terms of \prq{outcome\_feel}{} values (cf. \cref{tab:dunyazad-outcome-feel-structures}) each option at these choices is an \exps option. No matter which option a participant selects, they will be picking an option that suggests success, and they will get a successful outcome (as far as \dunyazad/ understands things).
-  \item \textbf{Expected Failure}---The opposite of expected success: every option suggests and results in failure. Internally, each option is an \expf{.}
-  \item \textbf{Unexpected Failure}---These choices consist of three \prq{unfair}{} options. In other words, each option seems as though it will be successful, but each ultimately results in failure. These choices should appear largely the same as \exps{} choices before an option is chosen.
-  \item \textbf{Unexpected Success}---The opposite of unexpected failures, these choices consist of three \prq{miracle}{} options---each indicates failure but results in success. These choices mimic ``expected failure'' options until the player selects an option and sees an outcome.
-  \item \textbf{Obvious Success}---These choices have a single \exps{} option and two \expf{} options, forming an \obv{} \prq{option\_structure}{.} The outcomes of each choice align with what the option text suggests: the ``good'' option leads to success and the others lead to failure.
-  \item \textbf{Obvious Failure}---These choices have a single \prq{unfair}{} option and two options which are either \prq{miracle}{}s or \prq{nice\_gamble}{}s. Just like ``obvious success'' choices, their \prq{option\_structure}{} is \obv{.} Of course, instead of leading to the expected results, each option results in the opposite of what it suggests.
+  \item \lbl{Expected Success}---These choices have three options which present themselves as leading to success, and each option has a successful outcome. In terms of \prq{outcome\_feel}{} values (cf. \cref{tab:dunyazad-outcome-feel-structures}) each option at these choices is an \exps option. No matter which option a participant selects, they will be picking an option that suggests success, and they will get a successful outcome (as far as \dunyazad/ understands things).
+  \item \lbl{Expected Failure}---The opposite of expected success: every option suggests and results in failure. Internally, each option is an \expf{.}
+  \item \lbl{Unexpected Failure}---These choices consist of three \prq{unfair}{} options. In other words, each option seems as though it will be successful, but each ultimately results in failure. These choices should appear largely the same as \exps{} choices before an option is chosen.
+  \item \lbl{Unexpected Success}---The opposite of unexpected failures, these choices consist of three \prq{miracle}{} options---each indicates failure but results in success. These choices mimic ``expected failure'' options until the player selects an option and sees an outcome.
+  \item \lbl{Obvious Success}---These choices have a single \exps{} option and two \expf{} options, forming an \obv{} \prq{option\_structure}{.} The outcomes of each choice align with what the option text suggests: the ``good'' option leads to success and the others lead to failure.
+  \item \lbl{Obvious Failure}---These choices have a single \prq{unfair}{} option and two options which are either \prq{miracle}{}s or \prq{nice\_gamble}{}s. Just like ``obvious success'' choices, their \prq{option\_structure}{} is \obv{.} Of course, instead of leading to the expected results, each option results in the opposite of what it suggests.
 \end{itemize}
 
 These six choice structures were designed to manipulate three variables: valence of outcomes, expectedness of outcomes, and the presence of viable alternatives.
@@ -2086,6 +2086,7 @@ If an author is intentionally trying to create a choice that is perceived as unf
 
 
 \subsubsection{Regret and Alternatives}
+\label{sec:results-about-regret}
 
 Another unexpected result in the unexpected failure column was the fact that participants weren't dissatisfied with their decisions at \obvf{} choices.
 %
@@ -2706,9 +2707,9 @@ Of course, this is exactly the property that makes answer set programming an att
 \renewcommand*{\arraystretch}{1.5}
 \begin{tabular}{p{4.5em}p{18.5em}p{10em}}
 \toprule
-\textbf{Label} & \textbf{Criteria} & \textbf{Caveats}\\
+\lbl{Label} & \textbf{Criteria} & \textbf{Caveats}\\
 \midrule
-\textbf{Dilemma}%
+\lbl{Dilemma}%
 &\cg{Exactly two options, each of which hinders one of two different high-priority player goals.
 %
 The priorities of the goals and the severity of the consequences should be balanced and neither option should enable or advance any goals (even low-priority ones).}
@@ -2717,26 +2718,26 @@ The priorities of the goals and the severity of the consequences should be balan
 %
 Moral injunctions often have exceptions that need to be considered. \\
 %
-\textbf{Depres-sing}%
+\lbl{Depres-sing}%
 & \cg{Every option hinders at least one high-priority goal.
 %
 No option should enable or advance any high-priority goals.}
 %
 & Options should create clear negative expectations, especially if they have positive outcomes. \\
 %
-\textbf{Empower-ing}%
+\lbl{Empower-ing}%
 &\cg{Every option advances a player goal, and may threaten one or more goals but does not hinder any.}
 %
 & If option costs are not balanced, it may collapse to ``obvious.'' \\
 %
-\textbf{Obvious}%
+\lbl{Obvious}%
 &\cg{One option that advances a high-priority player goal without hindering any (although it may threaten some), while none of the rest of the options enable any high-priority goals, and each of them threatens some goal.}
 %
 & The ``correct'' option must take costs into account.
 %
 ``Bad'' options should clearly indicate which goal(s) they threaten. \\
 %
-\textbf{Relaxed}
+\lbl{Relaxed}
 &\cg{There are no option expectations involving high-priority goals (positive or negative), and there are no threatens expectations (and thus no hinders expectations).}
 %
 & A slight difference between options can make satisficers worried.
@@ -2754,26 +2755,26 @@ Try to contrast stakes with those of previous choices. \\
 \renewcommand*{\arraystretch}{1.5}
 \begin{tabular}{p{4.5em}p{14.5em}p{14em}}
 \toprule
-\textbf{Label} & \textbf{Criteria} & \textbf{Caveats} \\
+\lbl{Label} & \textbf{Criteria} & \textbf{Caveats} \\
 \midrule
-\textbf{Expected Success}
+\lbl{Expected Success}
 & \cg{The option selected advances a player goal without hindering any, and its outcome is both predictable and positive.}
 %
 & Resource costs should be taken into account.
 %
 Positive outcome states can be described negatively. \\
 %
-\textbf{Expected Failure}
+\lbl{Expected Failure}
 & \cg{The option selected hinders a player goal and doesn't advance any, and its outcome is both predictable and negative.}
 %
 & Badness of outcomes may be evaluated relative to expected outcomes of other choices. \\
-\textbf{Unfair}
+\lbl{Unfair}
 & \cg{The selected option must be expected to advance at least one high-priority player goal, while not hindering any.
 %
 It must also have an unexpected and largely negative outcome.}
 %
 & May be perceived as broken if no attractive alternative options were present. Inherently chaotic actions dampen expectations of success. \\
-\textbf{Miracle}
+\lbl{Miracle}
 & \cg{The selected option must be expected to fail at least one high-priority goal, while not advancing any.
 %
 It must have an unexpected and overall positive outcome.}
