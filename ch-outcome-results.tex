@@ -9,12 +9,24 @@ The setup is largely the same as the first experiment, so reading \cref{ch:optio
 In particular, \cref{sec:e1-method} describes the experimental procedures used in the first experiment, which were largely the same in this experiment, and \cref{sec:e1-hypotheses} describes how hypotheses were tested in the first experiment, which was also largely replicated in this experiment.
 
 
+Key results echo those from \cref{ch:option-results} in that \dunyazad/ needs to be able to reason better about conflicting goals and use more detailed goal priorities.
+%
+Additionally, results relevant to outcome perspectives show that \dunyazad/ might do well to adopt a strategy that reasons explicitly about (and/or explicitly constructs) option implications.
+%
+The current system which automatically assumes option implications based on \dunyazad/'s internal representation of actions and their potential consequences in some cases does not align with the expectations that players seem to develop based on the actual text generated for the options.
+%
+These results and others, along with the results from the experiment described in \cref{ch:option-results}, have implications for the goal-based choice analysis technique presented in \cref{sec:goal-based-choice-analysis} as well, and these are discussed in \cref{sec:results-prospective-caveats}.
+
+
+\section{Overview}
+
+
 Because the results from testing \dunyazad/'s prospective impression subsystem were largely successful, I ran another experiment to test the retrospective impression system.
 %
-In this experiment both prospective and retrospective impression constraints were used to create six kinds of choices:
+In this experiment both prospective and retrospective impression constraints were used to create six kinds of choices defined in terms of their prospective and retrospective impressions (see \cref{tab:prospective-impressions,tab:retrospective-impressions,tab:dunyazad-outcome-feel-structures}):
 
 \begin{itemize}
-  \item \lbl{Expected Success}---These choices have three options which present themselves as leading to success, and each option has a successful outcome. In terms of \prq{outcome\_feel}{} values (cf. \cref{tab:dunyazad-outcome-feel-structures}) each option at these choices is an \exps option. No matter which option a participant selects, they will be picking an option that suggests success, and they will get a successful outcome (as far as \dunyazad/ understands things).
+  \item \lbl{Expected Success}---These choices have three options which present themselves as leading to success, and each option has a successful outcome. In terms of \prq{outcome\_feel}{} values (see \cref{tab:dunyazad-outcome-feel-structures}) each option at these choices is an \exps option. No matter which option a participant selects, they will be picking an option that suggests success, and they will get a successful outcome (as far as \dunyazad/ understands things).
   \item \lbl{Expected Failure}---The opposite of expected success: every option suggests and results in failure. Internally, each option is an \expf{.}
   \item \lbl{Unexpected Failure}---These choices consist of three \prq{unfair}{} options. In other words, each option seems as though it will be successful, but each ultimately results in failure. These choices should appear largely the same as \exps{} choices before an option is chosen.
   \item \lbl{Unexpected Success}---The opposite of unexpected failures, these choices consist of three \prq{miracle}{} options---each indicates failure but results in success. These choices mimic ``expected failure'' options until the player selects an option and sees an outcome.
@@ -35,7 +47,7 @@ Despite these problems, the data reveal some interesting interactions between th
 
 \section{Method}
 
-The experimental setup for this experiment was largely the same as the setup for the prospective impressions experiment described in \cref{sec:exp-prospective}.
+The experimental setup for this experiment was largely the same as the setup for the prospective impressions experiment described in \cref{ch:option-results}.
 %
 This section lists the major differences between the two setups but does not reiterate the details of the original setup (see \cref{sec:e1-method}) that were unchanged.
 %
@@ -241,7 +253,7 @@ The responses to this question were labelled \pr{consistent}, \pr{variable}, \pr
 %
 Although the questions in the motivation section weren't subject to any statistical tests, they provide some informal information about how players approach choices.
 %
-A further experiment designed to seriously investigate player motivations would require a much tighter design, and would likely derive no benefit from using \dunyazad/ to generate its choices, as \dunyazad/ isn't designed to be aware of or work with modes of engagement.
+A further experiment designed to seriously investigate player motivations would require a much tighter design, and would likely derive no benefit from using \dunyazad/ to generate its choices, as \dunyazad/ isn't designed to be aware of, or work with, modes of engagement.
 
 
 Unlike the first survey, this survey included an optional text area at the end for any additional feedback participants wanted to share.
@@ -265,7 +277,21 @@ For between-condition hypotheses, the two sample populations were compared direc
 %
 In all cases, results are taken to be significant when their $p$-values are $<$0.05, and common-language effect sizes (see \cref{sec:e1-results} for an explanation) are indicated when results are significant.
 
+
+\begin{table}[!b]
+\centering
+\bgroup
+\def\arraystretch{1.3}
+\setlength{\tabcolsep}{0.6em}
+\input{tab/retrospective-option-hypotheses-table-custom.tex}
+\egroup
+\caption[Retrospective option hypotheses]{Hypotheses about option statements in the retrospective study. Each entry corresponds to two hypotheses: one for each condition listed in the header of that column. Because the two conditions in each column share option structures, they are predicted to elicit identical responses to the option-related statements. Low-confidence hypotheses are marked with a `\lc/'.}
+  \label{tab:e2-option-hypotheses}
+\end{table}
+
+
 \subsection{Option Hypotheses}
+
 
 The three option structures used in this study were \prq{positive\_alternatives}{,} \prq{negative\_alternatives}{,} and \obv{,} as described above.
 %
@@ -281,17 +307,6 @@ Given the results of the first experiment, several of these hypotheses were not 
 These tentative hypotheses are marked with `\lc/'s in \cref{tab:e2-option-hypotheses}.
 %
 In particular, hypotheses having to do with options being balanced or there being no clear best option were not expected to be well-supported by the data.
-
-\begin{table}[!h]
-\centering
-\bgroup
-\def\arraystretch{1.3}
-\setlength{\tabcolsep}{0.6em}
-\input{tab/retrospective-option-hypotheses-table-custom.tex}
-\egroup
-\caption[Retrospective option hypotheses]{Hypotheses about option statements in the retrospective study. Each entry corresponds to two hypotheses: one for each condition listed in the header of that column. Because the two conditions in each column share option structures, they are predicted to elicit identical responses to the option-related statements. Low-confidence hypotheses are marked with a `\lc/'.}
-  \label{tab:e2-option-hypotheses}
-\end{table}
 
 
 \subsection{Basic Outcome Hypotheses}
@@ -330,7 +345,7 @@ The top half lists hypotheses about ultimately positive outcomes, while the bott
 %
 At the same time, the left column covers expected results (where the option indicates a result of the same valence as the outcome) and the right column covers unexpected results.
 %
-The third underlying variable in this study, namely, whether the options at a choice seemed to indicate similar or divergent outcomes, was not expected to cause any ``disagree'' predictions to become ``agree'' predictions or vie versa, which is why each cell in this table can list two hypotheses.
+The third underlying variable in this study, namely, whether the options at a choice seemed to indicate similar or divergent outcomes, was not expected to cause any ``disagree'' predictions to become ``agree'' predictions or vice versa, which is why each cell in this table can list two hypotheses.
 %
 \Cref{tab:e2-outcome-hypotheses} represents a total of 76 individual hypotheses, which makes a total of 106 flat ``agree'' or ``disagree'' hypotheses when combined with the 30 hypotheses in \cref{tab:e2-option-hypotheses}.
 %
@@ -339,7 +354,7 @@ Taken together, these hypotheses are designed to ensure that \dunyazad/'s choice
 \subsection{Relative Outcome Hypotheses}
 \label{sec:e2-relative-outcome-hypotheses}
 
-\begin{table}[!h]
+\begin{table}[tb]
 \centering
 \bgroup
 \def\arraystretch{1.3}
@@ -355,7 +370,7 @@ As with the first study, there are some hypotheses about the relative agreement 
 These hypotheses are probing for a variety of interaction effects which may or may not be present, as opposed to trying to verify that \dunyazad/ is working as intended.
 
 
-The first such proposed effect is roughly state as: ``Unexpected failure is more acceptable when a choice seems free vs\@. forced.''
+The first such proposed effect is roughly stated as: ``Unexpected failure is more acceptable when a choice seems free vs\@. forced.''
 %
 In other words, I suspected that when a promising outcome leads to failure, players will be more unhappy if that seemed to be the only promising outcome, rather than one of several promising outcomes.
 %
@@ -365,6 +380,9 @@ On the other hand, if only good options are present, players may not see their c
 %
 Additionally, after seeing an unexpected negative outcome, if there were other seemingly good options present players may reason that one of those options would have led to a better results, while no such reasoning is available if the other options seemed bad.
 %
+This hypothesis also parallels the idea in decision affect theory that outcomes are judged relative to salient counterfactual alternatives \citep{Mellers1999} (although in this case the alternate outcomes are merely suggested instead of clearly stated).
+
+
 \Cref{tab:e2-free-vs-forced-failure-hypotheses} lists the individual hypotheses associated with this proposed effect, but they can be stated more simply in terms of the underlying variables.
 %
 This proposed effect predicts that compared to surprising failures at \obv{} choices, surprising failures at \prq{positive\_alternatives}{} choices will be perceived as more fair, more sensible, better, more regretted (because changing options seems more promising), and more expected.
@@ -372,7 +390,7 @@ This proposed effect predicts that compared to surprising failures at \obv{} cho
 When I formulated these hypotheses I was most confident in the effects on perceptions of fairness and sense, so the other hypotheses are marked as low-confidence with a `\lc/'.
 
 
-\begin{table}[!h]
+\begin{table}[tb]
 \centering
 \bgroup
 \def\arraystretch{1.3}
@@ -394,10 +412,12 @@ This accounts for the first two rows of \cref{tab:e2-chosen-vs-inevitable-succes
 %
 The reasoning here is that curiosity about the results of non-chosen but still positive-seeming options would slightly change the degree of agreement with the statements about being satisfied and regret (both cases were predicted to elicit overall agreement with the satisfied statement and disagreement with the regret statement).
 %
+This line of reasoning also echoes decision affect theory's ideas about comparison between actual results and salient alternatives.
+%
 As with the free-vs-forced hypotheses above, these hypotheses were predicting a change in the degree of agreement/disagreement on some items, rather than an outright contrast between one category which is expected to agree with a statement while another disagrees.
 
 
-\begin{table}[!h]
+\begin{table}[tb]
 \centering
 \bgroup
 \def\arraystretch{1.3}
@@ -415,10 +435,10 @@ In both the unexpected failure and unexpected success case, \dunyazad/ effective
 %
 In both cases, it could be argued that these outcomes are ``unfair,'' although perhaps in two possible senses of the word (``unjust'' vs\@. ``cheating'').
 %
-The prediction in this case is that participants will respond more strongly to negative surprises than to positive surprises, being more likely to label negative surprises as ``unfair'' or ``broken'' than positive surprises.
+The prediction in this case is that participants will respond more strongly to negative surprises than to positive surprises (in line with \citep{Shepperd2002}), being more likely to label negative surprises as ``unfair'' or ``broken'' than positive surprises.
 
 
-\begin{table}[!h]
+\begin{table}[tb]
 \centering
 \bgroup
 \def\arraystretch{1.3}
@@ -437,9 +457,11 @@ For failures, the expectation is that unexpected bad things will be perceived as
 %
 A secondary prediction is that participants will be more likely to want to change their choices when a bad result is unexpected than when it is hinted at beforehand.
 %
+These predictions continue to follow \citep{Shepperd2002} on judgements about expected versus unexpected outcomes.
+%
 Because there are two conditions that give rise to unexpected failures, there are a total of eight individual hypotheses that result instead of just four.
 
-\begin{table}[!h]
+\begin{table}[tb]
 \centering
 \bgroup
 \def\arraystretch{1.3}
@@ -555,7 +577,7 @@ Without clever instrumentation of the survey page, the data only provides an upp
   \includegraphics[width=\textwidth]{{fig/cropped-outcomes-report-04-opt.nogood}.pdf}
   \includegraphics[width=\textwidth]{{fig/cropped-outcomes-report-05-opt.stakes}.pdf}
   \includegraphics[width=\textwidth]{fig/outcomes-legend-custom.pdf}
-  \caption[Retrospecitve option results]{Option-related results from the retrospective study. Cf. \cref{fig:e1-report}.}
+  \caption[Retrospective option results]{Option-related results from the retrospective study. Cf. \cref{fig:e1-report}.}
   \label{fig:e2-option-report}
 \end{figure}
 
@@ -577,7 +599,7 @@ Without clever instrumentation of the survey page, the data only provides an upp
   \includegraphics[width=\textwidth]{{fig/cropped-outcomes-report-14-out.happy}.pdf}
   \includegraphics[width=\textwidth]{{fig/cropped-outcomes-report-15-out.regret}.pdf}
   \includegraphics[width=\textwidth]{fig/outcomes-legend-custom.pdf}
-  \caption[Retrospective good/bad \& satisifed/dissatisfied results]{Good/bad and satisfied/dissatisfied results from the retrospective study. Setup is the same as \cref{fig:e1-report}.}
+  \caption[Retrospective good/bad \& satisfied/dissatisfied results]{Good/bad and satisfied/dissatisfied results from the retrospective study. Setup is the same as \cref{fig:e1-report}.}
   \label{fig:e2-outcome-report-valence-satisfaction}
 \end{figure}
 
@@ -637,7 +659,7 @@ These hypotheses (marked with `\lc/') involved predictions which don't hold up i
 \subsection{Stakes}
 One immediate pattern in these results is the lack of support for the ``low stakes'' hypotheses.
 %
-In our initial study, the hypothesis that choices which \dunyazad/ labelled as high-stakes would appear that way to participants was clearly confirmed by the data, with a $p$-value of 0.0011 and an effect size of 70\% (a strong effect).
+In the initial study, the hypothesis that choices which \dunyazad/ labelled as high-stakes would appear that way to participants was clearly confirmed by the data, with a $p$-value of 0.0011 and an effect size of 70\% (a strong effect).
 %
 In this study, every single choice was required to be high-stakes, but only in a single case (the \unxs{} condition) was the relevant hypothesis confirmed.
 %
@@ -833,7 +855,7 @@ Of course, although these effects diminish the number of participants in the \pr
 
 \subsection{Costly Actions}
 
-One failure in \dunyazad/'s reasoning here besides the inability to properly track goal priorities is it's focus on goals to the detriment of costs.
+One failure in \dunyazad/'s reasoning here, besides the inability to properly track goal priorities, is its focus on goals to the detriment of costs.
 %
 In other words, \dunyazad/ thinks about actions only in terms of the goals that they might achieve or threaten, and not in terms of the costs of those actions.
 %
@@ -871,7 +893,7 @@ How did \dunyazad/ justify having two options that include positive skill indica
 %
 In this case, \dunyazad/ has found what amounts to a loophole in its rules: the ``bad'' options at an obvious choice are allowed to be merely ``risky''---the reasoning is that compared to a really good option, a risky option will still be clearly inferior.
 %
-Because the \prq{talk\_down}{} action includes a risk that the target will begin accusing the initiator instead of their original victim, and because internally, having the negotiation skill doesn't guarantee success, \dunyazad/ views the first option as a ``risky'' one: one that has an unsubstantiated benefit but also a potential drawback.
+Because the \prq{talk\_down}{} action includes a risk that the target will begin accusing the initiator instead of their original victim, and because, internally, having the negotiation skill doesn't guarantee success, \dunyazad/ views the first option as a ``risky'' one: one that has an unsubstantiated benefit but also a potential drawback.
 %
 Three factors combined to throw off \dunyazad/'s analysis.
 %
@@ -895,7 +917,7 @@ In other words, these options probably had little effect on the outcome-related 
 On the other hand, they do compromise the \emph{option} structures of the choices in question, and so they have a potentially important effect on the between-cases comparisons.
 
 
-One good thing in all of this is that none of the that \dunyazad/ is currently neglecting factors are fundamentally difficult to account for.
+One good thing in all of this is that none of the factors that \dunyazad/ is currently neglecting are fundamentally difficult to account for.
 %
 For example, the fact that all 12 participants at choice 95923 chose the first option, which can be deduced to be the best using some simple extensions to \dunyazad/'s current logic, means that \dunyazad/'s general strategy of using \emph{character} motivations to predict \emph{player} actions is probably on the right track.
 %
@@ -1091,7 +1113,7 @@ The fact that the bulk of the \obvsa{} case responses (5) were from participants
 
 Examining the \emph{unexpected} failure conditions (the right half of \cref{tab:e2-negative-outcome-results}) it is immediately apparent that participants found them to be more fair and less broken than expected.
 %
-The relevant rows of \cref{fig:e2-outcome-report-fair-sense} indicate that these two conditions did stand out as the \emph{least} fair and \emph{most} broken cases, but they were not found to be more unfair than fair or more broken than sensible as expected.
+The relevant rows of \cref{fig:e2-outcome-report-fair-sense} indicate that these two conditions did stand out as the \emph{least} fair and \emph{most} broken cases, but they were not found to be more unfair than fair or more broken than sensible, as expected.
 %
 \Cref{fig:e2-unexpected-failure-detail-fair-sense} breaks down the responses by individual choice, and gives a sense as to which choices were viewed as more fair (and/or less broken) than others.
 %
@@ -1126,7 +1148,7 @@ Similarly in outcome three of choice 28306, despite sustaining an injury the ove
 %
 While these \emph{are} negative outcomes (and the results show that participants understood this), are they negative enough to be considered ``unfair'' with respect to the expectations set up by the option text?
 %
-The subjects in our study didn't think so, and thus our hypotheses that these conditions would be perceived as unfair and possibly broken were not supported.
+The subjects in the study didn't think so, and thus the hypotheses that these conditions would be perceived as unfair and possibly broken were not supported.
 
 \begin{figure}[!t]
 \fseed{8638}
@@ -1160,13 +1182,13 @@ If a participant truly thinks that the option they picked is the only good optio
 Of course, it's not the case that they clearly \emph{wouldn't} want to try a different option---the outcome they got \emph{was} bad---so neither enthusiastic agreement nor firm denial seem like appropriate responses.
 
 
-The answers that we got reflected these competing impulses: the ``satisfied'' and ``dissatisfied'' statements both received a substantial number of neutral responses in the \obvfm{} condition, and the non-neutral responses were about evenly split overall, as shown in \cref{fig:e2-obvious-failure-main-detail-regret-expected}.
+The answers that I got reflected these competing impulses: the ``satisfied'' and ``dissatisfied'' statements both received a substantial number of neutral responses in the \obvfm{} condition, and the non-neutral responses were about evenly split overall, as shown in \cref{fig:e2-obvious-failure-main-detail-regret-expected}.
 %
 \Cref{fig:e2-seed-8638,fig:e2-seed-28306} (just shown) show the two choices that had any \casem{} responses in the \obvf{} condition; the data in \cref{fig:e2-obvious-failure-main-detail-regret-expected} all comes from the 20 participants who chose the most popular options at one of those choices.
 %
 While choice both choices are split, choice 28306 leans a bit more towards satisfaction, which may reflect being perceived as more fair, as just discussed.
 %
-Ultimately, the hypotheses that the \obvfm{} case would leave players feeling dissatisfied with their choice was shortsighted, and the mixed results that we got should have been expected given the tension between a bad result and a lack of viable alternatives produced by these choices.
+Ultimately, the hypotheses that the \obvfm{} case would leave players feeling dissatisfied with their choice was shortsighted, and the mixed results that I got should have been expected given the tension between a bad result and a lack of viable alternatives produced by these choices.
 
 
 \subsection{Expectations and... Expectedness}
@@ -1323,7 +1345,7 @@ This proposed effect extended to the satisfied/dissatisfied items as well, but t
 A look at the distribution of responses to these questions, shown in \cref{fig:e2-chosen-vs-inevitable-success-detail}, reveals one possible reason for this: the results are simply oversaturated.
 
 
-With the data we collected, the proposed subtle differences could have shown up as a shift from ``somewhat agree'' to ``strongly agree'' between the \exps{} and \obvsm{} conditions, but it turned out that even in the \exps{} condition, which we predicted to score lower, the responses were overwhelmingly\footnote{%
+With the data I collected, the proposed subtle differences could have shown up as a shift from ``somewhat agree'' to ``strongly agree'' between the \exps{} and \obvsm{} conditions, but it turned out that even in the \exps{} condition, which I predicted to score lower, the responses were overwhelmingly\footnote{%
 Note that although the responses to choice 20739 stand out, they represent only 2 of 25 samples in the \obvsm{} case, and thus don't have a meaningful effect on the statistics of these hypotheses.
 %
 The problems with choice 20739 (a costly choice paired off against a \prq{travel\_onwards}{} choice) have already been discussed.%
@@ -1373,14 +1395,14 @@ Another uncontroversial prediction was that unexpected failures would feel worse
 %
 This proposed effect is in line with theories of outcome evaluation including both decision affect theory and consistency theory, and has been confirmed in non-game scenarios (see e.g., \citep{Shepperd2002}).
 %
-We predicted that not only the valence items but also the satisfaction items would be affected, and compared both expected success conditions (\unxf{} and \obvfm{}) against the \expf{} condition.
+I predicted that not only the valence items but also the satisfaction items would be affected, and compared both expected success conditions (\unxf{} and \obvfm{}) against the \expf{} condition.
 
 
 The results, shown in \cref{tab:e2-expected-vs-unexpected-failure-results}, confirm most of the hypotheses, except for the satisfaction hypotheses relating to the \obvfm{} vs\@. \expf{} comparison.
 %
 In light of the \obvfm{} condition's mixed satisfaction results, the lack of confirmation for the last two hypotheses is not surprising, in fact it would be surprising if they had been confirmed, because the \obvf{} cases include competing influences for the satisfaction items, as discussed above.
 %
-Our data thus agree with existing non-game results suggesting that people perceive unexpected negative outcomes as being worse than expected negative outcomes, even when the outcomes are identical.
+The data thus agree with existing non-game results suggesting that people perceive unexpected negative outcomes as being worse than expected negative outcomes, even when the outcomes are identical.
 %
 Furthermore, when all available alternatives seem positive, failure provokes a stronger desire to have chosen a different option than when all alternatives seem negative.
 %
@@ -1400,7 +1422,7 @@ Of course, this last effect is more likely due to the valence of the alternative
 \end{figure}
 
 
-Unfortunately, although the hypotheses here are supported by the data and agree with existing literature, there may be another cause for our findings: several of the choices involved in these conditions have already been called out for not producing the poetic effects that they were supposed to.
+Unfortunately, although the hypotheses here are supported by the data and agree with existing literature, there may be another cause for my findings: several of the choices involved in these conditions have already been called out for not producing the poetic effects that they were supposed to.
 %
 These hypotheses were expected to look for gradations of badness between choices whose results were uniformly viewed as bad, but the choices that \dunyazad/ constructed for these cases didn't turn out that way.
 %
@@ -1446,7 +1468,7 @@ Whether or not the option structure of the obvious case interferes with this eff
 
 A corollary of the previous proposed effect in decision affect theory is that unexpected positive results will be viewed as more-positive than expected positive results (consistency theory in this case would disagree).
 %
-We also tested this prediction against our data, but ran into the same problem that we did when trying to compare chosen vs\@. inevitable success: our data was oversaturated.
+I also tested this prediction against the data, but ran into the same problem that I did when trying to compare chosen vs\@. inevitable success: the data was oversaturated.
 %
 \Cref{fig:e2-chosen-vs-inevitable-success-detail} demonstrated this for the \obvsm{} and \exps{} cases, \cref{fig:e2-expected-vs-unexpected-success-detail} shows that this carries over to the \unxs{} case as well (data for the three other items involved in these hypotheses are not shown, but were similarly saturated).
 %
@@ -1456,7 +1478,7 @@ There was simply not enough room on the scale for a subtle shift in valence to r
 %
 As with the chosen vs\@. inevitable success case, running a study with broader scales or asking for a direct evaluation of the degree of goodness/satisfaction would be viable techniques for pursing this effect further.
 %
-In any case, the data that we gathered do not provide enough information to argue either for or against the presence of this effect.
+In any case, the data that I gathered do not provide enough information to argue either for or against the presence of this effect.
 
 \begin{figure}[!b]
   \centering
@@ -1677,7 +1699,7 @@ First, it seems that when confronted with unexpected failure, player's perceptio
 This is not terribly surprising, but confirmation of the effect opens the doors for new questions that could be the subject of a more specific study, such as how gradations in the desirability of alternatives might affect perceptions of brokenness.
 
 
-A second high-level result was a confirmation of decision affect theory's assertion that unexpected failure should feel worse than expected failure in the context of a narrative game.
+A second high-level result was a confirmation of decision affect theory's assertion that unexpected failure should feel worse than expected failure \citep{Mellers1999} in the context of a narrative game.
 %
 While again, confirming a well-studied psychological phenomenon like this is not surprising, context matters, and uncritically assuming that in-game decision making will exactly mimic everyday real-life decision-making is flawed.
 %
@@ -1724,7 +1746,7 @@ Not only does it have weaknesses, but the results also show what those are, and 
 In this sense, these studies are a successful product test: the system isn't perfect yet, but it does a lot, and if a few things are improved, it can do more.
 
 
-The second takeaway from these experiments is that choice poetics are more complicated than we hoped but also simpler than we feared.
+The second takeaway from these experiments is that choice poetics are more complicated than I hoped but also simpler than I feared.
 %
 Certainly, adding moral reasoning and relative goal analysis capabilities to \dunyazad/ are technically intimidating tasks, which may require some theoretical research of their own.
 %

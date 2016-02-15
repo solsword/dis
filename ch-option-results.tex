@@ -1,4 +1,4 @@
-\chapter{Experimental I: Prospective Impressions}
+\chapter{Experiment I: Prospective Impressions}
 
 \label{ch:option-results}
 
@@ -28,7 +28,7 @@ There might be some cases where humans do use only absolute value judgements, bu
 In any case, the discovery prompted by \dunyazad/ that absolute value judgements are insufficient for understanding choice poetics generalizes beyond the specifics of \dunyazad/'s choices.
 
 
-The experiment presented here (and the experiment discussed in \cref{ch:outcome-results}) were set up in order to test \dunyazad/'s functionality and thereby also inform the theory of choice poetics that it is based on.
+The experiment presented here (and the experiment discussed in \cref{ch:outcome-results}) was set up in order to test \dunyazad/'s functionality and thereby also inform the theory of choice poetics that it is based on.
 %
 This first experiment is mainly concerned with prospective impressions, which are the result of the ``relative option analysis'' step in the goal-based choice analysis method described in \cref{sec:goal-based-choice-analysis}.
 %
@@ -36,7 +36,7 @@ In \dunyazad/, these are represented using \prq{option\_feel}{} predicates, as d
 %
 After analyzing the results of this experiment, I conducted a second experiment (discussed in \cref{ch:outcome-results}) focused on retrospective impressions, which are the results of retrospective analysis and are represented by \prq{outcome\_feel}{} predicates.
 %
-This chapter describes the details of the first experiment, along with much of the details of the experimental setup that are common to both experiments.
+This chapter describes the details of the first experiment, including details of the experimental setup that are common to both experiments.
 
 
 Both experiments broadly confirmed \dunyazad/'s abilities to generate the kinds of choices it was asked to, but also uncovered areas where it struggled.
@@ -48,9 +48,14 @@ Additionally, it has trouble reasoning about actions which expend resources in s
 All of these shortcomings suggest future work, of course, but also prompt reflection on the goal-based choice analysis method from \cref{sec:goal-based-choice-analysis}.
 %
 Accordingly, \cref{sec:results-prospective-caveats} revisits some of the concepts from goal-based-choice-analysis in light of the results from this experiment and the one presented in \cref{ch:outcome-results}.
+%
+The main takeaways for goal-based choice analysis are that humans should be careful to apply their faculties for comparing options in terms of things like moral imperatives and opportunity costs when analyzing options and outcomes.
+%
+Some other caveats are that relative option analysis is important in most situations, rather than only being needed when options are very similar, and that the outcome of an option can influence post-decision impressions of its desirability as an option pre-decision.
 
+\section{Overview}
 
-To exercise \dunyazad/'s prospective impressions system, I set up \dunyazad/ to construct three different types of choice:
+To exercise \dunyazad/'s prospective impressions system, I set up \dunyazad/ to construct three different kinds of choices:
 %
 \begin{itemize}
   \item \lbl{Relaxed} choices, where the stakes were low and there were no bad options.
@@ -64,7 +69,7 @@ Of course, the full set of \dunyazad/'s prospective impressions (shown in \cref{
 %
 Note that factors which give rise to ``obviousness'' or ``being a dilemma'' are quite a bit simpler than, say, factors that make a player feel regret.
 %
-These experiments and indeed work on \dunyazad/ so far has focused on these simple effects because if they can't be produced reliably, more complex effects are unlikely to work either.
+These experiments, and indeed work on \dunyazad/ so far, has focused on these simple effects because if they can't be produced reliably, more complex effects are unlikely to work either.
 %
 The results presented here are thus only the first step in \dunyazad/'s use as a tool for exploring choice poetics.
 
@@ -73,9 +78,9 @@ After constructing choices, I ran a survey that asked participants to read a sin
 %
 I analyzed the responses across choice categories and compared them against a uniform distribution to determine if players' perceptions match what the system intended.
 %
-My data show that \dunyazad/ was mostly able to produce the desired prospective impressions, but in a few specific cases there were surprising results.
+The data show that \dunyazad/ was mostly able to produce the desired prospective impressions, but in a few specific cases there were surprising results.
 %
-Because \dunyazad/ is a transparent operationalization of choice poetic theory, both the expected and surprising results can usefully inform not only the system's construction but also the theory of choice poetics.
+Because \dunyazad/ is a transparent operationalization of the goal-based choice analysis technique described in \cref{sec:goal-based-choice-analysis}, both the expected and surprising results can usefully inform not only the system's development but also the theory of choice poetics.
 
 
 \section{Method}
@@ -86,14 +91,14 @@ The primary goal of this experiment was to assess \dunyazad/'s ability to manage
 %
 To that end, the experiment focuses on players' perceptions of options at a choice, and does not even present outcomes to the participants at all.
 %
-The three choice types that were generated were chosen because they are each distinct in terms of the player expectations they engender, and because together they exercise \dunyazad/'s capacity to reason about stakes, positive and negative indicators, and both contrasting and similar options.
+The three choice types that were generated were chosen because they are each distinct in terms of the player expectations they engender, and because, as stated earlier, they together exercise \dunyazad/'s capacity to reason about stakes, positive and negative indicators, and both contrasting and similar options.
 
 
 To gather data on player expectations, I generated choices using \dunyazad/, showed them to study participants, and asked participants a series of questions about specific qualities of the choice they just read.
 %
 Because I used Amazon Mechanical Turk to gather data, my participants were each paid a small amount and presumably approached the survey as a means to earn money rather than as a voluntary undertaking.
 %
-Because of this, questions were asked in a hypothetical manner (e.g. ``If you were reading this story, which option would you choose?'') rather than directly (e.g. by having participants pick an option) to imply that the task at hand was asking them to judge the choice as someone reading it for entertainment might.
+Because of this, questions were asked in a hypothetical manner (e.g., ``If you were reading this story, which option would you choose?'') rather than directly (e.g., by having participants pick an option) to imply that the task at hand was asking them to judge the choice as someone reading it for entertainment might.
 %
 Of course, this framing (and being asked specific questions in general) might encourage an analytical mode of engagement, which is not what \dunyazad/ is designed to support, but that limitation is to some degree inevitable when survey responses are solicited.
 
@@ -166,14 +171,22 @@ You have some perfume and a book of legends, and you have skill: literacy, you h
 %
 Eager to be on your way, you set off on the road towards Jyv\"asky.
 }
-  \caption{Example framing.}
+  \caption{Example framing. The repetition of ``towards'' is a typo that was present in the text shown to participants.}
   \label{fig:exframing}
 \end{figure}
 
 
 Once the choices were generated, their text was broken into parts and put into a comma-separated values file for upload to Amazon Mechanical Turk where the parts would be substituted into a template.
 %
-Given a survey template, Mechanical Turk generated individual survey pages for each question, and ten tasks were posted per question (a total of 90 tasks), which workers on Mechanical Turk were able to preview, accept, and fill out for payment (50 cents per task\footnote{This was chosen based on online advice to pay about minimum wage for tasks on Mechanical Turk. Given the median response time, the hourly pay rate was \$7.50, but in retrospect, the inconvenience of survey tasks (where a worker cannot complete the same task many times and thus work more efficiently) suggests that a higher pay rate would be appropriate. For this reason (and because the second survey included more questions) I used a higher pay rate for the second experiment. The total cost (about \$50 in this case counting Amazon's 10\% fee) was quite cheap.}).
+Given a survey template, Mechanical Turk generated individual survey pages for each question, and ten tasks were posted per question (a total of 90 tasks), which workers on Mechanical Turk were able to preview, accept, and fill out for payment (50 cents per task\footnote{
+%
+This was chosen based on online advice to pay about minimum wage for tasks on Mechanical Turk.
+%
+Given the median response time, the hourly pay rate was \$7.50, but in retrospect, the inconvenience of survey tasks (where a worker cannot complete the same task many times and thus work more efficiently) suggests that a higher pay rate would be appropriate.
+%
+For this reason (and because the second survey included more questions) I used a higher pay rate for the second experiment.
+%
+The total cost (about \$50 in this case, counting Amazon's 10\% fee) was quite cheap.}).
 %
 Myle Ott's ``uniqueturker'' script (\url{https://uniqueturker.myleott.com/}) was used to ensure that no individual worker filled out the survey more than once.
 %
@@ -655,7 +668,7 @@ This could be expressed in \dunyazad/ by introducing evaluations like \prq{somew
 The \prq{skill\_link}{} mechanism would have to be updated to give estimates of these levels of likelihood for different actions in different circumstances, of course.
 
 
-Another argument a player could make as to why fighting is worse than fleeing in this situation has to do with the valence of the results.
+Another argument a player could make as to why fighting is worse than fleeing in this situation has to do with the relative magnitude of the results.
 %
 Internally, \dunyazad/ recognizes that the \prq{attack}{} option is likely to \prq{fail}{} both the \prq{avoid\_threats\_to}{} and \prq{preserve\_health}{} goals, while the \prq{flee}{} option is only expected to \prq{fail}{} the \prq{avoid\_threats\_to}{} goal.
 %
@@ -804,7 +817,7 @@ At least in terms of impact on the player, there's clearly a difference between 
 %
 Choices where options seem equally promising but most players choose a particular route regardless might even be good candidates for the focus of regret.
 %
-For example, if it turns out that the ``clear best option'' leads to failure and players are forced to revisit the original decision, having seen some potential in the alternatives they're more likely to feel that the choice was fair, and thus blame their own decision for the consequences.
+For example, if it turns out that the ``clear best option'' leads to failure and players are forced to revisit the original decision, having seen some potential in the alternatives they're more likely to feel that the choice was fair, and thus presumably blame their own decision for the consequences (\cref{sec:results-about-regret} discusses some data relevant to this point that resulted from the experiment on outcome evaluations).
 %
 At the same time, if the designer can be confident that most players will go down the ``obvious'' route first even without making the contrast with the other options huge, they can assume that most players will experience the regretful path as opposed to choosing the ultimately correct option the first time.
 
@@ -835,15 +848,15 @@ At the same time, one area for future work is goal-probing questions, which woul
 %
 These questions would serve two purposes: first, they would allow \dunyazad/ to dynamically determine which goals (including low-priority goals) the player thinks are important.
 %
-Second, these questions when successful subtly influence players by committing them to a goal: one a player affirms a goal, they are more likely to behave consistent with that goal in the future.
+Second, these questions, when successful, may subtly influence players by committing them to a goal: one a player affirms a goal, they may be more likely to behave in a manner consistent with that goal in the future (see e.g., \citep{Hall2012} on the powerful instinct for post-hoc justification when an opinion is perceived---even incorrectly---to be one's own).
 
 
 \subsection{Conflicting Goals}
 
 
-Our hypothesis that respondents would not find \obv{} choices difficult highlights a different choice in the \obv{} category.
+My hypothesis that respondents would not find \obv{} choices difficult highlights a different choice in the \obv{} category.
 %
-Our data did not support this hypothesis, and as shown in \cref{fig:e1-obviousq57}, the choice with seed 21105 accounts for the majority of all responses that contradict it.
+The data did not support this hypothesis, and as shown in \cref{fig:e1-obviousq57}, the choice with seed 21105 accounts for the majority of all responses that contradict it.
 %
 That choice is shown in \cref{fig:e1-seed-21105}, and from the system's perspective, it satisfies the definition of an obvious choice (see \cref{tab:prospective-impressions}) because the second option ``achieves'' a player goal, while neither the first nor the third do, and both the first and third ``threaten'' a player goal.
 
@@ -854,7 +867,7 @@ This is similar to the lack of distinction between threatening one and two goals
 %
 Even when one option at a choice clearly has the most-positive outcome for the player considering all goals to be equal, when that choice pits multiple goals against one another, it may be very difficult indeed.
 %
-In fact, choices with these structures may give rise to an entirely different set of poetic concerns that involves moral judgements (this is exactly how some morality thought experiments are constructed, for example).
+In fact, choices with these structures may give rise to an entirely different set of poetic concerns that involves moral judgements (this is exactly how morality thought experiments like the ``trolley problem'' are constructed, for example---see \citep{Thomson1976}).
 %
 A difficult decision between two desirable or undesirable outcomes feels completely different from a decision between two outcomes each justified by competing moral principles, and it can resonate powerfully to the broader narrative structures of a story.
 %
@@ -892,12 +905,12 @@ Given that one of my \obv{} choices seemed difficult to many participants as dis
 
 What is interesting is the effect of the choice stakes on this question.
 %
-Our similar hypothesis that participants would agree more in the \dlm{} case than the \rlx{} case \emph{was} supported by the data, and one big difference between those two treatments is the stakes associated with them.\footnote{A statistical analysis of the assertion that participants agree more with the statement that a choice's stakes are low in the \rlx{} case than the \dlm{} case (not one of my original hypotheses) reveals a strong significant effect ($p = 2.88\times10^{-5}$; effect size 76\%).}
+The similar hypothesis that participants would agree more in the \dlm{} case than the \rlx{} case \emph{was} supported by the data, and one big difference between those two treatments is the stakes associated with them.\footnote{A statistical analysis of the assertion that participants agree more with the statement that a choice's stakes are low in the \rlx{} case than the \dlm{} case (not one of my original hypotheses) reveals a strong significant effect ($p = 2.88\times10^{-5}$; effect size 76\%).}
 %
 In fact, when analyzing the data for question 8 according to stakes rather than the three treatments, high-stakes choices overwhelmingly seem as if they will have important consequences, while low-stakes choices are mixed (see \cref{fig:e1-stakesq8}).
 
 
-Statistics confirm the obvious: not only did the high-stakes condition elicits significantly more agreement on question 8 than the low-stakes condition ($p = 2.14\times10^{-8}$; effect size 79\%), it was also significantly above a uniform distribution ($p = 4.9\times10^{-6}$; effect size 78\%).
+Statistics confirm the obvious: not only did the high-stakes condition elicit significantly more agreement on question 8 than the low-stakes condition ($p = 2.14\times10^{-8}$; effect size 79\%), it was also significantly above a uniform distribution ($p = 4.9\times10^{-6}$; effect size 78\%).
 %
 Because all of the \rlx{} choices were low-stakes by design, there is of course correlation between the stakes and the treatments, but the 35 high-stakes cases were about evenly distributed between the \obv{} and \dlm{} treatments (16 in \obv{} and 19 in \dlm{}).
 %
@@ -922,7 +935,7 @@ These results point to several possible improvements for \dunyazad/, and collect
 As already discussed, there are a number of changes that could be made to \dunyazad/ based on these results:
 %
 \begin{itemize}
-  \item Implement separate ``satisfaction'' and ``maximization'' player decision modes so that the system can reason about how difficult a decision might seem whichever decision modality a player is using.
+  \item Implement separate ``satisfaction'' and ``maximization'' player decision modes so that the system can reason about how difficult a decision might seem, whichever decision modality a player is using.
   \item Upgrade \dunyazad/'s system for estimating how individual options affect goals by adding more detail so that it can further distinguish different magnitudes of risk and reward.
   \item Have \dunyazad/ represent players' uncertainty about the possible outcomes of actions like ``gossip'' and ``tell story'' so that it can have a clearer picture of which options seem promising in low-stakes situations.
   \item Implement goal-probing questions (either direct or indirect) that allow the system to gain direct knowledge about player goals, especially for low-stakes options. This would also allow \dunyazad/ to further support role-playing by allowing different players to choose options which imply different goals or goal priorities.
@@ -939,4 +952,4 @@ One important functionality of \dunyazad/ not tested in this first study was its
 %
 This study did largely verify that \dunyazad/'s player expectations about options are working, and it can generate outcomes that both support and betray those expectations.
 %
-\Cref{sec:exp-retrospective} uses this functionality to test how accurate \dunyazad/'s estimates of retrospective perceptions are.
+The experiment described in \cref{ch:outcome-results} relies on this functionality to test how accurate \dunyazad/'s estimates of retrospective perceptions are.

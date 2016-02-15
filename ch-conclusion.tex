@@ -8,7 +8,7 @@ The theory developed in \cref{ch:choice-poetics} is incomplete and shallow; it d
 %
 The system description on \cref{ch:dunyazad} admits that \dunyazad/ is focused on single choices for now, and doesn't have strong mechanisms for guiding plot arcs.
 %
-The experimental results detailed in \cref{ch:results} are mixed, and highlight several areas that need work.
+The experimental results detailed in \cref{ch:option-results,ch:outcome-results} are mixed, and highlight several areas that need work.
 %
 Taken together, this perhaps gives the impression that \dunyazad/ as a project is woefully incomplete.
 
@@ -17,11 +17,11 @@ However, recall the purpose of \dunyazad/ as a project: learn new things about c
 %
 Measured against these goals, the theoretical and technical results that have been demonstrated so far represent an important first step in a new direction.
 %
-The ideas about choice poetics described in \cref{ch:choice-poetics}, for example, are not ideas that would have resulted from a close reading of multiple choice-based narratives, and this is also the case for the caveats explored in \cref{ch:results}.
+The ideas about choice poetics described in \cref{ch:choice-poetics}, for example, are not ideas that would have resulted from a close reading of multiple choice-based narratives, and this is also the case for the caveats explored in \cref{ch:option-results,ch:outcome-results}.
 %
 Furthermore, \dunyazad/ as a generative system does things that no other existing system attempts, giving users a uniquely detailed level of control over the choices that it generates: it is a system that attempts to understand and provide direct control over the impressions that its choices make, and it is largely successful at this.
 %
-Finally, the experimental results from \cref{ch:results} are something that would not have been possible without \dunyazad/: based on \dunyazad/'s transparent operationalization of choice poetics, they are able to establish a direct link between assessments that result from particular ways of reasoning about choices and audience reactions to those choices.
+Finally, the experimental results from \cref{ch:option-results,ch:outcome-results} are something that would not have been possible without \dunyazad/: based on \dunyazad/'s transparent operationalization of choice poetics, they are able to establish a direct link between assessments that result from particular ways of reasoning about choices and audience reactions to those choices.
 %
 Knowledge of where \dunyazad/'s reasoning breaks down is in fact just as interesting as knowledge of where it succeeds, and is the main benefit of the use of AI in this project: without a technical implementation of the theory of choice poetics, these hidden assumptions would have gone unnoticed.
 
@@ -65,7 +65,7 @@ The main technical result of the \dunyazad/ project is a program that generates 
 %
 While any interactive narrative project necessarily gives the player some kind of choices, until now there have only been a few projects that focused on those choices as a first-class design problem: most projects generate (or manage) some other structure which implicitly contains choices without ever focusing on the total set of options available to the player at each moment.
 %
-As the results in \cref{ch:results} demonstrate, however, this total set of options can profoundly impact player reactions, and even options which are never chosen by the player color their perception of the outcomes that they do see.
+As the results in \cref{ch:option-results,ch:outcome-results} demonstrate, however, this total set of options can profoundly impact player reactions, and even options which are never chosen by the player color their perception of the outcomes that they do see.
 %
 While a few other projects such as \citep{Barber2007a, Yu2013} have made explicit choices and their structures the center of their attention, these projects have not attempted to generate a variety of choices in a principled manner.
 %
@@ -87,7 +87,7 @@ Because \dunyazad/ uses answer set programming, both its successes and failures 
 %
 In other words, \dunyazad/ can establish a sufficiency relationship between the statements of choice poetic theory and the effects that they purport to describe.
 %
-By generating choices which audiences perceive as, say, ``obvious,'' \emph{using only the rules of choice poetics to guide it}, \dunyazad/ is a procedural proof that those rules are \emph{sufficient} to give rise to ``obvioussness,'' at least in the story contexts that \dunyazad/ operates in.
+By generating choices which audiences perceive as, say, ``obvious,'' \emph{using only the rules of choice poetics to guide it}, \dunyazad/ is a procedural proof that those rules are \emph{sufficient} to give rise to ``obviousness,'' at least in the story contexts that \dunyazad/ operates in.
 %
 Likewise, when a choice is labelled ``obvious'' but humans don't perceive it as such, \dunyazad/ has demonstrated that its rules are insufficient as an explanation of what ``obviousness'' is, and often, the human perceptions that do result can explain \emph{why} this is the case in terms, again, of the theoretical rules of choice poetics.
 %
@@ -98,11 +98,11 @@ Few other approaches to generating choices, computational or otherwise, have the
 
 \section{Experimental Results}
 
-The experimental results presented in \cref{ch:results} are the linchpin of the hybrid research approach that drives \dunyazad/.
+The experimental results presented in \cref{ch:option-results,ch:outcome-results} are the linchpin of the hybrid research approach that drives \dunyazad/.
 %
 These results establish, via \dunyazad/'s rules, a direct link between actual human reactions to choices and the theory of choice poetics which attempts to predict those reactions.
 %
-\Cref{tab:prospective-impressions-redux,tab:retrospective-impressions-redux} at the very end of \cref{ch:results} show the results of this feedback: caveats and amendments to the analysis method described in \cref{ch:choice-poetics} that resulted from an analysis of experimental data.
+\Cref{tab:prospective-impressions-redux,tab:retrospective-impressions-redux} at the very end of \cref{ch:outcome-results} show the results of this feedback: caveats and amendments to the analysis method described in \cref{ch:choice-poetics} that resulted from an analysis of experimental data.
 
 
 With the participation of hundreds of paid subjects contacted via Amazon Mechanical Turk, the options and outcomes that \dunyazad/ generates were evaluated in two experiments, focused on immediate reactions such as obviousness or the valence of outcomes.
@@ -122,7 +122,7 @@ The flaws that the results exposed in \dunyazad/'s reasoning have also served to
 %
 For example, \dunyazad/'s difficulty in reasoning about moral conflicts of interest (between e.g., self-preservation and helping an innocent victim in need) shows that when humans apply the goal-based choice analysis method presented in \cref{sec:goal-based-choice-analysis} they should be careful to exercise their capacity for moral reasoning.
 %
-This result, and the others like it presented in \cref{ch:results}, are the real fruits of the hybrid research method employed in \dunyazad/.
+This result, and the others like it presented in \cref{ch:option-results,ch:outcome-results}, are the real fruits of the hybrid research method employed in \dunyazad/.
 %
 By using \dunyazad/'s inhuman reasoning to double-check the human reasoning behind the theory of choice poetics, that theory can be improved and developed more thoroughly than by using human reasoning alone.
 
@@ -151,7 +151,7 @@ Given these successes, there are multiple directions that the project could go i
 
 First, the flaws revealed by the experimental data should be addressed.
 %
-This involves implementing moral reasoning, perhaps along the lines of the defeasible reasoning approach presented by Joseph Blass and Ian Horswill in \citep{Blass2015}.
+This involves implementing relative value judgements as well as moral reasoning (perhaps along the lines of the defeasible reasoning approach presented by Joseph Blass and Ian Horswill in \citep{Blass2015}).
 %
 \dunyazad/ will also need to implement a more complicated approach to goal priorities, and this will have to be backed up by an understanding of how players approach conflicting goals: the theory of choice poetics will need to become more specific on this point.
 %

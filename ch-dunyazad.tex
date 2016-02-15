@@ -85,7 +85,7 @@ Sometimes this process is laborious, as many rules may chain together to allow a
 %
 Furthermore, because those logical statements correspond directly to elements of the underlying theory, the relationship between that theory and the program's output is visible.
 
-% TODO: Better example here?
+
 As an example, \dunyazad/ has rules that define one way in which a choice can be obvious---by having exactly one option which suggests a positive outcome and one or more options all of which suggest negative outcomes.
 %
 Originally, the criterion that the other options must suggest negative outcomes was not present, but upon looking at generated choices, some clearly didn't fit an intuitive test for obviousness because of their inclusion of neutral options.
@@ -514,7 +514,7 @@ As shown in \cref{tab:dunyazad-constraints-inventory} there are several differen
 
 These aesthetic constraints are admittedly a bit underdeveloped.
 %
-In particular, there are not enough related to ensuring that long-term actions form a coherent plot, and this is one reason\footnote{A more important reason was the elimination of confounding factors.} that the experiments discussed in \cref{ch:results} focus on single choices rather than entire stories.
+In particular, there are not enough related to ensuring that long-term actions form a coherent plot, and this is one reason\footnote{A more important reason was the elimination of confounding factors.} that the experiments discussed in \cref{ch:option-results,ch:outcome-results} focus on single choices rather than entire stories.
 %
 This is an open area of future work for \dunyazad/: developing stronger plot structures across multiple actions would allow it to produce interesting short stories and thus to support more complicated experiments.
 
@@ -536,7 +536,7 @@ The bulk of these constraints form \dunyazad/'s operationalization of choice poe
 %
 Besides these two categories of constraint, \dunyazad/'s poetic constraints are focused on choice poetics, and in particular, implementing the goal-based choice analysis method described in \cref{sec:goal-based-choice-analysis} and illustrated in \cref{fig:choice-analysis-method}.
 %
-These constraints are the focus of the experiments described in \cref{ch:results} and they have been the focus of development on \dunyazad/ so far: these are the constraints that allow \dunyazad/ to attempt to create specific poetic effects when constructing choices.
+These constraints are the focus of the experiments described in \cref{ch:option-results,ch:outcome-results}, and they have also been the focus of development on \dunyazad/ so far: these are the constraints that allow \dunyazad/ to attempt to create specific poetic effects when constructing choices.
 %
 Although the details of goal-based choice analysis were the main subject of \cref{ch:choice-poetics}, the following section provides a walk-through of \dunyazad/'s technical implementation of the technique.
 
@@ -645,7 +645,7 @@ For example, if an option has at least one \prq{achieves}{} expectation and it h
 %
 These rules establish one or more \prq{option\_\abr/feel}{}s for each option, and these are further aggregated into \prq{option\_\abr/structure}{} assignments, which are the prospective impressions show in \cref{tab:prospective-impressions}.
 %
-These prospective impression assignments were the subject of the first experiment described in \cref{ch:results} and provide one primary means of controlling the kinds of choices \dunyazad/ generates.
+These prospective impression assignments were the subject of the experiment described in \cref{ch:option-results} and provide one primary means of controlling the kinds of choices \dunyazad/ generates.
 %
 Although they are discussed here as being `assigned' based on existing choice structures, because they're just predicates in an answer set program, they can be required and the solver will solve for answer sets that include them.
 %
@@ -829,7 +829,7 @@ However, we need to be careful not to generalize our results too far.
 
 Coming back to the results of retrospective analysis, these \prq{outcome\_feel}{} predicates give authors another high-level means of control over \dunyazad/.
 %
-As with the \prq{option\_feel}{} predicates, constraints requiring the presence of a particular \prq{outcome\_feel}{} force \dunyazad/ to produce choices that include such options (if it can), and this is how the second experiment described in \cref{ch:results} was set up.
+As with the \prq{option\_feel}{} predicates, constraints requiring the presence of a particular \prq{outcome\_feel}{} force \dunyazad/ to produce choices that include such options (if it can), and this is how the experiment described in \cref{ch:outcome-results} was set up.
 
 \end{enumerate}
 
@@ -902,7 +902,7 @@ Besides the simple iterative process just described, there is code for managing 
 %
 Along with classes for representing predicates and answer sets, a full parser for \prog{clasp}'s output is included, although it is a bit slow and could do with more optimization.
 %
-For situations like the experiments described in \cref{ch:results}, there are also mechanisms for inserting extra constraints that will be used during every call to the solver.
+For situations like the experiments described in \cref{ch:option-results,ch:outcome-results}, there are also mechanisms for inserting extra constraints that will be used during every call to the solver.
 %
 Ultimately, the high-level Python code is relatively straightforward, with the exception of the English generation code.
 %
@@ -926,7 +926,7 @@ The choice analysis method presented in the \cref{ch:choice-poetics}, for exampl
 
 Another reason that the description of \dunyazad/ given here can be appreciated on its own is that it describes all of the driving principles behind \dunyazad/'s inner workings, in enough detail for someone else to construct their own working system that generates narrative choices.
 %
-Technical considerations (such as iterative vs. all-at-once story construction) aside, the principles driving \dunyazad/ are not terribly complicated: a story representation that includes the concept of choices and actions with variable consequences along with systems for estimating what the player will think of these things.
+Technical considerations (such as iterative vs\@. all-at-once story construction) aside, the principles driving \dunyazad/ are not terribly complicated: a story representation that includes the concept of choices and actions with variable consequences along with systems for estimating what the player will think of these things.
 %
 One could re-implement it using an entirely different theory of choice poetics, for example, or without using logic programming at all.
 
@@ -935,6 +935,6 @@ From the perspective of generative systems, \dunyazad/ makes the statement: ``Ge
 %
 Ideally this chapter is a convincing demonstration of that, but \dunyazad/ has ambitions well beyond being a working generative system.
 %
-In \cref{ch:results}, I will discuss the results of two experiments that both demonstrate \dunyazad/'s capabilities as a generative system and provide useful insight into choice poetics by leveraging its capacity as a tool for theory development.
+In \cref{ch:option-results,ch:outcome-results}, I will discuss the results of two experiments that both demonstrate \dunyazad/'s capabilities as a generative system and provide useful insight into choice poetics by leveraging its capacity as a tool for theory development.
 
 \label{sec:dunyazad-summary}%

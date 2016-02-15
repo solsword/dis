@@ -242,7 +242,7 @@ Interactivity takes such power fantasies one step further by making them partici
 %
 Of course, the choices that a player has can serve to advance or undermine this feeling of influence, especially when, for example, a player re-plays to explore multiple paths in a narrative and finds that nothing changes.
 %
-Divergent outcomes which matter within the story world are critical for maintaining a sense of influence across multiple play-throughs, although a mere suggestion of such can be sufficient when players do not re-play.
+Divergent outcomes which matter within the story world are critical for maintaining a sense of influence across multiple playthroughs, although a mere suggestion of such can be sufficient when players do not re-play.
 %
 Important blind choices (where the player must pick an option knowing that the choice will be momentous but uncertain about the exact effects) are a common source of narrative tension which makes players feel influential without giving them a real sense of agency.
 
@@ -304,7 +304,7 @@ The poetic details that \dunyazad/ actually operationalizes are based on player 
 %
 As \dunyazad/ only reasons about one choice at a time, its logic effectively comprises an analysis technique for examining the basic poetic properties of an individual choice.
 %
-The next section describes this technique and how a human would apply it to an individual choice within an interactive narrative, while \cref{ch:dunyazad} describes how \dunyazad/ operationalizes this theory, and \cref{ch:results} describes how results from experiments using \dunyazad/ have informed both the theory and the system.
+The next section describes this technique and how a human would apply it to an individual choice within an interactive narrative, while \cref{ch:dunyazad} describes how \dunyazad/ operationalizes this theory, and \cref{ch:option-results,ch:outcome-results} describe how results from two experiments using \dunyazad/ have informed both the theory and the system.
 
 \section{Goal-Based Choice Analysis}
 
@@ -588,7 +588,7 @@ This is one of the benefits of a detailed analysis technique, in fact: developin
 %
 Note that the criteria are designed to be sufficient for applying the label, but not necessary---there are certainly some obvious choices which do not meet the strict criteria set out here, but from a design standpoint, if the criteria are met, a choice is almost certainly obvious (assuming also that the goal and outcome analyses are accurate of course).
 %
-The labels in \cref{tab:prospective-impressions} and their criteria were developed as part of \dunyazad/'s choice analysis component, and some of them (the \lbl{depressing}, \lbl{empowering}, \lbl{obvious}, and \lbl{relaxed} labels) were refined based on experimental results (see \cref{ch:results}).
+The labels in \cref{tab:prospective-impressions} and their criteria were developed as part of \dunyazad/'s choice analysis component, and some of them (the \lbl{depressing}, \lbl{empowering}, \lbl{obvious}, and \lbl{relaxed} labels) were refined based on experimental results (see \cref{ch:option-results,ch:outcome-results}).
 
 
 As a preview of those results, one caveat that applies to the \lbl{relaxed} label is that some people will always seek a best possible outcome when given a choice, and thus even at a choice among supposedly positive outcomes options which appear to lead to \emph{relatively} worse outcomes may be seen as bad options \citep{Schwartz2002}.
@@ -614,7 +614,7 @@ Additionally, when a player is confronted with a diegetic dilemma, any reasoning
 At the same time, since diegetic dilemmas can force the player to make an important decision for their avatar and to ``think as'' their avatar, they may promote identification.
 
 
-Dilemmas can be very fragile, however, because if the goals hindered by the two options are not well-balanced, the choice can become obvious (this impacted the experiments described in \cref{ch:results}).
+Dilemmas can be very fragile, however, because if the goals hindered by the two options are not well-balanced, the choice can become obvious (this impacted the experiments described in \cref{ch:option-results,ch:outcome-results}).
 %
 A dilemma may also force a player to re-evaluate their priorities, especially when the player goals involved relate to different modes of engagement.
 %
@@ -781,7 +781,7 @@ A full picture of how player feels after a choice combines prospective and retro
 %
 Options other than the chosen one can still influence the overall impression, especially by accentuating bad results (when multiple options seemed promising) or good results (when all options seemed bad).
 %
-Regret in particular is an example of a poetic effect that depends heavily on the nature of options-not-chosen (this is backed up by experimental data presented in \cref{ch:results}; see for example the discussion of regret in \cref{sec:results-about-regret}).
+Regret in particular is an example of a poetic effect that depends heavily on the nature of options-not-chosen (this is backed up by experimental data presented in \cref{ch:outcome-results}; see for example the discussion of regret in \cref{sec:results-about-regret}).
 
 
 \section{Overview \& Future Work}
@@ -801,7 +801,7 @@ Without such visibility, the confusion of players faced by a choice that pits tw
 Goal-based choice analysis could thus be helpful for debugging key choice structures that aren't producing a desired impression, and for figuring out whether a game supports specific modes of engagement.
 
 
-The few impressions that have been presented here have also been verified to some degree by the experiments presented in \cref{ch:results}.
+The few impressions that have been presented here have also been verified to some degree by the experiments presented in \cref{ch:option-results,ch:outcome-results}.
 %
 In fact, the results of those experiments did not unanimously confirm my hypotheses, which has led to refinements in the analysis technique presented here.
 %
@@ -810,7 +810,7 @@ In particular, \cref{tab:prospective-impressions,tab:retrospective-impressions} 
 These revisions and others that were made as I built \dunyazad/ are the primary product of my hybrid research method: a more nuanced understanding of choice poetics obtained by attempting to operationalize it.
 
 
-One might wonder what advantage this analysis technique has over similar theories that could be applied to narrative choices, such as decision affect theory (which it is in part based on).
+One might wonder what advantage this analysis technique has over similar theories that could be applied to narrative choices, such as decision affect theory \citep{Mellers1997} (which it is in part based on).
 %
 One difference lies in specificity and directness: while decision affect theory could be consulted to come up with a set of hypotheses about audience response to a choice, it does not provide a list of specific steps to follow in doing so.
 %
@@ -818,7 +818,7 @@ Another difference is the aims of the theories: decision affect theory has been 
 %
 In contrast, goal-based choice analysis as presented here was designed to have \emph{generative} power: it can be used to \emph{construct} a choice that produces a specific reaction.
 %
-Although further studies could hopefully demonstrate that goal-based choice analysis has explanatory and predictive power as well, the results presented in \cref{ch:results} are a validation of generative power.
+Although further studies could hopefully demonstrate that goal-based choice analysis has explanatory and predictive power as well, the results presented in \cref{ch:option-results,ch:outcome-results} are a validation of generative power.
 %
 Of course, if one is interested in generating rather than evaluating choices, this evidence is encouraging.
 
@@ -836,6 +836,6 @@ With this information, refinements to \dunyazad/ and/or the underlying theory ca
 
 The next chapter describes in detail how \dunyazad/ operates, and part of it mirrors this one: an automated version of the analysis technique described here forms the core of \dunyazad/'s reasoning capabilities.
 %
-After that, \cref{ch:results} discusses the results of two experiments that showed outputs from \dunyazad/ to humans and gathered feedback about their impressions.
+After that, \cref{ch:option-results,ch:outcome-results} discuss the results of two experiments that showed outputs from \dunyazad/ to humans and gathered feedback about their impressions.
 %
-\Cref{ch:results} includes some updates to the material presented here (mainly \cref{tab:prospective-impressions,tab:retrospective-impressions}; see \cref{sec:results-prospective-caveats}), as these refinements make the most sense when presented alongside the experimental results that led to them.
+\Cref{ch:outcome-results} includes some updates to the material presented here (mainly \cref{tab:prospective-impressions,tab:retrospective-impressions}; see \cref{sec:results-prospective-caveats}), as these refinements make the most sense when presented alongside the experimental results that led to them.
