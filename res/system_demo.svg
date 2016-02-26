@@ -1,0 +1,624 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1417.3228"
+   height="1062.9921"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="system_demo.eps">
+  <defs
+     id="defs4">
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lend"
+       style="overflow:visible;">
+      <path
+         id="path4386"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="641.38378"
+     inkscape:cy="540.60649"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="cm"
+     inkscape:snap-grids="true"
+     inkscape:object-nodes="true"
+     inkscape:window-width="1366"
+     inkscape:window-height="740"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid2985"
+       units="cm"
+       empspacing="6"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true"
+       spacingx="0.5cm"
+       spacingy="0.5cm"
+       dotted="false" />
+    <inkscape:grid
+       type="xygrid"
+       id="grid4845"
+       units="cm"
+       empspacing="8"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true"
+       spacingx="0.25cm"
+       spacingy="0.25cm"
+       dotted="false" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,10.631225)">
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:5, 5;stroke-dashoffset:0"
+       id="rect2987"
+       width="372.04724"
+       height="938.97638"
+       x="248.03149"
+       y="77.951393" />
+    <text
+       xml:space="preserve"
+       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"
+       x="265.74805"
+       y="60.234856"
+       id="text3757"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3759"
+         x="265.74805"
+         y="60.234856">Active Goals</tspan></text>
+    <rect
+       style="fill:none;stroke:#22bb33;stroke-width:2.50000000000000000;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3761"
+       width="336.61417"
+       height="265.74802"
+       x="265.74805"
+       y="95.667931" />
+    <rect
+       style="fill:none;stroke:#777777;stroke-width:2.50000000000000000;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3763"
+       width="301.18109"
+       height="53.149612"
+       x="283.46457"
+       y="148.81754" />
+    <rect
+       style="fill:none;stroke:#22bb33;stroke-width:2.50000000000000000;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3763-2"
+       width="283.46457"
+       height="53.149612"
+       x="301.18109"
+       y="219.68367" />
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#22bb33;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"
+       x="283.46457"
+       y="131.101"
+       id="text3783"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3785"
+         x="283.46457"
+         y="131.101">Seed new story</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#777777;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"
+       x="296.63437"
+       y="184.25061"
+       id="text3783-6"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="296.63437"
+         y="184.25061"
+         id="tspan3808">Set up main conflict</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#22bb33;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"
+       x="318.89764"
+       y="255.11674"
+       id="text3783-6-3"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="318.89764"
+         y="255.11674"
+         id="tspan3808-8"
+         style="font-style:normal;font-weight:bold;-inkscape-font-specification:Calibri Bold;fill:#22bb33;fill-opacity:1">Create protagonist</tspan></text>
+    <rect
+       style="fill:none;stroke:#2244ff;stroke-width:2.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3763-2-6"
+       width="301.18109"
+       height="53.149597"
+       x="283.46457"
+       y="290.5498" />
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#2244ff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"
+       x="413.09531"
+       y="325.98288"
+       id="text3783-6-3-9"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="413.09531"
+         y="325.98288"
+         id="tspan3808-8-7">...</tspan></text>
+    <rect
+       style="fill:none;stroke:#22bb33;stroke-width:2.50000000000000000;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3761-9"
+       width="336.61417"
+       height="336.61417"
+       x="265.74805"
+       y="379.13248" />
+    <rect
+       style="fill:none;stroke:#ee2211;stroke-width:2.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3763-1"
+       width="301.18109"
+       height="53.149612"
+       x="283.46457"
+       y="432.28207" />
+    <rect
+       style="fill:none;stroke:#2244ff;stroke-width:2.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3763-2-1"
+       width="301.18109"
+       height="194.88188"
+       x="283.46457"
+       y="503.14822" />
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#22bb33;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"
+       x="283.46457"
+       y="414.56555"
+       id="text3783-3"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3785-3"
+         x="283.46457"
+         y="414.56555">Construct story</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ee2211;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"
+       x="296.63437"
+       y="467.71518"
+       id="text3783-6-6"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="296.63437"
+         y="467.71518"
+         id="tspan3808-7">Scan unfinished</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#2244ff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"
+       x="304.36093"
+       y="538.5813"
+       id="text3783-6-3-8"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="304.36093"
+         y="538.5813"
+         id="tspan3808-8-9">Fill in subplot A</tspan></text>
+    <rect
+       style="fill:none;stroke:#2244ff;stroke-width:2.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3763-2-6-5-4-0"
+       width="265.74802"
+       height="53.149612"
+       x="301.18112"
+       y="556.29785" />
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#2244ff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"
+       x="318.89764"
+       y="591.73096"
+       id="text3783-6-3-8-5"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="318.89764"
+         y="591.73096"
+         id="tspan3808-8-9-0">Generate scene 1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#2244ff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"
+       x="421.95355"
+       y="662.59705"
+       id="text3783-6-3-9-2-3"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="421.95355"
+         y="662.59705"
+         id="tspan3808-8-7-8-6">...</tspan></text>
+    <rect
+       style="fill:none;stroke:#2244ff;stroke-width:2.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3763-2-6-5-4-8"
+       width="265.74802"
+       height="53.149605"
+       x="301.18112"
+       y="627.164" />
+    <rect
+       style="fill:none;stroke:#22bb33;stroke-width:2.50000000000000000;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3761-9-8"
+       width="336.61417"
+       height="124.01576"
+       x="265.74805"
+       y="733.4632" />
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#22bb33;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"
+       x="283.46457"
+       y="768.8963"
+       id="text3783-3-7"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3785-3-7"
+         x="283.46457"
+         y="768.8963">Check consistency</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ee2211;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"
+       x="413.09528"
+       y="822.04584"
+       id="text3783-6-3-9-2-6"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="413.09528"
+         y="822.04584"
+         id="tspan3808-8-7-8-9">...</tspan></text>
+    <rect
+       style="fill:none;stroke:#ee2211;stroke-width:2.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3763-2-6-5-4-5"
+       width="301.18109"
+       height="53.149586"
+       x="283.4646"
+       y="786.61279" />
+    <rect
+       style="fill:none;stroke:#22bb33;stroke-width:2.50000000000000000;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3761-9-8-3"
+       width="336.61417"
+       height="124.01576"
+       x="265.74805"
+       y="875.1955" />
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#22bb33;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"
+       x="283.4646"
+       y="910.6286"
+       id="text3783-3-7-4"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3785-3-7-5"
+         x="283.4646"
+         y="910.6286">Manage choices</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#2244ff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"
+       x="413.09528"
+       y="963.77808"
+       id="text3783-6-3-9-2-6-0"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="413.09528"
+         y="963.77808"
+         id="tspan3808-8-7-8-9-3">...</tspan></text>
+    <rect
+       style="fill:none;stroke:#2244ff;stroke-width:2.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3763-2-6-5-4-5-3"
+       width="301.18109"
+       height="53.149586"
+       x="283.4646"
+       y="928.34509" />
+    <rect
+       style="fill:#ee2211;fill-opacity:1;stroke:none"
+       id="rect4085"
+       width="17.716566"
+       height="17.71656"
+       x="35.433037"
+       y="113.38447" />
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ee2211;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"
+       x="70.866142"
+       y="131.10103"
+       id="text3783-6-3-9-2-6-9"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="70.866142"
+         y="131.10103"
+         id="tspan3808-8-7-8-9-6">Daemon</tspan></text>
+    <rect
+       style="fill:#22bb33;fill-opacity:1;stroke:none"
+       id="rect4085-6"
+       width="17.716566"
+       height="17.71656"
+       x="35.433037"
+       y="166.53407" />
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#22bb33;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"
+       x="70.866142"
+       y="184.25061"
+       id="text3783-3-7-5"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3785-3-7-0"
+         x="70.866142"
+         y="184.25061">In-progress</tspan></text>
+    <rect
+       style="fill:#777777;fill-opacity:1;stroke:none"
+       id="rect4085-6-4"
+       width="17.716566"
+       height="17.71656"
+       x="35.433037"
+       y="219.68365" />
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#777777;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"
+       x="70.866142"
+       y="237.40021"
+       id="text3783-3-7-5-2"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3785-3-7-0-8"
+         x="70.866142"
+         y="237.40021">Finished</tspan></text>
+    <rect
+       style="fill:#2244ff;fill-opacity:1;stroke:none"
+       id="rect4085-6-4-6"
+       width="17.716566"
+       height="17.71656"
+       x="35.433037"
+       y="272.83331" />
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#2244ff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"
+       x="70.866142"
+       y="290.54987"
+       id="text3783-3-7-5-2-7"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3785-3-7-0-8-1"
+         x="70.866142"
+         y="290.54987">Fresh</tspan></text>
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:5, 5;stroke-dashoffset:0"
+       id="rect2987-4"
+       width="673.22833"
+       height="336.61417"
+       x="655.51184"
+       y="77.951393" />
+    <text
+       xml:space="preserve"
+       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"
+       x="673.22839"
+       y="60.234856"
+       id="text3757-3"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3759-3"
+         x="673.22839"
+         y="60.234856">Current Story</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"
+       x="673.22839"
+       y="113.38446"
+       id="text3783-1"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3785-4"
+         x="673.22839"
+         y="113.38446">state(beginning, sleeping(princess)).</tspan><tspan
+         sodipodi:role="line"
+         x="673.22839"
+         y="153.38446"
+         id="tspan4257">state(beginning, has(princess, necklace)).</tspan><tspan
+         sodipodi:role="line"
+         x="673.22839"
+         y="193.38446"
+         id="tspan4255">action(beginning, steal(sorcerer, necklace)).</tspan><tspan
+         sodipodi:role="line"
+         x="673.22839"
+         y="233.38446"
+         id="tspan4259">state(after(beginning), has(sorcerer, necklace)).</tspan><tspan
+         sodipodi:role="line"
+         x="673.22839"
+         y="273.38446"
+         id="tspan4261">...</tspan><tspan
+         sodipodi:role="line"
+         x="673.22839"
+         y="313.38446"
+         id="tspan4263">state(end, dead(sorcerer)).</tspan><tspan
+         sodipodi:role="line"
+         x="673.22839"
+         y="353.38446"
+         id="tspan4265">state(end, has(princess, necklace)).</tspan><tspan
+         sodipodi:role="line"
+         x="673.22839"
+         y="393.38446"
+         id="tspan4306">...</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"
+       x="673.22833"
+       y="467.71518"
+       id="text3757-3-7"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3759-3-9"
+         x="673.22833"
+         y="467.71518">Current Plan</tspan></text>
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:5, 5;stroke-dashoffset:0"
+       id="rect2987-4-4"
+       width="673.22833"
+       height="265.74805"
+       x="655.51184"
+       y="485.4317" />
+    <text
+       xml:space="preserve"
+       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"
+       x="673.22833"
+       y="520.86481"
+       id="text4308"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4310"
+         x="673.22833"
+         y="520.86481"
+         style="font-size:32px">...</tspan><tspan
+         sodipodi:role="line"
+         x="673.22833"
+         y="565.86481"
+         id="tspan4314"
+         style="font-size:32px">[ protagonist(prince) ] :-</tspan><tspan
+         sodipodi:role="line"
+         x="673.22833"
+         y="610.86481"
+         id="tspan4312"
+         style="font-size:32px">    actor(princess), subplot_victim(princess).</tspan><tspan
+         sodipodi:role="line"
+         x="673.22833"
+         y="655.86481"
+         id="tspan4320"
+         style="font-size:32px">...</tspan><tspan
+         sodipodi:role="line"
+         x="673.22833"
+         y="700.86481"
+         id="tspan4326"
+         style="font-size:32px">0 [ add_protagonist(P) ] 1 :- protagonist(P).</tspan><tspan
+         sodipodi:role="line"
+         x="673.22833"
+         y="745.86481"
+         id="tspan4318"
+         style="font-size:32px">:- 2 [ add_protagonist(_) ].</tspan></text>
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:5, 5;stroke-dashoffset:0"
+       id="rect2987-4-4-7"
+       width="673.22833"
+       height="194.8819"
+       x="655.51184"
+       y="822.0459" />
+    <text
+       xml:space="preserve"
+       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"
+       x="673.22833"
+       y="804.32935"
+       id="text3757-3-7-7"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3759-3-9-1"
+         x="673.22833"
+         y="804.32935">Plan Results</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"
+       x="673.22833"
+       y="857.47894"
+       id="text4369"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4371"
+         x="673.22833"
+         y="857.47894"
+         style="font-size:32px">...</tspan><tspan
+         sodipodi:role="line"
+         x="673.22833"
+         y="897.47894"
+         id="tspan4373"
+         style="font-size:32px">add_protagonist(prince).</tspan><tspan
+         sodipodi:role="line"
+         x="673.22833"
+         y="937.47894"
+         style="font-size:32px"
+         id="tspan4843">spawn_goal(involve_protagonist).</tspan><tspan
+         sodipodi:role="line"
+         x="673.22833"
+         y="977.47894"
+         id="tspan4375"
+         style="font-size:32px">...</tspan></text>
+    <path
+       sodipodi:type="star"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2.50000000000000000;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="path4849"
+       sodipodi:sides="3"
+       sodipodi:cx="283.46457"
+       sodipodi:cy="256.8897"
+       sodipodi:r1="8.8582677"
+       sodipodi:r2="4.4291339"
+       sodipodi:arg1="0"
+       sodipodi:arg2="1.0471976"
+       inkscape:flatsided="true"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 292.32284,256.88971 -13.2874,7.67148 0,-15.34297 z"
+       transform="translate(0,-10.631225)"
+       inkscape:transform-center-x="-2.2145669" />
+    <path
+       transform="translate(-243.60236,79.138229)"
+       sodipodi:type="star"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="path4849-8"
+       sodipodi:sides="3"
+       sodipodi:cx="283.46457"
+       sodipodi:cy="256.88971"
+       sodipodi:r1="8.8582678"
+       sodipodi:r2="4.4291339"
+       sodipodi:arg1="0"
+       sodipodi:arg2="1.0471976"
+       inkscape:flatsided="true"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 292.32284,256.88971 -13.2874,7.67148 0,-15.34297 z"
+       inkscape:transform-center-x="-2.2145669" />
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#2244ff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"
+       x="70.866142"
+       y="343.69943"
+       id="text3783-3-7-5-2-7-9"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3785-3-7-0-8-1-8"
+         x="70.866142"
+         y="343.69943"
+         style="fill:#000000;fill-opacity:1">Current</tspan></text>
+  </g>
+</svg>

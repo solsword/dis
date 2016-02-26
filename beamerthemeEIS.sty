@@ -1,0 +1,189 @@
+% Beamer theme for EIS slides.
+
+\mode<presentation>
+
+% Turn off navigation symbols:
+\setbeamertemplate{navigation symbols}{}
+
+%%%%%%%%%%%%%%%
+% Outer Theme %
+%%%%%%%%%%%%%%%
+
+% Header (uses frame title instead...)
+\defbeamertemplate*{headline}{EIS theme}{\vspace{0em}}
+
+% Frame title
+\defbeamertemplate*{frametitle}{EIS theme}
+{%
+  \leavevmode%
+  \vskip-0.3in%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=3ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm]{EIS top}%
+    \usebeamerfont{EIS title} \insertframetitle \hfill
+  \end{beamercolorbox}%
+  \vskip-0.1in%
+  \hbox{\begin{beamercolorbox}[wd=\paperwidth,ht=0.7ex]{EIS stripe}%
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+% Footer
+\defbeamertemplate*{footline}{EIS theme}
+{%
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=\paperwidth,ht=3.5ex,dp=2.125ex,leftskip=.3cm,rightskip=.3cm]{EIS bottom}%
+    \usebeamerfont{EIS bottom}expressive{\color{skyblue}intelligence}studio \hfill {\color{skyblue}UC Santa Cruz}
+  \end{beamercolorbox}}%
+  \vskip-1pt%
+  \hbox{\begin{beamercolorbox}[wd=\paperwidth,ht=0.7ex]{EIS stripe}%
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+%%%%%%%%%%%%%%%
+% Inner Theme %
+%%%%%%%%%%%%%%%
+
+%\defbeamertemplate*{title page}{default}[1][]
+%{
+%  \begin{beamercolorbox}[wd=\paperwidth,ht=3\paperheight/4,dp=1.125ex,leftskip=.3cm,rightskip=.3cm]{EIS top}%
+%    \usebeamerfont{EIS title} \inserttitle \hfill
+%  \end{beamercolorbox}%
+%}
+
+%\useinnertheme{default}
+%
+%% Title page: default
+%
+%\defbeamertemplate*{title page}{default}[1][]
+%{
+%  \vbox{}
+%  \vfill
+%  \begin{centering}
+%    \begin{beamercolorbox}[sep=8pt,center,#1]{title}
+%      \usebeamerfont{title}\inserttitle\par%
+%      \ifx\insertsubtitle\@empty%
+%      \else%
+%        \vskip0.25em%
+%        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+%      \fi%     
+%    \end{beamercolorbox}%
+%    \vskip1em\par
+%    \begin{beamercolorbox}[sep=8pt,center,#1]{author}
+%      \usebeamerfont{author}\insertauthor
+%    \end{beamercolorbox}
+%    \begin{beamercolorbox}[sep=8pt,center,#1]{institute}
+%      \usebeamerfont{institute}\insertinstitute
+%    \end{beamercolorbox}
+%    \begin{beamercolorbox}[sep=8pt,center,#1]{date}
+%      \usebeamerfont{date}\insertdate
+%    \end{beamercolorbox}\vskip0.5em
+%    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+%  \end{centering}
+%  \vfill
+%}
+%
+%
+%% Part page: default
+%
+%\defbeamertemplate*{part page}{default}[1][]
+%{
+%  \begin{centering}
+%    {\usebeamerfont{part name}\usebeamercolor[fg]{part name}\partname~\insertromanpartnumber}
+%    \vskip1em\par
+%    \begin{beamercolorbox}[sep=8pt,center,#1]{part title}
+%      \usebeamerfont{part title}\insertpart\par
+%    \end{beamercolorbox}
+%  \end{centering}
+%} 
+%
+%%
+%% Item
+%%
+%
+%\defbeamertemplateparent{items}{itemize items,enumerate items}
+%{}
+%
+%
+%% Itemize items
+%
+%\defbeamertemplateparent{itemize items}{itemize item,itemize subitem,itemize subsubitem}
+%{}
+%
+%
+%% Itemize items, default
+%
+%\defbeamertemplate*{itemize item}{default}{\scriptsize\raise1.25pt\hbox{\donotcoloroutermaths$\blacktriangleright$}}
+%\defbeamertemplate*{itemize subitem}{default}{\tiny\raise1.5pt\hbox{\donotcoloroutermaths$\blacktriangleright$}}
+%\defbeamertemplate*{itemize subsubitem}{default}{\tiny\raise1.5pt\hbox{\donotcoloroutermaths$\blacktriangleright$}}
+%
+%
+%% Enumerate items, default
+%
+%\defbeamertemplateparent{enumerate items}{enumerate item,enumerate subitem,enumerate subsubitem,enumerate mini}
+%{}
+%
+%\defbeamertemplate*{enumerate item}{default}{\insertenumlabel.}
+%\defbeamertemplate*{enumerate subitem}{default}{\insertenumlabel.\insertsubenumlabel}
+%\defbeamertemplate*{enumerate subsubitem}{default}{\insertenumlabel.\insertsubenumlabel.\insertsubsubenumlabel}
+%\defbeamertemplate*{enumerate mini template}{default}{\insertenumlabel}
+%
+%% Itemize/Enumerate body
+%
+%\defbeamertemplate*{itemize/enumerate body begin}{default}{}
+%\defbeamertemplate*{itemize/enumerate body end}{default}{}
+%
+%\defbeamertemplate*{itemize/enumerate subbody begin}{default}{}
+%\defbeamertemplate*{itemize/enumerate subbody end}{default}{}
+%
+%\defbeamertemplate*{itemize/enumerate subsubbody begin}{default}{}
+%\defbeamertemplate*{itemize/enumerate subsubbody end}{default}{}
+
+%%%%%%%%%%%%%%%%%%%%
+% Color/Font Theme %
+%%%%%%%%%%%%%%%%%%%%
+
+\usefonttheme{default}
+
+\definecolor{skyblue}{RGB}{179,231,255}
+\definecolor{lightsky}{RGB}{213,242,255}
+\definecolor{limegreen}{RGB}{153,255,51}
+\definecolor{lightlime}{RGB}{213,255,171}
+\definecolor{lightgrey}{RGB}{178,178,178}
+\definecolor{midgrey}{RGB}{61,68,73}
+\definecolor{faded}{RGB}{116,123,125}
+\definecolor{darkgrey}{RGB}{22,26,28}
+
+\setbeamercolor*{normal text}{fg=midgrey,bg=white} 
+\setbeamercolor*{alerted text}{fg=limegreen} 
+\setbeamercolor*{example text}{fg=midgrey} 
+
+\setbeamercolor*{palette primary}{fg=skyblue,bg=darkgrey} 
+\setbeamercolor*{palette secondary}{fg=limegreen,bg=darkgrey} 
+\setbeamercolor*{palette tertiary}{fg=skyblue,bg=darkgrey} 
+\setbeamercolor*{palette quaternary}{fg=limegreen,bg=darkgrey} 
+
+\setbeamercolor*{structure}{fg=limegreen}
+
+\setbeamercolor*{title}{fg=black,bg=white}
+\setbeamerfont{title}{series=\bfseries}
+
+\setbeamerfont{author}{size=\small}
+
+\setbeamercolor{frametitle}{fg=black}
+
+\setbeamerfont{EIS title}{size=\Large,series=\bf}
+\setbeamercolor{EIS top}{parent=palette primary}
+\setbeamerfont{EIS top}{size=\small}
+\setbeamercolor{EIS bottom}{parent=palette secondary}
+\setbeamerfont{EIS bottom}{size=\tiny}
+\setbeamercolor{EIS school}{parent=palette primary}
+\setbeamerfont{EIS authors}{size=\small}
+\setbeamercolor{EIS authors}{parent=palette secondary}
+\setbeamercolor{EIS stripe}{bg=midgrey}
+
+\setbeamercolor{itemize item}{fg=limegreen}
+\setbeamercolor{itemize subitem}{fg=skyblue}
+\setbeamercolor{itemize subsubitem}{fg=lightgrey}
+
+\mode
+<all>

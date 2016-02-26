@@ -6,6 +6,9 @@
 *.bbl
 *.blg
 *.lof
+*.nav
+*.out
+*.snm
 *.lot
 *.toc
 *.html

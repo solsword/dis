@@ -1,0 +1,9 @@
+The relationship between artificial intelligence and the arts has traditionally been one of inspiration. Particularly in areas such as computational creativity, many AI systems have been inspired by particular genres or even individual works. This dissertation explores an alternate relationship, in which AI can be both inspired by and an inspiration to an artistic project.
+
+
+Using answer set programming, Dunyazad is a program that generates narrative choices like those found in Choose-Your-Own-Adventure books. Dunyazad depends on a theory of "choice poetics" which describes how to analyze narrative choices in terms of the goals that players have when making decisions. However, this theory is also informed by results from experiments that used choices created by Dunyazad. In other words, the development of a theory of choice poetics is informed by the technical work of building an AI system which in turn relies on that theory.
+
+
+This presentation describes a theory of choice poetics focused on goal-based choice analysis, a system that operationalizes that theory to generate narrative choices, and the results of two online experiments that measured participants' reactions to the system's choices.
+
+The theory emphasizes the importance of accounting for player motivations, and describes a range of poetic effects that choice structures can help produce, including responsibility and regret. The system generates choices which produce specific impressions, such as obvious choices or dilemmas. The experimental results confirm these impressions, but also highlight conditions under which the system fails. These failures are informative for the development of both the system and the theory, and key implications are discussed.
