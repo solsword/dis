@@ -1,4 +1,4 @@
 #!/bin/sh
-./cpl pres
-biber pres
-./cpl pres
+lualatex pres
+#biber pres
+lualatex pres
