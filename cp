@@ -1,4 +1,5 @@
 #!/bin/sh
 lualatex pres
-#biber pres
+biber pres
+lualatex pres
 lualatex pres

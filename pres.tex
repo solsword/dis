@@ -10,8 +10,16 @@
 \usepackage{color}
 \usepackage{ragged2e}
 \usepackage{multicol}
+\usepackage[english]{babel}
+
+\usepackage[backend=biber,style=authoryear-comp,natbib=true,isbn=false,url=false,doi=false,eprint=false,dashed=false]{biblatex}
+\addbibresource{pmawhorter.bib}
+
+\DeclareCiteCommand{\pcite}{}{\printfield{title} (\printnames{labelname} \printfield{year})}{,}{}
+
 \usepackage{tikz}
 \usetikzlibrary{arrows,shapes,backgrounds}
+
 \usepackage{fontspec}
 \defaultfontfeatures{Ligatures=TeX}
 \newfontfeature{Microtype}{protrusion=default;expansion=default;}
@@ -24,12 +32,9 @@
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
-\newcommand{\work}[1]{\textit{#1}\xspace}
-
 \setbeamertemplate{navigation symbols}{}
 
-\usepackage[english]{babel}
-
+\newcommand{\work}[1]{\textit{#1}\xspace}
 \renewcommand*{\thefootnote}{\ensuremath{\ast}}
 
 \def\dunyazad/{\textit{Dunyazad}}
@@ -211,7 +216,8 @@ Artificial Intelligence as a Tool for Understanding Narrative Choices%
   \end{itemize}
   \vfill
   \centering
-  \tiny ``\textsc{Minstrel}: A Computer Model of Creativity and Storytelling'' (Turner 1993)
+  \tiny
+  \pcite{Turner1993}
 \end{frame}
 
 \begin{frame}{\skald/}
@@ -223,9 +229,8 @@ Artificial Intelligence as a Tool for Understanding Narrative Choices%
   \end{itemize}
   \vfill
   \centering
-  \tiny ``Experimental Results from a Rational Reconstruction of Minstrel'' (Tearse et al. 2011) \\
-  \tiny ``Lessons Learned from a Rational Reconstruction of Minstrel'' (Tearse et al. 2012) \\
-  \tiny ``Skald: Minstrel Reconstructed'' (Tearse et al. 2014) \\
+  \tiny
+  \pcite{Tearse2014}
 \end{frame}
 
 \begin{frame}{\skald/: Experiments}
@@ -265,15 +270,20 @@ Artificial Intelligence as a Tool for Understanding Narrative Choices%
       \bottomrule
   \end{tabular} \newline
 \end{tabular}
+  \vfill
+  \centering
+  \tiny
+  \pcite{Tearse2011} \\
+  \pcite{Tearse2012}
 \end{frame}
 
 \begin{frame}{\problemplanets/}
   \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
     \item A project to use \skald/ to build interactive vignettes.
-    \item Vignettes would educate about climate-change related issues.
+    \item Vignettes would educate about climate change issues.
     \item The case library required delicate balancing.
-    \item Efforts to ensure coherence resulted in complex ALPs.
-    \item The placement of choices to add interactivity was static.
+    \item Coherence depended on complex ALPs.
+    \item The placement of choices was static.
   \end{itemize}
 \end{frame}
 
@@ -327,6 +337,7 @@ Artificial Intelligence as a Tool for Understanding Narrative Choices%
 \end{frame}
 
 \begin{frame}{Choice Poetics}
+  \vfill
   \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
       \item How do certain \textbf{choice structures} promote particular \textbf{poetic effects}?
     \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
@@ -336,6 +347,10 @@ Artificial Intelligence as a Tool for Understanding Narrative Choices%
       \item How do \textbf{player perspectives} affect the perception of choices?
     \end{itemize}
   \end{itemize}
+  \vfill
+  \centering
+  \tiny
+  \pcite{Mawhorter2014}
 \end{frame}
 
 \begin{frame}{Choice Poetics}
@@ -394,9 +409,24 @@ Artificial Intelligence as a Tool for Understanding Narrative Choices%
     \item Criticism and Analysis
     \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
       \vspace{0.5\baselineskip}
-      \item TODO
-      \item TODO
-      \item TODO
+      \item Formalist literary theory \\ \vspace{0.3\baselineskip}
+        \tiny
+        \pcite{Propp1971} \\
+        \pcite{Barthes1975} \\
+        \pcite{Greimas1988}
+
+      \item \small Theories of Interactive Media \\ \vspace{0.3\baselineskip}
+        \tiny
+        \pcite{Murray1997} \\
+        \pcite{Tosca1999} \\
+        \pcite{WardripFruin2009} \\
+        \pcite{Treanor2013} \\
+        \pcite{Mitchell2012}
+
+      \item \small Craft Advice \\ \vspace{0.3\baselineskip}
+        \tiny
+        \pcite{Laws2001} \\
+        \pcite{ChoiceOfGamesChoiceRules}
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -406,22 +436,171 @@ Artificial Intelligence as a Tool for Understanding Narrative Choices%
     \item Psychology and Cognitive Science
     \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
       \vspace{0.5\baselineskip}
-      \item TODO
-      \item TODO
-      \item TODO
+      \item Specific effects (e.g., suspense; identification)\\ \vspace{0.3\baselineskip}
+        \tiny
+        \pcite{Gerrig1994} \\
+        \pcite{Oatley1995}
+
+      \item \small Science-informed criticism  \\ \vspace{0.3\baselineskip}
+        \tiny
+        \pcite{Palmer2004} \\
+        \pcite{Zunshine2006}
+
+      \item \small The psychology of decision-making \\ \vspace{0.3\baselineskip}
+        \tiny
+        \pcite{Tversky1993} \\
+        \pcite{Mellers1999} \\
+        \pcite{Schwartz2002}
     \end{itemize}
   \end{itemize}
 \end{frame}
+
+%\begin{frame}{Decision Affect Theory}
+%\end{frame}
 
 \begin{frame}{Generative Systems}
   \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
     \item Generative Systems
     \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
       \vspace{0.5\baselineskip}
-      \item TODO
-      \item TODO
-      \item TODO
+      \item Effect-focused systems \\ \vspace{0.3\baselineskip}
+        \tiny
+        \pcite{Cheong2006} \\
+        \pcite{Bae2008} \\
+        \pcite{Ware2014}
+
+      \item \small Interactive narrative systems \\ \vspace{0.3\baselineskip}
+        \tiny
+        \pcite{Szilas2003} \\
+        \pcite{Barber2007a} \\
+        \pcite{Yu2013}
+
+      \item \small Player modelling \\ \vspace{0.3\baselineskip}
+        \tiny
+        \pcite{Mott2006} \\
+        \pcite{Thue2008}
     \end{itemize}
+  \end{itemize}
+\end{frame}
+
+%\begin{frame}{Dilemma-Based Interactive Fiction}
+%\end{frame}
+
+%\begin{frame}{Collaborative Filtering}
+%\end{frame}
+
+\begin{frame}{Outline}
+  \begin{itemize}
+    \item Motivation
+    \item Inspiration: \skald/ and \problemplanets/
+    \item Methodology
+    \item Related Work
+    \item \textbf{Theory: Choice Poetics}
+    \item \textbf{Application: \dunyazad/}
+    \item \textbf{Results: Options}
+    \item \textbf{Results: Outcomes}
+    \item \textbf{Conclusions}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Choice Poetics}
+  \vfill
+  \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+      \item How do certain \textbf{choice structures} promote particular \textbf{poetic effects}?
+    \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+      \vspace{0.5\baselineskip}
+      \item What is a \textbf{choice structure}?
+      \item What \textbf{poetic effects} are possible?
+      \item How do \textbf{player perspectives} affect the perception of choices?
+    \end{itemize}
+  \end{itemize}
+  \vfill
+  \centering
+  \tiny
+  \pcite{Mawhorter2014}
+\end{frame}
+
+\begin{frame}{Choice Poetics}
+  \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+      \item \textbf{What is a choice?}
+      \item \textbf{Modes of engagement}
+      \item \textbf{Poetic effects}
+      \item \textbf{Goal-based choice analysis}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Choice Structure}
+  \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+    \item Explicit, discrete choices:
+    \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+      \vspace{0.5\baselineskip}
+      \item Framing
+      \item Options
+      \item Outcomes
+      \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+        \vspace{0.5\baselineskip}
+        \item Outcome components
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Choice Structure}
+  \vspace{1ex}
+  \begin{tabular}{p{0.15\textwidth} l}
+    \vspace*{-0.5ex}
+    \vtop{
+      \null
+      \hbox{\hspace{2em} framing $\left\{\rule{0pt}{14.5ex}\right.$}
+      \hbox{\rule{0pt}{0.5ex}}
+      \hbox{\hspace{2.2em} options $\left\{\rule{0pt}{3.5ex}\right.$\hspace*{-2ex}}
+    }
+    &
+  \vtop{\null\hbox{%
+  \includegraphics[width=0.5\textwidth]{res/oregon-trail-kansas-river-choice.png}
+  }}
+  \end{tabular}
+\end{frame}
+
+\begin{frame}{Choice Structure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{res/oregon-trail-kansas-river-outcome.png} \\ \vspace{1ex}
+  One possible outcome (with five apparent components).
+\end{frame}
+
+\begin{frame}{Choice Poetics}
+  \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+      \item What is a choice?
+      \item \textbf{Modes of engagement}
+      \item \textbf{Poetic effects}
+      \item \textbf{Goal-based choice analysis}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Modes of Engagement}
+\centering
+\renewcommand*{\arraystretch}{1.5}
+\scriptsize
+\begin{tabular}{p{6em}p{12em}p{13em}}
+\toprule
+\textbf{Mode} & \textbf{Decision Process} & \textbf{Example} \\
+\midrule
+\textbf{Avatar Play} & Decide as if you were in the character's situation. & When picking a pet, pick the cat because you like cats. \\
+\textbf{Role Play} & Decide in order to act out a persona. & Choose the wizard character class because you want to play a shy, bookish person. \\
+\textbf{Power Play} & Choose options that advance game metrics like score, beating other players, or quick completion. & Sacrifice an ally to obtain a powerful item because it helps you beat the game more quickly. \\
+\textbf{Exploratory Play} & Choose options to see what will happen. & Turn away from the path of your quest to explore the world. \\
+\textbf{Social Play} & In a multiplayer situation, choose options because of social considerations. & Turn down a high-level quest in order to accompany your friend on a lower-level quest. \\
+\bottomrule
+\end{tabular} \\ \vspace{1ex}
+\ldots and more, for example \textbf{analytical play} and \textbf{critical play}.
+\end{frame}
+
+\begin{frame}{Choice Poetics}
+  \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+      \item What is a choice?
+      \item Modes of engagement
+      \item \textbf{Poetic effects}
+      \item \textbf{Goal-based choice analysis}
   \end{itemize}
 \end{frame}
 
@@ -431,7 +610,7 @@ Artificial Intelligence as a Tool for Understanding Narrative Choices%
     \item Inspiration: \skald/ and \problemplanets/
     \item Methodology
     \item Related Work
-    \item \textbf{Theory: Choice Poetics}
+    \item Theory: Choice Poetics
     \item \textbf{Application: \dunyazad/}
     \item \textbf{Results: Options}
     \item \textbf{Results: Outcomes}
