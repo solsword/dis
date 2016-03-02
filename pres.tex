@@ -10,6 +10,7 @@
 \usepackage{color}
 \usepackage{ragged2e}
 \usepackage{multicol}
+\usepackage{multirow}
 \usepackage[english]{babel}
 
 \usepackage[backend=biber,style=authoryear-comp,natbib=true,isbn=false,url=false,doi=false,eprint=false,dashed=false]{biblatex}
@@ -36,6 +37,13 @@
 
 \newcommand{\work}[1]{\textit{#1}\xspace}
 \renewcommand*{\thefootnote}{\ensuremath{\ast}}
+\newcommand{\cg}[1]{{\leavevmode\color{gray} #1}}
+\newcommand{\pr}[1]{\texttt{#1}}
+\newcommand{\prq}[2]{``\texttt{#1}{#2}''}
+
+\newcommand{\ind}{\hspace*{0.8em}}
+\newcommand{\svind}{\vspace*{0.3em}}
+\newcommand{\vind}{\vspace*{0.5em}}
 
 \def\dunyazad/{\textit{Dunyazad}}
 \def\minstrel/{\textit{Minstrel}}
@@ -503,6 +511,30 @@ Artificial Intelligence as a Tool for Understanding Narrative Choices%
   \end{itemize}
 \end{frame}
 
+\begin{frame}{Poetic Effects}
+  \vfill
+  \centering
+  \begin{quote}
+  \itshape
+  The trees are in their autumn beauty, \\
+  The woodland paths are dry, \\
+  Under the October twilight the water \\
+  Mirrors a still sky;
+\end{quote}
+\raggedleft
+  -from \work{The Wild Swans At Coole} by William Butler Yeats \\
+  \vfill
+  \raggedright
+  Broadly, \textbf{poetics} is the study of how literary techniques provoke audience reactions (the complement of hermeneutics).
+\end{frame}
+
+\begin{frame}{Poetic Effects}
+  \centering
+  \includegraphics[height=0.8\textheight]{res/four-choices.png} \\
+  \vspace{0.5ex}
+  \textbf{Choice poetics} applies this to choices in narrative contexts.
+\end{frame}
+
 \begin{frame}{Choice Poetics}
   \vfill
   \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
@@ -578,6 +610,32 @@ Artificial Intelligence as a Tool for Understanding Narrative Choices%
 \end{frame}
 
 \begin{frame}{Modes of Engagement}
+  \hbox{
+    \vtop{
+      \null%
+      \hbox{\includegraphics[width=0.28\textwidth]{res/r2d2minmax.jpg}}
+    }
+    \vtop{
+      \null%
+      \parbox{0.6\textwidth}{
+      \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+          \item \textbf{Reasons to play} are distinct from \textbf{reasons to decide}.
+          \item Player goals determine how players evaluate options.
+          \item \textbf{Modes of engagement} are frameworks for player goals.
+      \end{itemize}
+      }
+    }
+  }
+\vfill
+\tiny
+\centering
+\pcite{Yee2006} \\
+\pcite{Kallio2011} \\
+\pcite{Hamari2014}
+\end{frame}
+
+\begin{frame}{Modes of Engagement}
+\vfill
 \centering
 \renewcommand*{\arraystretch}{1.5}
 \scriptsize
@@ -604,6 +662,378 @@ Artificial Intelligence as a Tool for Understanding Narrative Choices%
   \end{itemize}
 \end{frame}
 
+\begin{frame}{Poetic Effects}
+  \centering
+  \includegraphics[height=0.8\textheight]{res/four-choices.png} \\
+  \vspace{0.5ex}
+  What audience reactions do these choices provoke?
+\end{frame}
+
+\begin{frame}{Poetic Effects}
+  \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+      \item \textbf{Identification} \\ \vspace{0.3\baselineskip}
+      \small Viewing a character as a role model and/or as yourself.\\ \vspace{0.3\baselineskip}
+      \tiny \pcite{Klimmt2009}
+
+    \item \normalsize \textbf{Agency} \\ \vspace{0.3\baselineskip}
+      \small A feeling of being in control and taking directed action. \\ \vspace{0.3\baselineskip}
+      \tiny \pcite{WardripFruin2009} \\
+      \tiny \pcite{Mason2013}
+
+    \item \normalsize \textbf{Regret} \\ \vspace{0.3\baselineskip}
+      \small Regret for an in-game action (as opposed to sympathy with a character who feels regret or being provoked to reminisce about a personal regret). \\ \vspace{0.3\baselineskip}
+      \tiny \pcite{Frome2006} \\
+      \tiny \pcite{Zagal2009}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Poetic Effects}
+  \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+      \item Other effects include \textbf{immersion}, \textbf{transportation}, \textbf{agency}, \textbf{influence}, \textbf{autonomy}, \textbf{responsibility} and more\ldots
+      \item Choices don't determine these alone, but they can play an important role.
+      \item These \emph{high-level} effects depend on \emph{low-level} effects such as being a dilemma or being obvious.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Choice Poetics}
+  \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+      \item What is a choice?
+      \item Modes of engagement
+      \item Poetic effects
+      \item \textbf{Goal-based choice analysis}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Goal-Based Choice Analysis}
+  \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+    \item A framework for understanding choices in terms of \textbf{player goals}.
+    \item It has \textbf{generative viability}: it has been shown to be sufficient for generating some kinds of choices.
+    \item \dunyazad/ uses an automatic version to create choices.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Goal-Based Choice Analysis}
+  \centering
+  \begin{tabular}{p{0.45\textwidth} p{0.55\textwidth}}
+  \vtop{
+    \null
+    \includegraphics[width=0.45\textwidth]{fig/analysis-method-crop.pdf}
+  }
+  &
+  \vspace{2em}
+  \begin{enumerate}\addtolength{\itemsep}{0.5\baselineskip}
+    \item Goal Analysis
+    \item Likelihood Analysis
+    \item Option Analysis
+    \item Relative Option Analysis
+    \item Outcome Component Analysis
+    \item Full Outcome Analysis
+    \item Retrospective Analysis
+  \end{enumerate}
+  \end{tabular}
+\end{frame}
+
+\begin{frame}{1. Goal Analysis}
+  \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+    \item Come up with an estimate of the player's goals. 
+    \item Also estimate goal priorities.
+    \item Without online player modelling, an authorial estimate of player goals must sufice.
+    \item Multiple independent analyses can capture player groups with different modes of engagement.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{An Example}
+  \centering
+  \includegraphics[width=\textwidth]{res/papersplease-large.png} \\
+\end{frame}
+
+\begin{frame}{Example: Goal Analysis}
+  \centering
+  \includegraphics[height=0.3\textheight]{res/papersplease-large.png} \\
+  \raggedright
+  \begin{itemize}
+    \item {[highest] Feed your family.}
+    \item {[high] Avoid the penalty for making mistakes.}
+    \item {[high] Treat travelers ethically.}
+    \item {[medium] Prevent dishonest travelers from gaining entry.}
+    \item {[low] Let approved travelers through.}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{2. Likelihood Analysis}
+  \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+    \item Estimate the likelihood of each outcome component of every option.
+    \item Only necessary when outcomes are nondeterministic.
+    \item Estimate likelihoods \emph{from the player's perspective}.
+    \item Again, multiple independent analyses can capture different player perspectives.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Example: Likelihood Analysis}
+  \centering
+  \includegraphics[height=0.3\textheight]{res/papersplease-large.png} \\
+  \vspace*{1em}
+  \small
+  \begin{tabular}{l l}
+    \toprule
+    \multicolumn{1}{c}{\textbf{Approve}} & \multicolumn{1}{c}{\textbf{Deny}} \\
+    \midrule
+    {[likely] `Mistake' is discovered.} & [likely] No mistake is possible. \\
+    {[unknown] Traveler is saved.} & [unknown] Traveler will be killed. \\
+    {[unknown] Crminal gains entry.} & [unknown] Criminal is stymied. \\
+    {[unlikely] Earn a credit.} & [likely] Earn a credit. \\
+    \bottomrule
+  \end{tabular}
+\end{frame}
+
+\begin{frame}{3. Option Analysis}
+  \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+    \item Given outcome likelihoods and player goals, estimate the perceived effect of each option on each goal.
+    \item Per option/goal, look for positive or negative effects and whether they're likely or merely possible.
+  \end{itemize}
+  \vfill
+  \centering
+  \begin{tabular}{r c c}
+    \toprule
+           & Possible & Likely \\
+    \midrule
+    Positive    & \textbf{Enables}  & \textbf{Advances} \\
+    Negative & \textbf{Threatens} & \textbf{Hinders} \\
+    \bottomrule
+  \end{tabular}
+  \vfill
+  \raggedright
+  \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+    \item Multiple overlapping assignments are possible (e.g., a choice that \textbf{enables}, \textbf{threatens}, \emph{and} \textbf{hinders} a particular goal).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Example: Option Analysis}
+  \centering
+  \includegraphics[height=0.3\textheight]{res/papersplease-large.png} \\
+  \vspace*{0.2em}
+  \footnotesize
+  \begin{tabular}{c c c}
+    \toprule
+    \textbf{Goal} & \textbf{Approve} & \textbf{Deny} \\
+    \midrule
+    \multirow{3}{*}{<feed your family>} & \textbf{enables} & \textbf{enables} \\
+                                        & \textbf{threatens} & \\
+                                        & \textbf{hinders} & \textbf{advances} \\
+    \midrule
+
+    \multirow{3}{*}{<avoid penalty>} & \textbf{enables} & \textbf{enables} \\
+                                     & \textbf{threatens} & \\
+                                     & \textbf{hinders} & \textbf{advances} \\
+    \midrule
+
+    \multirow{2}{*}{<treat ethically>} & \textbf{enables} & \textbf{enables} \\
+                                       & & \textbf{threatens} \\
+    \midrule
+
+    <stop cheaters> & \textbf{threatens} & \textbf{enables} \\
+    \bottomrule
+  \end{tabular}
+\end{frame}
+
+\begin{frame}{4. Relative Option Analysis}
+  \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+    \item Given goal priorities and the results of option analysis, categorize the set of options.
+    \item Some structures such as a \textbf{dilemma} or an \textbf{obvious} choice may be immediately recognizeable.
+    \item Other structures can be compared to well-understood cases.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{4. Relative Option Analysis}
+\centering
+\renewcommand*{\arraystretch}{1.5}
+\footnotesize
+\hspace*{-1.5em}
+\begin{tabular}{p{4.5em}p{10em}p{18.5em}}
+\toprule
+\textbf{Label} & \textbf{Description} & \textbf{Criteria} \\
+\midrule
+\textbf{Dilemma} & A difficult decision between two negative outcomes. & Exactly two options, each of which \textbf{hinders} one of two different high-priority player goals. The priorities of the goals and the severity of the consequences should be balanced and neither option should \textbf{enable} or \textbf{advance} any goals (even low-priority ones). \\
+\textbf{Obvious} & A choice that has one option which is clearly better than the rest. & One option that \textbf{advances} a high-priority player goal without \textbf{hindering} any (although it may \textbf{threaten} some), while none of the rest of the options \textbf{enable} any high-priority goals, and each of them \textbf{threatens} some goal. \\
+\textbf{Relaxed} & A choice that has no impact on any high-priority goals and where no goals are threatened. & There are no option expectations involving high-priority goals (positive or negative), and there are no \textbf{threatens} expectations (and thus no \textbf{hinders} expectations). \\
+\bottomrule
+\end{tabular}
+\end{frame}
+
+\begin{frame}{4. Relative Option Analysis}
+  \vfill
+  \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+    \item Only \emph{expected} outcomes are considered, not \emph{actual} outcomes.
+    \item Resulting \textbf{prospective impressions} estimate players' perceptions of a choice before making a decision
+    \item Some effects such as elevated tension via a series of difficult choices depend mainly on \textbf{prospective impressisons}.
+  \end{itemize}
+  \vfill
+  \centering
+  \scriptsize (My first experiment tested the \textbf{relaxed}, \textbf{obvious}, and \textbf{dilemma} impressions.)
+\end{frame}
+
+\begin{frame}{Example: Relative Option Analysis}
+  \centering
+  \includegraphics[height=0.3\textheight]{res/papersplease-large.png} \\
+  \vspace*{0.2em}
+  \footnotesize
+  \begin{tabular}{c c c}
+    \toprule
+    \textbf{Goal} & \textbf{Approve} & \textbf{Deny} \\
+    \midrule
+    \multirow{3}{*}{<feed your family>} & \textbf{enables} & \textbf{enables} \\
+                                        & \textbf{threatens} & \\
+                                        & \textbf{hinders} & \textbf{advances} \\
+    \midrule
+
+    \multirow{3}{*}{<avoid penalty>} & \textbf{enables} & \textbf{enables} \\
+                                     & \textbf{threatens} & \\
+                                     & \textbf{hinders} & \textbf{advances} \\
+    \midrule
+
+    \multirow{2}{*}{<treat ethically>} & \textbf{enables} & \textbf{enables} \\
+                                       & & \textbf{threatens} \\
+    \midrule
+
+    <stop cheaters> & \textbf{threatens} & \textbf{enables} \\
+    \bottomrule
+  \end{tabular}
+\end{frame}
+
+\begin{frame}{Example: Relative Option Analysis}
+  \centering
+  \includegraphics[height=0.3\textheight]{res/papersplease-large.png} \\
+  \vspace*{1em}
+  \footnotesize
+  \begin{tabular}{c c c c c}
+    \toprule
+    &  \multicolumn{2}{c}{\textit{Doubtful}} & \multicolumn{2}{c}{\textit{Trusting}} \\
+    \midrule
+    \textbf{Goal} & \textbf{Approve} & \textbf{Deny} & \textbf{Approve} & \textbf{Deny} \\
+    \midrule
+    \multirow{2}{*}{<treat ethically>} & \textbf{enables}  & \textbf{enables}   & \textbf{enables}  & \textbf{threatens} \\
+                                       &                   & \textbf{threatens} & \textbf{advances} & \textbf{hinders}   \\
+    \midrule
+
+    <stop cheaters> & \textbf{threatens} & \textbf{enables} & \emph{none} & \emph{none} \\
+    \bottomrule
+  \end{tabular}
+\end{frame}
+
+\begin{frame}{Example: Relative Option Analysis}
+  \centering
+  \includegraphics[height=0.3\textheight]{res/papersplease-large.png} \\
+  \vspace*{0.5em}
+  \footnotesize
+  \begin{tabular}{c c c}
+    \toprule
+    \textbf{Goal} & \textbf{Approve} & \textbf{Deny} \\
+    \midrule
+    \multirow{3}{*}{<feed your family>} & \textbf{enables} & \textbf{enables} \\
+                                        & \textbf{threatens} & \\
+                                        & \textbf{hinders} & \textbf{advances} \\
+    \midrule
+
+    \multirow{3}{*}{<avoid penalty>} & \textbf{enables} & \textbf{enables} \\
+                                     & \textbf{threatens} & \\
+                                     & \textbf{hinders} & \textbf{advances} \\
+    \midrule
+
+    \multirow{2}{*}{<treat ethically>} & \textbf{enables} & \textbf{threatens} \\
+                                       & \textbf{advances} & \textbf{hinders} \\
+    \bottomrule
+  \end{tabular}
+\end{frame}
+
+\begin{frame}{Example: Relative Option Analysis}
+  \centering
+  \includegraphics[height=0.3\textheight]{res/papersplease-large.png} \\
+  \vspace*{0.5em}
+  \footnotesize
+  \begin{tabular}{c c c}
+    \toprule
+    \textbf{Goal} & \textbf{Approve} & \textbf{Deny} \\
+    \midrule
+    \multirow{3}{*}{<feed your family>} & \textbf{enables} & \textbf{enables} \\
+                                        & \textbf{threatens} & \\
+                                        & \underline{\textbf{hinders}} & \textbf{advances} \\
+    \midrule
+
+    \multirow{3}{*}{<avoid penalty>} & \textbf{enables} & \textbf{enables} \\
+                                     & \textbf{threatens} & \\
+                                     & \underline{\textbf{hinders}} & \textbf{advances} \\
+    \midrule
+
+    \multirow{2}{*}{<treat ethically>} & \textbf{enables} & \textbf{threatens} \\
+                                       & \textbf{advances} & \underline{\textbf{hinders}} \\
+    \bottomrule
+  \end{tabular}
+\end{frame}
+
+\begin{frame}{Example: Relative Option Analysis}
+  \centering
+  \textbf{Dilemma} \\
+  \vspace{0.5\baselineskip}
+  \raggedright
+Exactly two options, each of which \textbf{hinders} one of two different high-priority player goals.
+%
+The priorities of the goals and the severity of the consequences should be balanced and neither option should \textbf{enable} or \textbf{advance} any goals (even low-priority ones).
+\end{frame}
+
+\begin{frame}{Example: Prospective Impression}
+  \centering
+  \includegraphics[width=0.9\textwidth]{res/papersplease-large.png} \\
+  \vspace{1em}
+  \pause
+  \textbf{dilemma + doubt = complicity}
+\end{frame}
+
+\begin{frame}{5. Outcome Component Analysis}
+  \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+    \item The impact of each actual outcome component on each player goal is considered.
+    \item Major/minor positive/negative labels may be used, or some finer scale of good/bad impacts.
+    \item The \emph{suggested} outcome components from the likelihood analysis step may not be \emph{actual}.
+    \item There may also be \emph{non-suggested} \emph{actual} outcome components.
+    \item In some cases, probability can be folded into severity.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{6. Full Outcome Analysis}
+  \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+    \item Information from goal analysis, likelihood analysis, and outcome component analysis is combined.
+    \item Entire outcomes are categorized as \textbf{good}, \textbf{bad}, \textbf{irrelevant} or \textbf{tradeoffs} according to the effects their components have on various goals.
+    \item Outcomes are also categorized as \textbf{expected}, \textbf{unexpected}, or \textbf{unpredictable} based on comparing the results of likelihood analysis with the results of outcome component analysis.
+    \item These \emph{valence} and \emph{expectedness} values give a wholistic view of the outcome of each option.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{7. Retrospective Analysis}
+  \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+    \item Estimates \textbf{retrospective impressions} using information from relative option analysis and full outcome analysis.
+    \item Different options usually have different \textbf{retrospective impressions}.
+    \item As with the \textbf{prospective impression} of an entire choice, exemplars such as \textbf{miracle} or \textbf{unfair} anchor the analysis.
+  \end{itemize}
+  \vfill
+  \centering
+  \scriptsize (My second experiment tested the \textbf{expected success}, \textbf{expected failure}, \textbf{unfair}, and \textbf{miracle} impressions.)
+\end{frame}
+
+\begin{frame}{7. Retrospective Analysis}
+\centering
+\renewcommand*{\arraystretch}{1.5}
+\footnotesize
+\hspace*{-1.5em}
+\begin{tabular}{p{4.5em}p{12em}p{16.5em}}
+\toprule
+\textbf{Label} & \textbf{Description} & \textbf{Criteria} \\
+\midrule
+\textbf{Expected Success} & A predictable outcome that advances player goals. & The option selected \textbf{advances} a player goal without \textbf{hindering} any, and its outcome is both \textbf{predictable} and \textbf{good}. \\
+\textbf{Unfair} & An option that seemed good but had unexpected negative consequences. & The selected option must be expected to \textbf{advance} at least one high-priority player goal, while not \textbf{hindering} any. It must also have an \textbf{unexpected} and \textbf{bad} outcome. \\
+\textbf{Miracle} & An option that seemed like a lost cause but that unexpectedly turned out well. & The selected option must be expected to \textbf{fail} at least one high-priority goal, while not \textbf{advancing} any. It must have an \textbf{unexpected} and \textbf{good} outcome. \\
+\bottomrule
+\end{tabular}
+\end{frame}
+
 \begin{frame}{Outline}
   \begin{itemize}
     \item Motivation
@@ -618,6 +1048,150 @@ Artificial Intelligence as a Tool for Understanding Narrative Choices%
   \end{itemize}
 \end{frame}
 
+\begin{frame}{\dunyazad/}
+  \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+    \item \dunyazad/ is an operationalization of goal-based choice analysis.
+    \item Using answer set programming, it solves for choice structures with specified prospective and retrospective impressions.
+    \item Imperative code can chain these choices together into an interactive story.
+    \item Choice structures are converted into English text and code (HTML or similar).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Constraints}
+  \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+    \item \textbf{Representational constraints} define the basic elements of choices.
+    \item \textbf{Constitutent constraints} define how those elements come together to form choices.
+    \item \textbf{Aesthetic constraints} limit the kinds of configurations allowed to those that make sense.
+    \item \textbf{Poetic constraints} distinguish between allowed configurations and permit users to request specific impressions.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{State Representation}
+  \centering
+  \includegraphics[height=0.8\textheight]{fig/cropped-dunyazad-states.pdf}
+\end{frame}
+
+\begin{frame}{State Representation}
+  \centering
+\fbox{%
+\parbox{\textwidth}{
+  \small
+Scene:\svind\\
+\ind ``A merchant carrying some perfume is being threatened by bandits.''\vind\\
+Representation:\svind \\
+\ind \parbox{0.9\textwidth}{ \tt
+\scriptsize
+inst(actor,businessperson\_4). \\
+inst(actor,tough\_3). \\
+inst(item,treasure\_5). \\
+property(type,inst(actor,businessperson\_4),merchant). \\
+property(type,inst(actor,tough\_3),bandits). \\
+property(type,inst(item,treasure\_5),perfume). \\
+relation( \\
+\ind has\_item, \\
+\ind inst(actor,businessperson\_4), \\
+\ind inst(item,treasure\_5) \\
+). \\
+relation( \\
+\ind threatening, \\
+\ind inst(actor,tough\_3), \\
+\ind inst(actor,businessperson\_4) \\
+). \\
+surface\_property(name,inst(item,treasure\_5),"perfume").
+}
+}
+}
+\end{frame}
+
+\begin{frame}{Action Representation}
+  \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+    \item Each state has one or more options, which lead to other states.
+    \item Each option corresponds to an action, with variable pre- and post-conditions.
+    \item Effects of an action are split across outcome components, for example \prq{victory}{,} \prq{defeat}{,} and \prq{draw}{} for the \prq{attack}{} action.
+    \item Outcome components may be exclusive, and each may have its own preconditions.
+    \item At each option, the active outcome components are fixed, and the corresponding state changes are recorded as consequences.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Action Inventory}
+\vfill
+\centering
+\renewcommand*{\arraystretch}{1.5}
+\footnotesize
+\hspace*{-1.5em}
+\begin{tabular}{c c c c}
+  \pr{accuse}       & \pr{explain\_innocence} & \pr{play\_song}         & \pr{talk\_down} \\
+  \cg{\pr{arrive}*}       & \pr{flee}               & \pr{polymorph}          & \pr{tell\_story} \\
+  \pr{attack}       & \pr{gossip}             & \cg{\pr{pursue}*}             & \pr{trade} \\
+  \pr{buy\_healing} & \pr{leave}              & \pr{reach\_destination} & \pr{travel\_onwards} \\
+  \pr{deny\_blame}  & \pr{pacify}             & \pr{shift\_blame}       & \pr{treat\_injury} \\
+  \pr{dispel}       & \pr{pay\_off}           & \pr{steal}
+\end{tabular}
+\vfill
+\normalsize
+\dunyazad/'s 23 current actions.
+\end{frame}
+
+\begin{frame}{Setups}
+  \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+    \item \dunyazad/ uses \textbf{setups} to create interesting situations.
+    \item Each \textbf{setup} includes some variable parts.
+    \item Once \textbf{potentials} are resolved, the characters ``travel onwards'' and a new setup is invoked.
+    \item Combined with rules for character motivation, \textbf{potentials} drive the action forward.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Constituent Constraints}
+  \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+    \item Motivation, relevance, repetition, etc.
+    \item Likely outcomes based on character skills and tools.
+    \item Common-sense rules (e.g., being incapacitated).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Aesthetic Constraints}
+  \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+    \item Enforce narrative perspective (second person).
+    \item Mandate variety and track boredom.
+    \item Exclude undesirable configurations (e.g., trick options).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Poetic Constraints}
+  \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+    \item Each step of goal-based choice analysis is represented.
+    \item Goal analysis consists of hand-specified player goals:
+    \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+      \vspace{0.5\baselineskip}
+      \item {[high]}\prq{preserve\_health}{}
+      \item {[high]}\prq{avoid\_threats\_to}{}
+      \item {[high]}\prq{avoid\_accusations}{}
+      \item {[high]}\prq{preserve\_original\_form}{}
+      \item {[high]}\prq{reclaim\_property}{}
+      \item {[low]}\prq{as\_intended}{}
+      \item {[low]}\prq{have\_tool\_for}{}
+    \end{itemize}
+    \item Skill links are used to determine likelihoods.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Output Example}
+  \itshape
+You come to a tavern and decide to rest for a while.
+%
+A merchant is bored and a noble is bored and an innkeeper seems knowledgeable.
+%
+What do you do?
+\begin{enumerate}
+\item You play a song for the noble \\
+  (You have skill: musician. You have no tool for music).
+\item You gossip with the innkeeper \\
+  (You are missing skill: negotiation).
+\item You play a song for the merchant \\
+  (You have skill: musician. You have no tool for music).
+\end{enumerate}
+\end{frame}
+
 \begin{frame}{Outline}
   \begin{itemize}
     \item Motivation
@@ -630,6 +1204,48 @@ Artificial Intelligence as a Tool for Understanding Narrative Choices%
     \item \textbf{Results: Outcomes}
     \item \textbf{Conclusions}
   \end{itemize}
+\end{frame}
+
+\begin{frame}{Option Experiment}
+  \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+    \item An online experiment using choices created by \dunyazad/.
+    \item Participants read a choice and then answered questions.
+    \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+      \vspace{0.5\baselineskip}
+      \item 90 Amazon Mechanical Turk workers (+6 rejected).
+      \item \$0.50 per task (one per worker).
+      \item Median response time was 4:40.
+      \item Two questions were used to filter responses and incompletes were removed, leaving 79 valid responses.
+      \item The rest of the survey consisted of seven 5-point Likert items.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Experiment Design}
+  \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+    \item The question: \emph{``Is \dunyazad/ successfully creating the desired prospective impressions?''}
+    \item The \textbf{relaxed}, \textbf{obvious}, and \textbf{dilemma} impressions were used because they cover positive/negative, balanced/imbalanced, and high-/low-stakes options.
+    \item \dunyazad/ generated three choices per condition and ten participants saw each choice ($3 \times 3 \times 10 = 90$).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Survey Questions}
+  \itshape
+  \begin{enumerate}\addtolength{\itemsep}{0.5\baselineskip}
+    \item ``There are no bad options at this choice.''
+    \item ``There is a clear best option at this choice.''
+    \item ``The stakes for this choice are low.''
+    \item ``There are no good options at this choice.''
+    \item ``All of the options at this choice are about equally promising.''
+    \item ``There are options at this choice.'' (This is a trick question to test whether you’re paying attention. Please simply indicate that you are in complete disagreement.)
+    \item ``This is a difficult choice to make.''
+    \item ``This choice feels like it will have important consequences.''
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Results}
+  \centering
+  \includegraphics[height=0.85\textheight]{fig/combined-report-cropped.pdf}
 \end{frame}
 
 \begin{frame}{Outline}
