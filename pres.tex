@@ -209,110 +209,23 @@ Artificial Intelligence as a Tool for Understanding Narrative Choices%
   \end{itemize}
 \end{frame}
 
-\begin{frame}{\minstrel/}
-  \justifying
-  \setlength{\parindent}{1.5em}
-  \itshape
-  It was the spring of 1089, and a knight named Lancelot returned to Camelot from elsewhere. Lancelot was hot tempered. Once, Lancelot had lost a joust. Because he was hot tempered, Lancelot wanted to destroy his sword. Lancelot struck his sword. His sword was destroyed.
-
-  One day, a lady of the court named Andrea wanted to have some berries\ldots
-\end{frame}
-
-\begin{frame}{\minstrel/}
+\begin{frame}{Inspiration}
   \vfill
   \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
-    \item Case-based story generation.
-    \item Models human creativity through `Transform-Recall-Adapt Methods' (TRAMs).
-    \item Manages story construction via `Author-Level Plans' (ALPs).
-  \end{itemize}
-  \vfill
-  \centering
-  \tiny
-  \pcite{Turner1993}
-\end{frame}
-
-\begin{frame}{\skald/}
-  \vfill
-  \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
-    \item A rational reconstruction of \minstrel/.
-    \item Focused on the TRAMs for imaginative recall.
-    \item We experimented with different TRAM and ALP setups.
-  \end{itemize}
-  \vfill
-  \centering
-  \tiny
-  \pcite{Tearse2014}
-\end{frame}
-
-\begin{frame}{\skald/: Experiments}
-  \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
-    \item Results:
-    \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
-      \vspace{0.5\baselineskip}
-      \item TRAM configurations can trade coherence against variety.
-      \item Modified boredom and TRAM selection can reduce search effort but also creativity.
-    \end{itemize}
-  \end{itemize}
-  \vspace{1ex}
-  \begin{tabular}{p{0.45\textwidth} p{0.45\textwidth}}
-  \scriptsize
-  \centering
-  TRAM experiment: \newline
-  \begin{tabular}{r c c}
-      \toprule
-      measure & orig. & mod. \\
-      \midrule
-      coherence & 35\% & 92\%  \\
-      unique & 69 & 12 \\
-      variation & 6.9 & 3.1  \\
-      \bottomrule
-  \end{tabular}
-  &
-  \scriptsize
-  \centering
-  Full system experiment: \newline
-  \begin{tabular}{r c c}
-      \toprule
-      measure & orig. & mod. \\
-      \midrule
-      direct matches & 59\% & 72\% \\
-      TRAMs tried & 13.8 & 7.7  \\
-      TRAMs used & 2.4 & 1.4  \\
-      \bottomrule
-  \end{tabular} \newline
-\end{tabular}
-  \vfill
-  \centering
-  \tiny
-  \pcite{Tearse2011} \\
-  \pcite{Tearse2012}
-\end{frame}
-
-\begin{frame}{\problemplanets/}
-  \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
-    \item A project to use \skald/ to build interactive vignettes.
-    \item Vignettes would educate about climate change issues.
-    \item The case library required delicate balancing.
-    \item Coherence depended on complex ALPs.
-    \item The placement of choices was static.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{\problemplanets/}
-  \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+    \item Brandon Tearse and I build \skald/, a rational reconstruction of Scott Turner's 1993 \minstrel/.
+    \item \problemplanets/ attempted to use it for interactive vignettes.
     \item Lessons:
     \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
       \vspace{0.5\baselineskip}
       \item Focus on the consistency rules---raw material can be random.
       \item Come up with principles for placement and structure of choices.
     \end{itemize}
-    \item $\rightarrow$ \dunyazad/
-    \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
-      \vspace{0.5\baselineskip}
-      \item A narrative generator focused on discrete choices.
-      \item Uses answer-set programming to solve for story configurations.
-    \end{itemize}
   \end{itemize}
+  \vfill
+  \centering
+  \tiny
+  \pcite{Turner1993} \\
+  \pcite{Tearse2014}
 \end{frame}
 
 \begin{frame}{Outline}
@@ -1370,35 +1283,35 @@ What do you do?
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Results---Option Questions}
-  \centering
-  \includegraphics[width=0.8\textwidth]{{fig/cropped-outcomes-report-01-opt.obvious}.pdf} \\
-  \includegraphics[width=0.8\textwidth]{{fig/cropped-outcomes-report-02-opt.balanced}.pdf} \\
-  \includegraphics[width=0.8\textwidth]{{fig/cropped-outcomes-report-03-opt.nobad}.pdf} \\
-  \includegraphics[width=0.8\textwidth]{fig/outcomes-legend-custom.pdf}
-\end{frame}
-
-\begin{frame}{Results---Option Questions}
-  \centering
-  \includegraphics[width=0.8\textwidth]{{fig/cropped-outcomes-report-04-opt.nogood}.pdf} \\
-  \includegraphics[width=0.8\textwidth]{{fig/cropped-outcomes-report-05-opt.stakes}.pdf} \\
-  \includegraphics[width=0.8\textwidth]{fig/outcomes-legend-custom.pdf}
-\end{frame}
-
-
-\begin{frame}{Results---Fair/Unfair}
-  \centering
-  \includegraphics[width=\textwidth]{{fig/cropped-outcomes-report-10-out.fair}.pdf} \\
-  \includegraphics[width=\textwidth]{{fig/cropped-outcomes-report-11-out.unfair}.pdf} \\
-  \includegraphics[width=\textwidth]{fig/outcomes-legend-custom.pdf}
-\end{frame}
-
-\begin{frame}{Results---Sense/Broken}
-  \centering
-  \includegraphics[width=\textwidth]{{fig/cropped-outcomes-report-12-out.sense}.pdf} \\
-  \includegraphics[width=\textwidth]{{fig/cropped-outcomes-report-13-out.broken}.pdf} \\
-  \includegraphics[width=\textwidth]{fig/outcomes-legend-custom.pdf}
-\end{frame}
+%\begin{frame}{Results---Option Questions}
+%  \centering
+%  \includegraphics[width=0.8\textwidth]{{fig/cropped-outcomes-report-01-opt.obvious}.pdf} \\
+%  \includegraphics[width=0.8\textwidth]{{fig/cropped-outcomes-report-02-opt.balanced}.pdf} \\
+%  \includegraphics[width=0.8\textwidth]{{fig/cropped-outcomes-report-03-opt.nobad}.pdf} \\
+%  \includegraphics[width=0.8\textwidth]{fig/outcomes-legend-custom.pdf}
+%\end{frame}
+%
+%\begin{frame}{Results---Option Questions}
+%  \centering
+%  \includegraphics[width=0.8\textwidth]{{fig/cropped-outcomes-report-04-opt.nogood}.pdf} \\
+%  \includegraphics[width=0.8\textwidth]{{fig/cropped-outcomes-report-05-opt.stakes}.pdf} \\
+%  \includegraphics[width=0.8\textwidth]{fig/outcomes-legend-custom.pdf}
+%\end{frame}
+%
+%
+%\begin{frame}{Results---Fair/Unfair}
+%  \centering
+%  \includegraphics[width=\textwidth]{{fig/cropped-outcomes-report-10-out.fair}.pdf} \\
+%  \includegraphics[width=\textwidth]{{fig/cropped-outcomes-report-11-out.unfair}.pdf} \\
+%  \includegraphics[width=\textwidth]{fig/outcomes-legend-custom.pdf}
+%\end{frame}
+%
+%\begin{frame}{Results---Sense/Broken}
+%  \centering
+%  \includegraphics[width=\textwidth]{{fig/cropped-outcomes-report-12-out.sense}.pdf} \\
+%  \includegraphics[width=\textwidth]{{fig/cropped-outcomes-report-13-out.broken}.pdf} \\
+%  \includegraphics[width=\textwidth]{fig/outcomes-legend-custom.pdf}
+%\end{frame}
 
 \begin{frame}{Results---Good/Bad}
   \centering
@@ -1407,19 +1320,19 @@ What do you do?
   \includegraphics[width=\textwidth]{fig/outcomes-legend-custom.pdf}
 \end{frame}
 
-\begin{frame}{Results---Satisfied/Dissatisfied}
-  \centering
-  \includegraphics[width=\textwidth]{{fig/cropped-outcomes-report-14-out.happy}.pdf} \\
-  \includegraphics[width=\textwidth]{{fig/cropped-outcomes-report-15-out.regret}.pdf} \\
-  \includegraphics[width=\textwidth]{fig/outcomes-legend-custom.pdf}
-\end{frame}
-
-\begin{frame}{Results---Expected/Unexpected}
-  \centering
-  \includegraphics[width=\textwidth]{{fig/cropped-outcomes-report-08-out.expected}.pdf} \\
-  \includegraphics[width=\textwidth]{{fig/cropped-outcomes-report-09-out.unexpected}.pdf} \\
-  \includegraphics[width=\textwidth]{fig/outcomes-legend-custom.pdf}
-\end{frame}
+%\begin{frame}{Results---Satisfied/Dissatisfied}
+%  \centering
+%  \includegraphics[width=\textwidth]{{fig/cropped-outcomes-report-14-out.happy}.pdf} \\
+%  \includegraphics[width=\textwidth]{{fig/cropped-outcomes-report-15-out.regret}.pdf} \\
+%  \includegraphics[width=\textwidth]{fig/outcomes-legend-custom.pdf}
+%\end{frame}
+%
+%\begin{frame}{Results---Expected/Unexpected}
+%  \centering
+%  \includegraphics[width=\textwidth]{{fig/cropped-outcomes-report-08-out.expected}.pdf} \\
+%  \includegraphics[width=\textwidth]{{fig/cropped-outcomes-report-09-out.unexpected}.pdf} \\
+%  \includegraphics[width=\textwidth]{fig/outcomes-legend-custom.pdf}
+%\end{frame}
 
 \begin{frame}{Results: Summary}
   \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
@@ -1585,6 +1498,114 @@ What do you do?
     \item Results: Options
     \item Results: Outcomes
     \item Conclusions
+  \end{itemize}
+\end{frame}
+
+% MINSTREL Appendix:
+
+\begin{frame}{\minstrel/}
+  \justifying
+  \setlength{\parindent}{1.5em}
+  \itshape
+  It was the spring of 1089, and a knight named Lancelot returned to Camelot from elsewhere. Lancelot was hot tempered. Once, Lancelot had lost a joust. Because he was hot tempered, Lancelot wanted to destroy his sword. Lancelot struck his sword. His sword was destroyed.
+
+  One day, a lady of the court named Andrea wanted to have some berries\ldots
+\end{frame}
+
+\begin{frame}{\minstrel/}
+  \vfill
+  \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+    \item Case-based story generation.
+    \item Models human creativity through `Transform-Recall-Adapt Methods' (TRAMs).
+    \item Manages story construction via `Author-Level Plans' (ALPs).
+  \end{itemize}
+  \vfill
+  \centering
+  \tiny
+  \pcite{Turner1993}
+\end{frame}
+
+\begin{frame}{\skald/}
+  \vfill
+  \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+    \item A rational reconstruction of \minstrel/.
+    \item Focused on the TRAMs for imaginative recall.
+    \item We experimented with different TRAM and ALP setups.
+  \end{itemize}
+  \vfill
+  \centering
+  \tiny
+  \pcite{Tearse2014}
+\end{frame}
+
+\begin{frame}{\skald/: Experiments}
+  \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+    \item Results:
+    \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+      \vspace{0.5\baselineskip}
+      \item TRAM configurations can trade coherence against variety.
+      \item Modified boredom and TRAM selection can reduce search effort but also creativity.
+    \end{itemize}
+  \end{itemize}
+  \vspace{1ex}
+  \begin{tabular}{p{0.45\textwidth} p{0.45\textwidth}}
+  \scriptsize
+  \centering
+  TRAM experiment: \newline
+  \begin{tabular}{r c c}
+      \toprule
+      measure & orig. & mod. \\
+      \midrule
+      coherence & 35\% & 92\%  \\
+      unique & 69 & 12 \\
+      variation & 6.9 & 3.1  \\
+      \bottomrule
+  \end{tabular}
+  &
+  \scriptsize
+  \centering
+  Full system experiment: \newline
+  \begin{tabular}{r c c}
+      \toprule
+      measure & orig. & mod. \\
+      \midrule
+      direct matches & 59\% & 72\% \\
+      TRAMs tried & 13.8 & 7.7  \\
+      TRAMs used & 2.4 & 1.4  \\
+      \bottomrule
+  \end{tabular} \newline
+\end{tabular}
+  \vfill
+  \centering
+  \tiny
+  \pcite{Tearse2011} \\
+  \pcite{Tearse2012}
+\end{frame}
+
+\begin{frame}{\problemplanets/}
+  \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+    \item A project to use \skald/ to build interactive vignettes.
+    \item Vignettes would educate about climate change issues.
+    \item The case library required delicate balancing.
+    \item Coherence depended on complex ALPs.
+    \item The placement of choices was static.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\problemplanets/}
+  \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+    \item Lessons:
+    \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+      \vspace{0.5\baselineskip}
+      \item Focus on the consistency rules---raw material can be random.
+      \item Come up with principles for placement and structure of choices.
+    \end{itemize}
+    \item $\rightarrow$ \dunyazad/
+    \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+      \vspace{0.5\baselineskip}
+      \item A narrative generator focused on discrete choices.
+      \item Uses answer-set programming to solve for story configurations.
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
