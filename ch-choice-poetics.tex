@@ -134,7 +134,7 @@ Developing \dunyazad/ in that direction would allow it to be used as a tool to s
 
 When using choice poetics to analyze a narrative or even just a single choice, one must consider the range of expressiveness of narrative choices.
 %
-Aristotle devoted much of his analysis of emotion in \work{Poetics} to comedy and tragedy as these were enshrined in traditional forms in his day, but the full range of poetic effects is very broad, and includes both momentary impressions such as a single phrase that provokes disgust, and overall feelings, such as sympathy for a tragic figure.
+Aristotle devoted much of his analysis of emotion in \work{Poetics} to tragedy and the heroic epic as these were traditional forms in his day, but the full range of poetic effects is very broad, and includes both momentary impressions such as a single phrase that provokes disgust, and overall feelings, such as sympathy for a tragic figure.
 %
 To some degree, more complex effects depend on simpler ones, for example when an overall experience of sympathy depends on many individual positive evaluations of a character, along with negative reactions to bad things that happen to that character.
 %
@@ -152,7 +152,7 @@ Although no summary of possible poetic effects could hope to be complete, I have
 \midrule
 \textbf{Immersion} & The degree to which the player's attention is focused exclusively on the game. & Outcomes that are believable given options; option coverage of desired actions. \\
 \textbf{Identifica-tion} & How comfortable the player feels in the role they play as their avatar. & Options that support player self-expression. \\
-\textbf{Transpor-tation} & The degree to which a player thinks in terms of the game world rather than the real world. & Choices where the available options cover what the player thinks should be possible. \\
+\textbf{Transpor-tation} & The degree to which a player thinks in terms of the game world rather than the real world. & Choices which force the player to reason from a character's point of view. \\
 \textbf{Agency} & Alignment of player goals with game affordances. & Transparent choices where outcomes align with player goals.\\
 \textbf{Influence} & Degree to which the player feels they influence in-game events (even if they do not control them). & Choices where outcomes are divergent and impactful. \\
 \textbf{Autonomy} & The player's ability to choose and pursue a variety of goals at their own discretion. & Choices between goals rather than between methods of pursuing a fixed goal; non-exclusive outcomes. \\
@@ -253,6 +253,8 @@ Some amount of active influence is required to have autonomy, but whereas influe
 %
 Autonomy is also distinct from agency: when a game sets up nicely-balanced formal and material affordances, agency can be experienced even if autonomy is absent, as in a game like \work{Quake}.
 %
+The converse is also possible: an overabundance of autonomy can leave players uncertain about what to do, undermining feelings of agency.
+%
 A game that supports player autonomy provides a play-space within which players can choose their own goals.
 %
 To the extent that a narrative-focused game can provide this, it will appear more as a space for player-created stories than a fixed story that affords the player some choice.
@@ -346,7 +348,7 @@ This initial approach pointed to several important factors: player goals, player
 These are factors that have been used by existing systems, are the subject of craft advice, appear as variables in psychological studies of decision-making, and are components of theories of interactive narrative.
 
 
-After identifying these things as important, the next step was a technical one: using these things as underlying variables, an answer-set programming framework for representing choices was developed (see \cref{ch:dunyazad}).
+After identifying these factors as important, the next step was a technical one: using these factors as underlying variables, an answer-set programming framework for representing choices was developed (see \cref{ch:dunyazad}).
 %
 Technical development proceeded until the system could manipulate these variables and generate rudimentary choices.
 %
@@ -358,7 +360,7 @@ The end product of this methodology for theory development looks a bit different
 For one thing, it is more detailed: because the theory was operationalized early in its development, it naturally contains enough specifics to be evaluated mechanically without necessarily depending on human `common sense' to apply complex criteria.\footnote{%
 Of course, humans are still better at applying even the specific criteria of this analysis method, for example when comparing the impact of outcomes they can discern many differences that the generative system cannot.
 %
-As seen in the following chapters, there is no substitute for humans when it comes to understanding how humans feel; the technique developed here only allows \dunyazad/ to guess correctly in \emph{some} situations.
+As seen in the following chapters, there is no substitute for humans when it comes to understanding how humans feel; the technique developed here only allows \dunyazad/ to guess correctly in \emph{some} situations, although refinements suggested by experimental results may been able to improve things.
 }
 %
 Another result of the system's unique development path is modularity: each step of the analysis is designed to move from one set of evaluations to another without depending directly on the details of any other step.
@@ -377,7 +379,7 @@ This method is developed primarily for the analysis of explicit discrete choices
 %
 \Cref{fig:choice-anatomy} shows how a choice (in this case one generated by \dunyazad/) can be broken down into framing, options, and outcomes.
 %
-Note that it can be useful to further break down the outcomes into individual components: changes that result from an option which are individually significant.
+Note that it can be useful to further break down outcomes into individual \emph{outcome components}: individual changes that result from choosing an option which are significant on their own.
 %
 By doing so, the impact of each outcome component on individual player goals can be analyzed separately, which helps understand outcomes that involve complex trade-offs between multiple goals.
 %
@@ -385,17 +387,20 @@ Not shown in \cref{fig:choice-anatomy} are unrealized outcome components which n
 %
 For example, if the player were unlucky, the third option might not have resulted in the bandits calming down, and one could even imagine a situation where the bandits might turn on the player.
 %
-Understanding what the player thinks \emph{might} happen as a result of choosing a given option is just as important as recognizing what does happen as the story unfolds.
+Separate analysis of potential outcome components, such as ``the bandits calm down'' or ``the bandits become angry with the player'' can be used to examine in detail how each option differs from alternatives, even when some outcome components are exclusive of or linked to each other.
 %
-This idea of potential outcome components can also help analyze cases where a system is nondeterministic, and the outcomes of a choice vary between playthroughs.
+It's also the case that understanding what the player thinks \emph{might} happen as a result of choosing a given option is just as important as recognizing what does happen as the story unfolds.
 %
-Each part of a choice is subject scrutiny using the methodology presented here, and having precise language to talk about these choice components is necessary for detailed analysis.
+Finally, this idea of potential outcome components can also help analyze cases where a system is nondeterministic, and the outcomes of a choice vary between playthroughs.
+%
+Each part of a choice is subject to scrutiny using the methodology presented here, and having precise language to talk about these choice components is necessary for detailed analysis.
 
 \begin{figure}[!p]
 \centering
 \includegraphics[width=\textwidth]{fig/choice-anatomy-crop.pdf}
 \caption[Anatomy of a choice]{%
 \setstretch{1.1} % Else the \encircles would stretch only some of the lines
+\addtolength{\baselineskip}{0pt plus 1pt minus 1pt}
 Anatomy of a choice (using one generated by \dunyazad/).
 %
 \encircle{a}~Framing---sets up the narrative situation at the choice.
@@ -467,7 +472,7 @@ The second step of analysis is to figure out which potential outcome components 
 %
 For each option, this step starts by identifying a set of outcome components that seem plausible, and then figuring out which of those are likely and unlikely.
 %
-The goal of this step is to identify outcome components that the player can presume will result from each option, so if there are actually multiple conflicting likely scenarios, none of them counts as \lbl{likely}.
+The goal of this step is to identify outcome components that the player can \emph{presume} will result from each option, so if there are actually multiple conflicting likely scenarios (combinations of outcome components), only outcome components present in \emph{all} probably scenarios count as \lbl{likely}.
 %
 For example, if one option involves rolling a six-sided die, but the player has been given a prophecy that the result will be either a six or a one, then the outcome components associated with rolling a six and those associated with rolling a one are all \lbl{neutral} in this analysis, while outcome components associated with other rolls are \lbl{unlikely}. 
 %
@@ -476,7 +481,7 @@ Any outcome component that's associated with both rolling a six and rolling a on
 
 The outcome likelihoods produced by this step are used during option analysis in combination with the list of player goals from the goal analysis to figure out how each option portrays itself as affecting each goal.
 %
-\Cref{fig:choice-analysis-method} displays these assignments in the `Outcome Likelihoods' box: the choice has two options, `O1' and `O2,' and O1 has outcome components `A' and `B,' while O2 has outcome components `C' and `D.'
+\Cref{fig:choice-analysis-method} displays these assignments in the `Outcome Likelihoods' box: the choice has two options, `O1' and `O2,' and O1 suggests outcome components `A' and `B,' while O2 suggests outcome components `C' and `D.'
 %
 Components `A' and `B' are both \lbl{neutral} (indicated by a `?'), while component `C' is \lbl{unlikely} (a `U') and component `D' is \lbl{likely} (an `L').
 %
@@ -496,9 +501,9 @@ However, from a designer's perspective, each choice is usually explicitly crafte
 
 \label{sec:cp-option-analysis}
 
-Given the player goals and estimates of likely-seeming outcome components, option analysis proceeds by analyzing how each option seems likely to impact each goal.
+Given the player goals and estimates of likely-seeming outcome components, option analysis proceeds by analyzing how each option seems likely to impact each goal, aggregating information across outcome components at each option.
 %
-First, all possible outcome components are considered, to come up with an estimate of the goals that could \emph{possibly} be impacted by each option.
+First, all \emph{possible} outcome components are considered, to come up with an estimate of the goals that could possibly be impacted by each option.
 %
 These evaluations are \lbl{enables} and \lbl{threatens}---which goals each option might possibly advance, and which goals it might possibly impede.
 %
@@ -512,11 +517,15 @@ If any possible outcome component of an option could negatively impact a particu
 Likewise, if an outcome component can positively impact a goal, it is said that that option \lbl{enables} that goal.
 %
 It is possible and even common that an option both \lbl{enables} and \lbl{threatens} the same goal, and of course it's also possible that it neither \lbl{enables} nor \lbl{threatens} a particular goal (or even any goal at all).
-
-
-Besides possible impacts of each choice, option analysis is also concerned with likely impacts.
 %
-Using the same procedure, but this time only considering \lbl{likely} outcomes, \lbl{advances} and \lbl{hinders} option expectations are assigned to each option/goal pairing (these are the `*' and `!' symbols in \cref{fig:choice-analysis-method}).
+For example, an option to ``attack the dragon'' presumably both \lbl{enables} and \lbl{threatens} the goal of preserving one's life, as both being killed and surviving are \emph{possible} outcome components (even if one seems more likely than the other).
+
+
+Besides \emph{possible} impacts of each choice, option analysis is also concerned with \emph{likely} impacts.
+%
+Using the same procedure, but this time only considering \lbl{likely} outcome components, \lbl{advances} and \lbl{hinders} option expectations are assigned to each option/goal pairing (these are the `*' and `!' symbols in the `Option Expectations' box of \cref{fig:choice-analysis-method}).
+%
+In other words, when an option's \lbl{likely} outcome component positively impacts a goal, that option is said to \lbl{advance} that goal, and a similar negative impact results in a \lbl{hinders} label.
 %
 If it's not clear whether an option \lbl{advances} or \lbl{hinders} a goal (perhaps because of multiple conflicting outcome components), neither label should be assigned: the \lbl{enables} and \lbl{threatens} labels should already be present and serve to indicate the possible but uncertain outcome relative to that goal.
 %
@@ -525,6 +534,15 @@ On the other hand, if contrary indicators are present but one is clearly stronge
 Note that an \lbl{advances} label can only be present if there is an \lbl{enables} label, and similarly a \lbl{hinders} label requires the presence of a \lbl{threatens} label.
 %
 The combination of \lbl{enables}, \lbl{threatens}, and one of either \lbl{advances} or \lbl{hinders} is common, and indicates an option that will probably advance or hinder a goal but with some risk involved.
+%
+For example, the hypothetical ``attack the dragon'' option discussed above might not only \lbl{enable} and \lbl{threaten} the goal of self-preservation but also \lbl{hinder} it, if the player believes that being killed is a \lbl{likely} outcome component and that staying alive is not.
+
+
+The separate analysis of all vs\@. \lbl{likely} outcome components and the four labels that result allow a wide range of choice structures to be accurately described in simple terms, especially when comparing labels assigned between one option and multiple goals.
+%
+The analysis of all possible outcome components for the \lbl{enables}/\lbl{threatens} labels captures a broad view of option/goal relationships while the \lbl{advances} and \lbl{hinders} labels based on only \lbl{likely} outcome components capture information about the perceived ``most likely scenario.''
+%
+Patterns across multiple goals (for example a ``tradeoff'' when one goal has an \lbl{advances} label while another has a \lbl{hinders} label at a particular option) are easily recognizable, and this is the basis for the relative option analysis step.
 
 
 Remember that this step still makes no use of the actual outcomes of an option: it is just concerned with how the player views each option before making a decision.
@@ -553,7 +571,7 @@ For example, a dilemma has a specific feel, and several types of dilemma can be 
 %
 If there are exactly two options at a choice, each has overall negative impacts on high-priority player goals (and these impacts are roughly balanced), and each option negatively impacts a different set of goals, then the choice is a classic dilemma.
 %
-All of this information (besides the balance of impacts) is directly encoded in the option expectations in the form of \lbl{hinders} labels, so classic dilemmas are easy to identify using this analysis method.
+All of this information (besides the balance of impacts) is directly encoded in the goal analysis (priority information) and the option analysis (\lbl{hinders} labels) results, so classic dilemmas are easy to identify using this analysis method.
 %
 From a design standpoint, it's also easy to identify when an option isn't a classical dilemma and which aspects of that option would need to change to make it one.
 %
@@ -569,8 +587,8 @@ This is one of the benefits of a detailed analysis technique, in fact: developin
 \toprule
 \lbl{Label} & \textbf{Description} & \textbf{Criteria} \\
 \midrule
-\lbl{Dilemma} & A difficult decision between two negative outcomes. & Exactly two options, each of which \lbl{hinders} one of two different high-priority player goals. The priorities of the goals and the severity of the consequences should be balanced and neither option should \lbl{enable} or \lbl{advance} any goals (even low-priority ones). \\
-\lbl{Depres-sing} & A choice where no matter which option you choose, there's a goal which is hindered . & Every option \lbl{hinders} at least one high-priority goal. No option should \lbl{enable} or \lbl{advance} any high-priority goals. \\
+\lbl{Depres-sing} & A choice where no matter which option you choose, there's a goal that's hindered . & Every option \lbl{hinders} at least one high-priority goal. No option should \lbl{enable} or \lbl{advance} any high-priority goals. \\
+\lbl{Dilemma} & A difficult decision between two negative outcomes. (A particular kind of \lbl{depressing} choice.) & Exactly two options, each of which \lbl{hinders} one of two different high-priority player goals. The priorities of the goals and the severity of the consequences should be balanced and neither option should \lbl{enable} or \lbl{advance} any goals (even low-priority ones). \\
 \lbl{Empower-ing} & A choice where every option has a positive impact. & Every option \lbl{advances} a player goal, and may \lbl{threaten} one or more goals but does not \lbl{hinder} any. \\
 \lbl{Obvious} & A choice that has one option which is clearly better than the rest. & One option that \lbl{advances} a high-priority player goal without \lbl{hindering} any (although it may \lbl{threaten} some), while none of the rest of the options \lbl{enable} any high-priority goals, and each of them \lbl{threatens} some goal. \\
 \lbl{Relaxed} & A choice that has no impact on any high-priority goals and where no goals are threatened. & There are no option expectations involving high-priority goals (positive or negative), and there are no \lbl{threatens} expectations (and thus no \lbl{hinders} expectations). \\
@@ -591,7 +609,7 @@ Note that the criteria are designed to be sufficient for applying the label, but
 The labels in \cref{tab:prospective-impressions} and their criteria were developed as part of \dunyazad/'s choice analysis component, and some of them (the \lbl{depressing}, \lbl{empowering}, \lbl{obvious}, and \lbl{relaxed} labels) were refined based on experimental results (see \cref{ch:option-results,ch:outcome-results}).
 
 
-As a preview of those results, one caveat that applies to the \lbl{relaxed} label is that some people will always seek a best possible outcome when given a choice, and thus even at a choice among supposedly positive outcomes options which appear to lead to \emph{relatively} worse outcomes may be seen as bad options \citep{Schwartz2002}.
+As a preview of those results, one caveat that applies to the \lbl{relaxed} label is that some people will always seek a best possible outcome when given a choice, and thus even at a choice among supposedly positive outcomes, options which appear to lead to \emph{relatively} worse outcomes may be seen as bad options \citep{Schwartz2002}.
 %
 See \cref{sec:results-prospective-caveats} for further discussion of some extra considerations for applying these labels.
 
@@ -648,9 +666,9 @@ Of course, it's possible to establish many more clearly-defined labels than thos
 
 While the results of relative option analysis give a sense of how a choice is perceived just before the player makes a decision, more work is necessary to understand how a player feels after experiencing an outcome.
 %
-This begins with outcome component analysis: Using the list of player goals and the outcome components identified during likelihood analysis (although ignoring their likelihoods), a breakdown of the actual impact of each outcome component on each player goal is created.
+This begins with outcome component analysis: Using the list of player goals and the actual outcome components at each option (as opposed to the potential components identified during likelihood analysis), a breakdown of the actual impact of each outcome component on each player goal is created (unlike the option analysis step, this step does not aggregate information across outcome components at each option, instead evaluating each outcome component/goal pairing individually).
 %
-Recall that the option analysis step already summarized how the framing and options of a choice indicated goals would be affected, but during this step, actual effects based on actual outcomes are considered.
+Recall that the option analysis step already summarized how the framing and options of a choice indicated goals would be affected, but during this step, actual effects based on actual outcome components are considered instead of hypothetical effects based on potential outcome components.
 
 
 An example of this distinction can be helpful: let's say the player has been flung off of a cliff and faces a choice between grabbing a nearby branch to save themselves or grabbing the outstretched hand of their avatar's only child, who is also falling.
@@ -661,24 +679,31 @@ Assuming that the player can't reasonably expect some sort of miracle to save th
 %
 But perhaps if the player chooses to grab their child, the actual outcome is that a freak gust of wind blows them both to safety, while if they choose to grab the branch, their child falls and dies.
 %
+This outcome component of being blown to safety would not appear during likelihood analysis and it would thus not be considered during option analysis, but as it is an actual outcome component, outcome component analysis would evaluate it (see outcome component `E' in \cref{fig:choice-analysis-method}).
+%
 The goal of outcome components is to analyze the valence of actual outcome components with respect to each player goal, including any components that weren't suggested by the framing and options of a choice.
 
 
 The method is simple: for each outcome component that actually happens at each option (or when outcomes are non-deterministic, for each outcome component that could happen), estimate its impact on each player goal.
 %
-The `Outcome Evaluations' table in \cref{fig:choice-analysis-method} that results from outcome component analysis illustrates this, using `+', and `-' for minor positive and negative consequences, and `*' and `!' for major consequences respectively.
+The `Outcome Evaluations' table in \cref{fig:choice-analysis-method} that results from outcome component analysis illustrates this, using `$\uparrow$', and `$\downarrow$' for minor positive and negative consequences, and `$\uparrow\uparrow$' and `$\downarrow\downarrow$' for major consequences respectively.
 %
 Of course, a finer gradation of consequences could be used if desired, and certainly should be employed on a case-by-case basis where specific consequences must be compared, but gross distinctions are often sufficient to analyze straightforward choice structures.
 
 
-Note that even though the outcome component `C' of option `O2' does not actually occur according to the `Actual Outcomes' table, it is still analyzed in this example, perhaps because it might occur depending on the circumstances.
+Note that even though the outcome component `C' of outcome `U2' does not actually occur according to the `Actual Outcomes' table, it is still analyzed in this example, perhaps because it might occur depending on the circumstances.
 %
-There are thus three categories of outcome components: suggested components that are hinted at by the framing and option text of a choice, but which may or may not even be possible, potential components which are possibilities given a specific decision, actual components which actually happen in a given play-through, and unrealized components which could have happened given a particular decision but did not.
+In contrast, the suggested outcome component `D' of option `O2' does not appear in the analysis of `O2's outcome `U2,' presumably because although implied as a possibility, it will never actually occur.
+%
+Outcome component `E' is the opposite: it was not implied, but does occur, and so must be analyzed.
+%
+There are thus several categories of outcome components: \emph{suggested} components that are hinted at by the framing and option text of a choice, but which may or may not even be possible, \emph{potential} components which are possibilities given a specific decision, \emph{actual} components which actually happen in a given play-through, and \emph{unrealized} components which could have happened given a particular decision but did not.
 %
 In the example analysis from \cref{fig:choice-analysis-method}, outcome components `A,' `B,' and `C' are both suggested and potential, while component `D' is only suggested.
 %
 Meanwhile, components `A,' `B,' and `E' are actual, while `C' is unrealized; note that component `E' is not a suggested component.
-%
+
+
 Depending on the interactive narrative, complex rules may exist that establish what configurations of actual outcome components out of the set of potential outcome components are valid, and the player may or may not be aware of these rules.
 %
 If analysis is being conducted without a specific playthrough in mind, then in latter stages the different possible combinations of potential outcome components will have to be considered separately, as each may give rise to a different player experience.
@@ -703,7 +728,7 @@ The goal of this stage of analysis is to establish two main evaluations for each
 
 The evaluation of expectedness relies on comparing option likelihoods from the likelihood analysis step with actual outcomes.
 %
-First, however, each outcome component is established as either \lbl{important} or \lbl{unimportant} based on whether or not it affects any high-priority player goals (using actual effects, not merely indicated effects).
+First, however, each outcome component is established as either \lbl{important} or \lbl{unimportant} based on whether or not it affects any high-priority player goals (using actual outcome components, not merely suggested components).
 %
 Any outcome which is established as an alternative to an important outcome is also important, even if that outcome does not itself interact with a high-priority player goal.
 %
@@ -764,7 +789,7 @@ Note that each option is treated independently, although prospective impressions
 \textbf{Nice Gamble} & A choice that seemed like a gamble but that turned out well. & The option selected didn't \lbl{advance} or \lbl{hinder} any player goals, or it both \lbl{advanced} and \lbl{hindered} one or more goals that were approximately balanced. The outcome was \lbl{unpredictable}, but also \lbl{good}. The selected option was not distinctly worse-seeming than any other options. \\
 \textbf{Bad Gamble} & A choice that seemed like a gamble and didn't pay off. & As above, but with a \lbl{bad} outcome. \\
 \textbf{Unfair} & An option that seemed good but had unexpected negative consequences. & The selected option must be expected to \lbl{advance} at least one high-priority player goal, while not \lbl{hindering} any. It must also have an \lbl{unexpected} and \lbl{bad} outcome. \\
-\textbf{Miracle} & An option that seemed like a lost cause but that unexpectedly turned out well. & The selected option must be expected to \lbl{fail} at least one high-priority goal, while not \lbl{advancing} any. It must have an \lbl{unexpected} and \lbl{good} outcome. \\
+\textbf{Miracle} & An option that seemed like a lost cause but that unexpectedly turned out well. & The selected option must be expected to \lbl{hinder} at least one high-priority goal, while not \lbl{advancing} any. It must have an \lbl{unexpected} and \lbl{good} outcome. \\
 \bottomrule
 \end{tabular}
 \endgroup

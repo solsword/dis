@@ -15,9 +15,9 @@ This section explains how \skald/ works, and then discusses what we learned from
 \section{Rational Reconstruction}
 
 
-Before getting in to the details of \skald/, a brief note about rational reconstruction, which was our methodology for constructing \skald/ based on \minstrel/.
+Before getting into the details of \skald/, first a brief note about rational reconstruction, which was our methodology for constructing \skald/ based on \minstrel/.
 %
-As a technical approach in computer science, rational reconstruction begins with in-depth study of an existing system, so that it can be understood at an algorithmic level (see e.g., \citep{Peinado2006}, which is closely related to \skald/, or \citep{Musen1995}).
+As a technical approach in computer science, rational reconstruction begins with an in-depth study of an existing system, so that it can be understood at an algorithmic level (see e.g., \citep{Peinado2006}, which is closely related to \skald/, or \citep{Musen1995}).
 %
 If the system is available for direct study, this includes inspecting the source code and running the original system to see how it behaves.
 %
@@ -84,7 +84,7 @@ In \minstrel/ and \skald/, both of these resources are represented in a unique g
 %
 The four core node types are \gng/, \gna/, \gns/, and \gnb/ nodes, and they are usually found in \gng/-\gna/-\gns/ triangles linked by \gep/, \gei/, and \gea/ links.
 %
-Essentially, these \gng/-\gna/-\gns/ triples each represent a single event (along it its motivation and outcome) and they are linked to each other when the \gns/ of one triple has a \gem/ link to the \gng/ of another.
+Essentially, these \gng/-\gna/-\gns/ triples each represent a single event (along with its motivation and outcome) and they are linked to each other when the \gns/ of one triple has a \gem/ link to the \gng/ of another.
 %
 Within each node, the details of a particular \gng/, \gna/, \gns/, or \gnb/ are represented using conceptual dependency schemas, as shown in \cref{fig:story-graph}.
 
@@ -207,7 +207,7 @@ If multiple TRAMs had been necessary to find a match, their adapt steps would al
 %
 The adapted story fragment can be incorporated into the story, in this case our result is that a knight kills the troll with his sword (see \cref{fig:im-example}).
 %
-The TRAM process has eliminated all of our initial unknowns, and this story fragment is now completed; the ALP system takes over again to select a new place fragment for imaginative recall.
+The TRAM process has eliminated all of our initial unknowns, and this story fragment is now completed; the ALP system takes over again to select a new target for imaginative recall.
 
 \section{\minstrel/'s Potential}
 
@@ -240,7 +240,7 @@ This result was early evidence of the shape of the tradeoff between sense and va
 
 Once the full reconstruction of \minstrel/ was complete, including the ALP system, we took some more measurements of TRAM query results in the context of generating full stories (see \citep{Tearse2012}).
 %
-We compared a vanilla version of \skald/ with a version that used modified boredom and TRAM selection systems in an attempt to trade off some variety for more consistency.
+We compared a vanilla version of \skald/ (which mimicked \minstrel/ as closely as possible) with a version that used modified boredom and TRAM selection systems in an attempt to trade off some variety for more consistency.
 %
 The modified version was able to resolve TRAM queries using much less effort (72.2\% vs. 59\% direct matches; 7.7 vs. 13.8 average TRAMs tried per successful query) largely due to the relaxed boredom restrictions.
 %
@@ -286,14 +286,14 @@ When asking \skald/ to generate a batch of stories in the \problemplanets/ domai
 %
 Sometimes, a single story or group of stories in the story library could be re-written to eliminate a problem (this was often the case when different stories in the library used the same pattern of nodes in slightly different ways, and \skald/ crossed these senses during recall).
 %
-But this meant that Aaron had to be extremely careful in authoring stories for the library, and in particular, the effort of maintaining the library's internal consistency grew quadratically with the size of the library.
+But this meant that Aaron had to be extremely careful in authoring stories for the library, and in particular, the effort of maintaining the library's internal consistency grew quadratically with the size of the library, as each additional story could potentially conflict with any of the existing stories.
 %
 Furthermore, problems that couldn't be pinned on specific stories were patched using ALPs that checked for and attempted to fix them.
 
 
 Although Turner did include a few consistency-checking ALPs in \minstrel/, as we began to add more and more of them to \skald/, we realized that imaginative recall alone was no longer a driving force for story consistency.
 %
-Our architecture was shifting towards one in which imaginative recall supplied creative but often too-much-so results, and a complex system of rules implemented by a tangle of ALPs tried to force these results to be consistent.
+Our architecture was shifting towards one in which imaginative recall supplied creative but often incoherent results, and a complex system of rules implemented by a tangle of ALPs tried to force these results to be consistent.
 %
 Effectively, we were trying to write a programmatic definition of what made a story consistent within the ALP system.
 %

@@ -89,7 +89,7 @@ I joined the project, and over the next few years we built \skald/ by carefully 
 
 As a rational reconstruction project, one of our goals was to better understand how Turner's architecture worked not by re-coding every line of the original source, but by building a new system using the principles of the original.
 %
-This technique exposes new information about the reconstructed architecture when things that work out automatically in the original code require explicit reasoning in the reconstructed version.
+This technique can expose new information about the reconstructed system, for example when a relationship which is invariant given the original architecture requires explicit reasoning in the reconstruction.
 %
 Building \skald/, we found ourselves unable to reproduce the quality of \minstrel/'s example stories with any regularity.
 %
@@ -138,7 +138,7 @@ Effectively, \dunyazad/ searches the space of all possible choice configurations
 
 This means that for \dunyazad/ to work well, it needs to have a set of constraints that captures information about story consistency and choice structures.
 %
-These constraints are effectively a theory of choice poetics, and because I am using answer-set programming, this theory is encoded as a set of first-order logical predicates (as opposed to say, being implicit in the weights of a neural network).
+These constraints are effectively a theory of choice poetics, and because I am using answer-set programming, this theory is encoded as a set of first-order logical predicates and inference rules (as opposed to say, being implicit in the weights of a neural network).
 %
 In building \dunyazad/, I thus \emph{necessarily} created an implicit theory of choice poetics.
 %

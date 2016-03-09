@@ -15,7 +15,7 @@ In order to satisfy these two goals, \dunyazad/ uses an answer set solver to tur
 %
 For example, there are statements that define a ``relaxed'' choice.
 %
-Answer sets for these rules are found using Potassco Labs' \clingo/ solver \citep{Gebser2011}.
+Answer sets that satisfy these constraints are found using Potassco Labs' \clingo/ solver \citep{Gebser2011}.
 %
 Besides these rules, there is an external control structure which invokes the solver repeatedly, generating multiple choices and connecting them into a story.\footnote{
 The model for \dunyazad/'s output is the Choose-Your-Own-Adventure book.
@@ -118,7 +118,7 @@ In \dunyazad/, answer-set programming helps support the aims of critical technic
 %
 These problems are set up so that any solution will take the form of a choice, and further constraints can dictate certain properties of that choice (for example, that it must be an obvious choice).
 %
-Broadly, \dunyazad/'s rules can be split into four categories:
+Broadly, \dunyazad/'s constraints can be split into four categories:
 
 \begin{itemize}
 \item \textbf{Representational constraints} establish the basic elements that \dunyazad/ arranges to form choices and stories.
@@ -166,7 +166,7 @@ Besides these things, which can change from one state to the next as a result of
 
 The core states in \dunyazad/ describe the cast and any items or skills that those characters possess.
 %
-Beyond these states are a group of states that describe transient relationships which set the stage for action, these are called ``potentials.''
+Beyond these states are a group of states that describe transient relationships that set the stage for action; these are called ``potentials.''
 %
 Potentials include things like \prq{knows\_gossip}{,} \prq{injured}{,} and \prq{threatening}{,} and each is classified as either a ``problem'' or an ``opportunity.''
 %
@@ -234,7 +234,7 @@ The timepoints do not necessarily form a tree, however: if two outcomes lead to 
 
 As mentioned above, timepoints in \dunyazad/ are connected by options.
 %
-Each option is associated with a single action, and arguments describe the details of that action (for example, the initiator and/or target).
+Each option is associated with a single action, and arguments describe the details of that action (for example, who initiated it or who the target is).
 %
 If a timepoint has more than one option, it represents a choice to be made by the player, otherwise it is simply an event that happens.
 %
@@ -246,11 +246,11 @@ These assignments have a shorthand notation \prq{o(<variable>, <value>)}{} which
 %
 Each such assignment is an outcome component, and together, all such assignments for an action are the outcome of that action.
 %
-\Cref{fig:dunyazad-action-example} shows an example where at timepoint \prq{root}{,} the action associated with option 1 is \prq{talk\_down}{,} with two outcomes: \prq{o(attitude, convinced)}{} and \prq{o(enraged, not\_enraged)}{}.
+\Cref{fig:dunyazad-action-example} shows an example where at timepoint \prq{root}{,} the action associated with option 1 is \prq{talk\_down}{,} with two outcomes: \prq{o(attitude, convinced)}{} and \prq{o(is\_enraged, not\_enraged)}{}.
 %
 Note that each outcome variable is responsible for deciding whether or not a particular state change occurs (or between several possible state changes one of which must occur).
 %
-The consequences of an action in terms of the world state are thus fully determined by the values its outcome variables.
+The consequences of an action in terms of the world state are thus fully determined by the values of its outcome variables.
 
 \begin{figure}[!t]
 \centering
@@ -270,13 +270,13 @@ Representation:\svind \\
 \ind inst(actor, businessperson\_4))\cg{).} \\
 
 \cg{at(root,} outcome(option(1), o(attitude, convinced))\cg{).} \\
-\cg{at(root,} outcome(option(1), o(enraged, not\_enraged))\cg{).} \\
+\cg{at(root,} outcome(option(1), o(is\_enraged, not\_enraged))\cg{).} \\
 
 \cg{at(root,} consequence\_of(option(1), o(attitude, convinced), \\
 \ind \_not, relation(threatening, \\
 \ind \ind inst(actor, tough\_3), inst(actor, businessperson\_4)))\cg{).} \\
-\cg{at(root,} consequence\_of(option(1), o(enraged, enraged), \\
-\ind \_not, relation(threatening, \\
+\cg{at(root,} consequence\_of(option(1), o(is\_enraged, enraged), \\
+\ind relation(threatening, \\
 \ind \ind inst(actor, tough\_3), inst(actor, you)))\cg{).} \\
 
 \cg{at(root,} consequence(option(1), \\
@@ -285,28 +285,28 @@ Representation:\svind \\
 }
 }
 }
-\caption[\dunyazad/ action example]{An example of action representation in \dunyazad/. Note that even outcomes which do not occur (\prq{o(enraged, enraged)}{} in this case) have their potential consequences noted via \prq{consequence\_of}{} predicates, but only outcomes that do occur (as specified by the \prq{at(<timepoint>, outcome(option(<opt>), o(<outvar>, <outval>)))}{} predicates) have actual consequences. }
+\caption[\dunyazad/ action example]{An example of action representation in \dunyazad/. Note that even outcomes which do not occur (\prq{o(is\_enraged, enraged)}{} in this case) have their potential consequences noted via \prq{consequence\_of}{} predicates (so that the system can reason about counterfactuals), but only outcomes that do occur (as specified by the \prq{at(<timepoint>, outcome(option(<opt>), o(<outvar>, <outval>)))}{} predicates) have actual consequences. The \prq{o(attitude, unconvinced)}{} and \prq{o(is\_enraged, not\_enraged)}{} possible outcome components are not listed because they make no changes to the world state when they occur (they each represent the omission of a change).}
 \label{fig:dunyazad-action-example}
 \end{figure}
 
 
 Each action thus has multiple possible outcomes.
 %
-For the \prq{talk\_down}{} action, there are theoretically four: the \prq{attitude}{} outcome variable has two exclusive values \prq{convinced}{} and \prq{unconvinced}{,} while the \prq{enraged}{} outcome variable has two more values: \prq{enraged}{} and \prq{not\_enraged}{.}
+For the \prq{talk\_down}{} action, there are theoretically four: the \prq{attitude}{} outcome variable has two exclusive values \prq{convinced}{} and \prq{unconvinced}{,} while the \prq{is\_enraged}{} outcome variable has two more values: \prq{enraged}{} and \prq{not\_enraged}{.}
 %
-However, the definition of \prq{talk\_down}{} stipulates that the outcome \prq{o(enraged, enraged)}{} is only possible if the outcome \prq{o(attitude, unconvinced)}{} is also present, so there are only three possibilities:
+However, the definition of \prq{talk\_down}{} stipulates that the outcome \prq{o(is\_enraged, enraged)}{} is only possible if the outcome \prq{o(attitude, unconvinced)}{} is also present, so there are only three possibilities:
 
 \begin{enumerate}
-  \item The target is convinced to calm down (\prq{o(attitude, convinced)}{} and \prq{o(enraged, not\_enraged)}{}), in which case they stop threatening whoever they were threatening.
-  \item The target is unconvinced, and nothing changes (\prq{o(attitude, unconvinced)}{} along with \prq{o(enraged, not\_enraged)}{}).
-  \item The target is unconvinced, and gets mad at the person who tried to convince them (\prq{o(attitude, unconvinced)}{} along with \prq{o(enraged, enraged)}{}).
+  \item The target is convinced to calm down (\prq{o(attitude, convinced)}{} and \prq{o(is\_enraged, not\_enraged)}{}), in which case they stop threatening whoever they were threatening.
+  \item The target is unconvinced, and nothing changes (\prq{o(attitude, unconvinced)}{} along with \prq{o(is\_enraged, not\_enraged)}{}).
+  \item The target is unconvinced, and gets mad at the person who tried to convince them (\prq{o(attitude, unconvinced)}{} along with \prq{o(is\_enraged, enraged)}{}).
 \end{enumerate}
 
-Note that for a traditional planning system, because each combination of outcome variables has a different effect on the world state, each action would have to be broken into multiple sub-actions with fixed pre- and post-conditions.
+Note that each action could be broken into several sub-actions with fixed pre- and post-conditions, with the current actions each becoming a mix of several primitives depending on their outcome variable values.
 %
-The advantage of grouping them together conceptually is that this represents the player's view of things: the text introducing an option doesn't indicate the values of its outcome variables, and so the player can never be completely sure what outcomes an action will have.
+The advantage of grouping primitives together conceptually is that this represents the player's view of things: the text introducing an option doesn't indicate the values of its outcome variables, and so the player can never be completely sure what outcomes an action will have.
 %
-This way of representing actions thus helps the system reason about how the player might perceive actions, this is the same reason that possible but unrealized state changes are explicitly represented by the system using \prq{consequence\_of}{} predicates (see \cref{fig:dunyazad-action-example}).
+This way of representing actions thus helps the system reason about how the player might perceive actions; this is the same reason that possible but unrealized state changes are explicitly represented by the system using \prq{consequence\_of}{} predicates (see \cref{fig:dunyazad-action-example}).
 
 
 \begin{table}[!h]
@@ -506,7 +506,7 @@ As shown in \cref{tab:dunyazad-constraints-inventory} there are several differen
 %
 \begin{itemize}
   \item Narrative perspective---these constraints require that all actions at choice points be initiated by the protagonist(s) and that all other actions are initiated by non-protagonists, effectively establishing a loose second-person narrative perspective.
-  \item Setup variety---These constraints force \dunyazad/ to use a variety of setups over the course of a story, rather than just revisiting a few. This goes beyond prohibiting direct repetition and establishes a ``breadth'' requirement: before you can repeat a setup for the $n$th time, you must have used a total of at least $n+1$ unique setups (including the setup in question).
+  \item Setup variety---These constraints force \dunyazad/ to use a variety of setups over the course of a story, rather than just revisiting a few. This goes beyond prohibiting direct repetition and establishes a ``breadth'' requirement: before you can repeat a setup for the $n$th time, you must have used a total of at least $n+1$ unique setups (including the setup in question). Given the limited number of setups this equation does currently place an upper bound on the length of stories \dunyazad/ can generate, but until more work is done on long-term plot structures, this limit is largely theoretical.
   \item Boredom---Beyond the repetition constituent constraints, these constraints target things like repeated failed attempts to solve the same problem, or the recurrence of a problem within a single scene. Although not something that would seem obviously broken to readers, these possibilities were deemed less interesting and prohibited.
   \item Trick options---If there are multiple protagonists and one has the skill necessary to perform a certain action while another lacks it, giving the player the option of having the unskilled protagonist perform that action is a kind of trick and this can feel very bad for the player as they're essentially not given the most rational option (which would be to have the skilled party member perform the action) but at the same time reminded of its presence. These constraints simply rule out this possibility, even though one could imagine using it for dramatic effect.
 \end{itemize}
@@ -530,7 +530,7 @@ These constraints are thus not about declaring what is universally acceptable or
 The bulk of these constraints form \dunyazad/'s operationalization of choice poetics, but a few are concerned with other effects:
 %
 \begin{itemize}
-  \item Surprising outcomes---Using the notion of likely and unlikely outcomes based on skills and tools, \dunyazad/ labels outcomes which are deemed unlikely as `surprising.' In an earlier version, `surprising' outcomes were prohibited altogether, now it's up to the author whether or not to allow them.
+  \item Surprising outcomes---Using the notion of likely and unlikely outcomes based on skills and tools, \dunyazad/ labels outcomes which are deemed unlikely as `surprising.' In an earlier version, `surprising' outcomes were prohibited altogether; now it's up to the author whether or not to allow them.
   \item Story length and pacing---\dunyazad/ has rules for constraining how many actions must occur before a story ends, and how many of these must be choices as opposed to simple events.
 \end{itemize}
 %
@@ -572,7 +572,7 @@ This step is quite simple in \dunyazad/: the file \file{goals.lp} includes rules
 %
 Of course, forcing the author to estimate the player's goals like this is not perfect, but results so far indicate that it works tolerably well.
 %
-Individual content files that specify how each goal works provide rules for determining the priority of the goal in a given situation (this is binary, either `high' or `low').
+Individual files in the \file{content} directory specify how each goal works and provide rules for determining the priority of a goal in a given situation (this is binary, either `high' or `low').
 %
 These files also define at least one state that \prq{achieves}{,} \prq{fails}{,} \prq{hinders}{,} or \prq{advances}{} the goal.
 %
@@ -586,7 +586,7 @@ The full list of player goals assumed by the system is as follows:
 \item The player always has a \prq{preserve\_health}{} goal for each protagonist. As mentioned above, these goals are always high-priority and are failed by the \prq{injured}{} and \prq{killed}{} states.
 \item The player always has an \prq{avoid\_threats\_to}{} goal for each protagonist. Actions which cause \prq{threatening}{} relationships with a protagonist as the object \prq{hinder}{} these goals, as do actions which allow such a state to persist (i.e., actions which don't have a consequence that resolves such a state when one exists). These goals are always high-priority.
 \item The player always has an \prq{avoid\_accusations}{} goal for each protagonist. These goals work just like \prq{avoid\_threats\_to}{} goals but for the \prq{accusing}{} relationship, which indicates that someone is being accused of a crime. As with \prq{avoid\_threats\_to}{}, these goals are high-priority.
-\item The player always has a \prq{preserve\_original\_form}{} goal for each protagonist. The \prq{polymorph}{} action represents a magic spell that can turn someone into a chicken; these goals assume that this is a state to be avoided an reversed whenever possible. These goals are high-priority.
+\item The player always has a \prq{preserve\_original\_form}{} goal for each protagonist. The \prq{polymorph}{} action represents a magic spell that can turn someone into a chicken; these goals assume that this is a state to be avoided and/or reversed whenever possible. These goals are high-priority.
 \item Whenever an item has been stolen from a protagonist, the player has a \prq{reclaim\_property}{} goal for that item/protagonist. This goal is achieved when the \prq{has\_item}{} relation holds between the original owner and the item, and it it always high-priority.
 \item The player always has an \prq{as\_intended}{} goal for each protagonist. These goals make use of the \prq{default\_intent}{} predicates specified in the definition of each action. Essentially, each action declares one or more outcome components to be its default intent: the outcome that the initiator of the action is hoping for. In the case of the \prq{attack}{} action, for example, the outcome component \prq{o(success, victory)}{} is a \prq{default\_intent}{}. When a \prq{default\_intent}{} outcome component is present, the \prq{as\_intended}{} goal of the action's initiator is achieved, when absent, the goal is failed. These goals are always low-priority, because they don't represent any particular bad or good states: there are many situations where an unintended outcome can be good for a character, and actual good or bad results are more important than things going as intended.
 \item The player always has a \prq{have\_tool\_for}{} goal for each skill of each protagonist. These goals are achieved by possessing an item which counts as a tool for a particular skill, and they are always low-priority. The assumption that the player will have these goals is probably the weakest such, as players may not always remember at each moment what skills they have and which ones they have tools for. However, the presence of these goals means that trading items for goods or services can have value, and they can differentiate good trades from bad ones. In situations where players had a chance to play multiple stories, players would be more likely to consider these goals when making choices.
@@ -614,7 +614,7 @@ These could in principle be declared just like the current goals, but \dunyazad/
 %
 This step is already performed by \dunyazad/'s constituent constraints, using the \prq{skill\_link}{} predicates supplied by action definitions along with information on the skills and tools available to the actors involved in each action. 
 %
-Recall that individual outcome components are labelled as likely or unlikely, rather than entire outcomes, as called for in \cref{sec:goal-based-choice-analysis}.
+Recall that individual outcome components are labelled as likely or unlikely, rather than entire outcomes (\cref{sec:cp-likelihood-analysis}).
 %
 This step produces the \prq{at(\abr/<timepoint>,\abr/ likely\_outcome(\abr/<option>,\abr/ <outcome>))}{} and \prq{at(\abr/<timepoint>,\abr/ unlikely\_outcome(\abr/<option>,\abr/ <outcome>))}{} predicates.
 
