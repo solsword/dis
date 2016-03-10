@@ -574,7 +574,7 @@ Of course, forcing the author to estimate the player's goals like this is not pe
 %
 Individual files in the \file{content} directory specify how each goal works and provide rules for determining the priority of a goal in a given situation (this is binary, either `high' or `low').
 %
-These files also define at least one state that \prq{achieves}{,} \prq{fails}{,} \prq{hinders}{,} or \prq{advances}{} the goal.
+These files also define at least one state that is \prq{good\_for}{,} \prq{bad\_for}{,} \prq{great\_for}{,} or \prq{awful\_for}{} the goal.
 %
 For example, the \prq{preserve\_health}{} goal always has high priority and specifies that the states \prq{injured}{} and \prq{killed}{} both \prq{fail}{} the goal when true of the goal's target.
 %
@@ -632,7 +632,7 @@ Similarly, any positive consequence entails an \lbl{enables} relationship (the \
 %
 Since each option has multiple outcome components, a single goal may be both threatened and enabled by the same option, of course.
 %
-For the \lbl{advances} and \lbl{hinders} evaluations (represented in code by \prq{achieves}{} and \prq{fails}{} predicates), the same analysis applies, but only outcome components marked as \prq{likely}{} are considered.
+For the \lbl{advances} and \lbl{hinders} evaluations (represented in code by \prq{advances}{} and \prq{hinders}{} predicates), the same analysis applies, but only outcome components marked as \prq{likely}{} are considered.
 %
 The result of the option analysis constraints is a set of \prq{at(\abr/<timepoint>,\abr/ expectation(\abr/<option>,\abr/ <expectation>,\abr/ <goal>))}{} that list the expectations for each option/goal pair.
 
@@ -641,11 +641,29 @@ The result of the option analysis constraints is a set of \prq{at(\abr/<timepoin
 %
 Integrating goal priorities and option expectations, relative option analysis produces \prq{at(\abr/<timepoint>,\abr/ option\_feel(\abr/<option>,\abr/ <feel>))}{} predicates, which collapse the various expectations across goals at each option to produce a general evaluation of that option.
 %
-For example, if an option has at least one \prq{achieves}{} expectation and it has no \prq{threatens}{} or \prq{fails}{} expectations across all goals (only counting goals tied for highest priority at that option) an option is labeled as a \prq{sure\_\abr/thing}{.}
+For example, if an option has at least one \prq{advances}{} expectation and it has no \prq{threatens}{} or \prq{hinders}{} expectations across all goals (only counting goals tied for highest priority at that option) an option is labeled as a \prq{sure\_\abr/thing}{.}
 %
-These rules establish one or more \prq{option\_\abr/feel}{}s for each option, and these are further aggregated into \prq{option\_\abr/structure}{} assignments, which are the prospective impressions show in \cref{tab:prospective-impressions}.
+These rules establish one or more \prq{option\_\abr/feel}{}s for each option, and these are further aggregated into \prq{option\_\abr/structure}{} assignments, which are the prospective impressions show in \cref{tab:prospective-impressions} (that table defines \prq{option\_structure}{} labels directly in terms of \prq{expectation}{} labels for simplicity).
 %
-These prospective impression assignments were the subject of the experiment described in \cref{ch:option-results} and provide one primary means of controlling the kinds of choices \dunyazad/ generates.
+Although \prq{option\_structure}{} labels could be assigned directly based on \prq{expectation}{} predicates, the \prq{option\_feel}{} labels act as an intermediate level of representation, summarizing the \prq{expectation}{} predicates across all goals at a particular option.
+%
+There are nine (sometimes overlapping) \prq{option\_feel}{} values:
+
+\begin{enumerate}
+  \item \prq{safe}{}---An option where there are no \prq{threatens}{} or \prq{hinders}{} expectations, and there is at least one \prq{enables}{} or \prq{advances}{} expectation.
+  \item \prq{sure\_thing}{}---Any \prq{safe}{} option that includes an \prq{advances}{} expectation (instead of merely having \prq{enables}{} expectation(s).
+  \item \prq{hopeful}{}---An option which \prq{advances}{} some goal, but may \prq{threaten}{} a goal as well, although it doesn't \prq{hinder}{} any goals.
+  \item \prq{risky}{}---An option which at least has both \prq{enables}{} and \prq{threatens}{} expectations, but no \prq{advances}{} or \prq{hinders}{} expectations.
+  \item \prq{tradeoff}{}---An option which \prq{advances}{} one goal but \prq{hinders}{} another. 
+  \item \prq{irrelevant}{}---An option which has no expectations associated with it.
+  \item \prq{longshot}{}---The converse of \prq{hopeful}{}: an option which \prq{hinders}{} some goal but also \prq{enables}{} a goal (although it does not \prq{advance}{} any). 
+  \item \prq{bad}{}---An option which \prq{threatens}{} and/or \prq{hinders}{} at least one goal and neither \prq{enables}{} or \prq{advances}{} any goals.
+  \item \prq{doomed}{}---Any \prq{bad}{} option which \prq{hinders}{} a goal (as opposed to merely having a \prq{threatens}{} expectation). 
+\end{enumerate}
+
+
+
+The \prq{option\_structure}{} prospective impression assignments that are derived from these \prq{option\_feel}{} assignments are the subject of the experiment described in \cref{ch:option-results} and provide one primary means of controlling the kinds of choices \dunyazad/ generates.
 %
 Although they are discussed here as being `assigned' based on existing choice structures, because they're just predicates in an answer set program, they can be required and the solver will solve for answer sets that include them.
 %
@@ -656,13 +674,17 @@ Requiring these \prq{option\_\abr/structure}{} predicates thus allows an author 
 %
 Using player goal information and information about all possible outcomes of each action, outcome component analysis maps the relationships between every possible outcome component and each goal.
 %
-These relationships have four basic values, similar to the \prq{expectation}{} predicates generated by the option analysis step: \prq{advances}{,} \prq{hinders}{,} \prq{achieves}{,} and \prq{fails}{.}
+These relationships are represented using \prq{at(<timepoint>, outcome\_perception(<option>, <perception>, <goal>))}{} predicates and have four basic \prq{perception}{} values, similar to the \prq{expectation}{} predicates generated by the option analysis step: \prq{good\_for}{,} \prq{bad\_for}{,} \prq{great\_for}{,} and \prq{awful\_for}{.}
 %
 These are directly deduced from the definitions of each goal combined with the states that a particular outcome component adds or removes.
 %
 So for example, the \prq{o(\abr/success,\abr/ dispelled)}{} possible outcome component of the \prq{dispel}{} action has a consequence which removes the \prq{polymorphed}{} property from the target of the action.
 %
-Because of this, any option that consists of a \prq{dispel}{} action with a polymorphed target will \prq{advance}{} the \prq{preserve\_\abr/original\_\abr/form}{} goal for the target actor, (because the \prq{polymorphed}{} state which is being removed \prq{fails}{} the \prq{preserve\_\abr/original\_\abr/form}{} goal).
+Because of this, any option that consists of a \prq{dispel}{} action with a polymorphed target will be \prq{good\_for}{} the \prq{preserve\_\abr/original\_\abr/form}{} goal for the target actor, (because the \prq{polymorphed}{} state which is being removed is \prq{awful\_for}{} the \prq{preserve\_\abr/original\_\abr/form}{} goal\footnote{%
+Although the counterpart of \prq{awful\_for}{} is \prq{great\_for}{} rather than \prq{good\_for}{,} the inference here softens the expectation.
+%
+The stronger \prq{great\_for}{} and \prq{awful\_for}{} perception labels are reserved for situations where they explicitly apply (i.e., a state which a goal labels as \prq{great\_for}{} or \prq{awful\_for}{} itself is the consequence of an option).%
+}).
 
 Because of the way that goals are defined in \dunyazad/ this step of analysis is fairly trivial.
 %
@@ -672,9 +694,9 @@ For example, the \prq{as\_\abr/intended}{} goal deals directly with outcomes as 
 %
 Because of this, the \prq{as\_\abr/intended}{} goal definition has custom code which directly creates \prq{expectation}{} and \prq{outcome\_\abr/perception}{} predicates by considering which outcomes are likely (and which is the \prq{default\_\abr/intent}{,} as mentioned above).
 %
-The \prq{avoid\_\abr/accusations}{} and \prq{avoid\_\abr/threats\_\abr/to}{} goals also have a bit of custom code to make them more urgent: when an accusation or threat state is present, actions which have no effect on that state are given \prq{fails}{} expectations and \prq{hinders}{} outcome perceptions.
+The \prq{avoid\_\abr/accusations}{} and \prq{avoid\_\abr/threats\_\abr/to}{} goals also have a bit of custom code to make them more urgent: when an accusation or threat state is present, actions which have no effect on that state are given \prq{hinders}{} expectations and \prq{bad\_for}{} outcome perceptions.
 %
-All other goals simply specify one or more states that \prq{advance}{,} \prq{hinder}{,} \prq{achieve}{,} or \prq{fail}{} them, as described above.
+All other goals simply specify one or more states that are \prq{good\_for}{,} \prq{bad\_for}{,} \prq{great\_for}{,} or \prq{awful\_for}{} them, as described above.
 
 \item %
 \textbf{Full Outcome Analysis} \\
@@ -688,13 +710,13 @@ The \prq{outcome\_\abr/overall}{} predicates summarize the individual \prq{outco
 There are eight possible \prq{outcome\_\abr/overall}{} values:
 %
 \begin{enumerate}
-\item \prq{great}{}---Reserved for options which achieve at least one player goal while neither failing nor hindering any.
-\item \prq{good}{}---Options which would be \prq{great}{}, except that they merely advance at least one player goal as opposed to achieving any.
-\item \prq{tradeoff}{}---Options which both achieve one goal and fail another, or which both advance one goal and hinder another (without either achieving or failing any).
-\item \prq{worth\_it}{}---Options where the best outcome achieves a goal, but the worst outcome hinders a (presumably different) goal.
-\item \prq{not\_worth\_it}{}---Options where the worst outcome fails a goal, while the best outcome advances a goal.
-\item \prq{bad}{}---Options where no goals are achieved or advanced, and the worst outcome hinders a goal.
-\item \prq{awful}{}---\prq{bad}{} options where a goal is failed instead of merely hindered.
+  \item \prq{great}{}---Reserved for options which are \prq{great\_for}{} at least one player goal and neither \prq{bad\_for}{} nor \prq{awful\_for}{} any.
+  \item \prq{good}{}---Options which would be \prq{great}{}, except that they are merely \prq{good\_for}{} at least one player goal as opposed to being \prq{great\_for}{} any.
+  \item \prq{tradeoff}{}---Options which are both \prq{great\_for}{} one goal and \prq{awful\_for}{} another, or which are both \prq{good\_for}{} one goal and \prq{bad\_for}{} another (without being either \prq{great\_for}{} or \prq{awful\_for}{} any).
+  \item \prq{worth\_it}{}---Options where the best outcome is \prq{great\_for}{} a goal, but the worst outcome is \prq{bad\_for}{} a (presumably different) goal.
+\item \prq{not\_worth\_it}{}---Options where the worst outcome is \prq{awful\_for}{} a goal, while the best outcome is merely \prq{good\_for}{} a goal.
+\item \prq{bad}{}---Options which are neither \prq{good\_for}{} nor \prq{great\_for}{} any goals, and where the worst outcome is \prq{bad\_for}{} a goal.
+\item \prq{awful}{}---as \prq{bad}{} options but \prq{awful\_for}{} some goal rather than merely \prq{bad\_for}{} it.
 \item Neutral---Options where no outcome is relevant to any player goal.
 \end{enumerate}
 %
