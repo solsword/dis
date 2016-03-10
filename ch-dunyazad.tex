@@ -316,12 +316,12 @@ This way of representing actions thus helps the system reason about how the play
   \pr{accuse}       & \pr{explain\_innocence} & \pr{play\_song}         & \pr{talk\_down} \\
   \cg{\pr{arrive}}       & \pr{flee}               & \pr{polymorph}          & \pr{tell\_story} \\
   \pr{attack}       & \pr{gossip}             & \cg{\pr{pursue}}             & \pr{trade} \\
-  \pr{buy\_healing} & \pr{leave}              & \pr{reach\_destination} & \pr{travel\_onwards} \\
+  \pr{buy\_healing} & \cg{\pr{leave}}              & \pr{reach\_destination} & \pr{travel\_onwards} \\
   \pr{deny\_blame}  & \pr{pacify}             & \pr{shift\_blame}       & \pr{treat\_injury} \\
   \pr{dispel}       & \pr{pay\_off}           & \pr{steal}
 \end{tabular}
 \endgroup
-\caption[List of actions in \dunyazad/]{The 23 actions currently defined in \dunyazad/. The \prq{arrive}{} and \prq{pursue}{} actions aren't currently used because the system has no setups that motivate them.}
+\caption[List of actions in \dunyazad/]{The 23 actions currently defined in \dunyazad/. The \prq{arrive}{,} \prq{leave}{,} and \prq{pursue}{} actions aren't currently used because the system has no setups that motivate them.}
 \label{tab:dunyazad-action-list}
 \end{table}
 
@@ -341,7 +341,7 @@ Effectively, the definition of an action thus includes enough information for \d
 
 \dunyazad/ currently has a total of 23 different actions, listed in \cref{tab:dunyazad-action-list}.
 %
-Given the setups that exist, however, the \prq{arrive}{} and \prq{pursue}{,}, actions are never motivated and thus impossible to use, so there are effectively 21 possible actions.
+Given the setups that exist, however, the \prq{arrive}{,} \prq{leave}{,} and \prq{pursue}{} actions are never motivated and thus impossible to use, so there are effectively 20 possible actions.
 %
 Most actions have at least two possible outcome configurations, and a few (such as \prq{attack}{}) have four or more.
 %

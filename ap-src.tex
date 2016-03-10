@@ -1,0 +1,162 @@
+\chapter{\dunyazad/'s ASP Code}
+\label{ap:src}%
+
+This appendix contains listings for all of \dunyazad/'s core answer set code, which run together can be used to produce a single choice.
+%
+The imperative code that supervises story construction and turns answer sets into English text is not included here, but the entire project can be found at \githuburl/.
+% TODO: Archival link?
+%
+Each page in this appendix lists the source filename at the bottom of the page, and within each category, files are presented in alphabetical order.
+%
+Additionally, every fifth line is numbered in the left margin for ease of reference.
+
+\section{Utilities}
+
+The \file{utils.lp} file contains a variety of utility definitions, along with some Python code for generating unique instance IDs and formatting strings (\dunyazad/ requires \file{clingo} to be compiled with Python support).
+%
+This Python code is called internally by \file{clingo} during the solving process, in contrast to the external Python code that calls the solver for each individual choice in a story and translates answer sets into English text (that code is not listed in this appendix).
+
+\lfile{src/rules/utils.lp}{utils.lp}{src:utils}
+
+\section{Core Files}
+
+The core files include all of \dunyazad/'s main constraints, and are summarized in \cref{tab:dunyazad-constraints-inventory}.
+%
+Not included in this category are the files in the \file{content/} directory, which each define individual instances of things like goals and actions.
+%
+Those files do rely heavily on predicates defined by core files to concisely specify content, of course.
+
+\lfile{src/rules/story/actions.lp}{actions.lp}{src:actions}
+\lfile{src/rules/story/actors.lp}{actors.lp}{src:actors}
+\lfile{src/rules/story/choice\string_structure.lp}{choice\_structure.lp}{src:choice-structure}
+\lfile{src/rules/story/core.lp}{core.lp}{src:core}
+\lfile{src/rules/story/eval.lp}{eval.lp}{src:eval}
+\lfile{src/rules/story/goals.lp}{goals.lp}{src:goals}
+\lfile{src/rules/story/grow.lp}{grow.lp}{src:grow}
+\lfile{src/rules/story/items.lp}{items.lp}{src:items}
+\lfile{src/rules/story/potential.lp}{potential.lp}{src:potential}
+\lfile{src/rules/story/settings.lp}{settings.lp}{src:settings}
+\lfile{src/rules/story/setup.lp}{setup.lp}{src:setup}
+\lfile{src/rules/story/skills.lp}{skills.lp}{src:skills}
+\lfile{src/rules/story/surface.lp}{surface.lp}{src:surface}
+\lfile{src/rules/story/the\string_party.lp}{the\_party.lp}{src:the-party}
+\lfile{src/rules/story/vignettes.lp}{vignettes.lp}{src:vignettes}
+
+\section{Goal Definitions}
+
+These files, from the \file{content/} directory, each specify how a single goal works.
+%
+Note the custom code in \file{g-as\_intended.lp}, \file{g-avoid\_accusations.lp}, and \file{g-avoid\_threats\_to.lp}.
+%
+These three goals extend the normal state-based goal definition format a bit by directly specifying extra conditions for certain \prq{expecatation}{} and/or \prq{outcome\_perception}{} predicates.
+
+\lfile{src/rules/story/content/g-as\string_intended.lp}{g-as\_intended.lp}{src:g-as-intended}
+\lfile{src/rules/story/content/g-avoid\string_accusations.lp}{g-avoid\_accusations.lp}{src:g-avoid-accusations}
+\lfile{src/rules/story/content/g-avoid\string_threats\string_to.lp}{g-avoid\_threats\_to.lp}{src:g-avoid-threats-to}
+\lfile{src/rules/story/content/g-have\string_tool\string_for.lp}{g-have\_tool\_for.lp}{src:g-have-tool-for}
+\lfile{src/rules/story/content/g-preserve\string_health.lp}{g-preserve\_health.lp}{src:g-preserve-health}
+\lfile{src/rules/story/content/g-preserve\string_original\string_form.lp}{g-preserve\_original\_form.lp}{src:g-preserve-original-form}
+\lfile{src/rules/story/content/g-reclaim\string_property.lp}{g-reclaim\_property.lp}{src:g-reclaim-property}
+
+\section{Action Definitions}
+
+These files, also from the \file{content/} directory, each define a single action.
+%
+\Cref{tab:dunyazad-action-list} provides a quick overview of the actions repertoire; note that the \prq{arrive}{,} \prq{leave}{,} and \prq{pursue}{} actions are not currently enabled by any setups, and to speed up results they have been entirely commented out for now.
+%
+Action definitions are responsible for defining both individual outcome components and the skills and/or tools that make those outcomes more or less likely.
+%
+They can define the consequences of individual outcome components conditionally with respect to the world state when an action occurs, although important conditional effects of an action should be reified as outcome variables to allow the system to reason about player perceptions.
+
+\lfile{src/rules/story/content/a-accuse.lp}{a-accuse.lp}{src:a-accuse}
+\lfile{src/rules/story/content/a-arrive.lp}{a-arrive.lp}{src:a-arrive}
+\lfile{src/rules/story/content/a-attack.lp}{a-attack.lp}{src:a-attack}
+\lfile{src/rules/story/content/a-buy\string_healing.lp}{a-buy\_healing.lp}{src:a-buy-healing}
+\lfile{src/rules/story/content/a-deny\string_blame.lp}{a-deny\_blame.lp}{src:a-deny-blame}
+\lfile{src/rules/story/content/a-dispel.lp}{a-dispel.lp}{src:a-dispel}
+\lfile{src/rules/story/content/a-explain\string_innocence.lp}{a-explain\_innocence.lp}{src:a-explain-innocence}
+\lfile{src/rules/story/content/a-flee.lp}{a-flee.lp}{src:a-flee}
+\lfile{src/rules/story/content/a-gossip.lp}{a-gossip.lp}{src:a-gossip}
+\lfile{src/rules/story/content/a-leave.lp}{a-leave.lp}{src:a-leave}
+\lfile{src/rules/story/content/a-pacify.lp}{a-pacify.lp}{src:a-pacify}
+\lfile{src/rules/story/content/a-pay\string_off.lp}{a-pay\_off.lp}{src:a-pay-off}
+\lfile{src/rules/story/content/a-play\string_song.lp}{a-play\_song.lp}{src:a-play-song}
+\lfile{src/rules/story/content/a-polymorph.lp}{a-polymorph.lp}{src:a-polymorph}
+\lfile{src/rules/story/content/a-pursue.lp}{a-pursue.lp}{src:a-pursue}
+\lfile{src/rules/story/content/a-reach\string_destination.lp}{a-reach\_destination.lp}{src:a-reach-destination}
+\lfile{src/rules/story/content/a-shift\string_blame.lp}{a-shift\_blame.lp}{src:a-shift-blame}
+\lfile{src/rules/story/content/a-steal.lp}{a-steal.lp}{src:a-steal}
+\lfile{src/rules/story/content/a-talk\string_down.lp}{a-talk\_down.lp}{src:a-talk-down}
+\lfile{src/rules/story/content/a-tell\string_story.lp}{a-tell\_story.lp}{src:a-tell-story}
+\lfile{src/rules/story/content/a-trade.lp}{a-trade.lp}{src:a-trade}
+\lfile{src/rules/story/content/a-travel\string_onwards.lp}{a-travel\_onwards.lp}{src:a-travel-onwards}
+\lfile{src/rules/story/content/a-treat\string_injury.lp}{a-treat\_injury.lp}{src:a-treat-injury}
+
+\section{Setup Definitions}
+
+These files define the individual setup possibilities.
+%
+Each setup includes fixed elements but may also include some variable elements.
+%
+The core file \file{setup.lp} defines the implications of most of the predicates used in these definitions.
+%
+Note that the \prq{thief} setup is currently inactive (and is commented out for efficiency).
+
+
+\lfile{src/rules/story/content/s-healer.lp}{s-healer.lp}{src:s-healer}
+\lfile{src/rules/story/content/s-market.lp}{s-market.lp}{src:s-market}
+\lfile{src/rules/story/content/s-monster\string_attack.lp}{s-monster\_attack.lp}{src:s-monster-attack}
+\lfile{src/rules/story/content/s-on\string_sale.lp}{s-on\_sale.lp}{src:s-on-sale}
+\lfile{src/rules/story/content/s-tavern.lp}{s-tavern.lp}{src:s-tavern}
+\lfile{src/rules/story/content/s-thief.lp}{s-thief.lp}{src:s-thief}
+\lfile{src/rules/story/content/s-threatened\string_innocents.lp}{s-threatened\_innocents.lp}{src:s-threatened-innocents}
+
+\section{Potential Definitions}
+
+These files define individual potentials, which are state predicates that suggest actions (for example, being injured suggests getting treatment).
+%
+These files refine underlying state definitions by specifying things like who is responsible for the state, and who it is good or bad for.
+%
+They also define urgency and immediacy of potentials, so that characters can have believable priorities (e.g., seeking treatment for an injury being prioritized over buying an available item as opposed to the opposite).
+
+\lfile{src/rules/story/content/p-accusing.lp}{p-accusing.lp}{src:p-accusing}
+\lfile{src/rules/story/content/p-bored.lp}{p-bored.lp}{src:p-bored}
+\lfile{src/rules/story/content/p-injured.lp}{p-injured.lp}{src:p-injured}
+\lfile{src/rules/story/content/p-knows\string_gossip.lp}{p-knows\_gossip.lp}{src:p-knows-gossip}
+\lfile{src/rules/story/content/p-offering\string_service.lp}{p-offering\_service.lp}{src:p-offering-service}
+\lfile{src/rules/story/content/p-polymorphed.lp}{p-polymorphed.lp}{src:p-polymorphed}
+\lfile{src/rules/story/content/p-selling.lp}{p-selling.lp}{src:p-selling}
+\lfile{src/rules/story/content/p-stolen\string_from.lp}{p-stolen\_from.lp}{src:p-stolen-from}
+\lfile{src/rules/story/content/p-threatening.lp}{p-threatening.lp}{src:p-threatening}
+
+\section{Actor Definitions}
+
+These files define a simple hierarchical ontology of actors.
+%
+The highest levels of the ontology are actually defined in the core file \file{actors.lp}.
+%
+Actor definitions can also specify things like skills or items that can be automatically associated with certain types of actors.
+%
+Actor types are used mainly in the setup files.
+
+\lfile{src/rules/story/content/actors/animals.lp}{animals.lp}{src:animals}
+\lfile{src/rules/story/content/actors/bad\string_guys.lp}{bad\_guys.lp}{src:bad-guys}
+\lfile{src/rules/story/content/actors/commmoners.lp}{commmoners.lp}{src:commmoners}
+\lfile{src/rules/story/content/actors/monsters.lp}{monsters.lp}{src:monsters}
+\lfile{src/rules/story/content/actors/nobles.lp}{nobles.lp}{src:nobles}
+
+\section{Item Definitions}
+
+These files define a hierarchical ontology of items beneath the high-level categories defined in the core file \file{items.lp}.
+%
+Item types are mainly relevant because they can be tools for associated skills.
+%
+The \prq{teaches\_skill}{} predicates in the \file{books.lp} file are unfortunately impotent at the moment, although once a skill-learning system exists these would provide an additional incentive for acquiring these items. 
+
+
+\lfile{src/rules/story/content/items/books.lp}{books.lp}{src:books}
+\lfile{src/rules/story/content/items/charms.lp}{charms.lp}{src:charms}
+\lfile{src/rules/story/content/items/instruments.lp}{instruments.lp}{src:instruments}
+\lfile{src/rules/story/content/items/tools.lp}{tools.lp}{src:tools}
+\lfile{src/rules/story/content/items/treasure.lp}{treasure.lp}{src:treasure}
+\lfile{src/rules/story/content/items/weapons.lp}{weapons.lp}{src:weapons}

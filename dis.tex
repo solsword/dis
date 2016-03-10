@@ -11,6 +11,19 @@
 \usepackage{setspace}
 \addtolength{\baselineskip}{0pt plus 2pt minus 1pt}
 \usepackage{hanging}
+\usepackage{needspace}
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\fancypagestyle{default}{
+  \fancyhead{}
+  \fancyfoot{}
+  \fancyhead[LE,RO]{\thepage}
+  \fancyhead[RE]{\leftmark}
+  \fancyhead[LO]{\rightmark}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+\pagestyle{default}
 
 % Fonts & Kerning
 \usepackage{tgschola} % serif
@@ -38,6 +51,7 @@
 \usepackage{bigdelim}
 \usepackage{booktabs}
 \usepackage{array}
+\usepackage{listings}
 
 % Bibliography, Citations, and Footnotes
 \usepackage[hyphens]{url}
@@ -65,6 +79,8 @@
 \def\skald/{\textit{Skald}}
 \def\problemplanets/{\textit{Problem Planets}}
 \def\facade/{\textit{Fa\c{c}ade}}
+
+\def\githuburl/{\url{https://github.com/solsword/dunyazad}}
 
 \def\clingo/{\texttt{clingo}}
 
@@ -215,6 +231,46 @@
 }%
 }
 
+% File listings:
+\lstset{%
+  language=Prolog,%
+  basicstyle=\scriptsize\ttfamily,%
+  commentstyle=\ttfamily\itshape\color{gray},%
+  numbers=left,%
+  numberfirstline=true,%
+  numberstyle=\tiny,%
+  stepnumber=5,%
+  numbersep=8pt,%
+  xleftmargin=18pt,%
+  captionpos=t%
+}
+\fancypagestyle{listing}{
+  \fancyhead{}
+  \fancyfoot{}
+  \fancyhead[LE,RO]{\thepage}
+  \fancyhead[RE]{\leftmark}
+  \fancyhead[LO]{\rightmark}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+  \fancyfoot[CO,CE]{---~\texttt{\lastxmark}~---}
+}
+\newcommand{\lfile}[3]{%
+{
+\vspace*{2\baselineskip}
+\setstretch{1.2}
+\addtolength{\baselineskip}{0pt plus 1pt minus 1pt}
+\centering
+\needspace{8\baselineskip}
+\textbf{---~\large\texttt{#2}~---} \\
+\vspace*{0.7\baselineskip}
+\extramarks{#2}{#2}
+\hrule
+\raggedright
+\lstinputlisting[firstnumber=1,name=#2,label=#3]{#1}
+\extramarks{}{}
+}
+}
+
 
 \DeclareRobustCommand\encircle[1]{% NON-HEVEA
 \tikz[baseline=(X.base)]  % NON-HEVEA
@@ -262,6 +318,12 @@
 \appendix
 \begin{appendices}
 \input{ap-nlg.tex}
+
+\cleardoublepage
+\pagestyle{listing}
+\input{ap-src.tex}
+\cleardoublepage
+\pagestyle{default}
 \end{appendices}
 
 \backmatter
