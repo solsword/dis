@@ -321,6 +321,8 @@ This method is grounded in player goals: it views each option and outcome throug
 The basic idea is to carefully break down how the options and outcomes relate to player goals, attempting to consider as many details as possible, and then synthesize those detailed assessments back into high-level assessments of the choice as a whole.
 %
 The next section describes the methodology used to come up with this analysis method, while the following section describes in detail how a discrete, explicit choice is represented for this analysis, and the seven analysis steps are described in the remaining sections.
+%
+Finally, an example of the application of the analysis technique is presented in \cref{sec:analysis-example}.
 
 
 \begin{figure}[!p]
@@ -807,6 +809,209 @@ A full picture of how player feels after a choice combines prospective and retro
 Options other than the chosen one can still influence the overall impression, especially by accentuating bad results (when multiple options seemed promising) or good results (when all options seemed bad).
 %
 Regret in particular is an example of a poetic effect that depends heavily on the nature of options-not-chosen (this is backed up by experimental data presented in \cref{ch:outcome-results}; see for example the discussion of regret in \cref{sec:results-about-regret}).
+
+
+\begin{figure}[!b]
+\centering
+\includegraphics[width=\textwidth]{fig/papers-please-visa-choice.png}
+\caption[Visa approval in \papersplease/]{A screenshot from \papersplease/ showing the interface as the player makes a decision about whether to approve or deny a visa application.}
+\label{fig:visa-choice}
+\end{figure}
+
+\subsection{Analysis Example}
+\label{sec:analysis-example}
+
+To help understand the analysis technique presented here a bit better, it's useful to look at an example of its application.
+%
+Consider the choice shown in \cref{fig:visa-choice}, from the game \papersplease/ \citep{PapersPlease}.
+%
+In \papersplease/, the player takes on the role of a border security worker in charge of approving or rejecting entry applicants in a fictional dictatorship.
+%
+Complicating the player's role is the fact that their job is their only means of earning money to support their family, whose food, shelter, and medical needs become more pressing as the game progresses.
+%
+By processing applicants, the player earns credits (regardless of whether an application is approved or denied), so there is an incentive to make decisions quickly (and to avoid accepting travelers who don't meet the entry requirements, as this \emph{will} result in penalties).
+%
+The game focuses heavily on ethical gray areas, and the construction of its choices is central to this.
+%
+Although the game has various elements that go beyond explicit choices, for each applicant the player must ultimately choose to either approve or reject their visa request, and these explicit choices can be analyzed using the framework developed here.
+
+
+\Cref{fig:visa-choice} shows the screen as the player is considering an entry application from a potential refugee.
+%
+The conversation transcript in the middle of the screen shows that this applicant claims that they will be killed if they return to their country of origin, and because of this, they seek entry despite lacking the required documents (an entry permit in this case).
+%
+However, the tenor of the game and the presence of applicants who will try to trick the player in various ways creates an atmosphere of suspicion, and so the player might suspect that this applicant is lying in order to gain entry.
+%
+As a closer analysis will show, this suspicion has interesting implications for the player's perception of this choice.
+
+\subsubsection{Goal Analysis}
+
+The first step of goal-based choice analysis is goal analysis, and in the absence of a real player to observe, a model player will have to suffice.
+%
+For the purposes of this analysis, we will assume that our model player is engaged mainly in avatar play and has the following goals (with the listed priorities):
+
+\begin{itemize}
+  \item \texttt{[high]} Provide for their family---the player wants to earn credits and avoid penalties in order to pay for food and shelter at the end of the round.
+  \item \texttt{[high]} Act ethically---as much as possible, the player wants to treat applicants ethically and avoid acting in ways that would intentionally harm them without reason.
+  \item \texttt{[medium]} Avoid being scammed---separate from their desire to earn credits, the player actively wants to identify dishonest applicants and deny them entry.
+  \item \texttt{[low]} Admit approved travellers---in line with ethical treatment in life-or-death scenarios, the player generally wants to treat travellers fairly by letting them in if they meet the requirements for entry. This goal has a lower priority, however.
+\end{itemize}
+
+Of course not all players will have these exact goals with these exact priorities, but we can assume that many players will incorporate similar goals, and use these to develop an initial impression which can be refined further if deemed necessary.
+%
+In particular, an initial analysis can be modified to account for differing goal priorities or the addition or subtraction of goals, and contrasting the resulting analysis can provide further information about a choice.
+%
+As analysis moves forward using this list of goals, there will be opportunities to judge the results that it produces at each step and refine it if that seems necessary.
+
+\subsubsection{Likelihood Analysis}
+
+After analyzing goals, the next step is to analyze outcome components.
+%
+To simplify the analysis, we will assume that there are only two options available to the player: ``approve'' and ``deny'' (in the game, other actions are possible, but but they all either simply defer the approve/deny choice or implicitly deny the application).
+%
+\Cref{tab:ex-likelihoods} shows outcome components and their likelihoods for this choice; this assumes that the player is already familiar with basic gameplay in \papersplease/.
+%
+In particular, the player knows that if they let this traveller in, their `mistake' will not go unnoticed, and they will both fail to earn a credit and receive a punishment for their transgression.
+%
+The player's doubts about the sincerity of the applicant are represented here as neutral likelihood estimates of four opposing outcomes.
+%
+If the applicant is telling the truth, then they are a refugee, and they are either saved by approval or condemned by denial.
+%
+At the same time, if they are lying, they are trying to gain entry unlawfully, and thus approving their petition has different connotations.
+
+
+This is an example of how uncertain outcomes can't always be mapped directly as outcome components.
+%
+If ``applicant is lying'' and ``applicant is telling the truth'' were used as outcome components, these wouldn't have straightforward relationships to the player's goals, as they would be mediated by ``applicant gains entry'' and ``applicant is denied entry'' outcomes.
+%
+Binding the truth status of the applicant's claims together with the end result for the applicant will simplify the goal analysis step as seen in the next section.
+
+\begin{table}[t]
+\centering
+\begin{tabular}{l l}
+  \toprule
+  \multicolumn{1}{c}{\textbf{Approve}} & \multicolumn{1}{c}{\textbf{Deny}} \\
+  \midrule
+  \texttt{[unlikely]} Earn a credit & \texttt{[likely]} Earn a credit \\
+  \texttt{[likely]} Don't earn a credit & \texttt{[unlikely]} Don't earn a credit \\
+  \texttt{[likely]} Get punished & \texttt{[unlikely]} Get punished \\
+  \texttt{[unlikely]} No punishment & \texttt{[likely]} No punishment \\
+  \texttt{[neutral]} Refugee is saved & \texttt{[neutral]} Refugee is saved \\
+  \texttt{[neutral]} Refugee is condemned & \texttt{[neutral]} Refugee is condemned \\
+  \texttt{[neutral]} Scam is rewarded & \texttt{[neutral]} Scam is rewarded \\
+  \texttt{[neutral]} Scam is thwarted & \texttt{[neutral]} Scam is thwarted \\
+  \bottomrule
+\end{tabular}
+\caption[Example likelihood analysis]{Likelihood analysis for the example choice shown in \cref{fig:visa-choice}.}
+\label{tab:ex-likelihoods}
+\end{table}
+
+
+\subsubsection{Option Analysis}
+
+Given the provide-for-family, act-ethically, avoid-scams, and admit-approved goals identified during goal analysis and the outcome components from likelihood analysis, the next step of goal-based choice analysis is to combine this information in an assessment of each option's perceived relationship to each player goal.
+%
+\Cref{tab:ex-option-analysis} shows the results, using the \lbl{enables}, \lbl{threatens}, \lbl{advances}, and \lbl{hinders} labels described in \cref{sec:cp-option-analysis}.
+%
+Note that the provide-for-family goal exhibits a strong distinction between the two cases, based on the \lbl{likely} and \lbl{unlikely} credit and punishment outcome components.
+%
+In contrast, the act-ethically and avoid-scams goals have only weak expectations, because the associated outcome components are uncertain.
+%
+The admit-approved goal is irrelevant here, because the applicant in question is not an approved traveller.
+
+
+The assignments in \cref{tab:ex-option-analysis} are based on individual outcome-component/goal relationships: the credit- and credit-related outcome components are relevant to the provide-for-family goal, while the other four outcome components relate to the act-ethically and avoid-scams goals.
+%
+As stated above, the breakdown of outcome components was chosen so that their relationships to player goals would be straightforward.
+%
+This allows the likelihood labels to capture any uncertainty in the situation, as opposed to having unclear or conditional relationships between outcome components and goals.
+
+\begin{table}[b]
+\centering
+\begin{tabular}{c l l}
+  \toprule
+  \textbf{Goal} & \multicolumn{1}{c}{\textbf{Approve}} & \multicolumn{1}{c}{\textbf{Deny}} \\
+  \midrule
+  \multirow{2}{9em}{\centering provide-for-family} & \lbl{threatens} & \lbl{enables} \\
+                                        & \lbl{hinders} & \lbl{advances} \\
+  \midrule
+  \multirow{2}{9em}{\centering act-ethically} & \lbl{enables} & \lbl{enables} \\
+                                 &               & \lbl{threatens} \\
+  \midrule
+  \multirow{2}{9em}{\centering avoid-scams} & \lbl{enables} & \lbl{enables} \\
+                                 & \lbl{threatens} & \lbl{threatens} \\
+  \midrule
+  admit-approved & $<$none$>$ & $<$none$>$ \\
+  \bottomrule
+\end{tabular}
+\caption[Example option analysis]{Option analysis for the example choice shown in \cref{fig:visa-choice}.}
+\label{tab:ex-option-analysis}
+\end{table}
+
+\subsubsection{Relative Option Analysis}
+
+The relative option analysis step looks for patterns in the results of option analysis, but in this case, the option analysis doesn't fit any established patterns.
+%
+In this case, known patterns can still be used as guideposts if we can figure out a known pattern that almost fits and analyze why it doesn't.
+%
+For this particular choice, it turns out that the \lbl{dilemma} pattern is a near match if the option analysis is a bit different.
+
+
+In fact, the player's doubt of the applicant's story is key here.
+%
+\Cref{tab:ex-revised-option-analysis} shows an alternative option analysis if the player assumes that the applicant is telling the truth.
+%
+Such an alternate assumption changes the likelihood analysis (not shown), making the refugee-related outcomes \lbl{likely}/\lbl{unlikely}, and the scam-related outcomes universally \lbl{unlikely}.
+%
+The results for the option analysis in \cref{tab:ex-revised-option-analysis} show that the \lbl{advances}/\lbl{hinders} dichotomy of the provide-for-family goal is now reversed at the act-ethically goal.
+%
+The resulting pairing of opposed \lbl{hinders} labels almost meets the requirements for the \lbl{dilemma} pattern, except that it also includes \lbl{enables}/\lbl{advances} assignments.
+%
+In fact, the \lbl{dilemma} pattern criteria in \cref{tab:prospective-impressions} is specific to a \emph{classic} dilemma where neither option has redeeming qualities, but in this case we have a dilemma where the choice is between two conflicting goals and in either case the one that isn't \lbl{hindered} will be \lbl{advanced}.
+
+
+Despite the caveats, we can see that if the player trusts the applicant they face a kind of dilemma.
+%
+This means that the original choice is like a dilemma, except for the issue of doubt: if the player trusts the applicant, they face an ethical quandary---a decision between feeding their family and sheltering a refugee.
+%
+However, if the player begins to doubt the applicant, the results of option analysis indicate that denying the application is clearly superior to approving it: denying the application \lbl{advances} a high-priority goal that approving it would \lbl{hinder}, and no other high-priority goals include such a clear distinction in terms of expected outcomes.
+
+
+Looking at this result, we can see a broader message that \papersplease/ is trying to convey.
+%
+In this choice and others through the game, would-be ethical dilemmas are tilted by doubt, and the overall formula becomes ``dilemma $+$ doubt $\rightarrow$ complicity''---by introducing doubt about the people who want to cross the border, while making the risk/reward situation clear with respect to the player's prospects for feeding their family, the player's choices are tilted towards complicity with the regime's calculating but ultimately inhumane priorities.
+%
+The callous response---leaving the potential refugee to their fate---becomes the rational one, and every would-be smuggler further justifies these decisions.
+%
+\papersplease/ is TODO: HERE
+
+
+\begin{table}[b]
+\centering
+\begin{tabular}{c l l}
+  \toprule
+  \textbf{Goal} & \multicolumn{1}{c}{\textbf{Approve}} & \multicolumn{1}{c}{\textbf{Deny}} \\
+  \midrule
+  \multirow{2}{9em}{\centering provide-for-family} & \lbl{threatens} & \lbl{enables} \\
+                                        & \lbl{hinders} & \lbl{advances} \\
+  \midrule
+  \multirow{2}{9em}{\centering act-ethically} & \lbl{enables}  & \lbl{threatens} \\
+                                              & \lbl{advances} & \lbl{hinders} \\
+  \midrule
+  avoid-scams & $<$none$>$ & $<$none$>$ \\
+  \midrule
+  admit-approved & $<$none$>$ & $<$none$>$ \\
+  \bottomrule
+\end{tabular}
+\caption[Example option analysis]{Option analysis for the example choice shown in \cref{fig:visa-choice}. This analysis assumes that the applicant is telling the truth about their situation (compare this table to \cref{tab:ex-option-analysis}).}
+\label{tab:ex-revised-option-analysis}
+\end{table}
+
+\subsubsection{Outcome Component Analysis}
+
+\subsubsection{Full Outcome Analysis}
+
+\subsubsection{Retrospective Analysis}
 
 
 \section{Overview \& Future Work}
