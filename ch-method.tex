@@ -89,10 +89,15 @@ However, in my case, as the theory is still under development, many of my hypoth
 
 Because I'm developing both the theory and the system, the goals of my experiments are not to confirm existing theories, but to help suggest whether proposed theories are viable.
 %
-Of course, the experiments also help validate the capabilities of my system, so they serve a dual purpose: they validate my system's capabilities, and also explore several tentative directions for theoretical development.
+For example, although grossly incomplete or misguided theories will fail to produce the expected results when used to generate choices, some subtle confusions or ambiguity may work in the generative case but fall flat when used in an attempt to analyze existing choices.
 %
-\Cref{ch:option-results,ch:outcome-results} present the results of two such exploratory experiments, and the analysis in those chapters illustrates how results can shed light on both the system and the theory that it implements.
-
+While the exploratory experiments described here establish my theory's capacity to be used in \emph{generating} choices, they are not designed to measure its \emph{predictive} or \emph{explanatory} capacity.
+%
+Once the theory of choice poetics reaches a satisfying stability as demonstrated by experimental successes in generating choices, further experiments designed to measure its predictive and explanatory power would be in order.
+%
+Of course, the experiments described here also help test \dunyazad/, so they serve a dual purpose: they validate my system's capabilities, and also provide high-level feedback for theoretical development.
+%
+\Cref{ch:option-results,ch:outcome-results} present the results of two exploratory experiments, and the analysis in those chapters illustrates how results can shed light on both the system and the theory that it implements.
 
 \section{System Development drives Theory Refinement}
 
@@ -121,6 +126,22 @@ The solution at a system level is of course to declare that states which change 
 Although this was clearly a bug in my system, finding it also helped me add nuance to my theory: it reminded me that perceptions of goal progress are not just dependent on states which directly affect those goals, but also on other conditions that might make it more difficult for a goal to succeed.
 %
 A theory developed in the abstract might just talk about ``conditions that either positively or negatively impact a player goal,'' but as a result of having to define those conditions in a way that a computer can understand, I can refine my theory by giving a list of some such conditions and caveats to take into account during analysis.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[height=0.45\textheight]{fig/hybrid-research-method-crop.pdf}
+\caption[Hybrid Research Method]{The general flow of hybrid theory/system development.}
+\label{fig:hybrid-research-method}
+\end{figure}
+
+
+\Cref{fig:hybrid-research-method} illustrates the basic flow of joint system and theory development: intuitions and existing theories seed a nascent theory of choice poetics, which in turn informs the development of a generative system.
+%
+That system produces example choices based on the theory, which provide the material for experiments that test the theory.
+%
+These experiments produce concrete counterexamples---cases where reasoning based on the theory produces an unexpected result---and these counterexamples are used to both debug the choice-point generator and refine the theory.
+%
+Note that the production of concrete counterexamples is only possible because the choice-point generator's operation is transparent: the reasoning used to produce examples can be traced back to theoretical statements when those examples lead to unexpected results.
 
 
 \section{Related Methodologies}
