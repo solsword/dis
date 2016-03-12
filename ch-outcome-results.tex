@@ -26,7 +26,7 @@ Because the results from testing \dunyazad/'s prospective impression subsystem w
 In this experiment both prospective and retrospective impression constraints were used to create six kinds of choices defined in terms of their prospective and retrospective impressions (see \cref{tab:prospective-impressions,tab:retrospective-impressions,tab:dunyazad-outcome-feel-structures}):
 
 \begin{itemize}
-  \item \lbl{Expected Success}---These choices have three options which present themselves as leading to success, and each option has a successful outcome. In terms of \prq{outcome\_feel}{} values (see \cref{tab:dunyazad-outcome-feel-structures}) each option at these choices is an \exps option. No matter which option a participant selects, they will be picking an option that suggests success, and they will get a successful outcome (as far as \dunyazad/ understands things).
+  \item \lbl{Expected Success}---These choices have three options which present themselves as leading to success, and each option has a successful outcome. In terms of \prq{outcome\_feel}{} values (see \cref{tab:dunyazad-outcome-feel-structures}) each option at these choices is an \exps{} option. No matter which option a participant selects, they will be picking an option that suggests success, and they will get a successful outcome (as far as \dunyazad/ understands things).
   \item \lbl{Expected Failure}---The opposite of expected success: every option suggests and results in failure. Internally, each option is an \expf{.}
   \item \lbl{Unexpected Failure}---These choices consist of three \prq{unfair}{} options. In other words, each option seems as though it will be successful, but each ultimately results in failure. These choices should appear largely the same as \exps{} choices before an option is chosen.
   \item \lbl{Unexpected Success}---The opposite of unexpected failures, these choices consist of three \prq{miracle}{} options---each indicates failure but results in success. These choices mimic ``expected failure'' options until the player selects an option and sees an outcome.
@@ -318,7 +318,7 @@ In particular, hypotheses having to do with options being balanced or there bein
 \setlength{\tabcolsep}{0.6em}
 \input{tab/retrospective-outcomes-hypotheses-table-custom.tex}
 \egroup
-\caption[Retrospective outcome hypotheses]{Outcome-related hypotheses for the retrospective study. Each column lists two conditions in each half of the table; these conditions the same expected and actual outcome valences, and are thus predicted to elicit the same responses. Eight conditions are listed here because the \prq{obvious\_}{} conditions have sub-cases: [main] for participants who chose the ``best'' option and [alt] for participants who chose otherwise. These sub-cases arise because participants experience outcomes with different valences depending on the option they choose.}
+\caption[Retrospective outcome hypotheses]{Outcome-related hypotheses for the retrospective study. Each column lists two conditions in each half of the table; these conditions have the same expected and actual outcome valences, and are thus predicted to elicit the same responses. Eight conditions are listed here because the \prq{obvious\_}{} conditions have sub-cases: [main] for participants who chose the ``best'' option and [alt] for participants who chose otherwise. These sub-cases arise because participants experience outcomes with different valences depending on the option they choose.}
   \label{tab:e2-outcome-hypotheses}
 \end{table}
 
@@ -740,6 +740,7 @@ In future studies, it might also be more productive to just ask participants to 
 
 
 \subsection{Dilemma Cases---Competing Goals}
+\label{sec:e2-competing-goals}
 
 Another point of interest among the option-related results was the data's failure to support the hypotheses that the \expf{} and \unxs{} cases would be viewed as having ``no good options.''
 %
@@ -817,7 +818,7 @@ When it comes to evaluating the outcome-related hypotheses, these choices didn't
 
 
 \subsection{Problems with \prq{travel\_onwards}{}}
-
+\label{sec:e2-travel-onwards}
 
 Besides choices in the two dilemma conditions, two other choices---the \obvs{} choices with seeds 47371 and 20739---also included \prq{travel\_onwards}{} options.
 %
@@ -887,7 +888,7 @@ This response was given by a participant who saw choice 95923, an \obvf{} choice
 %
 The fact that players are factoring costs into their decisions but \dunyazad/ is not tracking them is a problem.
 %
-Of course, the quote above reveals another problem: the choice with seed 95923 was supposed to be ``obvious'' choice with a single best option.
+Of course, the quote above reveals another problem: the choice with seed 95923 was supposed to be an \prq{obvious}{} choice with a single best option.
 %
 How did \dunyazad/ justify having two options that include positive skill indications?
 %
@@ -980,7 +981,7 @@ Because several of the choices listed above had problems with option perceptions
 %
 Choices 47794 (see \cref{fig:e2-seed-47794}) and 33152 (not shown) together account or 24 of the 35 \unxs{} responses, and as already discussed, they each included a popular option that \emph{in light of its outcome} did not seem like a bad option.
 %
-Because the option text along didn't give players a strong negative expectation for these options, positive results were not only not surprising; they made the option seem like it had been a good one from the start.
+Because the option text alone didn't give players a strong negative expectation for these options, positive results were not only not surprising; they made the option seem like it had been a good one from the start.
 
 
 The fact that participants marked the outcomes of these options as expected might also point to a different effect: player trust in game-like systems.
@@ -1057,6 +1058,8 @@ Because \dunyazad/ generated a ``defeat'' with no negative consequences attached
 Of course, participants felt otherwise: of the four participants that selected that option, three gave the anomalous responses to the valence questions shown in \cref{fig:e2-seed-99500-plus} and the fourth supplied both neutral responses.
 %
 The disconnect here between the text and \dunyazad/'s internal representation of the world causes a rift between its predictions and player's actual impressions.
+%
+Furthermore, one can question whether \dunyazad/ should be able to generate such a situation in the first place: shouldn't ``defeat'' come bundled with a negative consequence such as being at the mercy of the victor?
 %
 In this case, the effect was isolated enough that it didn't upset any hypotheses, but forcing a clear link between every outcome reflected in the text and a definite internal state would help avoid situations like this.
 
@@ -1144,9 +1147,9 @@ Besides the fact that these choices don't set up strong expectations with their 
 %
 For example, in the third outcome of choice 46585, while it's true that failing to get rid of an accusation as intended is a bad thing, it's not necessarily awful: maybe the player will get another chance to address the situation before something really bad happens.
 %
-Similarly in outcome three of choice 28306, despite sustaining an injury the overall battle ends in a draw.
+Similarly in outcome three of choice 28306, despite sustaining an injury the overall battle ends in a draw (which the player might further perceive as ending the ogre's threat, although in the system's representation of the world the threat persists).
 %
-While these \emph{are} negative outcomes (and the results show that participants understood this), are they negative enough to be considered ``unfair'' with respect to the expectations set up by the option text?
+While these \emph{are} negative outcomes (and the results for the statement ``I got a bad outcome'' show that most participants agreed on this), are they negative enough to be considered ``unfair'' with respect to the expectations set up by the option text?
 %
 The subjects in the study didn't think so, and thus the hypotheses that these conditions would be perceived as unfair and possibly broken were not supported.
 
@@ -1173,7 +1176,7 @@ If an author is intentionally trying to create a choice that is perceived as unf
 
 Another unexpected result in the unexpected failure column was the fact that participants weren't dissatisfied with their decisions at \obvf{} choices.
 %
-In retrospect, these hypotheses were poorly thought out: the \obvfm{} case should one in which a participant selects what appears to be the only available good option, but is given a negative outcome.
+In retrospect, these hypotheses were poorly thought out: the \obvfm{} case should be one in which a participant selects what appears to be the only available good option, but is given a negative outcome.
 %
 Although one would expect such outcomes to be perceived as bad (which they were), the questions about satisfaction were asking whether participants \emph{would rather have picked a different option.}
 %
@@ -1186,7 +1189,7 @@ The answers that I got reflected these competing impulses: the ``satisfied'' and
 %
 \Cref{fig:e2-seed-8638,fig:e2-seed-28306} (just shown) show the two choices that had any \casem{} responses in the \obvf{} condition; the data in \cref{fig:e2-obvious-failure-main-detail-regret-expected} all comes from the 20 participants who chose the most popular options at one of those choices.
 %
-While choice both choices are split, choice 28306 leans a bit more towards satisfaction, which may reflect being perceived as more fair, as just discussed.
+While both choices are split, choice 28306 leans a bit more towards satisfaction, which may reflect being perceived as more fair, as just discussed.
 %
 Ultimately, the hypotheses that the \obvfm{} case would leave players feeling dissatisfied with their choice was shortsighted, and the mixed results that I got should have been expected given the tension between a bad result and a lack of viable alternatives produced by these choices.
 
@@ -1687,7 +1690,7 @@ It's also the case that these shortfalls don't fundamentally invalidate that goa
 %
 After all, when \dunyazad/ \emph{doesn't} make a mistake, it can be eerily good at creating choices that a variety of people respond to in the same way: an obvious choice like choice 47371 can convince 11/13 participants to choose the option that the system thinks is best.
 %
-Although \dunyazad/ is somewhat ham-handed in its construction of options, remember that it is only guidance in selecting actions and outcomes is the operationalization of goal-based choice analysis described in \cref{sec:dunyazad-choice-generation}.
+Although \dunyazad/ is somewhat ham-handed in its construction of options, remember that its only guidance in selecting actions and outcomes is the operationalization of goal-based choice analysis described in \cref{sec:dunyazad-choice-generation}.
 %
 The success of \dunyazad/'s better choices is convincing proof that the goal-based choice analysis method offers at least some insight into how players make decisions.
 
@@ -1776,7 +1779,7 @@ In neither case do the results completely invalidate a definition.
 %
 Instead, results that show flaws in \dunyazad/'s mechanical reasoning serve to highlight the human faculties that must be brought to bear on the problem.
 %
-For example, \dunyazad/'s current lacks the ability to properly reason about moral injunctions, such as ``You must help others,'' which are limited by exceptions like ``Unless you must put yourself at risk to do so.''
+For example, \dunyazad/ currently lacks the ability to properly reason about moral injunctions, such as ``You must help others,'' which are limited by exceptions like ``Unless you must put yourself at risk to do so.''
 %
 Luckily, humans have this capacity, and the fact that its lack can derail the construction of an obvious choice in \dunyazad/'s case is evidence that humans should be careful to exercise it when evaluating such choices (or when constructing them themselves).
 %

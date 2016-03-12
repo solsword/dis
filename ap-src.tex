@@ -1,4 +1,5 @@
 \chapter{\dunyazad/'s ASP Code}
+\pagestyle{listing}
 \label{ap:src}%
 
 This appendix contains listings for all of \dunyazad/'s core answer set code, which run together can be used to produce a single choice.
@@ -19,6 +20,7 @@ This Python code is called internally by \file{clingo} during the solving proces
 \lfile{src/rules/utils.lp}{utils.lp}{src:utils}
 
 \section{Core Files}
+\label{sec:src-core}
 
 The core files include all of \dunyazad/'s main constraints, and are summarized in \cref{tab:dunyazad-constraints-inventory}.
 %
@@ -43,6 +45,7 @@ Those files do rely heavily on predicates defined by core files to concisely spe
 \lfile{src/rules/story/vignettes.lp}{vignettes.lp}{src:vignettes}
 
 \section{Goal Definitions}
+\label{sec:src-goals}
 
 These files, from the \file{content/} directory, each specify how a single goal works.
 %
@@ -59,6 +62,7 @@ These three goals extend the normal state-based goal definition format a bit by 
 \lfile{src/rules/story/content/g-reclaim\string_property.lp}{g-reclaim\_property.lp}{src:g-reclaim-property}
 
 \section{Action Definitions}
+\label{sec:src-actions}
 
 These files, also from the \file{content/} directory, each define a single action.
 %
@@ -160,3 +164,5 @@ The \prq{teaches\_skill}{} predicates in the \file{books.lp} file are unfortunat
 \lfile{src/rules/story/content/items/tools.lp}{tools.lp}{src:tools}
 \lfile{src/rules/story/content/items/treasure.lp}{treasure.lp}{src:treasure}
 \lfile{src/rules/story/content/items/weapons.lp}{weapons.lp}{src:weapons}
+
+\pagestyle{default}

@@ -562,7 +562,7 @@ To do this I broke down the results by individual questions within a treatment a
 
 \begin{figure}[!h]
   \includegraphics[width=\textwidth]{fig/relaxed-q1.pdf}
-  \caption[``No bad options'' prospective responses]{A graph of responses to question 1 under the \rlx{} treatment. The three numbers are the seeds used to generate the three different choices for this treatment. The graph setup is the same as in \cref{fig:e1-report}.}
+  \caption[``No bad options'' responses for relaxed choices]{A graph of responses to question 1 under the \rlx{} treatment. The three numbers are the seeds used to generate the three different choices for this treatment. The graph setup is the same as in \cref{fig:e1-report}.}
   \label{fig:e1-relaxedq1}
 \end{figure}
 
@@ -622,13 +622,20 @@ The other two questions in the \rlx{} category each included three options which
 %
 In light of the survey results, it is clear that to construct choices that unambiguously have ``no bad options'' the system should not only require that each option works towards a player goal, but that each option is balanced against all others.
 
+
 \subsection{Balancing Failures}
+
+\begin{figure}[!h]
+  \includegraphics[width=\textwidth]{fig/dilemma-q5.pdf}
+  \caption[``Balanced options'' responses for dilemmas]{A graph of responses to question 5 under the \dlm{} treatment. The three numbers are the seeds used to generate the three different choices for this treatment. The graph setup is the same as in \cref{fig:e1-report}.}
+  \label{fig:e1-dilemmaq5}
+\end{figure}
 
 Another unsupported hypothesis was that in the \dlm{} treatment participants would agree with the statement ``All of the options at this choice are about equally promising.''
 %
 I expected this because one of the constraints of the \dlm{} treatment was that all of the threatened goals should have the same priority.
 %
-However, even for the individual choice in the \dlm{} treatment where participants reported the most agreement, 30\% of participants answered ``somewhat disagree.'' 
+However, as shown in \cref{fig:e1-dilemmaq5}, even for the individual choice in the \dlm{} treatment where participants reported the most agreement, 30\% of participants answered ``somewhat disagree.'' 
 
 
 \begin{figure}[!h]
@@ -643,14 +650,41 @@ However, even for the individual choice in the \dlm{} treatment where participan
 %
 For the first two choices, option two is a clear loser, and looking at the choices, it's easy to see why.
 %
-Both of those choices (which are nearly identical) involve being attacked by a dragon.
+Both of those choices (which are nearly identical) involve being attacked by a dragon (\cref{fig:e1-seed-11828} shows the first choice).
 %
 In both choices, option two is an option to attack the dragon yourself, but of course you have neither the ``fighting'' skill nor a weapon, and the dragon has both.
 %
 Although you also lack relevant skills for the other options, making a desperate attempt to flee from or pacify a dragon seems like a better choice than fighting it (at the very least, it did to all of my participants).
 
+\begin{figure}[!b]
+\centering
+\fbox{
+\parbox{0.95\columnwidth}{
+  \quoteshape
 
-There are three factors contributing to the system's divergence from players' analysis of the options.
+As you continue your journey, a dragon swoops down from the skies, scales glinting in the sun.
+%
+It is threatening you.
+%
+What do you do?
+
+
+\begin{enumerate}[itemsep=0pt,topsep=4pt,parsep=0pt,partopsep=0pt]
+\item You try to flee from the dragon \\
+      (You are missing skill: wilderness lore. It has skill: wilderness lore).
+\item You attack the dragon \\
+  (You are missing skill: fighting. It has skill: fighting. It has some claws).
+\item You attempt to pacify the dragon with music \\
+  (You are missing skill: musician).
+\end{enumerate}
+}
+}
+\caption[``Dilemma'' choice 11828]{The \dlm{} choice with seed 11828 (minus the framing, which is largely the same as that shown in \cref{fig:exframing}).}
+  \label{fig:e1-seed-11828}
+\end{figure}
+
+
+There are at least three factors that might contribute to the system's divergence from players' analysis of these choices.
 %
 The first has to do with the granularity of expectations, the second with the granularity of goal priorities, and the third with stacking goals.
 
@@ -699,22 +733,53 @@ In this case, even when told that the situation is hopeless (or perhaps especial
 Based on this data, the system should be improved by adding more detail to its assessments of goal failure and success.
 
 
+\begin{figure}[!h]
+\centering
+\fbox{
+\parbox{0.95\columnwidth}{
+  \quoteshape
+
+You come to a tavern and decide to rest for a while.
+%
+A merchant is bored and a noble is bored and an innkeeper seems knowledgeable.
+%
+What do you do?
+
+\begin{enumerate}[itemsep=0pt,topsep=4pt,parsep=0pt,partopsep=0pt]
+  \item You play a song for the noble \\
+        (You have skill: musician. You have no tool for music).
+  \item You gossip with the innkeeper \\
+    (You are missing skill: negotiation).
+  \item You play a song for the merchant \\
+        (You have skill: musician. You have no tool for music).
+\end{enumerate}
+}
+}
+\caption[``Dilemma'' choice 72724]{The \dlm{} choice with seed 72724 (minus the framing, which is largely the same as that shown in \cref{fig:exframing}).}
+  \label{fig:e1-seed-72724}
+\end{figure}
+
+
 Any one of these corrections would help this particular case, but especially given that \dunyazad/ also has difficulty producing balanced positive options as mentioned in the previous sub-section, I suspect a more focused approach would be better.
 %
 After all, the likelihood reasoning \emph{is} doing a good job of predicting which options players will view positively or negatively; it just has a hard time figuring out whether options are equally positive or equally negative.
 %
-Rather than further overload the current reasoning, an additional subsystem dedicated to direct relative analysis of options should be added.
+As \cref{fig:e1-dilchoices} shows, even the last dilemma choice (shown in \cref{fig:e1-seed-72724} produced a somewhat skewed pattern of player decisions.
+%
+Even though the reason for players to have a preference may be different for this choice (perhaps the difference in tool availability?) the choices here were also not perceived as balanced (see \cref{fig:e1-dilemmaq5}).
+%
+Rather than further overload the current reasoning, an additional subsystem dedicated to direct relative analysis of options should be added to address problems like these.
 %
 This system could separately maintain more-nuanced representations of goal priorities and outcome likelihoods, and then build arguments as to why each option is more- or less-desirable than each other option.
 %
-In many cases, this nuanced relative analysis could be short-circuited when the old low-fidelity analysis detects a difference.
+In many cases, this nuanced relative analysis could be short-circuited when the old low-fidelity analysis detects a clear difference.
 
 
 In terms of the choice analysis method presented in \cref{ch:choice-poetics}, this exact problem was already mentioned in \cref{sec:cp-relative-option-analysis} (see the second paragraph where it talks about the balance of impacts).
 %
-I hypothesized here that \dunyazad/ would be able to fake a more detailed analysis by just insuring that the threatened goals had equal stakes, but that turned out not to be true.
+I hypothesized here that \dunyazad/ would be able to fake a more detailed analysis by just insuring that the threatened goals had equal priorities, but that turned out not to be true.
 %
-In this case, what was learned from \dunyazad/'s failure backs up the theory: dilemmas are a case which needs closer inspection.
+In this case, what was learned from \dunyazad/'s failure backs up the theory's point about balancing impacts: dilemmas are a case which needs closer inspection.
 %
 Getting this experimental result is still useful, because it provides a concrete example of why this is the case.
 
@@ -772,7 +837,7 @@ What do you do?
 \end{enumerate}
 }
 }
-\caption[``Obvious'' choice 21105]{The \obv{} choice with seed 21105.}
+\caption[``Obvious'' choice 21105]{The \obv{} choice with seed 21105 (discussed in \cref{sec:e1-conflicting-goals}).}
   \label{fig:e1-seed-21105}
 \end{figure}
 
@@ -806,9 +871,9 @@ On the other hand, the system's attempt to construct an obvious choice in this c
 %
 While it might seem like a contradiction to agree (as 3 participants did) with both the statement that a choice has equally promising options and the statement that it has a clear best option, this highlights the difference between outcomes-focused evaluation of individual options and choice-oriented option comparison.
 %
-The phrasing of ``All of the options at this choice are about equally promising,'' suggests evaluating each option independently and comparing those values roughly.
+The phrasing of ``All of the options at this choice are about equally promising,'' suggests evaluating the utility of each option independently and comparing those utilities.
 %
-In contrast, ``There is a clear best option at this choice,'' suggests comparing the options against each other to find one that is better than the others.
+In contrast, ``There is a clear best option at this choice,'' suggests comparing the options against each other directly to find one that is better than the others.
 %
 The fact that people often make decisions inconsistent with simple utility calculation is well-known (see e.g., \citep{Tversky1993}), so it should not be surprising that a context in which someone is asked to make a decision might elicit a different response than a context in which someone is asked to rate responses.
 
@@ -831,7 +896,7 @@ If someone had played a few of \dunyazad/'s output stories already, they'd have 
 If the players knew what to expect from both success and failure at these actions, and had a stronger sense of the role skills play in determining outcomes, they wouldn't get their hopes up, and the choice \emph{would} be ``obvious.''
 
 
-That is the deeper issue here as well: the simple notions of ``success'' and ``failure'' when performing an action often don't correspond to overall positive an negative results when an action isn't clearly oriented towards some pressing player goal.
+That is the deeper issue here as well: the simple notions of ``success'' and ``failure'' when performing an action often don't correspond to overall positive and negative results when an action isn't clearly oriented towards some pressing player goal.
 %
 For example, an attempt to ``gossip'' despite lacking the relevant skill seems like it might still yield interesting results, and it isn't likely to be disastrous.
 %
@@ -842,7 +907,7 @@ In other words, \dunyazad/ is doing a good job of manipulating player expectatio
 However, when \dunyazad/ attempts to use low-priority goals in the same fashion, players don't follow its lead: ``My gossiping probably won't go `as intended?' Well, it might still be awesome!''
 
 
-The simplest response to this is to just tread carefully when creating using low-stakes choices and assume that some of them aren't going to get the result you want, while making sure to use high-stakes choices if a particular property like obviousness is critical.
+The simplest response to this is to just tread carefully when using low-stakes choices and assume that some of them aren't going to get the result you want, while making sure to use high-stakes choices if a particular property like obviousness is critical.
 %
 In the longer term, \dunyazad/ should recognize things like the desire to explore rather than always travel the beaten path (especially when the stakes are low).
 %
@@ -854,6 +919,7 @@ Second, these questions, when successful, may subtly influence players by commit
 
 
 \subsection{Conflicting Goals}
+\label{sec:e1-conflicting-goals}
 
 
 My hypothesis that respondents would not find \obv{} choices difficult highlights a different choice in the \obv{} category.
@@ -916,7 +982,7 @@ Statistics confirm the obvious: not only did the high-stakes condition elicit si
 %
 Because all of the \rlx{} choices were low-stakes by design, there is of course correlation between the stakes and the treatments, but the 35 high-stakes cases were about evenly distributed between the \obv{} and \dlm{} treatments (16 in \obv{} and 19 in \dlm{}).
 %
-Such an overwhelming effect (none of the 35 respondents who saw a high-stakes choices thought it would \emph{not} have important consequences) further indicates that the system is successful in predicting high-stakes player goals: for 94\% of choices where the system thought that an important player goal was affected, players agreed at least somewhat that the consequences seemed important.
+Such an overwhelming effect (none of the 35 respondents who saw a high-stakes choice thought it would \emph{not} have important consequences) further indicates that the system is successful in predicting high-stakes player goals: for 94\% of choices where the system thought that an important player goal was affected, players agreed at least somewhat that the consequences seemed important.
 
 
 \section{Conclusions}

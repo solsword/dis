@@ -15,6 +15,52 @@ Rather than simply hack away at  my system until I got results that I liked and 
 In the end, the system has become as much a tool for the development of the theory as the theory is a tool for the development of the system, and my research methodology has become a hybrid of AI systems development and narrative theoretics.
 
 
+\section{Two Approaches}
+
+Faced with the problem of coming up with a theory about how choices produce poetic effects (a theory of \emph{choice poetics}), the approach that a student of classical poetics might take would begin by identifying key works of choice-based narrative.
+%
+Given such a corpus of important works, a theorist could study them carefully and attempt to observe patterns in their choice structures to build a general theory of choice poetics.
+%
+Such a theory would be anchored by strong examples from particular well-known choice-based narratives, and might also use comparisons between contrasting choice structures to show the relationships between particular choice structures and specific poetic effects.
+%
+Individual contributors to such a theory might analyze specific important works or look at particular affects across a range of works.
+
+
+All of the techniques just mentioned are established approaches in the humanities, and have been used to understand the poetics of linear narratives.
+%
+Together, they might be called the ``classic approach'' to the problem.
+%
+In contrast, the method described here might be called an ``experimental approach.''
+%
+Instead of relying on general principles extracted carefully from many examples via human reasoning, the experimental approach uses a mechanism for automatically constructing examples based on principles in order to subject principles to experimental testing.
+%
+In other words, the experimental approach takes intuitions or other nascent theories about how choice poetics work and validates or refines them via experimentation.
+
+
+This experimentation takes the form of constructing choices using some initial principles, and then observing those choices in order to understand whether the principles used are working as desired.
+%
+When mismatches are found between what the experimenter expects and the choices that are generated based on initial principles, these are used to refine the principles into a more robust theory.
+%
+Key to this process is a system that can generate choices from principles \emph{in a manner that avoids human biases}.
+%
+After all, if the procedure for generating examples based on principles is simply ``Ask a human to apply the principles and construct choices,'' the human creator will employ not only the principles being tested but also their own common-sense reasoning and biases to the problem, potentially hiding certain inadequacies of the theory.
+%
+Productive experimentation is thus enabled by \emph{inhuman} reasoning during example generation (such as that of an answer-set solver).
+
+
+Both the classic approach and the experimental approach have their own strengths and weaknesses.
+%
+The classic approach depends heavily on the insight of the theorists who contribute to it, and often develops idiosyncratically according to their particular interests.
+%
+However, it has more potential to provide insight about complex phenomena which may be difficult to capture in the kind of generative system that the experimental approach requires.
+%
+On the other hand, the experimental approach requires effort to develop and maintain a generative system, and sometimes ends up producing results that seem trivial in retrospect.
+%
+The experimental approach results in theories which are more specific, however, and tends to discover caveats that the classic approach omits because they seem simple or obvious.
+%
+Critically, however, the two theories are not exclusive: they can be pursued simultaneously and both benefit from this arrangement.
+
+
 \section{Hybrid Theory/System Development}
 
 Part of my research is straightforward from a computer science perspective: I want to build a computer system that does something new (in this case generate choices).
@@ -77,8 +123,41 @@ Although this was clearly a bug in my system, finding it also helped me add nuan
 A theory developed in the abstract might just talk about ``conditions that either positively or negatively impact a player goal,'' but as a result of having to define those conditions in a way that a computer can understand, I can refine my theory by giving a list of some such conditions and caveats to take into account during analysis.
 
 
-Thus the results of working with a concrete system tend to lead to a more detailed theory.
+\section{Related Methodologies}
+
+The approach described here can be contrasted with existing methodologies in artificial intelligence.
 %
-\Cref{ch:option-results,ch:outcome-results} present results from two experiments and include information on how the data gathered was used to improve both \dunyazad/ (described in \cref{ch:dunyazad}) and the theory of choice poetics (\cref{ch:choice-poetics}).
+One popular approach in the early days of the field was to set computer programs up as models of human cognition and then test both how well they corresponded to human thought processes and how they performed overall as a means of discovering how intelligence works in general (see e.g., \citep{Newell1976,Simon2006}).
+%
+My approach maintains the program as explicitly separate from the theory, however, and views the program not as a simple incarnation of the theory but as a potentially distorted version which is nevertheless a useful tool for refining the theory.
+%
+While someone like Herbert Simon might claim that a program \emph{is} a theory (of, for example, cognition), I want to claim that my program \emph{operationalizes} a theory (of choice poetics) and can therefore be a useful tool for revising that theory despite its differences.
+%
+The distinction here has much to do with the efficiency of prose as a means of capturing ideas too complex for formal code: If one compares the theory (an idea) described in \cref{ch:choice-poetics} with the ideas latent in the code listed in \cref{ap:src}, it becomes obvious that the ideas invoked by the prose are much more sophisticated and nuanced than those that could be captured by the code (although of course they are less formal and specific).
+%
+Especially when a theory deals with something so inherently subjective as human emotional responses to art, tying the theory to a purely formal and procedural structure such as a program seems to impoverish it, and the many caveats to the program's analysis of human perceptions discussed in \cref{ch:option-results,ch:outcome-results} bear witness to this.
+
+
+One major critic of the theory-as-program idea in artificial intelligence was Phil Agre, who argued that the AI systems of his day were limited by the false equivalences the set up between specific computer procedures and general aspects of human thought \citep{Agre1997}.
+%
+For example, the word ``planning'' denoted a very specific kind of computational procedure in the AI literature of the 1970's, but this specific approach was often discussed as if it were equivalent to the common-language meaning of the word in everyday life.
+%
+Agre argues persuasively that equating the two concepts limits the imagination of computer scientists, who might otherwise be inspired to invent a variety of algorithms by the wide range of activities to which humans apply the word ``planning.''
+%
+Agre advocated the application of critical theory to AI and AI discourse: computer scientists should defamiliarize their subjects of study, identify the centers and margins of the metaphors that they use, and seek to come up with new ideas and approaches that can recenter the margins of existing theories.
+
+
+Ultimately, I view my methodology as one inspired by Agre's vision.
+%
+Rather than equate my system with a theory, I view the system and theory as joint efforts which can inform each other, and the system's role is not simply to model what the theory describes, but also to inform the theory when its descriptions are insufficient.
+%
+In this respect the computer system has explicitly become a tool for \emph{interrogating} the theory, as opposed to a representation designed only to validate it.
+%
+Accordingly, when the system fails, the response is not simply ``The system has been found to be an imperfect implementation of the theory,'' but a process of blame assignment between the system and the theory which often leads to changes in both.
+
+
+Thus the results of working with a concrete system ultimately lead to a more detailed theory.
+%
+As evidence of this process, \cref{ch:option-results,ch:outcome-results} present results from two experiments and include information on how the data gathered was used to improve both \dunyazad/ (described in \cref{ch:dunyazad}) and the theory of choice poetics (\cref{ch:choice-poetics}).
 %
 As you read the rest of this document, keep in mind that many of my design decisions and experimental procedures wind up being influenced by the goals of both research and system development, and that neither \dunyazad/ nor choice poetics exist merely to enable the other.

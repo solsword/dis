@@ -871,7 +871,7 @@ To simplify the analysis, we will assume that there are only two options availab
 %
 \Cref{tab:ex-likelihoods} shows outcome components and their likelihoods for this choice; this assumes that the player is already familiar with basic gameplay in \papersplease/.
 %
-In particular, the player knows that if they let this traveller in, their `mistake' will not go unnoticed, and they will both fail to earn a credit and receive a punishment for their transgression.
+In particular, the player knows that if they let this traveller in, their `mistake' will not go unnoticed, and they will both fail to earn a credit and receive a punishment for their transgression (for the first mistakes of a round the punishment is merely a warning, but the player still doesn't earn credit for the mistaken approval or denial).
 %
 The player's doubts about the sincerity of the applicant are represented here as neutral likelihood estimates of four opposing outcomes.
 %
@@ -983,10 +983,12 @@ In this choice and others through the game, would-be ethical dilemmas are tilted
 %
 The callous response---leaving the potential refugee to their fate---becomes the rational one, and every would-be smuggler further justifies these decisions.
 %
-\papersplease/ is TODO: HERE
+Through its choice structures, \papersplease/ is showing the player what it feels like to be in this kind of situation and thus demonstrating why someone in that situation might make a particular set of decisions.
+%
+The poetics of its choices, particularly when they give rise to feelings of moral uncertainty or doubt of the applicants, are an important part of this.
 
 
-\begin{table}[b]
+\begin{table}[!t]
 \centering
 \begin{tabular}{c l l}
   \toprule
@@ -1003,19 +1005,151 @@ The callous response---leaving the potential refugee to their fate---becomes the
   admit-approved & $<$none$>$ & $<$none$>$ \\
   \bottomrule
 \end{tabular}
-\caption[Example option analysis]{Option analysis for the example choice shown in \cref{fig:visa-choice}. This analysis assumes that the applicant is telling the truth about their situation (compare this table to \cref{tab:ex-option-analysis}).}
+\caption[Example option analysis]{An alternate option analysis for the example choice shown in \cref{fig:visa-choice}. This analysis assumes that the applicant is telling the truth about their situation (compare this table to \cref{tab:ex-option-analysis}).}
 \label{tab:ex-revised-option-analysis}
 \end{table}
 
 \subsubsection{Outcome Component Analysis}
 
+Although the prospective analysis of our example choice has revealed something interesting about its structure, analyzing how the actual results are perceived is also important.
+%
+For outcome component analysis, each \emph{actual} outcome component should be analyzed with respect to each player goal.
+%
+If desired, this can focus only on the outcome components of a single option to understand what players who choose that option will feel.
+
+
+Focusing then on the option to \emph{approve} the applicant's petition for entry, what are the actual outcome components?
+%
+In \papersplease/, whenever someone is let through who does not meet the technical requirements for entry the player accrues a citation, the first two of which in a given round result in warnings with the third and subsequent citations resulting in a fine equal to the amount of credits earned for processing one applicant.
+%
+At the same time, letting in someone who should not be admitted does not earn credit towards one's salary (although interestingly, denying someone who deserves entry does, even when a citation is issued for an erroneous denial).
+%
+In this specific case, even assuming that the player has not made any mistakes in the current round, a warning means that future mistakes are more risky, so accruing one has a minor negative effect on the player's provide-for-family goal.
+%
+At the same time, the no-credit-earned outcome of an approval has a major negative impact on the player's provide-for-family goal: a denial would have earned credit for the time spent considering the application, and time is a very limited resource in the game.
+
+
+Although these two outcome components (the citation and lack of credit) are straightforward, what about the outcome components related to either saving a refugee or catching a scammer?
+%
+In \papersplease/, after approving entry, one does not magically get to know whether the applicant was honest or not.
+%
+In other words, even once a decision is made in this case, the player still doesn't find out whether they were justified or not.
+%
+These outcome components remain uncertain: the applicant was let in, but was that a good thing or not?
+%
+The player can only rely on their judgement of the sincerity of the applicant's claims in this case.
+
+
+Although goal-based choice analysis has no explicit suggestions as to how to handle this case of post-decision lingering uncertainty (perhaps this could be a direction for future work), we can think about what impact this might have in this specific case.
+%
+For the outcome component analysis step, we will just analyze both components separately and keep in mind that the player doesn't know which of them occurs.
+%
+This results in the outcome component judgements shown in \cref{tab:ex-outcome-component-analysis}.
+
+\begin{table}[!b]
+\centering
+\begin{tabular}{>{\centering}m{6em} >{\centering}m{6em} >{\centering}m{6em} >{\centering}m{6em} >{\centering}m{6em}}
+  \toprule
+  & \textbf{no-credit-earned} & \textbf{citation-issued} & \cg{\textbf{refugee-sheltered*}} & \cg{\textbf{scam-rewarded*}} \tabularnewline
+  \midrule
+  \textbf{provide-for-family} & major \\ negative & minor \\ negative &  &  \tabularnewline
+  \midrule
+  \textbf{act-ethically} &  &  & \cg{major \\ positive} &  \tabularnewline
+  \midrule
+  \textbf{avoid-scams} &  &  &  & \cg{major \\ negative} \tabularnewline
+  \midrule
+  \textbf{admit-approved} &  &  &  &  \tabularnewline
+  \bottomrule
+\end{tabular}
+\caption[Example outcome component analysis]{Outcome component analysis for the \emph{approve} option at the example choice shown in \cref{fig:visa-choice}. Each entry lists the impact of an outcome component on a goal. The outcome components marked with asterisks are opposing potential components that the player is uncertain of even after making a decision.}
+\label{tab:ex-outcome-component-analysis}
+\end{table}
+
+
+Recall that our choice of outcome components made the option analysis step simple; in this case that has in turn made the outcome component analysis step complex.
+%
+Because this choice has an inherently complicated structure due to the hypothetical player's unresolved doubts about the applicant's honesty, it is not simple to represent in terms of outcome components with direct relationships to player goals, but breaking it down into outcome components is still useful in order to identify where the complexity resides.
+%
+An alternate analysis would simply use ``applicant admitted'' as an outcome component, and label its goal-impacts on both the act-ethically and avoid-scams goals as uncertain.
+%
+The breakdown used here instead provides more detail by showing the evaluations corresponding to each potential player belief (in other words, by showing what possibilities the player is uncertain about).
+
 \subsubsection{Full Outcome Analysis}
 
+Based on the results of outcome component analysis, full outcome analysis summarizes each option as being overall good/bad and expected/unexpected/unpredictable with respect to player goals.
+%
+Focusing again only on the approve option, we can see that its outcome is mixed but mostly negative.
+%
+It has definite negative impacts on the high-priority goal of providing for the player's family, but it also has an uncertain positive impact on the high-priority goal of treating applicants ethically.
+%
+Even if the uncertain impact on the avoid-scams goal is ignored because that goal has a lower priority than the two just mentioned, the positive impact on the act-ethically goal is less certain than the negative impacts on the provide-for-family goal, and so the overall impact can be summarized as a \lbl{tradeoff} with both good and bad components which leans towards the negative.
+
+
+In terms of predictability, there's nothing surprising about this outcome (all of the \emph{actual} outcome components were \emph{expected}) so it falls into the \lbl{expected} corner, although we have to keep in mind the persistent uncertainty about whether the applicant was being truthful or not, which adds an element similar to unpredictability.
+%
+As a whole then, the ``approve'' option is an expected tradeoff which leans negative, and which comes with a lingering uncertainty about its actual outcomes.
+%
+The ``deny'' option sustains a mirrored analysis (omitted here for brevity), and appears as an expected tradeoff which leans positive, again with some uncertainty over actual outcomes.
+
+
+Note that the psychological implications of these outcomes are interesting given the human tendency to rationalize one's decisions (see e.g., \citep{Hall2012}).
+%
+One might expect players who chose to approve this applicant's entry to believe more strongly after-the-fact that the applicant was telling the truth, and vice versa for those who chose to deny entry.
+%
+This is one mechanism by which \emph{making a decision} can actually influence players' perceptions of the structure of a choice.
+%
+This is also a mechanism which reinforces complicit behavior as mentioned above, and \papersplease/ is intentionally creating these choice structures in order to force the player to experience exactly this kind of fraught decision-making.
+
+
 \subsubsection{Retrospective Analysis}
+
+Having analyzed each outcome as a unit, the final step in goal-based choice analysis is to try to understand a particular choice in terms of existing choice-structure patterns.
+%
+In this case, none of the retrospective impression labels in \cref{tab:retrospective-impressions} apply to either option at this choice, because they are all aimed at clearly-good or -bad outcomes, and the outcomes of both options here are tradeoffs which involve additional uncertainty.
+%
+Even without matching against a known structure however, the breakdown of outcome evaluations has already been informative.
+
+
+As mentioned above, \papersplease/'s illustrates how uncertainty can lead to complicity when ethically-questionable decisions are seen as having uncertain results on one side and guaranteed results on another.
+%
+In order for this to be clear, the player must experience both moral doubt and uncertainty, and these feelings arise from the structure of choices such as the one analyzed here.
+%
+The uncertainty that the player experiences can be seen as having two parts which have been identified by this analysis: before making a decision, the player is uncertain about the applicant's honesty, and afterwards, this translates to uncertainty about the true outcome of their decision.
+
+
+The player's initial uncertainty is due to a pattern of options and outcomes established across many choices by the game.
+%
+As the player plays, they face many applicants who attempt to lie or bluff their way past the checkpoint despite having suspicious documents.
+%
+Other events, such as a terrorist attack on the checkpoint, set a grim mood, and this pattern of events serves to make the player generally suspicious (the interface and basic interaction loop of identifying and questioning discrepancies also contribute).
+%
+Altogether, this suspicion leads the player to question the moral character of applicants in general, and in the specific choice discussed here this results in an uncertain likelihood analysis which views the applicant's refugee status as an unknown variable.
+
+
+This suspicion-of-the-applicant then translates to a questioning of the player's decision once it has been made.
+%
+Whether the player approves or denies the applicant's entry petition, concrete results (in terms of earning or not earning credits to help support their family) are contrasted with lingering doubts about whether the applicant deserved entry or not.
+%
+\papersplease/ intentional leaves the true outcomes of the player's actions ambiguous with respect to their goals, creating lingering doubt which builds as the player continues to make questionable decisions.
+%
+This creates a situation where the player can come to doubt their own judgements and second-guess themselves, which adds a second layer of uncertainty.
+%
+Especially when confronted with similar choice structures repeatedly throughout the game, this second-guessing can help push the player to confront their decisions and thereby think about what message the game is trying to convey in this regard.
+
+
+In this case, even though the elements of choice structure identified did not fit the pattern of any already-identified retrospective impression, identifying elements such as uncertainty and moral ambiguity was enough to gain insight into how this choice functions within \papersplease/.
+%
+Breaking things down also allows us to understand why the choice produces the effects that it does, and which specific elements of the choice are necessary for it to function as intended.
+%
+For example, the analysis presented here makes it clear that this choice functions as it does because it brings two ethical imperatives into conflict (supporting those who depend on you and avoiding harm to innocents) but then has uncertain outcomes in terms of one of them (avoiding harm).
+%
+Altering one of these elements (for example, making it so that earning credits is random, and thus the reward in terms of supporting one's family is also ambiguous) would change the character of this choice.
 
 
 \section{Overview \& Future Work}
 
+As just demonstrated, goal-based choice analysis breaks down a choice into individual options and components, analyzes them with respect to a specific set of player goals, and by doing so helps present a clear picture of how the structure of a choice contributes to its poetic function\footnote{As demonstrated such analysis may also be useful for understanding a choice's rhetorical and/or hermeneutic functions.} within a work.
+%
 The analysis method presented here is heavily dependent on identifying well-understood prospective and retrospective impressions and good criteria for their application.
 %
 However, this chapter only presents a few of these impressions, and it does not contain a comprehensive analysis of the poetic effects that they can create.

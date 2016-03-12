@@ -9,6 +9,7 @@
 %\usepackage[top=1.5in,left=1.5in,right=1.5in,bottom=1.75in,showframe]{geometry}
 \usepackage[top=1.5in,left=1.5in,right=1.5in,bottom=1.75in]{geometry}
 \usepackage{setspace}
+\usepackage{ragged2e}
 \addtolength{\baselineskip}{0pt plus 2pt minus 1pt}
 \usepackage{hanging}
 \usepackage{needspace}
@@ -316,21 +317,18 @@
 \input{ch-outcome-results.tex}
 \input{ch-conclusion.tex}
 
-\appendix
-\begin{appendices}
-\input{ap-nlg.tex}
-
-\cleardoublepage
-\pagestyle{listing}
-\input{ap-src.tex}
-\cleardoublepage
-\pagestyle{default}
-\end{appendices}
-
-\backmatter
+% This nixes chapter headings which we need later for the appendices...
+%\backmatter
 
 % Bibliography
 \printbibliography
 % Index?
+
+\appendix
+\begin{appendices}
+\input{ap-nlg.tex}
+\clearpage
+\input{ap-src.tex}
+\end{appendices}
 
 \end{document}
