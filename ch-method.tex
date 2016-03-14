@@ -10,14 +10,14 @@ However, when I began my research, there was no existing literature focused on t
 %
 Thus in order to build my system, I would need to create my own theory describing how elements of a choice came together to produce effects like regret or hesitation, which led to a second research question: ``What poetic effects can choices accomplish within a narrative and how can those be recognized by examining said choices?''
 %
-Rather than simply hack away at  my system until I got results that I liked and leave a theory implicit in the code that I wrote, I decided to come up with an explicit theory of choice poetics that I would develop alongside my system, and thus give both research questions equal ground.
+Rather than simply hack away at my system until I got results that I liked and leave a theory implicit in the code that I wrote, I decided to come up with an explicit theory of choice poetics that I would develop alongside my system, and thus give both research questions equal ground.
 %
 In the end, the system has become as much a tool for the development of the theory as the theory is a tool for the development of the system, and my research methodology has become a hybrid of AI systems development and narrative theoretics.
 
 
 \section{Two Approaches}
 
-Faced with the problem of coming up with a theory about how choices produce poetic effects (a theory of \emph{choice poetics}), the approach that a student of classical poetics might take would begin by identifying key works of choice-based narrative.
+Faced with the problem of coming up with a theory about how choices produce poetic effects (a theory of \emph{choice poetics}), a student of classical poetics might begin by identifying key works of choice-based narrative.
 %
 Given such a corpus of important works, a theorist could study them carefully and attempt to observe patterns in their choice structures to build a general theory of choice poetics.
 %
@@ -30,35 +30,52 @@ All of the techniques just mentioned are established approaches in the humanitie
 %
 Together, they might be called the ``classic approach'' to the problem.
 %
-In contrast, the method described here might be called an ``experimental approach.''
+In contrast, the method described here might be called a ``mechanical approach.''
 %
-Instead of relying on general principles extracted carefully from many examples via human reasoning, the experimental approach uses a mechanism for automatically constructing examples based on principles in order to subject principles to experimental testing.
+Instead of relying on general principles extracted carefully from many examples via human reasoning, the mechanical approach uses a mechanism for automatically constructing examples based on principles in order to subject principles to broad experimental testing.
 %
-In other words, the experimental approach takes intuitions or other nascent theories about how choice poetics work and validates or refines them via experimentation.
+In other words, the mechanical approach takes intuitions or nascent theories about how choice poetics work and validates or refines them via experimentation based on the output of an artificial system.
 
 
-This experimentation takes the form of constructing choices using some initial principles, and then observing those choices in order to understand whether the principles used are working as desired.
+This artificial system constructs choices using initial principles, and then experiments can use those choices in order to understand whether the principles embedded in the system are working as desired.
 %
-When mismatches are found between what the experimenter expects and the choices that are generated based on initial principles, these are used to refine the principles into a more robust theory.
+When mismatches are found between what the experimenter expects and the choices that are generated, these are used to refine the system's underlying principles into a more robust theory.
 %
-Key to this process is a system that can generate choices from principles \emph{in a manner that avoids human biases}.
+Key to this process is a system that can generate choices from principles \emph{in a manner that avoids human biases} (hence the term ``mechanical approach'').
 %
-After all, if the procedure for generating examples based on principles is simply ``Ask a human to apply the principles and construct choices,'' the human creator will employ not only the principles being tested but also their own common-sense reasoning and biases to the problem, potentially hiding certain inadequacies of the theory.
+After all, if the procedure for generating examples based on principles were simply ``Ask a human to apply the principles and construct choices,'' the human creator would employ not only the principles being tested but also their own common-sense reasoning and biases to the problem, potentially hiding certain inadequacies of the theory.
 %
 Productive experimentation is thus enabled by \emph{inhuman} reasoning during example generation (such as that of an answer-set solver).
 
 
-Both the classic approach and the experimental approach have their own strengths and weaknesses.
+Note that this mechanical approach is similar to the approach a psychologist might use to understand human responses to choice structures.
+%
+However, while a psychologist interested in studying human thought and perception might use a carefully controlled experiment to show a link between one specific choice structure and a particular poetic effect, it would take many such experiments to build a broad theory of choice poetics.
+%
+The mechanical approach proposed here instead tests potentially dozens of interrelated assertions about the psychology of choice structures at once by using a system of rules to construct choices and then seeing whether those choices produce the predicted effects.
+%
+The advantage of this approach is that it can quickly validate a broad and complicated theory and also provide rich feedback when things go wrong.
+%
+The disadvantage is that positive results are not as rigorous: a psychologist might hope to prove that a certain mechanism underlies the connection between one kind of choice structure and a particular emotional response, for example, and results of experiments following the mechanical approach won't be able to establish that kind of connection.
+%
+Instead, the mechanical approach hopes to show merely that reasoning using a certain theory is \emph{sufficient} to produce choices which impact players in a certain way, and proving why such reasoning works or establishing a strong causal link between choice structures and poetic effects is left as a subject for further, more detailed experiments.
+%
+Ultimately, the mechanical approach is suitable for initial investigations aimed at efficiently establishing a broad theoretical framework that encompasses many different poetic effects, while investigating the particulars of those effects calls for more refined tools.
+
+
+The mechanical approach also has strengths and weaknesses compared to the classic approach.
 %
 The classic approach depends heavily on the insight of the theorists who contribute to it, and often develops idiosyncratically according to their particular interests.
 %
-However, it has more potential to provide insight about complex phenomena which may be difficult to capture in the kind of generative system that the experimental approach requires.
+However, it has more potential to provide insight about complex phenomena which may be difficult to capture in the kind of generative system that the mechanical approach requires.
 %
-On the other hand, the experimental approach requires effort to develop and maintain a generative system, and sometimes ends up producing results that seem trivial in retrospect.
+On the other hand, the mechanical approach requires effort to develop and maintain a generative system, and sometimes ends up producing results that seem trivial in retrospect.
 %
-The experimental approach results in theories which are more specific, however, and tends to discover caveats that the classic approach omits because they seem simple or obvious.
+The mechanical approach results in theories which are more specific, however, and tends to discover caveats that the classic approach omits because they seem simple or obvious.
 %
-Critically, however, the two theories are not exclusive: they can be pursued simultaneously and both benefit from this arrangement.
+Ultimately, the classic, psychological, and mechanical approaches are not exclusive: they can be pursued simultaneously and each benefit from this arrangement.
+%
+In the work describe here, although the mechanical approach is foregrounded, aspects of the classic and psychological approaches are also present, and many of the theories that I draw on were developed entirely using classic or psychological approaches.
 
 
 \section{Hybrid Theory/System Development}
