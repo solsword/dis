@@ -57,7 +57,7 @@ Besides the key of the desired expansion, a grammar expansion can optionally con
 
 Flags are capital letters given at the beginning of the expansion followed by a \exchar{|} character.
 %
-The only valid flag currently is `S' for `sentence' which after expansion capitalizes the first letter of the result and adds a period to the end.
+The only valid flag is currently `S' for `sentence' which after expansion capitalizes the first letter of the result and adds a period to the end.
 %
 Variable assignments are given by an \exchar{@} symbol followed by \prq{<var>=<value>}{.}
 %
@@ -270,7 +270,7 @@ To allow for meaningful preconditions, a handful of special variable names start
 \begin{itemize}
   \item \prq{\_Now}{} matches the current timepoint (whichever timepoint the text currently being expanded is associated with).
   \item \prq{\_Opt}{} matches the current option. In some contexts (like setups) there is no current option, and this won't match anything.
-  \item \prq{\_Act}{} matches the name of the current action. It is only valid when \prq{\_Opt}{} is.
+  \item \prq{\_Act}{} matches the name of the current action. Only valid when \prq{\_Opt}{} is.
 \end{itemize}
 %
 These variables allow conditions to be expressed over things like the outcomes of the current action (which as predicates include information about the current timepoint and option).
@@ -323,7 +323,7 @@ N\#?who/they V\#be/prs/?who [[misc/unskilled/?\_]] \\
 :misc/unskilled/wilderness\_lore \\
 ignorant about plants and animals \\ \relax
 [[misc/bad\_at]] surviving in the wild \\
-incapable of surviving in the wilderness
+incapable of surviving in the wilderness%
 \end{quote}
 
 There are individual \prq{misc/unskilled/<skill>}{} definitions for each skill, to help boost variety, although it would be easy enough to define a single generic expansion which worked for every skill.
@@ -332,7 +332,7 @@ But now we want to go from ``ignorant about plants and animals,'' to ``the merch
 %
 By defining our expansion as \prq{misc/is\_unskilled/?}{} and then using the \exchar{\_} variable, we can effectively provide a \prq{misc/is\_unskilled/<skill>}{} definition for each \prq{misc/unskilled/<skill>}{} definition we had before.
 %
-Of course, it could also be done using a variable (and in this case the variable \prq{who}{} is required in any case to specify the actor) but the wildcard key version is a bit less clunky and helps keep things mentally organized by folding the variable back into our directory tree structure where it's easier to remember.
+Of course, it could also be done using a variable (and in this case the variable \prq{who}{} is required to specify the actor) but the wildcard key version is a bit less clunky and helps keep things mentally organized by folding the variable back into our directory tree structure where it's easier to remember.
 
 \section{Special Directives}
 

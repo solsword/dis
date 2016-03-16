@@ -191,7 +191,7 @@ This not only helps the system reason about motivation, but it also makes the de
 Scene:\svind\\
 \ind \parbox{0.95\linewidth}{\quoteshape A merchant carrying some perfume is being threatened by bandits.}\vind\\
 Representation:\svind \\
-\ind \parbox{0.9\textwidth}{ \tt
+\ind \parbox{\linewidth}{ \tt
 inst(actor,businessperson\_4). \\
 inst(actor,tough\_3). \\
 inst(item,treasure\_5). \\
@@ -219,7 +219,7 @@ surface\_property(name,inst(item,treasure\_5),"perfume").
 
 \Cref{fig:dunyazad-state-example} is not quite accurate, because \dunyazad/'s non-surface state predicates are never encountered raw.
 %
-Instead, they are wrapped in \prq{st(<timepoint>, <state>)}{} predicates, to define different states of the world for each timepoint in the story.
+Instead, they are wrapped in \prq{st(<T>, <state>)}{} predicates, to define different states of the world for each timepoint $T$ in the story.
 %
 The timepoints in a story form a directed acyclic graph that branches out from a single root node.
 %
@@ -252,7 +252,7 @@ Note that each outcome variable is responsible for deciding whether or not a par
 %
 The consequences of an action in terms of the world state are thus fully determined by the values of its outcome variables.
 
-\begin{figure}[!t]
+\begin{figure}[!p]
 \centering
 \fbox{%
 \parbox{0.9\textwidth}{
@@ -285,7 +285,7 @@ Representation:\svind \\
 }
 }
 }
-\caption[\dunyazad/ action example]{An example of action representation in \dunyazad/. Note that even outcomes which do not occur (\prq{o(is\_enraged, enraged)}{} in this case) have their potential consequences noted via \prq{consequence\_of}{} predicates (so that the system can reason about counterfactuals), but only outcomes that do occur (as specified by the \prq{at(<timepoint>, outcome(option(<opt>), o(<outvar>, <outval>)))}{} predicates) have actual consequences. The \prq{o(attitude, unconvinced)}{} and \prq{o(is\_enraged, not\_enraged)}{} possible outcome components are not listed because they make no changes to the world state when they occur (they each represent the omission of a change).}
+\caption[\dunyazad/ action example]{An example of action representation in \dunyazad/. Note that even outcomes which do not occur (\prq{o(is\_enraged, enraged)}{} in this case) have their potential consequences noted via \prq{consequence\_of}{} predicates (so that the system can reason about counterfactuals), but only outcomes that do occur (as specified by the \prq{at(<T>, outcome(option(<opt>), o(<outvar>, <outval>)))}{} predicates) have actual consequences. The \prq{o(attitude, unconvinced)}{} and \prq{o(is\_enraged, not\_enraged)}{} possible outcome components are not listed because they make no changes to the world state when they occur (they each represent the omission of a change).}
 \label{fig:dunyazad-action-example}
 \end{figure}
 
@@ -297,9 +297,9 @@ For the \prq{talk\_down}{} action, there are theoretically four: the \prq{attitu
 However, the definition of \prq{talk\_down}{} stipulates that the outcome \prq{o(is\_enraged, enraged)}{} is only possible if the outcome \prq{o(attitude, unconvinced)}{} is also present, so there are only three possibilities:
 
 \begin{enumerate}
-  \item The target is convinced to calm down (\prq{o(attitude, convinced)}{} and \prq{o(is\_enraged, not\_enraged)}{}), in which case they stop threatening whoever they were threatening.
-  \item The target is unconvinced, and nothing changes (\prq{o(attitude, unconvinced)}{} along with \prq{o(is\_enraged, not\_enraged)}{}).
-  \item The target is unconvinced, and gets mad at the person who tried to convince them (\prq{o(attitude, unconvinced)}{} along with \prq{o(is\_enraged, enraged)}{}).
+  \item The target is persuaded to calm down (\prq{o(attitude, convinced)}{} and \prq{o(is\_enraged, not\_enraged)}{}), in which case they stop threatening whoever they were threatening.
+  \item The target cannot be persuaded to calm down, so they continue threatening their target (\prq{o(attitude, unconvinced)}{} along with \prq{o(is\_enraged, not\_enraged)}{}).
+  \item The target is unconvinced, and furthermore gets mad at the person who tried to convince them (\prq{o(attitude, unconvinced)}{} along with \prq{o(is\_enraged, enraged)}{}).
 \end{enumerate}
 
 Note that each action could be broken into several sub-actions with fixed pre- and post-conditions, with the current actions each becoming a mix of several primitives depending on their outcome variable values.
@@ -382,7 +382,7 @@ The wide range of possibilities allowed by the \prq{market}{} setup lets \dunyaz
 Although the \prq{market}{} setup eclipses the \prq{healer}{} setup in terms of actions enabled, the \prq{healer}{} setup's lack of extraneous characters provides a very different feeling to the player, and its surface text is more specific.
 
 
-As mentioned above, not every timepoint includes setup-induced state changes: they only occur for the \prq{root}{} node and for timepoints that follow \prq{travel\_onwards}{} actions.
+As mentioned above, not every timepoint includes state changes that are induced by a setup: they only occur for the \prq{root}{} node and for timepoints that follow \prq{travel\_onwards}{} actions.
 %
 Internally, \dunyazad/ refers to everything that occurs between one setup and the \prq{travel\_onwards}{} events which follow that setup on each branch from it as a vignette.
 %
@@ -425,7 +425,7 @@ If constituent constraints are removed, the results are often nonsensical; if ae
 
 \file{choice\_structure.lp} \\
   \cg{[constituent]} Motivation; relevance; redundancy; repetition.  \\
-  \cg{[aesthetic]} Narrative perspective (second-person); setup variety; bans boredom and trick options. \\
+  \cg{[aesthetic]} Setup variety; bans boredom and trick options; narrative perspective (second-person). \\
   \cg{[poetic]} Story length and pacing.
 
   \file{core.lp} \\
@@ -441,7 +441,7 @@ If constituent constraints are removed, the results are often nonsensical; if ae
   \cg{[representational]} Timepoint ordering and links; timepoint creation and state transfer; state matching.
 
   \file{items.lp} \\
-  \cg{[representational]} Unpacking for items; tool possession for skills; communal ownership for trading.
+  \cg{[representational]} Unpacking code for items; tool possession for skills; communal ownership for trading.
 \end{hangparas}%
 \end{minipage}%
 \hfill
@@ -461,7 +461,7 @@ If constituent constraints are removed, the results are often nonsensical; if ae
 
   \file{skills.lp} \\
   \cg{[content]} The list of skills. \\
-  \cg{[representational]} Relevance for skills and tools. \\
+  \cg{[representational]} Relevance definition for skills and tools. \\
   \cg{[constituent]} Outcome likelihoods.
 
   \file{surface.lp} \\
@@ -596,7 +596,7 @@ The full list of player goals assumed by the system is as follows:
 \item The final goals assigned to the player presume that players are generally sympathetic: unless a character is actively threatening or accusing another (deemed `guilty' by the system), the player is assumed to have both \prq{avoid\_threats\_to}{} and \prq{avoid\_accusations}{} goals for that character. These goals mean that when the player encounters non-protagonists threatening or accusing each other, the system assumes that the player will want to help the victim. As above, these goals are high-priority.
 \end{itemize}
 %
-The predicates created by \file{goals.lp} include \prq{at(\abr/<timepoint>,\abr/ player\_goal(\abr/<goal>))}{} predicates which specify the goals of the player for each timepoint, and \prq{at(\abr/<timepoint>,\abr/ goal\_stakes(\abr/<goal>,\abr/ <priority>))}{} predicates which assign priorities to each goal.
+The predicates created by \file{goals.lp} include \prq{at(\abr/<T>,\abr/ player\_goal(\abr/<goal>))}{} predicates, which specify the goals of the player for each timepoint, and \prq{at(\abr/<T>,\abr/ goal\_stakes(\abr/<goal>,\abr/ <priority>))}{} predicates, which assign priorities to each goal.
 
 
 Although this static goal analysis works reasonably well, an interesting opportunity for future work presents itself here.
@@ -654,7 +654,7 @@ This step is already performed by \dunyazad/'s constituent constraints, using th
 %
 Recall that individual outcome components are labelled as likely or unlikely, rather than entire outcomes (\cref{sec:cp-likelihood-analysis}).
 %
-This step produces the \prq{at(\abr/<timepoint>,\abr/ likely\_outcome(\abr/<option>,\abr/ <outcome>))}{} and \prq{at(\abr/<timepoint>,\abr/ unlikely\_outcome(\abr/<option>,\abr/ <outcome>))}{} predicates.
+This step produces the \prq{at(\abr/<T>,\abr/ likely\_outcome(\abr/<option>,\abr/ <outcome>))}{} and \prq{at(\abr/<T>,\abr/ unlikely\_outcome(\abr/<option>,\abr/ <outcome>))}{} predicates.
 %
 \Cref{fig:dunyazad-likelihood-analysis-example} shows an example of output from this step based on just the single option shown in \cref{fig:dunyazad-action-example} (normally each option at a timepoint would have a similar set of likelihood predicates).
 
@@ -719,12 +719,12 @@ Since each option has multiple outcome components, a single goal may be both thr
 %
 For the \lbl{advances} and \lbl{hinders} evaluations (represented in code by \prq{advances}{} and \prq{hinders}{} predicates), the same analysis applies, but only outcome components marked as \prq{likely}{} are considered.
 %
-The result of the option analysis constraints is a set of \prq{at(\abr/<timepoint>,\abr/ expectation(\abr/<option>,\abr/ <expectation>,\abr/ <goal>))}{} predicates that list the expectations for each option/goal pair (see \cref{fig:dunyazad-option-analysis-example}).
+The result of the option analysis constraints is a set of \prq{at(\abr/<T>,\abr/ expectation(\abr/<option>,\abr/ <expectation>,\abr/ <goal>))}{} predicates that list the expectations for each option/goal pair (see \cref{fig:dunyazad-option-analysis-example}).
 
 \item %
 \textbf{Relative Option Analysis} \\
 %
-Integrating goal priorities and option expectations, relative option analysis produces \prq{at(\abr/<timepoint>,\abr/ option\_feel(\abr/<option>,\abr/ <feel>))}{} predicates, which collapse the various expectations across goals at each option to produce a general evaluation of that option.
+Integrating goal priorities and option expectations, relative option analysis produces \prq{at(\abr/<T>,\abr/ option\_feel(\abr/<option>,\abr/ <feel>))}{} predicates, which collapse the various expectations across goals at each option to produce a general evaluation of that option.
 %
 For example, if an option has at least one \prq{advances}{} expectation and it has no \prq{threatens}{} or \prq{hinders}{} expectations across all goals (only counting goals tied for highest priority at that option) an option is labeled as a \prq{sure\_\abr/thing}{.}
 %
@@ -794,7 +794,7 @@ The \prq{pressured}{} label applies to choices where there are no \prq{safe}{} o
 %
 Note that exact definitions for these labels can be found in the listing for the file \file{eval.lp} in \cref{sec:src-core}.
 
-\begin{figure}[!b]
+\begin{figure}[!p]
 \centering
 \fbox{%
 \parbox{0.9\textwidth}{
@@ -819,14 +819,14 @@ Outcome Perception Predicates:\svind \\
 \ind \ind good\_for, \\
 \ind \ind avoid\_threats\_to(inst(actor,businessperson\_4)) \\
 \ind ) \\
-\cg{).}
+\cg{).} \\
 \cg{at(root,} \\
 \ind outcome\_perception( \\
 \ind \ind option(1), \\
 \ind \ind great\_for, \\
 \ind \ind as\_intended(inst(actor,you)) \\
 \ind ) \\
-\cg{).}
+\cg{).} \\
 \cg{at(root,} \\
 \ind outcome\_perception( \\
 \ind \ind option(2), \\
@@ -846,7 +846,7 @@ Outcome Perception Predicates:\svind \\
 %
 Using player goal information and information about all possible outcomes of each action, outcome component analysis maps the relationships between every possible outcome component and each goal.
 %
-These relationships are represented using \prq{at(<timepoint>, outcome\_perception(<option>, <perception>, <goal>))}{} predicates and have four basic \prq{perception}{} values, similar to the \prq{expectation}{} predicates generated by the option analysis step: \prq{good\_for}{,} \prq{bad\_for}{,} \prq{great\_for}{,} and \prq{awful\_for}{.}
+These relationships are represented using \prq{at(<T>, outcome\_perception(<option>, <perception>, <goal>))}{} predicates and have four basic \prq{perception}{} values, similar to the \prq{expectation}{} predicates generated by the option analysis step: \prq{good\_for}{,} \prq{bad\_for}{,} \prq{great\_for}{,} and \prq{awful\_for}{.}
 %
 These are directly deduced from the definitions of each goal combined with the states that a particular outcome component adds or removes.
 %
@@ -880,8 +880,10 @@ Note that the \prq{avoid\_threats\_to(\abr/inst(\abr/actor,\abr/ you))}{} goal w
 \textbf{Full Outcome Analysis} \\
 %
 Full outcome analysis concerns the expectedness and overall valence of the entire outcome of each option.
-% TODO: Figure out how to do this non-manually!
-In \dunyazad/, these are represented by the predicates \prq{at(\abr/<timepoint>,\abr/ outcome\_overall(\abr/<option>,\abr/ <evaluation>\abr/))}{,} \prq{at(\abr/<timepoint>,\abr/ outcome\_predictability(\abr/<option>,\abr/ <outcome>,\\ <predictability>))}{,} and \prq{at(\abr/<timepoint>,\abr/ overall\_predictability(\\ <option>,\abr/ <predictability>))}{.}
+%
+In \dunyazad/, valence is represented by \prq{at(\abr/<T>,\abr/ outcome\_overall(\abr/<option>,\abr/ <evaluation>\abr/))}{} predicates, while \prq{at(\abr/<T>,\abr/ overall\_predictability(<option>,\abr/ <predictability>))}{} predicates represent predictability.
+%
+The predictability of individual outcome components is represented by \prq{at(\abr/<T>,\abr/ outcome\_predictability(\abr/<option>,\abr/ <outcome>, <predictability>))}{} predicates.
 %
 The \prq{outcome\_\abr/overall}{} predicates summarize the individual \prq{outcome\_\abr/perception}{} predicates across all player goals and across different outcome components at an action.
 %
@@ -952,7 +954,7 @@ Overall Outcome Predicates:\svind \\
 }
 }
 }
-\caption[\dunyazad/ outcome component analysis example]{An example of outcome component analysis of the choice shown in \cref{fig:dunyazad-outcome-component-analysis-example}. Definitions for these \prq{outcome\_predictability}{,} \prq{overall\_predictability}{,} and \prq{outcome\_overall}{} values can be found in the listing for \file{eval.lp} in \cref{sec:src-core}.}
+\caption[\dunyazad/ outcome component analysis example]{An example of full outcome analysis of the choice shown in \cref{fig:dunyazad-outcome-component-analysis-example}. Definitions for these \prq{outcome\_predictability}{,} \prq{overall\_predictability}{,} and \prq{outcome\_overall}{} values can be found in the listing for \file{eval.lp} in \cref{sec:src-core}.}
 \label{fig:dunyazad-full-outcome-analysis-example}
 \end{figure}
 
@@ -1006,11 +1008,12 @@ As above, the full conditions under which the predicates shown here apply are av
 
 
 \begin{table}[!p]
+\centering
 \begingroup
 \renewcommand*{\arraystretch}{1.5}
 {
 \centering
-\begin{tabular}{p{10em} p{6.5em} p{7.5em} p{6em}}
+\begin{tabular}{p{9.5em} p{6.5em} p{8em} p{7.5em}}
 \toprule
 \vspace{-1.5ex}\textbf{Outcome Feel}%
 & \vspace{-1.5ex}\textbf{Option Feels}%
@@ -1065,7 +1068,7 @@ As above, the full conditions under which the predicates shown here apply are av
 %
 By comparing outcomes with option feels, an overall impression of a choice can be obtained.
 %
-These are represented using \prq{at(<timepoint>, outcome\_feel(<option>, <feel>))}{} predicates.
+These are represented using \prq{at(<T>, outcome\_feel(<option>, <feel>))}{} predicates.
 %
 \dunyazad/ has six different \prq{outcome\_feel}{} structures that it recognizes, which are shown in \cref{tab:dunyazad-outcome-feel-structures}.
 %

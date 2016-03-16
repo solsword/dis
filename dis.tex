@@ -39,6 +39,12 @@
 \usepackage{bm}
 \usepackage[english]{babel}
 \usepackage[nohyphen]{underscore}
+\usepackage[shortcuts]{extdash}
+% Fix overfull hboxes in the TOC:
+\makeatletter
+\renewcommand{\@pnumwidth}{1.8em}
+%\renewcommand{\@tocrmarg}{4em}
+\makeatother
 
 % Figures, Tables, Enumerations, and Itemizes
 \usepackage{graphicx}
@@ -60,7 +66,7 @@
 \newfootnote{Star}
 \usepackage{cleveref} % NON-HEVEA
 % HEVEA:\usepackage[poorman]{cleveref}
-\usepackage[backend=biber,style=authoryear-comp,natbib=true]{biblatex}
+\usepackage[backend=biber,style=authoryear-comp,natbib=true,sorting=ynt]{biblatex}
 \addbibresource{pmawhorter.bib}
 %\bibliographystyle{plainnat}
 
@@ -72,6 +78,7 @@
 
 % Hyphenation rules
 \hyphenation{play-thr-ough}
+\hyphenation{de-mon-stra-tion}
 
 
 % Custom commands
@@ -321,7 +328,9 @@
 %\backmatter
 
 % Bibliography
+\begin{refcontext}[sorting=nyt]
 \printbibliography
+\end{refcontext}
 % Index?
 
 \appendix

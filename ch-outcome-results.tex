@@ -199,7 +199,7 @@ However, the relative frequency of different responses still provides some infor
 %
 The responses to this question were labelled respectively as \pr{speed}, \pr{curious}, \pr{role}, \pr{avatar}, \pr{interest}, \pr{power}, and \pr{other}.
 
-In a similar vein, the next question asked about how players evaluate outcomes:
+In a similar vein, the next question asked how players evaluate outcomes:
 %
 \begin{quote}
   \quoteshape
@@ -683,7 +683,7 @@ Whether this means that the perception of stakes has more to do with the setup t
 
 \begin{figure}[!t]
   \centering
-  \includegraphics[width=\textwidth]{{fig/cropped-extra-outcomes-report-by-setup-05-opt.stakes}.pdf}
+  \includegraphics[width=\textwidth]{{fig/cropped-extra-outcomes-report-by-setup-05-opt.stakes}.pdf}\\
 \hspace*{1.5pt}\includegraphics[width=\textwidth]{fig/outcomes-legend-custom.pdf}
   \caption[Retrospective stakes results by setup]{Stakes results across all conditions grouped by the setup used.}
   \label{fig:e2-stakes-by-setup}
@@ -1196,18 +1196,6 @@ Ultimately, the hypotheses that the \obvfm{} case would leave players feeling di
 
 \subsection{Expectations and... Expectedness}
 
-\begin{figure}[!b]
-  \centering
-{\sffamily Obvious Failure [main]}\\
-\includegraphics[width=\textwidth]{{fig/cropped-detailed-report-obvious\string_failure(main)-11-out.happy}.pdf}\\
-\includegraphics[width=\textwidth]{{fig/cropped-detailed-report-obvious\string_failure(main)-12-out.regret}.pdf}\\
-\includegraphics[width=\textwidth]{{fig/cropped-detailed-report-obvious\string_failure(main)-08-out.expected}.pdf}\\
-\includegraphics[width=\textwidth]{{fig/cropped-detailed-report-obvious\string_failure(main)-14-out.unexpected}.pdf}\\
-\includegraphics[width=\textwidth]{fig/detailed-outcomes-legend-custom.pdf}
-\caption[Obvious failure (main) regret and expectedness results]{Results for the satisfaction and expectedness items in the \obvfm{} condition. Bracketed numbers on the right indicate sample sizes for each row.}
-\label{fig:e2-obvious-failure-main-detail-regret-expected}
-\end{figure}
-
 The differences between choices 8638 and 28306 in terms of perceived fairness, brokenness, and satisfaction have been discussed, but there is one more pair of hypotheses relating to these choices that was not confirmed: the hypotheses stating that their results would be unexpected.
 %
 However, the issue of their differing expectations has already been discussed in relation to perceptions of fairness.
@@ -1216,8 +1204,20 @@ If choice 28306 is perceived as more fair because it gives rise to weaker expect
 %
 Looking at the bottom two graphs in \cref{fig:e2-obvious-failure-main-detail-regret-expected}, this is exactly what was observed.
 
+\begin{figure}[!p]
+  \centering
+{\sffamily Obvious Failure [main]}\\
+\includegraphics[width=\textwidth]{{fig/cropped-detailed-report-obvious\string_failure(main)-11-out.happy}.pdf}\\
+\includegraphics[width=\textwidth]{{fig/cropped-detailed-report-obvious\string_failure(main)-12-out.regret}.pdf}\\
+\includegraphics[width=\textwidth]{{fig/cropped-detailed-report-obvious\string_failure(main)-08-out.expected}.pdf}\\
+\includegraphics[width=\textwidth]{{fig/cropped-detailed-report-obvious\string_failure(main)-14-out.unexpected}.pdf}\\
+\includegraphics[width=\textwidth]{fig/detailed-outcomes-legend-custom.pdf}
+\caption[Obvious failure (main) regret and expectedness results]{Satisfaction and expectedness in the \obvfm{} condition. Bracketed numbers on the right indicate sample sizes for each row.}
+\label{fig:e2-obvious-failure-main-detail-regret-expected}
+\end{figure}
 
-\begin{figure}[!b]
+
+\begin{figure}[!p]
   \centering
 {\sffamily Unexpected Failure}\\
 \includegraphics[width=\textwidth]{{fig/cropped-detailed-report-unexpected\string_failure-08-out.expected}.pdf}\\
@@ -1791,44 +1791,44 @@ Of course, this is exactly the property that makes answer set programming an att
 \begin{table}[!p]
 \begingroup
 \renewcommand*{\arraystretch}{1.5}
-\begin{tabular}{p{4.5em}p{18.5em}p{10em}}
+\begin{tabular}{>{\raggedright}p{6em}p{16em}p{11em}}
 \toprule
-\lbl{Label} & \textbf{Criteria} & \textbf{Caveats}\\
+\lbl{Label} & \textbf{Criteria} & \textbf{Caveats} \tabularnewline
 \midrule
-\lbl{Depres-sing}%
-& \cg{Every option hinders at least one high-priority goal.
+\lbl{Depressing}%
+& \cg{Each option hinders at least one top-priority goal.
 %
-No option should enable or advance any high-priority goals.}
+No option should enable or advance any top-priority goals.}
 %
-& Options should create clear negative expectations, especially if they have positive outcomes. \\
+& Options should create clear negative expectations, especially if they have positive outcomes. \tabularnewline
 %
 \lbl{Dilemma}%
-&\cg{Exactly two options, each of which hinders one of two different high-priority player goals.
+&\cg{Exactly two options, each of which hinders one of two different top-priority player goals.
 %
 The priorities of the goals and the severity of the consequences should be balanced and neither option should enable or advance any goals (even low-priority ones).}
 %
 & Proper goal balance is difficult to achieve.
 %
-Moral injunctions often have exceptions that need to be considered. \\
+Moral injunctions often have exceptions that need to be considered. \tabularnewline
 %
-\lbl{Empower-ing}%
+\lbl{Empowering}%
 &\cg{Every option advances a player goal, and may threaten one or more goals but does not hinder any.}
 %
-& If option costs are not balanced, it may collapse to ``obvious.'' \\
+& If option costs are not balanced, it may collapse to ``obvious.'' \tabularnewline
 %
 \lbl{Obvious}%
-&\cg{One option that advances a high-priority player goal without hindering any (although it may threaten some), while none of the rest of the options enable any high-priority goals, and each of them threatens some goal.}
+&\cg{One option that advances a top-priority player goal without hindering any (although it may threaten some), while none of the rest of the options enable any top-priority goals, and each of them threatens some goal.}
 %
-& The ``correct'' option must take costs into account.
+& Resource costs must be taken into account.
 %
-``Bad'' options should clearly indicate which goal(s) they threaten. \\
+``Bad'' options should clearly indicate which goal(s) they threaten. \tabularnewline
 %
 \lbl{Relaxed}
 &\cg{There are no option expectations involving high-priority goals (positive or negative), and there are no threatens expectations (and thus no hinders expectations).}
 %
-& A slight difference between options can make satisficers worried.
+& Slight differences between options can worry satisficers.
 %
-Try to contrast stakes with those of previous choices. \\
+Try to contrast stakes with those of previous choices. \tabularnewline
 \bottomrule
 \end{tabular}
 \endgroup
@@ -1839,35 +1839,35 @@ Try to contrast stakes with those of previous choices. \\
 \begin{table}[!p]
 \begingroup
 \renewcommand*{\arraystretch}{1.5}
-\begin{tabular}{p{4.5em}p{14.5em}p{14em}}
+\begin{tabular}{>{\raggedright}p{5em}p{14em}p{14em}}
 \toprule
-\lbl{Label} & \textbf{Criteria} & \textbf{Caveats} \\
+\lbl{Label} & \textbf{Criteria} & \textbf{Caveats} \tabularnewline
 \midrule
 \lbl{Expected Success}
 & \cg{The option selected advances a player goal without hindering any, and its outcome is both predictable and positive.}
 %
 & Resource costs should be taken into account.
 %
-Positive outcome states can be described negatively. \\
+Positive outcome states can be described negatively. \tabularnewline
 %
 \lbl{Expected Failure}
 & \cg{The option selected hinders a player goal and doesn't advance any, and its outcome is both predictable and negative.}
 %
-& Badness of outcomes may be evaluated relative to expected outcomes of other choices. \\
+& Badness of outcomes may be evaluated relative to expected outcomes of other choices. \tabularnewline
 \lbl{Unfair}
-& \cg{The selected option must be expected to advance at least one high-priority player goal, while not hindering any.
+& \cg{The selected option must be expected to advance at least one top-priority player goal, while not hindering any.
 %
 It must also have an unexpected and largely negative outcome.}
 %
-& May be perceived as broken if no attractive alternative options were present. Inherently chaotic actions dampen expectations of success. \\
+& May be perceived as broken if no attractive alternative options were present. Inherently chaotic actions dampen expectations of success. \tabularnewline
 \lbl{Miracle}
-& \cg{The selected option must be expected to hinder at least one high-priority goal, while not advancing any.
+& \cg{The selected option must be expected to hinder at least one top-priority goal, while not advancing any.
 %
 It must have an unexpected and overall positive outcome.}
 %
 & As for expected successes, descriptive text is important, not just ``story-world result.''
 %
-Positive results are seen as less surprising than negative ones. \\
+Positive results are seen as less surprising than negative ones. \tabularnewline
 \bottomrule
 \end{tabular}
 \endgroup
