@@ -150,7 +150,7 @@ Working with stories represented in terms of graphs of story schemas as describe
 %
 For example, a scene where a knight slays a dragon might be recalled when building a story in which a troll is killed, filling in a knight as the protagonist in the new story.
 %
-Intuitively, imaginative recall recognizes trolls and dragons are similar because they are both monsters, and so the scene where the knight slays the dragon is appropriate source material for the new story.
+Intuitively, imaginative recall recognizes that trolls and dragons are similar because they are both monsters, and so it considers the scene where the knight slays the dragon appropriate source material for the new story.
 
 
 \begin{figure}[!t]
@@ -165,7 +165,7 @@ Imaginative recall actually works via a three-step recursive process: Transform,
 %
 First, an input query is transformed so that it can more easily match story fragments from the story library.
 %
-Second, a matching fragment is picked out from the library.
+Second, a matching fragment is picked out from the library, possibly by recursively applying another transform-recall-adapt sequence.
 %
 Finally, the matching fragment is adapted so that it matches the context of the current story.
 %
@@ -173,7 +173,7 @@ In \cref{fig:im-example}, the query is a scene in which a troll is killed.
 %
 This is represented as an \gna/ node liked to a \gns/ node with an \gei/ link.
 %
-The \gna/ node specifies that the type of action is ``fight,'' and that a troll is the target, but the actor and tool in this case are still unknown (otherwise the story fragment would already be complete).
+The \gna/ node specifies the type of action (``fight'') and that a troll is the target, but the actor and tool in this case are still unknown (otherwise the story fragment would already be complete).
 %
 The \gns/ node specifies that the troll has a health value of ``dead,'' and it doesn't have any unknowns.
 
@@ -215,29 +215,29 @@ The TRAM process has eliminated all of our initial unknowns, and this story frag
 
 \section{\minstrel/'s Potential}
 
-The promise of imaginative recall and the TRAM system is that TRAMs can capture how story scenes can be similar to one another, and then any corpus that can be turned into a story library can become a source for generating new material.
+The promise of imaginative recall is that TRAMs can capture a notion of story scene similarity, enabling any corpus can be turned into a story library and become a source for generating new material.
 %
 Turner acknowledged that some content-specific TRAMs might be needed, and some specific to his Arthurian domain were included in \minstrel/, but these were a minority.
 %
-And Turner demonstrated that the TRAM system could create stories that the system had never seen before: it didn't just regurgitate what was in the story library.
+Turner also demonstrated that the TRAM system could create stories that the system had never seen before: it did not just regurgitate what was in the story library.
 %
-For example, \minstrel/ was able to ``invent'' the concept of suicide by taking a scene where someone was killed and ultimately filling in the killer and the victim with the same person.
+For example, \minstrel/ was able to ``invent'' suicide by taking a scene where someone was killed and ultimately filling in the killer and the victim with the same person.
 %
-Because of the kinds of information embedded in \minstrel/'s story graphs, this process isn't just chaos either: \gng/ and motivating \gns/ nodes constrain how their neighboring \gna/ nodes are filled in and enforce some semblance of believability.
+Because of the kinds of information embedded in \minstrel/'s story graphs, this process isn't just chaos either: \gng/ and motivating \gns/ nodes constrain how their neighboring \gna/ nodes are filled in and enforce a measure of believability.
 
 
 However, despite the potential of \minstrel/'s imaginative recall process, it is fundamentally not robust.
 %
 When building \skald/ we imagined that after providing a new story library containing roughly a dozen stories and doing some minor tuning, we'd be able to have \skald/ generate dozens to hundreds of new stories that included significant variations.
 %
-Unfortunately, what we found was that the authoring of the story library, the story templates, as well as the particular TRAMs and ALPs all had to be carefully balanced against each other to avoid nonsensical results.
+Unfortunately, what we found was that the story library, the story templates, and the particular TRAMs and ALPs all had to be carefully balanced against each other to avoid nonsensical results.
 
 
 In our early evaluations of the TRAM system (see \citep{Tearse2011}), we found that generating 1000 results for a single TRAM query using our new library resulted in an average of only 35.2\% sensible results: the remaining 64.8\% of results were somehow nonsensical (note that these numbers included duplicate results).
 %
-We tested several alternate configurations, and found that by removing some TRAMs which generalized queries too strongly, we could increase the sense-to-nonsense ratio and get an average of 92.4\% sensible results (again including duplicates).
+We tested several alternate configurations, and found that by removing some TRAMs which generalized too strongly, we could increase the sense-to-nonsense ratio and get an average of 92.4\% sensible results (again including duplicates).
 %
-Unfortunately, the removal of these TRAMs reduced the number of unique results per 1000 queries from an average of 69.4 to an average of 12, and it accordingly reduced the average number of significant differences expected between any two results from  6.9 to 3.1 (where a significant difference is something like substitution of one character for another; see \citep{Tearse2011} for methodological details).
+Unfortunately, the removal of these TRAMs reduced the number of unique results per 1000 queries from an average of 69.4 to an average of 12, and it accordingly reduced the average number of differences expected between any two results from  6.9 to 3.1 (where a difference is something like the substitution of one character for another; see \citep{Tearse2011} for methodological details).
 %
 This result was early evidence of the shape of the tradeoff between sense and variety in results, but it only involved the TRAM system.
 
@@ -255,7 +255,7 @@ Based on the earlier experiment, this reduced usage of TRAMs translates to more 
 We had thus successfully found a mechanism for trading variety for consistency, but not a method for increasing one without sacrificing the other.
 
 
-In fact, in Turner's dissertation, he mentions a trial run where \minstrel/ is asked to generate stories repeatedly based on a single template, in which the coherence of the stories breaks down after only 6 reasonable results (see page 672 of \citep{Turner1993}).
+In fact, in Turner's dissertation, he mentions a trial run where \minstrel/ is asked to generate stories repeatedly based on a single template, in which the coherence of the stories decreases drastically after only 6 reasonable results (see page 672 of \citep{Turner1993}).
 %
 Rather than a robust generation engine with the capacity for creative feats, therefore, \minstrel/ is more like a carefully balanced system designed to demonstrate the possibility of such feats.
 %
@@ -266,7 +266,7 @@ The process of generating interesting stories while avoiding nonsensical ones us
 
 \label{sec:problem-planets-problems}
 
-In fact, this is exactly the issue that we ran into when we tried to build \problemplanets/, a Choose-Your-Own-Adventure-style game about climate change that was going to use \skald/ as a narrative generation engine.
+In fact, this is exactly the issue that we ran into when we tried to build \problemplanets/, a Choose-Your-Own-Adventure-style game about climate change that was going to use \skald/ for narrative generation.
 %
 Brandon Tearse and I teamed up with Aaron Reed to work on the project, which was the first major project where we attempted to put \skald/ to use.
 %
@@ -316,7 +316,7 @@ For choices to be dynamically generated, a strong model of character motivation 
 %
 Furthermore, interesting options at a choice point can't simply be generated sequentially by a system designed for generating linear stories.
 %
-Instead, the system must be aware that all of the options are presented to the player at once, and generate the entire set of options taking this into consideration.
+Instead, the system must generate all of the options are presented to the player at once, so that the option set avoids repetition and redundancy.
 
 
 As we struggled with these difficulties in building \problemplanets/, I came to the conclusion that focusing just on rules of story consistency would be more productive.

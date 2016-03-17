@@ -23,9 +23,9 @@ For example, one result that will be discussed suggests that when trying to figu
 %
 This result (which is unsurprising, as it echoes psychological research on real-life choices; see \citep{Schwartz2002}) clearly isn't something that's likely to be limited to just the particular choices that \dunyazad/ generates (in terms of genre or any other factor).
 %
-There might be some cases where humans do use only absolute value judgements, but until specific conditions under which this is true are found, it's safer to assume that both absolute and relative value judgements between options should be accounted for.
+There might be some cases where humans do use only absolute value judgements, but until such cases are identified, it's safer to assume that both absolute and relative value judgements between options should be accounted for.
 %
-In any case, the discovery prompted by \dunyazad/ that absolute value judgements are insufficient for understanding choice poetics generalizes beyond the specifics of \dunyazad/'s choices.
+In any case, the idea that absolute value judgements are insufficient for understanding choice poetics generalizes beyond the specifics of \dunyazad/'s choices.
 
 
 The experiment presented here (and the experiment discussed in \cref{ch:outcome-results}) was set up in order to test \dunyazad/'s functionality and thereby also inform the theory of choice poetics that it is based on.
@@ -34,16 +34,16 @@ This first experiment is mainly concerned with prospective impressions, which ar
 %
 In \dunyazad/, these are represented using \prq{option\_feel}{} predicates, as described in \cref{sec:dunyazad-poetic-constraints}.
 %
-After analyzing the results of this experiment, I conducted a second experiment (discussed in \cref{ch:outcome-results}) focused on retrospective impressions, which are the results of retrospective analysis and are represented by \prq{outcome\_feel}{} predicates.
+After analyzing the results of this experiment, I conducted a second experiment (discussed in \cref{ch:outcome-results}) focused on retrospective impressions, which result from retrospective analysis and are represented by \prq{outcome\_feel}{} predicates.
 %
 This chapter describes the details of the first experiment, including details of the experimental setup that are common to both experiments.
 
 
 Both experiments broadly confirmed \dunyazad/'s abilities to generate the kinds of choices it was asked to, but also uncovered areas where it struggled.
 %
-In particular, \dunyazad/ has trouble balancing options to create true dilemmas because it does not have a sufficiently detailed model of player goal priorities, and it has trouble analyzing situations where multiple goals oppose each other, especially when such situations constitute a moral dilemma.
+In particular, \dunyazad/ has trouble balancing options to create dilemmas because it does not have a sufficiently detailed model of goal priorities, and it has trouble analyzing situations where multiple goals conflict, especially when such situations constitute moral dilemmas.
 %
-Additionally, it has trouble reasoning about actions which expend resources in service of a goal, and its indirect management of expectations can sometimes leave something to be desired.
+Additionally, it has trouble with actions which expend resources in service of a goal, and its indirect management of expectations sometimes leaves something to be desired.
 %
 All of these shortcomings suggest future work, of course, but also prompt reflection on the goal-based choice analysis method from \cref{sec:goal-based-choice-analysis}.
 %
@@ -151,7 +151,7 @@ What do you do?
 
 To set up the experiment, I used \dunyazad/ in its ``experiment'' mode (which causes it to generate only a single choice and to use a special framing) to generate three choices for each of the experimental conditions.
 %
-As an additional constraint, each choice was required to have exactly three options, so that the number of options wasn't a confounding factor in the data.
+Additionally, each choice was required to have exactly three options, so that the number of options wasn't a confounding factor in the data.
 %
 These nine choices were generated sequentially by the system, so there was no opportunity to cherry-pick ``good'' examples of each treatment category.
 %
@@ -178,7 +178,8 @@ Eager to be on your way, you set off on the road towards Jyv\"asky.
 
 Once the choices were generated, their text was broken into parts and put into a comma-separated values file for upload to Amazon Mechanical Turk where the parts would be substituted into a template.
 %
-Given a survey template, Mechanical Turk generated individual survey pages for each question, and ten tasks were posted per question (a total of 90 tasks), which workers on Mechanical Turk were able to preview, accept, and fill out for payment (50 cents per task\footnote{
+Given a survey template, Mechanical Turk generated an individual survey page for each choice, and ten tasks were posted per choice (a total of 90 tasks), which workers on Mechanical Turk were able to preview, accept, and fill out for payment.
+Each worker was paid 50 cents\footnote{
 %
 This was chosen based on online advice to pay about minimum wage for tasks on Mechanical Turk.
 %
@@ -186,11 +187,11 @@ Given the median response time, the hourly pay rate was \$7.50, but in retrospec
 %
 For this reason (and because the second survey included more questions) I used a higher pay rate for the second experiment.
 %
-The total cost (about \$50 in this case, counting Amazon's 10\% fee) was quite cheap.}).
+The total cost (about \$50 in this case, counting Amazon's 10\% fee) was quite cheap.} upon completing their survey.
 %
 Myle Ott's ``uniqueturker'' script (\url{https://uniqueturker.myleott.com/}) was used to ensure that no individual worker filled out the survey more than once.
 %
-To avoid being targeted by bots, the tasks required workers with a 97\% acceptance rate across at least 1000 accepted tasks.
+To avoid being targeted by bots, the tasks required workers with a 97\% acceptance rate across at least 1000 accepted tasks (this is lower than the default settings).
 
 \subsection{Survey Content}
 
@@ -210,7 +211,7 @@ If you're at least 18 years old, please don't write ``Age of years eighteen leas
 \end{quote}
 
 
-The second section of the survey was titled ``The Choice'' and began with a prompt:
+The second section of the survey was titled ``The Choice'' and it included the choice that \dunyazad/ generated. It began with a prompt:
 %
 \begin{quote}
   \quoteshape
@@ -227,14 +228,14 @@ If you were reading this story, which option would you pick?
 This question had three options: ``Option 1,'' ``Option 2,'' and ``Option 3.''
 
 
-The final section of the survey was titled ``Opinion Questions'' and began with a prompt:
+The final section of the survey was titled ``Opinion Questions'' and began with the following prompt:
 %
 \begin{quote}
   \quoteshape
 Please rate your agreement with the following statements, from 1 (strongly disagree) to 5 (strongly agree).
 \end{quote}
 %
-This section contained the following 8 Likert items in this fixed order\footnote{These were individual Likert items which did not compose a Likert scale, as the goal of the survey was to directly measure opinions, and there were no underlying psychological variables presumed to be giving rise to behavior.} (the quotes were part of the survey):
+This section contained 8 Likert items\footnote{These were individual Likert items which did not compose a Likert scale, as the goal of the survey was to directly measure opinions, and there were no underlying psychological variables presumed to be giving rise to behavior.} in the fixed order shown here (the quotes were part of the survey):
 %
 \begin{enumerate}
     \quoteshape
@@ -294,7 +295,7 @@ Disagreement likewise used a Mann-Whitney-Wilcoxon U test with the alternate hyp
 In both cases, a confirmation of a hypothesis was taken to be significant for $p < 0.05$.
 
 
-\begin{table}[!h]
+\begin{table}[!b]
 \begin{center}
 \bgroup
 \def\arraystretch{1.3}
@@ -321,11 +322,11 @@ Question & Obvious & Relaxed & Dilemma \\
 
 For the between-treatment hypotheses, survey data from two different treatments were compared using a Mann-Whitney-Wilcoxon U test to test whether one was statistically more-agreed-with than another (with the threshold for significance again being set at $p < 0.05$).
 %
-The statistics are the same for the converse cases, so only one test was performed per hypothesis (i.e., if responses to question 3 showed significantly more agreement for the \obv{} treatment than for the \rlx{} treatment, it follows automatically that they show significantly less agreement for the \rlx{} treatment than for the \obv{} treatment).
+The statistics are the same for the converse cases, so only one test was performed per hypothesis (i.e., if responses to question 3 showed significantly more agreement for the \obv{} treatment than for the \rlx{} treatment, it follows automatically that they show significantly less agreement for the \rlx{} treatment than for the \obv{} treatment---the test is symmetric).
 %
 \Cref{tab:e1-between-treatment-hypotheses} lists the between-treatment hypotheses.
 %
-Across all 3 treatments, there were a total of 13 single-treatment and 9 between-treatment hypotheses.
+Combined across all three treatments, there were a total of 13 single-treatment and 9 between-treatment hypotheses.
 
 
 %\begin{table}
@@ -393,7 +394,7 @@ Including 6 rejected responses, a total of 96 responses were gathered, with 30 n
 Of the responses which remained, further filtering was performed:
 %
 \begin{itemize}
-  \item Responses where the answer to question 6 wasn't ``1 - strongly disagree'' were dropped. These indicate a responder who isn't paying close attention to the survey.
+  \item Responses where the answer to question 6 wasn't ``1 - strongly disagree'' were dropped. These indicate a responder who may not be paying close attention to the survey.
   \item Responses where the total time spent on the task was less than or equal to 90 seconds were dropped. Answering all 8 questions in just 90 seconds is probably not possible if each question is given reasonable consideration. The median response time was 240 seconds (4:00) before filtering and 280 seconds (4:40) after filtering, although these times are simply the time between a participant accepting and submitting a task; they don't necessarily work on the task exclusively during that time, and in general accepting several tasks before doing them is a common pattern of behavior.
   \item Responses where any question was left blank were dropped. Given the ``neutral'' response option and the content of the survey, leaving a question blank is more likely a sign of lack of attention than of hesitation to answer.
 \end{itemize}
@@ -701,7 +702,7 @@ However, given that all options are marked negatively, the prospect of fleeing e
 %
 This could be expressed in \dunyazad/ by introducing evaluations like \prq{somewhat\_likely}{} and \prq{very\_likely}{} that would distinguish these cases.
 %
-The \prq{skill\_link}{} mechanism would have to be updated to give estimates of these levels of likelihood for different actions in different circumstances, of course.
+Of course, the \prq{skill\_link}{} mechanism would have to be updated to give estimates of these levels of likelihood in different circumstances.
 
 
 Another argument a player could make as to why fighting is worse than fleeing in this situation has to do with the relative magnitude of the results.
@@ -873,7 +874,7 @@ While it might seem like a contradiction to agree (as 3 participants did) with b
 %
 The phrasing of ``All of the options at this choice are about equally promising,'' suggests evaluating the utility of each option independently and comparing those utilities.
 %
-In contrast, ``There is a clear best option at this choice,'' suggests comparing the options against each other directly to find one that is better than the others.
+In contrast, ``There is a clear best option at this choice,'' suggests comparing options against each other directly to find one that is better than the others.
 %
 The fact that people often make decisions inconsistent with simple utility calculation is well-known (see e.g., \citep{Tversky1993}), so it should not be surprising that a context in which someone is asked to make a decision might elicit a different response than a context in which someone is asked to rate responses.
 
@@ -992,8 +993,8 @@ Overall, this study confirmed \dunyazad/'s ability to construct choices based on
 Notably, many of the failed hypotheses involved situations where several options together affected how a choice was perceived:
 %
 \begin{itemize}
-  \item For question 1 (``There are no bad options at this choice.'') relative rather than absolute judgements of what is a ``bad'' option may have come into play.
-  \item For question 5 (``All of the options at this choice are about equally promising.'') it seems \dunyazad/ may need to make finer distinctions between different modes of goal failure, as several options expected to lead to failure may still seem to offer a range of possibilities when no better options are present.
+  \item For question 1 (``There are no bad options at this choice.'') relative rather than absolute judgements of what is a ``bad'' option seem to have been employed by some participants.
+  \item For question 5 (``All of the options at this choice are about equally promising.'') \dunyazad/ may need to make finer distinctions between different modes of failure, as several options expected to lead to failure may still seem to offer a range of possibilities when no better options are present.
   \item Question 7 (``This is a difficult choice to make.'') showed that a choice can be difficult when multiple goals conflict, even when expectations for one goal are much better than for another.
 \end{itemize}
 %
@@ -1013,7 +1014,7 @@ As already discussed, there are a number of changes that could be made to \dunya
 %
 These changes could make \dunyazad/ even more successful at constructing choices which produce particular player expectations (and thus which can produce specific poetic effects).
 %
-They are also in line with my goal of getting \dunyazad/ to generate choices with more complex poetics, such as choices that elicit regret or prompt deliberation.
+They are also in line with the goal of getting \dunyazad/ to generate choices with more complex poetics, such as choices that elicit regret or choices that prompt deliberation.
 
 
 One important functionality of \dunyazad/ not tested in this first study was its ability to judge outcomes.

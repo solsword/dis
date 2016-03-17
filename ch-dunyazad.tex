@@ -76,7 +76,7 @@ However, most of these would fail to achieve the level of \emph{transparency} re
 %
 In a neural-network based approach, for example, it would be very difficult to understand which part of the underlying theory is responsible for a particular generated choice structure, and even more difficult to use experimental results to inform changes in the theory.
 %
-Answer-set programming as a technical approach is thus motivated by the goal of developing choice poetics alongside a technical system for generating choices.
+Answer-set programming as a technical approach is thus motivated by the goal of developing choice poetics in tandem with a technical system for generating choices.
 
 
 The reason that answer-set programming is useful for critical technical practice is that answer set programs consist of a series of logical statements which dictate which combinations of predicates are allowed in the output.
@@ -126,7 +126,7 @@ Broadly, \dunyazad/'s constraints can be split into four categories:
 
 To understand how \dunyazad/ functions, it is first necessary to understand \dunyazad/'s (rather limited) view of what a choice is, and how choices fit together to form stories.
 %
-These things are defined by representational and constituent constraints.
+These things are defined by \dunyazad/'s representational and constituent constraints.
 
 
 \subsection{Story Representation}
@@ -154,22 +154,22 @@ Besides these things, which can change from one state to the next as a result of
 \Cref{fig:dunyazad-states} gives examples of each of these and \cref{fig:dunyazad-state-example} shows how they come together to describe a situation.
 
 
-\begin{figure}[!t]
+\begin{figure}[!b]
 \includegraphics[width=\textwidth]{fig/cropped-dunyazad-states.pdf}
 \caption[\dunyazad/'s state predicates]{Predicates used to describe states in \dunyazad/.}
 \label{fig:dunyazad-states}
 \end{figure}
 
 
-The core states in \dunyazad/ describe the cast and any items or skills that those characters possess.
+Core states in \dunyazad/ describe characters and any items or skills that they possess.
 %
-Beyond these states are a group of states that describe transient relationships that set the stage for action; these are called ``potentials.''
+Beyond these are states describing transient relationships that set the stage for action; these are called ``potentials.''
 %
-Potentials include things like \prq{knows\_gossip}{,} \prq{injured}{,} and \prq{threatening}{,} and each is classified as either a ``problem'' or an ``opportunity.''
+Potentials include things like \prq{injured}{,} and \prq{threatening}{,} and each is classified as either a ``problem'' or an ``opportunity.''
 %
 Although these special potential states are represented using normal \prq{state}{,} \prq{property}{,} and \prq{relation}{} predicates, actions which get rid of them must specify whether each potential is \prq{resolved}{,} \prq{manifested}{,} or \prq{nullified}{.}
 %
-Additionally, extra predicates specify whether a potential is \prq{problematic\_for}{} one or more of the actors involved (for example, the \prq{injured}{} state is \prq{problematic\_for}{} any actor to which it is applied).
+Additionally, extra predicates specify whether a potential is \prq{problematic\_for}{} one or more of the characters involved (for example, the \prq{injured}{} state is \prq{problematic\_for}{} any character to which it applies).
 
 
 \dunyazad/ understands based on this information whether the action which eliminated a potential was good or bad for different characters.
@@ -188,7 +188,7 @@ This not only helps the system reason about motivation, but it also makes the de
 Scene:\svind\\
 \ind \parbox{0.95\linewidth}{\quoteshape A merchant carrying some perfume is being threatened by bandits.}\vind\\
 Representation:\svind \\
-\ind \parbox{\linewidth}{ \tt
+\ind \parbox{0.9\linewidth}{ \tt
 inst(actor,businessperson\_4). \\
 inst(actor,tough\_3). \\
 inst(item,treasure\_5). \\
@@ -214,13 +214,13 @@ surface\_property(name,inst(item,treasure\_5),"perfume").
 \end{figure}
 
 
-\Cref{fig:dunyazad-state-example} is not quite accurate, because \dunyazad/'s non-surface state predicates are never encountered raw.
+\Cref{fig:dunyazad-state-example} is not quite accurate, because \dunyazad/'s non-surface state predicates are never encountered alone.
 %
-Instead, they are wrapped in \prq{st(<T>, <state>)}{} predicates, to define different states of the world for each timepoint $T$ in the story.
+Instead, they are always wrapped in \prq{st(<T>, <state>)}{} predicates, to define different states of the world for each timepoint $T$ in the story.
 %
 The timepoints in a story form a directed acyclic graph that branches out from a single root node.
 %
-The structure of this graph is defined using \prq{successor(<previous>, <option>, <next>)}{} predicates which specify that the result of choosing option \prq{<opt>}{} at timepoint \prq{<previous>}{} is the state designated \prq{<next>}{.}
+This graph is defined using \prq{successor(<previous>, <option>, <next>)}{} predicates which specify that the result of choosing option \prq{<opt>}{} at timepoint \prq{<previous>}{} is the state designated \prq{<next>}{.}
 %
 The root timepoint is named \prq{root}{,} and each successor is named for its parent plus the number of the option that leads to it, so for example, if there were three options at the \prq{root\_2}{} node, they would lead to timepoints labelled \prq{root\_2\_1}{,} \prq{root\_2\_2}{,} and \prq{root\_2\_3}{.}
 %
@@ -258,23 +258,27 @@ Option:\svind\\
 Outcome:\svind\\
 \ind \parbox{0.95\linewidth}{\quoteshape You talk to the bandits and convince them to back off.}\vind \\
 Representation:\svind \\
-\ind \parbox{0.9\textwidth}{ \tt
+\ind \parbox{0.95\linewidth}{ \tt \raggedright
 \cg{at(root,} action(option(1), talk\_down)\cg{).} \\
+
 
 \cg{at(root,} arg(option(1), asking, inst(actor, you))\cg{).} \\
 \cg{at(root,} arg(option(1), listening, inst(actor, tough\_3))\cg{).} \\
 \cg{at(root,} arg(option(1), victim, \\
-\ind inst(actor, businessperson\_4))\cg{).} \\
+\ind inst(actor, businessperson\_4))\cg{).} \vspace{\baselineskip} \\
+
 
 \cg{at(root,} outcome(option(1), o(attitude, convinced))\cg{).} \\
-\cg{at(root,} outcome(option(1), o(is\_enraged, not\_enraged))\cg{).} \\
+\cg{at(root,} outcome(option(1), o(is\_enraged, not\_enraged))\cg{).} \vspace{\baselineskip} \\
+
 
 \cg{at(root,} consequence\_of(option(1), o(attitude, convinced), \\
 \ind \_not, relation(threatening, \\
 \ind \ind inst(actor, tough\_3), inst(actor, businessperson\_4)))\cg{).} \\
 \cg{at(root,} consequence\_of(option(1), o(is\_enraged, enraged), \\
 \ind relation(threatening, \\
-\ind \ind inst(actor, tough\_3), inst(actor, you)))\cg{).} \\
+\ind \ind inst(actor, tough\_3), inst(actor, you)))\cg{).} \vspace{\baselineskip} \\
+
 
 \cg{at(root,} consequence(option(1), \\
 \ind \_not, relation(threatening, \\
@@ -488,7 +492,7 @@ The major topics covered by the constituent constraints are as follows:
   \item Motivation---these constraints require that the actor that initiates each action have a motivation for taking that action.
   \item Relevance---constraints which require that actions address an existing important potential. These get rid of situations where someone fighting for their life might stop to buy fruit, for example.
   \item Redundancy---these constraints prevent two options at the same choice from being redundant.
-  \item Repetition---these constraints prevent direct repetition: repeated actions at subsequent timepoints and repeated use of the same setup for subsequent vignettes.
+  \item Repetition---constraints preventing direct repetition: repeated actions at consecutive timepoints and repetition of a setup in consecutive vignettes.
   \item Outcome likelihoods---these constraints describe how skills and tools make certain outcomes more or less likely. Without them, outcomes would have no relation to the skills and tools of the participating actors.
   \item Vignette scoping---constraints that determine when \prq{travel\_onwards}{} actions are appropriate and thus where new setups should be applied.
 \end{itemize}
@@ -499,7 +503,9 @@ The aesthetic constraints take things one step further and isolate a particular 
 
 \subsection{Aesthetic Constraints}
 
-\dunyazad/'s aesthetic constraints go beyond the basics required to produce actions that make sense and can be read as a story and attempt to define what kind of stories \dunyazad/ will produce.
+\dunyazad/'s aesthetic constraints go beyond the basics required to produce actions that make sense and can be read as a story.
+%
+Effectively, aesthetic constraints define what kinds of stories \dunyazad/ will produce.
 %
 As shown in \cref{tab:dunyazad-constraints-inventory} there are several different categories:
 %
@@ -529,7 +535,7 @@ These constraints are thus not about declaring what is universally acceptable or
 The bulk of these constraints form \dunyazad/'s operationalization of choice poetics, but a few are concerned with other effects:
 %
 \begin{itemize}
-  \item Surprising outcomes---Using the notion of likely and unlikely outcomes based on skills and tools, \dunyazad/ labels outcomes which are deemed unlikely as `surprising.' In an earlier version, `surprising' outcomes were prohibited altogether; now it's up to the author whether or not to allow them.
+  \item Surprising outcomes---Using the notion of likely and unlikely outcomes based on skills and tools, \dunyazad/ labels outcomes which are deemed unlikely as `surprising.' In an earlier version, `surprising' outcomes were prohibited; now it's up to the author whether or not to allow them.
   \item Story length and pacing---\dunyazad/ has rules for constraining how many actions must occur before a story ends, and how many of these must be choices as opposed to simple events.
 \end{itemize}
 %
@@ -561,7 +567,7 @@ Once the player chooses, they see the outcome for the option they selected, whic
 The idea of potential outcomes also has a direct analogue: these are the other possible values of outcome variables for an action.
 
 
-Each of the seven steps of choice analysis described in \cref{sec:goal-based-choice-analysis} has a corresponding set of rules in \dunyazad/ which depend on the rules for earlier steps:
+Each of the seven steps of choice analysis described in \cref{sec:goal-based-choice-analysis} has a corresponding set of rules in \dunyazad/ which are defined using the rules for earlier steps:
 %
 \begin{enumerate}[leftmargin=1.4em]
 \setlength{\parindent}{1.5em}
@@ -607,7 +613,7 @@ One thing that should be mentioned here is that \dunyazad/'s goal assumptions ar
 %
 There are no goals related to character believability of the protagonist, nor are there goals related to things like curiosity.
 %
-These could in principle be declared just like the current goals, but \dunyazad/ focuses on avatar and power play because these are the modes that its genre traditionally encourages.
+These could in principle be declared just like the current goals, but \dunyazad/ focuses on avatar and power play because these are the modes that its genre traditionally encourages (and in fact, these were the most popular modes of engagement among experiment participants; see \cref{sec:e2-motive-results}).
 
 \begin{figure}[!t]
 \centering
@@ -615,10 +621,10 @@ These could in principle be declared just like the current goals, but \dunyazad/
 \parbox{0.9\textwidth}{
 Scene:\svind\\
 \ind \parbox{0.95\linewidth}{\quoteshape A merchant carrying some perfume is being threatened by bandits.}\vind \\
-Option:\svind\\
+Option:\vind\\
 \ind \parbox{0.95\linewidth}{\quoteshape You try to talk the bandits down (You have skill: negotiation and you have skill: storytelling).}\vind \\
 Likelihood Predicates:\svind \\
-\ind \parbox{0.9\textwidth}{ \tt
+\ind \parbox{0.85\textwidth}{ \tt \raggedright
 \cg{at(root,} action(option(1), talk\_down)\cg{).} \\
 \cg{\ldots} \\
 \cg{at(root,} \\
@@ -636,7 +642,7 @@ Likelihood Predicates:\svind \\
 \cg{at(root,} \\
 \ind unlikely\_outcome(option(1), \\
 \ind o(is\_enraged, enraged)) \\
-\cg{).} \\
+\cg{).}
 }
 }
 }
@@ -664,7 +670,7 @@ Scene:\svind\\
 Option:\svind\\
 \ind \parbox{0.95\linewidth}{\quoteshape You try to talk the bandits down (You have skill: negotiation and you have skill: storytelling).}\vind \\
 Expectation Predicates:\svind \\
-\ind \parbox{0.9\textwidth}{ \tt
+\ind \parbox{0.85\textwidth}{ \tt
 \cg{at(root,} \\
 \ind expectation( \\
 \ind \ind option(1), \\
@@ -704,19 +710,21 @@ Expectation Predicates:\svind \\
 \textbf{Option Analysis} \\
 \label{page:option-analysis}%
 %
-As explained in \cref{sec:goal-based-choice-analysis}, the option analysis step uses the results of goal and likelihood analysis to attach expectations to each option.
+The option analysis step uses the results of goal and likelihood analysis to attach expectations to each option.
 %
-In the code, goal predicates specify which state(s) affect them, and the likelihood of all possible outcomes is known, so option analysis is straightforward.
+Goal predicates specify which state(s) affect them, and the likelihood of all outcomes is known, so option analysis is straightforward.
 %
-First, all possible outcome components of an option are considered and if any of them has a negative consequence for a goal, that option \lbl{threatens} that goal.
+First, all possible outcome components of an option are considered and if any of them negatively impacts a goal, that option \lbl{threatens} that goal.
 %
-Similarly, any positive consequence entails an \lbl{enables} relationship (the \prq{threatens}{} and \prq{enables}{} predicates in the code are used for the \lbl{threatens} and \lbl{enables} labels from \cref{ch:choice-poetics}).
+Similarly, any positive impact entails an \lbl{enables} relationship.
 %
 Since each option has multiple outcome components, a single goal may be both threatened and enabled by the same option, of course.
 %
-For the \lbl{advances} and \lbl{hinders} evaluations (represented in code by \prq{advances}{} and \prq{hinders}{} predicates), the same analysis applies, but only outcome components marked as \prq{likely}{} are considered.
+For the \lbl{advances} and \lbl{hinders} evaluations the same logic applies, but considering only outcome components marked as \prq{likely}{}.
 %
-The result of the option analysis constraints is a set of \prq{at(\abr/<T>,\abr/ expectation(\abr/<option>,\abr/ <expectation>,\abr/ <goal>))}{} predicates that list the expectations for each option/goal pair (see \cref{fig:dunyazad-option-analysis-example}).
+The result of the option analysis constraints is a set of \prq{at(\abr/<T>,\abr/ expectation(\abr/<option>,\abr/ <expectation>,\abr/ <goal>))}{} predicates that list the expectations for each option/goal pair.
+%
+\Cref{fig:dunyazad-option-analysis-example} shows an example of these \prq{expectation}{} predicates for the same option whose likelihood predicates are shown in \cref{fig:dunyazad-likelihood-analysis-example}.
 
 \item %
 \textbf{Relative Option Analysis} \\
@@ -745,7 +753,7 @@ There are nine (sometimes overlapping) \prq{option\_feel}{} values:
 
 
 
-The \prq{option\_structure}{} prospective impression assignments that are derived from these \prq{option\_feel}{} assignments are the subject of the experiment described in \cref{ch:option-results} and provide one primary means of controlling the kinds of choices \dunyazad/ generates.
+The \prq{option\_structure}{} assignments derived from these \prq{option\_feel}{} labels are the subject of the experiment described in \cref{ch:option-results} and provide one primary means of controlling \dunyazad/'s output.
 %
 Although they are discussed here as being `assigned' based on existing choice structures, because they're just predicates in an answer set program, they can be required and the solver will solve for answer sets that include them.
 %
@@ -767,7 +775,7 @@ Options:\svind\\
 \end{hangparas}
 } \vind \\
 Prospective Predicates:\svind \\
-\ind \parbox{0.9\textwidth}{ \tt
+\ind \parbox{0.85\textwidth}{ \tt \raggedright
 \cg{at(root,} option\_feel(option(1), hopeful)\cg{).} \\
 \cg{at(root,} option\_feel(option(2), bad)\cg{).} \\
 \cg{at(root,} option\_feel(option(2), doomed)\cg{).} \\
@@ -781,15 +789,15 @@ Prospective Predicates:\svind \\
 \end{figure}
 
 
-An example of relative option analysis predicates is shown in \cref{fig:dunyazad-relative-option-analysis-example}.
+\Cref{fig:dunyazad-relative-option-analysis-example} shows an example of relative option analysis results.
 %
-Based on having one \prq{hopeful}{} option and one option which is both \prq{bad}{} and \prq{doomed}{,} the choice in question is labelled as being both \prq{obvious}{} and \prq{pressured}{} from a prospective point of view.
+Based on having one \prq{hopeful}{} option and one option which is both \prq{bad}{} and \prq{doomed}{,} the choice in question is both \prq{obvious}{} and \prq{pressured}{} from a prospective standpoint.
 %
 While formal definition of the \prq{obvious}{} label was described in \cref{tab:prospective-impressions}, \prq{pressured}{} is not explained there.
 %
-The \prq{pressured}{} label applies to choices where there are no \prq{safe}{} or \prq{irrelevant}{} options but there is at least one \prq{hopeful}{} or \prq{tradeoff}{} option, and it indicates a choice where risk is inevitable but success still seems possible.
+The \prq{pressured}{} label applies to choices where there are neither \prq{safe}{} nor \prq{irrelevant}{} options but there is at least one \prq{hopeful}{} or \prq{tradeoff}{} option, and it indicates a choice where risk is inevitable but success still seems possible.
 %
-Note that exact definitions for these labels can be found in the listing for the file \file{eval.lp} in \cref{sec:src-core}.
+Note that exact definitions for these labels can be found in the file \file{eval.lp} listed in \cref{sec:src-core}.
 
 \begin{figure}[!p]
 \centering
@@ -802,14 +810,14 @@ Options/Outcomes:\svind\\
 \begin{hangparas}{1.3em}{1}
   \setlength{\parskip}{0pt}
 1. You try to talk the bandits down (You have skill: negotiation and you have skill: storytelling). \\
-\ind \parbox{0.95\linewidth}{$\rightarrow$ You talk to the bandits and convince them to back off. The bandits are no longer threatening the merchant.}
+\ind \parbox{0.88\linewidth}{$\rightarrow$ You talk to the bandits and convince them to back off. \newline The bandits are no longer threatening the merchant.}
 
 2. You travel onwards (No relevant skills). \\
-\ind \parbox{0.95\linewidth}{$\rightarrow$ You continue your journey. You have traveled to a new location.}
+\ind \parbox{0.88\linewidth}{$\rightarrow$ You continue your journey. \newline You have traveled to a new location.}
 \end{hangparas}
 } \vind \\
 Outcome Perception Predicates:\svind \\
-\ind \parbox{0.9\textwidth}{ \tt
+\ind \parbox{0.85\textwidth}{ \tt \raggedright
 \cg{at(root,} \\
 \ind outcome\_perception( \\
 \ind \ind option(1), \\
@@ -841,15 +849,15 @@ Outcome Perception Predicates:\svind \\
 \item %
 \textbf{Outcome Component Analysis} \\
 %
-Using player goal information and information about all possible outcomes of each action, outcome component analysis maps the relationships between every possible outcome component and each goal.
+Using information about player goals and the outcomes of each action, outcome component analysis maps the relationships between every possible outcome component and each goal.
 %
-These relationships are represented using \prq{at(<T>, outcome\_perception(<option>, <perception>, <goal>))}{} predicates and have four basic \prq{perception}{} values, similar to the \prq{expectation}{} predicates generated by the option analysis step: \prq{good\_for}{,} \prq{bad\_for}{,} \prq{great\_for}{,} and \prq{awful\_for}{.}
+These are represented using \prq{at(<T>, outcome\_perception(<option>, <perception>, <goal>))}{} predicates and have four basic \prq{<perception>}{} values, similar to the \prq{expectation}{} predicates from option analysis: \prq{good\_for}{,} \prq{bad\_for}{,} \prq{great\_for}{,} and \prq{awful\_for}{.}
 %
-These are directly deduced from the definitions of each goal combined with the states that a particular outcome component adds or removes.
+Outcome component analysis directly deduces these labels from the definitions of each goal and the states that a particular outcome component adds or removes.
 %
-So for example, the \prq{o(\abr/success,\abr/ dispelled)}{} possible outcome component of the \prq{dispel}{} action has a consequence which removes the \prq{polymorphed}{} property from the target of the action.
+So for example, the \prq{o(\abr/success,\abr/ dispelled)}{} outcome component of the \prq{dispel}{} action has a consequence which removes the \prq{polymorphed}{} property from the action's target.
 %
-Because of this, any option that consists of a \prq{dispel}{} action with a polymorphed target will be \prq{good\_for}{} the \prq{preserve\_\abr/original\_\abr/form}{} goal for the target actor, (because the \prq{polymorphed}{} state which is being removed is \prq{awful\_for}{} the \prq{preserve\_\abr/original\_\abr/form}{} goal\footnote{%
+Accordingly, any option that consists of a \prq{dispel}{} action with a polymorphed target will be \prq{good\_for}{} the \prq{preserve\_\abr/original\_\abr/form}{} goal of its target, (because the \prq{polymorphed}{} state which is being removed is \prq{awful\_for}{} the \prq{preserve\_\abr/original\_\abr/form}{} goal\footnote{%
 Although the counterpart of \prq{awful\_for}{} is \prq{great\_for}{} rather than \prq{good\_for}{,} the inference here softens the expectation.
 %
 The stronger \prq{great\_for}{} and \prq{awful\_for}{} perception labels are reserved for situations where they explicitly apply (i.e., a state which a goal labels as \prq{great\_for}{} or \prq{awful\_for}{} itself is the consequence of an option).%
@@ -915,14 +923,14 @@ Options/Outcomes:\svind\\
 \begin{hangparas}{1.3em}{1}
   \setlength{\parskip}{0pt}
 1. You try to talk the bandits down (You have skill: negotiation and you have skill: storytelling). \\
-\ind \parbox{0.95\linewidth}{$\rightarrow$ You talk to the bandits and convince them to back off. The bandits are no longer threatening the merchant.}
+\ind \parbox{0.88\linewidth}{$\rightarrow$ You talk to the bandits and convince them to back off. \newline The bandits are no longer threatening the merchant.}
 
 2. You travel onwards (No relevant skills). \\
-\ind \parbox{0.95\linewidth}{$\rightarrow$ You continue your journey. You have traveled to a new location.}
+\ind \parbox{0.88\linewidth}{$\rightarrow$ You continue your journey. \newline You have traveled to a new location.}
 \end{hangparas}
 } \vind \\
 Overall Outcome Predicates:\svind \\
-\ind \parbox{0.9\textwidth}{ \tt
+\ind \parbox{0.85\textwidth}{ \tt \raggedright
 \cg{at(root,} \\
 \ind outcome\_predictability( \\
 \ind \ind option(1), \\
@@ -965,9 +973,9 @@ Along with \prq{outcome\_\abr/overall}{} labels, this step assigns one of the fo
 %
 An entire option is \prq{predictable}{} when every single important outcome component (an outcome component that affects one or more goals tied for the highest priority) is \prq{predictable}{}, and there is at least one such outcome component.
 %
-\item \prq{expected}{}---An outcome component is \prq{expected}{} when it is one of several likely values for its variable.
+\item \prq{expected}{}---An outcome component is \prq{expected}{} when it is one of several likely values for its variable, at least one which is important.
 %
-An entire option is \prq{expected}{} when every outcome at that option is either \prq{predictable}{,} \prq{expected}{,} or \prq{average}{,} and they're not \emph{all} \prq{average}{} (nor are all components unimportant).
+An entire option is \prq{expected}{} when every outcome at that option is either \prq{predictable}{,} \prq{expected}{,} or \prq{average}{,} and they're not \emph{all} \prq{average}{.}
 %
 \item \prq{average}{}---These outcome components aren't likely, but neither are they unlikely, and no other values for their variable are likely, while at least one is unlikely.
 %
@@ -1082,14 +1090,14 @@ Options/Outcomes:\svind\\
 \begin{hangparas}{1.3em}{1}
   \setlength{\parskip}{0pt}
 1. You try to talk the bandits down (You have skill: negotiation and you have skill: storytelling). \\
-\ind \parbox{0.95\linewidth}{$\rightarrow$ You talk to the bandits and convince them to back off. The bandits are no longer threatening the merchant.}
+\ind \parbox{0.88\linewidth}{$\rightarrow$ You talk to the bandits and convince them to back off. \newline The bandits are no longer threatening the merchant.}
 
 2. You travel onwards (No relevant skills).\\
-\ind \parbox{0.95\linewidth}{$\rightarrow$ You continue your journey. You have traveled to a new location.}
+\ind \parbox{0.88\linewidth}{$\rightarrow$ You continue your journey. \newline You have traveled to a new location.}
 \end{hangparas}
 } \vind \\
 Outcome Feel Predicates:\svind \\
-\ind \parbox{0.9\textwidth}{ \tt
+\ind \parbox{0.85\textwidth}{ \tt \raggedright
 \cg{at(root,} outcome\_feel(option(1), expected\_success)\cg{).} \\
 \cg{at(root,} outcome\_feel(option(2), expected\_failure)\cg{).} \\
 }

@@ -10,7 +10,7 @@ Choice poetics should be able to address questions like: ``What is it about a ch
 %
 This chapter attempts to establish terminology and formal perspectives that can be used to talk about choices, but it's far from a ``complete'' theory of choice poetics: it only deals with explicit, discrete choices, for example.
 %
-Some parts of the theory are more developed (those that supported and were influenced by the development of \dunyazad/), but the ideas here are just the beginning of an in-depth study of narrative choices.
+Some parts of the theory are more developed (those that supported and were influenced by the development of \dunyazad/), but the ideas here are merely a foundation for an in-depth study of the poetics of narrative choices.
 
 
 Note that here I define ``poetics'' broadly as the compliment of hermeneutics: if hermeneutics is the study of the meaning of a text, poetics can be understood as the study of its non-meaning-related qualities, such as the emotions or themes it evokes.
@@ -104,6 +104,12 @@ The grouping of Yee's motivation components into these modes of engagement has t
 For example, Yee makes fine distinctions between different motivations grouped into the ``power play'' category here, but from a choice poetics perspective, whether someone is trying to maximize score or compete with an opponent doesn't matter, because both motivations are equally orthogonal to the narrative, and thus they have a similar effect on the player's experience of the narrative.
 
 
+Although modes of engagement are important to choice poetics, in my work with \dunyazad/ I have not given them great attention: \dunyazad/ encourages avatar play and all of its evaluations assume that players will engage primarily in this mode.
+%
+Extending \dunyazad/ to support power play and role play better, and to account for these possible approaches when evaluating choices, would be a very interesting line of future work.
+%
+Developing \dunyazad/ in that direction would allow it to be used as a tool to study modes of engagement in more detail.
+
 \begin{table}[!p]
 \begingroup
 \renewcommand*{\arraystretch}{1.5}
@@ -142,29 +148,9 @@ For example, Yee makes fine distinctions between different motivations grouped i
 \bottomrule
 \end{tabular}
 \endgroup
-\caption[Modes of engagement]{Some common modes of engagement.}
+\caption[Modes of engagement]{Some modes of engagement relevant to choice-based narratives.}
 \label{tab:modes-of-engagement}
 \end{table}
-
-Although modes of engagement are important to choice poetics, in my work with \dunyazad/ I have not given them great attention: \dunyazad/ encourages avatar play and all of its evaluations assume that players will engage primarily in this mode.
-%
-Extending \dunyazad/ to support power play and role play better, and to account for these possible approaches when evaluating choices, would be a very interesting line of future work.
-%
-Developing \dunyazad/ in that direction would allow it to be used as a tool to study modes of engagement in more detail.
-
-
-\section{Dimensions of Player Experience}
-
-When using choice poetics to analyze a narrative or even just a single choice, one must consider the range of expressiveness of narrative choices.
-%
-Aristotle devoted much of his analysis of emotion in \work{Poetics} to tragedy and the heroic epic as these were traditional forms in his day, but the full range of poetic effects is very broad, and includes both momentary impressions such as a single phrase that provokes disgust, and overall feelings, such as sympathy for a tragic figure.
-%
-To some degree, more complex effects depend on simpler ones, for example when an overall experience of sympathy depends on many individual positive evaluations of a character, along with negative reactions to bad things that happen to that character.
-%
-Of course, once choices are involved, the repertoire of effects is expanded, and it's important to have some understanding of what poetic effects a choice can possibly have.
-%
-Although no summary of possible poetic effects could hope to be complete, I have tried to list here a collection of important high-level aspects of a narrative experience that are strongly influenced by choice structures, including some which I believe are unique to narratives that contain choices.
-
 
 \begin{table}[!p]
 \begingroup
@@ -187,6 +173,20 @@ Although no summary of possible poetic effects could hope to be complete, I have
 \caption[Dimensions of player experience]{Some aspects of player experience that are influenced by choice poetics, along with hypotheses about what kinds of choices might support them.}
 \label{tab:dimensions-of-experience}
 \end{table}
+
+
+\section{Dimensions of Player Experience}
+
+When using choice poetics to analyze a narrative or even just a single choice, one must consider the range of expressiveness of narrative choices.
+%
+Aristotle devoted much of his analysis of emotion in \work{Poetics} to tragedy and the heroic epic as these were traditional forms in his day, but the full range of poetic effects is very broad, and includes both momentary impressions such as a single phrase that provokes disgust, and overall feelings, such as sympathy for a tragic figure.
+%
+To some degree, more complex effects depend on simpler ones, for example when an overall experience of sympathy depends on many individual positive evaluations of a character, along with negative reactions to bad things that happen to that character.
+%
+Of course, once choices are involved, the repertoire of effects is expanded, and it's important to have some understanding of what poetic effects a choice can possibly have.
+%
+Although no summary of possible poetic effects could hope to be complete, I have tried to list a collection of important high-level aspects of narrative experience that are strongly influenced by choice structures, including some which I believe are unique to interactive narratives.
+
 
 \Cref{tab:dimensions-of-experience} provides a brief overview of these important dimensions of player experience.
 %
@@ -304,7 +304,7 @@ The complex emotions that arise at that moment are the result of a forced choice
 
   \item \textbf{Regret}---Like responsibility, the capacity to make players feel regret is mostly unique to interactive narrative (see \citep{Frome2006,Zagal2009}).
 %
-Again, in linear narrative it is possible to sympathize and empathize with a character who is feeling regret within the story, but that's a different feeling than personal regret for one's own actions (a book or film might also cause one to revisit a personal regret, but this again is different from being the cause of that regret).
+    In linear narrative it is possible to sympathize and empathize with a character who is feeling regret within the story, but that's a different feeling than personal regret for one's own actions.\footnote{A book or film might also cause one to revisit a personal regret, but that is still different from being a source of regret.}
 %
 As with responsibility, making a player feel regret is quite delicate: the player not only has to achieve some level of transportation and identification, but the choices involved must be structured to resist the player's natural tendency to reassign blame.
 %
@@ -319,7 +319,7 @@ A game like The Walking Dead \citep{TheWalkingDead} forces the player to make ma
 \end{itemize}
 
 
-Each of these topics could be (and some of them have already been) the topic of dedicated research.
+The dimensions of player experience listed above could each be (and some have already been) the topic of dedicated research.
 %
 However, they are presented here merely to demonstrate how much there is to learn about choice poetics---\dunyazad/ as a system does not focus on any of these, but rather attempts to get at some simpler phenomena, such as what makes an individual choice obvious, or what is required for a choice to be seen as a dilemma.
 %
@@ -504,13 +504,13 @@ For example, if one option involves rolling a six-sided die, but the player has 
 Any outcome component that's associated with both rolling a six and rolling a one would still be marked as \lbl{likely}: given the information the player has, they can assume that such an outcome component will happen if they choose to roll the die.
 
 
-The outcome likelihoods produced by this step are used during option analysis in combination with the list of player goals from the goal analysis to figure out how each option portrays itself as affecting each goal.
+The outcome likelihoods produced by this step are used during option analysis in combination with the player goals from goal analysis to figure out how each option portrays itself as affecting each goal.
 %
-\Cref{fig:choice-analysis-method} displays these assignments in the `Outcome Likelihoods' box: the choice has two options, `O1' and `O2,' and O1 suggests outcome components `A' and `B,' while O2 suggests outcome components `C' and `D.'
+\Cref{fig:choice-analysis-method} displays these assignments in the `Outcome Likelihoods' box: the choice has two options, O1 and O2, and O1 suggests outcome components A and B, while O2 suggests outcome components C and D.
 %
-Components `A' and `B' are both \lbl{neutral} (indicated by a `?'), while component `C' is \lbl{unlikely} (a `U') and component `D' is \lbl{likely} (an `L').
+Components A and B are both \lbl{neutral} (indicated by a `?'), while component C is \lbl{unlikely} (a `U') and component D is \lbl{likely} (an `L').
 %
-Note that it's possible and even common for the same outcome component to be a plausible result of multiple options, although that situation is not shown in \cref{fig:choice-analysis-method}.
+Note that it's possible and even common for the same outcome component to be a plausible result of multiple options, although such a situation is not shown in \cref{fig:choice-analysis-method}.
 
 
 During this step, the actual outcomes of each option are irrelevant; what's important are the cues present in the framing and options that hint at what might happen if an option is elected.
@@ -612,13 +612,29 @@ This is one of the benefits of a detailed analysis technique, in fact: developin
 \toprule
 \lbl{Label} & \textbf{Description} & \textbf{Criteria} \tabularnewline
 \midrule
-\lbl{Depressing} & A choice where no matter which option you choose, there's a goal that's hindered . & Each option \lbl{hinders} at least one top-priority goal. No option should \lbl{enable} or \lbl{advance} any top-priority goals. \tabularnewline
-\lbl{Dilemma} & A difficult decision between two strictly negative outcomes. (A particular kind of \lbl{depressing} choice.) & Exactly two options, each of which \lbl{hinders} one of two different top-priority player goals. The priorities of the goals and the severity of the consequences should be balanced and neither option should \lbl{enable} or \lbl{advance} any goals (even low-priority ones). \tabularnewline
-\lbl{Empowering} & A choice where every option has a positive impact. & Every option \lbl{advances} a player goal, and may \lbl{threaten} one or more goals but does not \lbl{hinder} any. \tabularnewline
-\lbl{Obvious} & A choice that has one option which is clearly better than the rest. & One option that \lbl{advances} a top-priority player goal without \lbl{hindering} any (although it may \lbl{threaten} some), while none of the rest of the options \lbl{enable} any top-priority goals, and each of them \lbl{threatens} some goal. \tabularnewline
-\lbl{Relaxed} & A choice that has no impact on any high-priority goals and where no goals are threatened. & There are no option expectations involving high-priority goals (positive or negative), and there are no \lbl{threatens} expectations (and thus no \lbl{hinders} expectations). \tabularnewline
-\lbl{Mysterious} & A choice where there is no indication of which option is best or how the outcomes might affect things. & There are zero option expectations, including \lbl{enables} and \lbl{threatens} expectations. \tabularnewline
-%\textbf{Uncom-fortable} & A choice where the best option isn't very good, but it's better than the alternatives. & There's one option which is expected to \lbl{enable} an important player goal (but not to \lbl{advance} it), while every other option has some combination of \lbl{threatens} and \lbl{hinders} expectations. The enabling option also \lbl{threatens} and possibly \lbl{hinders} the goal that it \lbl{enables}. \tabularnewline
+\lbl{Depressing}
+& A choice where no matter which option you choose, there's a goal that's hindered .
+& Each option \lbl{hinders} at least one top-priority goal. No option should \lbl{enable} or \lbl{advance} any top-priority goals. \tabularnewline
+%
+\lbl{Dilemma}
+& A difficult decision between two strictly negative outcomes. (A particular kind of \lbl{depressing} choice.)
+& Exactly two options, each of which \lbl{hinders} one of two different top-priority player goals. The priorities of the goals and the severity of the consequences should be balanced and neither option should \lbl{enable} or \lbl{advance} any goals (even low-priority ones). \tabularnewline
+%
+\lbl{Empowering}
+& A choice where every option has a positive impact.
+& Every option \lbl{advances} a player goal, and may \lbl{threaten} one or more goals but does not \lbl{hinder} any. \tabularnewline
+%
+\lbl{Obvious}
+& A choice that has one option which is clearly better than the rest.
+& One option that \lbl{advances} a top-priority player goal without \lbl{hindering} any (although it may \lbl{threaten} some), while none of the rest of the options \lbl{enable} any top-priority goals, and each of them \lbl{threatens} some goal. \tabularnewline
+%
+\lbl{Relaxed}
+& A choice that has no impact on any high-priority goals and where no goals are threatened.
+& There are no option expectations involving high-priority goals (positive or negative), and there are no \lbl{threatens} expectations (and thus no \lbl{hinders} expectations). \tabularnewline
+%
+\lbl{Mysterious}
+& A choice where there is no indication of which option is best or how the outcomes might affect things.
+& There are zero option expectations, including \lbl{enables} and \lbl{threatens} expectations. \tabularnewline
 \bottomrule
 \end{tabular}
 \endgroup
@@ -657,7 +673,7 @@ Additionally, when a player is confronted with a diegetic dilemma, any reasoning
 At the same time, since diegetic dilemmas can force the player to make an important decision for their avatar and to ``think as'' their avatar, they may promote identification.
 
 
-Dilemmas can be very fragile, however, because if the goals hindered by the two options are not well-balanced, the choice can become obvious (this impacted the experiments described in \cref{ch:option-results,ch:outcome-results}).
+Dilemmas can be very fragile, however, because if the goals hindered by the two options are not balanced, the choice can become obvious (this impacted the experiments described in \cref{ch:option-results,ch:outcome-results}).
 %
 A dilemma may also force a player to re-evaluate their priorities, especially when the player goals involved relate to different modes of engagement.
 %
@@ -665,14 +681,14 @@ For example, if one option hinders a player's ludic goal of becoming more powerf
 %
 Of course, a choice like this that forces the player to decide between orthogonal goals can be used intentionally by an author to build divergent experiences for players who presumably prioritize different things.
 %
-Such a choice not only measures a player's priorities but also probably affects them: human cognitive biases related to self-consistency and rationalization mean (see e.g., \citep{Hall2012}) that once a player commits to a certain set of priorities they are likely to stick with that choice.
+Such a choice not only measures a player's priorities but also probably affects them: human cognitive biases related to self-consistency and rationalization mean (see e.g., \citep{Hall2012}) that once a player commits to a certain set of priorities they are likely to stick with that decision.
 
 
 A label like \lbl{dilemma} can thus be unpacked into a rich understanding of the poetics of a choice.
 %
 Beyond assigning such well-understood labels, however, relative option analysis can also find choices which don't strictly conform to any labels, and analyze them on a case-by-case basis.
 %
-It is often useful to compare a specific choice structure to known structures and focus on the differences.
+In these cases it is useful to compare a specific choice structure to a known structure and focus on the differences.
 %
 For example, a choice that meets all the criteria for being \lbl{obvious}, but where the best option also \lbl{hinders} a top-priority goal, could be compared to an \lbl{obvious} choice.
 %
@@ -790,9 +806,9 @@ Along with the prospective impressions established by the relative option analys
 
 Retrospective analysis is the final step in the goal-driven option analysis framework presented here, although the results of the relative option analysis step can sometimes be used in isolation.
 %
-Retrospective analysis complements relative option analysis by providing an understanding of how the player feels after making a decision and experiencing the outcome of a particular option at a choice.
+Retrospective analysis complements relative option analysis by providing an understanding of how the player feels \emph{after} making a decision and experiencing the outcome of a particular option at a choice.
 %
-Note that further comparative analysis of outcomes would be necessary to understand how a player might view a choice after experiencing multiple outcomes, but the usual case in which a player only experiences a single outcome doesn't need this extra step.
+Note that further comparative analysis of outcomes would be necessary to understand how a player might view a choice after experiencing multiple outcomes, but this is unnecessary in the common case where a player only experiences a single outcome at each choice.
 
 
 As with the relative option analysis, this step is focused on matching against a set of characteristic option structures.
@@ -811,22 +827,22 @@ Note that each option is treated independently, although prospective impressions
 \midrule
 \textbf{Expected Success}
 & A predictable outcome that advances player goals.
-& The option selected \lbl{advances} a player goal without \lbl{hindering} any, and its outcome is both \lbl{predictable} and \lbl{good}. \tabularnewline
+& The selected option was expected to \lbl{advance} a player goal without \lbl{hindering} any, and its outcome is both \lbl{predictable} and \lbl{good}. \tabularnewline
 \textbf{Expected Failure}
 & A predictable outcome that hinders player goals.
-& The option selected \lbl{hinders} a player goal and doesn't \lbl{advance} any, and its outcome is both \lbl{predictable} and \lbl{bad}. \tabularnewline
+& The selected option was expected to \lbl{hinder} a player goal and not \lbl{advance} any, and its outcome is \lbl{predictable} and \lbl{bad}. \tabularnewline
 \textbf{Nice Gamble}
 & An option that seemed like a gamble but that turned out well.
-& The option selected didn't \lbl{advance} or \lbl{hinder} any player goals, or it both \lbl{advanced} and \lbl{hindered} one or more goals that were approximately balanced. The outcome was \lbl{unpredictable}, but also \lbl{good}. The selected option was not distinctly worse-seeming than any other options. \tabularnewline
+& The selected option was not expected to \lbl{advance} or \lbl{hinder} any player goals, or it was expected to both \lbl{advance} and \lbl{hinder} goals that were approximately balanced. The outcome is \lbl{unpredictable}, but also \lbl{good}. The selected option was not distinctly worse-seeming than any other options. \tabularnewline
 \textbf{Bad Gamble}
 & An option that seemed like a gamble and did not pay off.
 & As above, but with a \lbl{bad} outcome. \tabularnewline
 \textbf{Unfair}
 & An option that seemed good but had unexpected negative consequences.
-& The selected option must be expected to \lbl{advance} at least one top-priority player goal, while not \lbl{hindering} any. It must also have an \lbl{unexpected} and \lbl{bad} outcome. \tabularnewline
+& The selected option was expected to \lbl{advance} at least one top-priority player goal, while not \lbl{hindering} any. It has an \lbl{unexpected} and \lbl{bad} outcome. \tabularnewline
 \textbf{Miracle}
 & An option that seemed like a lost cause but that turned out well against expectations.
-& The selected option must be expected to \lbl{hinder} at least one top-priority goal, while not \lbl{advancing} any. It must have an \lbl{unexpected} and \lbl{good} outcome. \tabularnewline
+& The selected option was expected to \lbl{hinder} at least one top-priority goal, while not \lbl{advancing} any. It has an \lbl{unexpected} and \lbl{good} outcome. \tabularnewline
 \bottomrule
 \end{tabular}
 \endgroup
@@ -888,7 +904,7 @@ For the purposes of this analysis, we will assume that our model player is engag
 \begin{itemize}
   \item \texttt{[high]} Provide for their family---the player wants to earn credits and avoid penalties in order to pay for food and shelter at the end of the round.
   \item \texttt{[high]} Act ethically---as much as possible, the player wants to treat applicants ethically and avoid acting in ways that would intentionally harm them without reason.
-  \item \texttt{[medium]} Avoid being scammed---separate from their desire to earn credits, the player actively wants to identify dishonest applicants and deny them entry.
+  \item \texttt{[medium]} Avoid being scammed---separate from their desire to earn credits, the player actively wants to identify applicants who are trying to trick them and deny their applications.
   \item \texttt{[low]} Admit approved travellers---in line with ethical treatment in life-or-death scenarios, the player generally wants to treat travellers fairly by letting them in if they meet the requirements for entry. This goal has a lower priority, however.
 \end{itemize}
 
@@ -961,7 +977,7 @@ As stated above, the breakdown of outcome components was chosen so that their re
 %
 This allows the likelihood labels to capture any uncertainty in the situation, as opposed to having unclear or conditional relationships between outcome components and goals.
 
-\begin{table}[b]
+\begin{table}[!t]
 \centering
 \begin{tabular}{c l l}
   \toprule
@@ -985,14 +1001,14 @@ This allows the likelihood labels to capture any uncertainty in the situation, a
 
 \subsubsection{Relative Option Analysis}
 
-The relative option analysis step looks for patterns in the results of option analysis, but in this case, the option analysis doesn't fit any established patterns.
+The relative option analysis step looks for patterns in the results of option analysis, but in this case, the option analysis doesn't fit any established patterns (see \cref{tab:prospective-impressions}).
 %
 In this case, known patterns can still be used as guideposts if we can figure out a known pattern that almost fits and analyze why it doesn't.
 %
 For this particular choice, it turns out that the \lbl{dilemma} pattern is a near match if the option analysis is a bit different.
 
 
-In fact, the player's doubt of the applicant's story is key here.
+In fact, the player's doubt of the applicant's story has a pivotal effect on their perception of this choice.
 %
 \Cref{tab:ex-revised-option-analysis} shows an alternative option analysis if the player assumes that the applicant is telling the truth.
 %
@@ -1075,11 +1091,11 @@ These outcome components remain uncertain: the applicant was let in, but was tha
 The player can only rely on their judgement of the sincerity of the applicant's claims in this case.
 
 
-Although goal-based choice analysis has no explicit suggestions as to how to handle this case of post-decision lingering uncertainty (perhaps this could be a direction for future work), we can think about what impact this might have in this specific case.
+Although goal-based choice analysis has no explicit suggestions as to how to handle this case of post-decision lingering uncertainty (perhaps this could be a direction for future work), we can think about what impact it might have in this specific case.
 %
-For the outcome component analysis step, we will just analyze both components separately and keep in mind that the player doesn't know which of them occurs.
+To handle the outcome component analysis step, it suffices to simply analyze both components separately and keep in mind that the player doesn't know which of them occurs.
 %
-This results in the outcome component judgements shown in \cref{tab:ex-outcome-component-analysis}.
+Doing so results in the outcome component judgements shown in \cref{tab:ex-outcome-component-analysis}.
 
 \begin{table}[!b]
 \centering
@@ -1103,17 +1119,17 @@ This results in the outcome component judgements shown in \cref{tab:ex-outcome-c
 
 Recall that our choice of outcome components made the option analysis step simple; in this case that has in turn made the outcome component analysis step complex.
 %
-Because this choice has an inherently complicated structure due to the hypothetical player's unresolved doubts about the applicant's honesty, it is not simple to represent in terms of outcome components with direct relationships to player goals, but breaking it down into outcome components is still useful in order to identify where the complexity resides.
+Because the example choice is complicated by doubts about the applicant's honesty, its structure is not easy to represent in terms of outcome components with direct relationships to player goals, but breaking it down into outcome components is still useful in order to identify where the complexity resides.
 %
-An alternate analysis would simply use ``applicant admitted'' as an outcome component, and label its goal-impacts on both the act-ethically and avoid-scams goals as uncertain.
+An alternate analysis would simply use ``applicant admitted'' as an outcome component, and label its goal-impacts on both the act-ethically and avoid-scams goals as uncertain (labels which have not been considered in this chapter).
 %
 The breakdown used here instead provides more detail by showing the evaluations corresponding to each potential player belief (in other words, by showing what possibilities the player is uncertain about).
 
 \subsubsection{Full Outcome Analysis}
 
-Based on the results of outcome component analysis, full outcome analysis summarizes each option as being overall good/bad and expected/unexpected/unpredictable with respect to player goals.
+Based on the results of outcome component analysis, full outcome analysis summarizes each option as overall good/bad and expected/unexpected/unpredictable with respect to player goals.
 %
-Focusing again only on the approve option, we can see that its outcome is mixed but mostly negative.
+Focusing again on the approve option, we can see that its outcome is mixed but mostly negative.
 %
 It has definite negative impacts on the high-priority goal of providing for the player's family, but it also has an uncertain positive impact on the high-priority goal of treating applicants ethically.
 %
@@ -1209,7 +1225,7 @@ In particular, \cref{tab:prospective-impressions,tab:retrospective-impressions} 
 These revisions and others that were made as I built \dunyazad/ are the primary product of my hybrid research method: a more nuanced understanding of choice poetics obtained by attempting to operationalize it.
 
 
-One might wonder what advantage this analysis technique has over similar theories that could be applied to narrative choices, such as decision affect theory \citep{Mellers1997} (which it is in part based on).
+One might wonder what advantage this analysis technique has over similar theories that could be applied to narrative choices, such as decision affect theory\footnote{Complicating such a comparison is the fact that the analysis technique presented here is in part based on decision affect theory.}\citep{Mellers1997}.
 %
 One difference lies in specificity and directness: while decision affect theory could be consulted to come up with a set of hypotheses about audience response to a choice, it does not provide a list of specific steps to follow in doing so.
 %

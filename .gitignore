@@ -16,4 +16,5 @@ src/
 *.lst
 hev.*
 hevcr.*
+dis.ps
 dis.image.tex

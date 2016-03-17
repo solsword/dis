@@ -30,7 +30,7 @@ Viewed in this light, I'm happy with the results of the project so far.
 %
 It has broken new theoretical and technical ground, backed up by rigorous experimental results.
 %
-The following sections summarize the key results of the \dunyazad/ project.
+The following sections summarize the key results of the \dunyazad/ project and suggest important directions for future work.
 
 \section{A Theory of Choice Poetics}
 
@@ -49,7 +49,7 @@ While a na\"ive evaluation of a choice might be able to come up with the most co
 %
 For authors of branching narratives, goal-based choice analysis should be a useful tool for viewing a choice from multiple player perspectives, and it may be helpful when ``debugging'' a choice that playtesting has identified as provoking unexpected reactions.
 %
-For critics, goal-based choice analysis ought to help go from a gut reaction to an explicit description of why a particular choice is effective or ineffective for a particular purpose.
+For critics, goal-based choice analysis ought to help go from a gut reaction to an explicit description of why a particular choice is effective or ineffective at eliciting a particular response, as demonstrated in \cref{sec:analysis-example}.
 
 
 The theory developed in \cref{ch:choice-poetics} is based on existing theories of traditional and interactive poetics along with craft advice, as described in \cref{ch:related-work}.
@@ -63,13 +63,13 @@ It is intentionally more mechanical to allow for easy operationalization, and th
 
 The main technical result of the \dunyazad/ project is a program that generates narrative choices.
 %
-While any interactive narrative project necessarily gives the player some kind of choices, until now there have only been a few projects that focused on those choices as a first-class design problem: most projects generate (or manage) some other structure which implicitly contains choices without ever focusing on the total set of options available to the player at each moment.
+While any interactive narrative project necessarily gives the player some kind of choices, until now there have only been a few projects that focused on those choices as a first-class design problem: most projects generate (or manage) some other structure which implicitly contains choices without ever focusing on the set of options available to the player at any one moment.
 %
-As the results in \cref{ch:option-results,ch:outcome-results} demonstrate, however, this total set of options can profoundly impact player reactions, and even options which are never chosen by the player color their perception of the outcomes that they do see.
+As the results in \cref{ch:option-results,ch:outcome-results} demonstrate, however, the set of options available can profoundly impact player reactions, and even options which are never chosen by the player color their perception of the outcomes that they do see.
 %
-While a few other projects such as \citep{Barber2007a, Yu2013} have made explicit choices and their structures the center of their attention, these projects have not attempted to generate a variety of choices in a principled manner.
+While a few other projects such as \citep{Barber2007a, Yu2013} have made explicit choices and their structures the focus of their attention, these projects have not attempted to generate a variety of choices in a principled manner.
 %
-Relative to existing work, then, \dunyazad/ stands out as a project that aims to be able to generate a range of different choice structures from first principles.
+Relative to existing work, then, \dunyazad/ stands out as a project that aims to be able to generate a range of different choice structures by using a general theory of choice poetics.
 
 
 \dunyazad/'s reliance on an operationalization of choice poetics is key here.
@@ -93,7 +93,7 @@ Likewise, when a choice is labelled ``obvious'' but humans don't perceive it as 
 %
 Few other approaches to generating choices, computational or otherwise, have the same potential to generate experimental results which can directly inform the underlying theory.
 %
-\dunyazad/ is thus not only an example of a successful system that explores a novel generative space, it is also a unique tool for the study of choice poetics, and a demonstration of a new research approach that employs artificial intelligence as a tool for the development of a humanistic theory.
+\dunyazad/ is thus not only an example of a successful system that explores a novel generative space, it is also a unique tool for the study of choice poetics, and thus a demonstration of a new research approach that employs artificial intelligence as a tool for the development of a humanistic theory.
 
 
 \section{Experimental Results}
@@ -160,7 +160,7 @@ As with the functionality that \dunyazad/ already has, once the theory and syste
 
 Besides developing \dunyazad/'s core reasoning capabilities, it should also be extended to reason about larger plot structures.
 %
-Currently, \dunyazad/ can chain together choices to play out a single scene and transition from scene to scene by moving the action to a new location, but it lacks high-level reasoning about plot structure and certain elements like recurring characters from scene-to-scene that would enable it to generate longer stories.
+Currently, \dunyazad/ can chain together choices to play out a single scene and transition from scene to scene by moving the action to a new location, but it lacks high-level reasoning about plot and elements like recurring characters between scenes that would enable it to generate longer stories.
 %
 Implementing these things could enable the study of more complex poetic effects like regret, although of course these effects also provide challenges in terms of experimental design.
 %
@@ -176,6 +176,6 @@ This in turn could expose new avenues for the growth of \dunyazad/ as a generati
 Ultimately, both the system and the theory should benefit from the theory's application.
 
 
-All of this work fits into a broader research agenda of developing generative AI systems that can both push the boundaries of what is possible with interactive media and simultaneously become sites of study to understand how it works.
+All of this work fits into a broader research agenda of developing generative AI systems that can both push the boundaries of interactive media and simultaneously become sites of study for understanding it.
 %
-As digital media continue to impact our society, from Facebook's filtering algorithms to the online virtual environments that have become important spaces for socialization and growth for teens and young adults, I hope to see more projects like \dunyazad/ that use computers not just to create these environments but to help us make sense of them and understand how they impact the humans that use them.
+As digital media continue to impact our society, from Facebook's filtering algorithms to the online virtual environments that have become important spaces of socialization and growth for teens and young adults, I hope to see more projects like \dunyazad/ that use computers not just to create these environments but to help us make sense of them and understand how they impact the humans that use them.

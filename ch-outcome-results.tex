@@ -175,7 +175,7 @@ The first question asked directly about motivation:
   \quoteshape
   1. Which of the following motive(s) contributed to your decision? (pick one or more) \\
   %
-  (Note: no submissions will be rejected based on this information; wanting to get this survey done quickly is a perfectly valid reason for making a decision.) \\
+  (Note: no submissions will be rejected based on this information; wanting to get this survey done quickly is a perfectly valid reason for making a decision.) \vspace*{-\baselineskip} \\
   \begin{itemize}
     \item[\ding{111}] I'm taking an online survey. I just chose an option quickly so that I could complete the survey.
     \item[\ding{111}] I was just curious to find out what would happen if I chose the option I did.
@@ -203,7 +203,7 @@ In a similar vein, the next question asked how players evaluate outcomes:
 %
 \begin{quote}
   \quoteshape
-  2. Which of the following judgement(s) contributes to how you generally define a ``good'' outcome in interactive experiences like the one you just played? (pick one or more) \\
+  2. Which of the following judgement(s) contributes to how you generally define a ``good'' outcome in interactive experiences like the one you just played? (pick one or more) \vspace*{-\baselineskip} \\
   \begin{itemize}
     \item[\ding{111}] I feel an outcome is good when something good happens to my character in the story world.
     \item[\ding{111}] I feel an outcome is good if it is an interesting development in the story.
@@ -267,16 +267,16 @@ Of course, this survey included a different set of hypotheses.
 
 \section{Hypotheses}
 
-The hypotheses in this study were tested in largely the same way as those in the prospective study.
+The hypotheses in this study were tested in largely the same way as those in the prospective study:
 %
 Each ``agree'' or ``disagree'' hypothesis was tested by comparing the results under a given condition with a uniform distribution of responses using a Mann-Whitney-Wilcoxon U test with an appropriate alternate hypothesis.
 %
 A uniform distribution with 35 elements was used for all comparisons, as this was the multiple of five (the number of response categories) closest to the number of samples in most of the relevant cases (32-36 for each condition, although as low as 8 in some sub-conditions; these low-$n$ comparisons are discussed where they appear).
 %
-For between-condition hypotheses, the two sample populations were compared directly using Mann-Whitney-Wilcoxon U tests.
+For between-condition hypotheses, the two sample populations in question were compared directly using Mann-Whitney-Wilcoxon U tests.
 %
-In all cases, results are taken to be significant when their $p$-values are $<$0.05, and common-language effect sizes (see \cref{sec:e1-results} for an explanation) are indicated when results are significant.
-
+In all cases, results are taken to be significant when their $p$-values are $<$0.05, and common-language effect sizes (see \cref{sec:e1-results} for an explanation) are indicated wherever the results are significant.
+\vspace{0pt plus 0.5\baselineskip}
 
 \begin{table}[!b]
 \centering
@@ -306,7 +306,7 @@ Given the results of the first experiment, several of these hypotheses were not 
 %
 These tentative hypotheses are marked with `\lc/'s in \cref{tab:e2-option-hypotheses}.
 %
-In particular, hypotheses having to do with options being balanced or there being no clear best option were not expected to be well-supported by the data.
+In particular, hypotheses having to do with options being balanced or there being no clear best option were not expected to be validated.
 
 
 \subsection{Basic Outcome Hypotheses}
@@ -514,11 +514,11 @@ The hypotheses are still an important point of reference, however, as they help 
 
 \section{Results}
 
-As with the previous experiment, some submissions were rejected because they failed to answer screening questions correctly (the same two screening questions were used, one asking for age confirmation and the other an attention check within the body of the survey).
+As with the previous experiment, some submissions were rejected because they failed to answer screening questions correctly (the same two screening questions as the first survey: one asking for age confirmation in a manner that required English proficiency and the other an attention check within the body of the survey).
 %
-There were 10 rejected responses, and these were resubmitted to Amazon so that a new participant was found, so there a total of 280 responses including rejections.
+There were 10 rejected responses, and these were resubmitted to Amazon so that new participants were found; there a total of 280 responses including rejections.
 %
-The rejected responses were not used in the analysis.
+Rejected responses were not used in the analysis.
 
 
 Unfortunately, the system for ensuring that the same participant did not take the survey more than once was configured improperly at the beginning of data collection, and some participants submitted multiple responses (across different conditions).
@@ -620,7 +620,7 @@ A summary of the results appears in \cref{fig:e2-option-report,fig:e2-outcome-re
 %
 In \cref{fig:e2-outcome-report-fair-sense,fig:e2-outcome-report-valence-satisfaction,fig:e2-outcome-report-surprise}, the questions are ordered such that complimentary question pairs are adjacent, and comparing the data visually there seems to be a good deal of symmetry between these pairs, as expected.
 %
-Overall, the data indicate that \dunyazad/ is better at creating positive expectations and results than negative ones: compare the incredibly one-sided results for the \exps{} condition to the much more mixed results for \expf{,} for example.
+Overall, the data indicate that \dunyazad/ is better at creating positive expectations and outcomes than negative ones: compare the incredibly one-sided results for the \exps{} condition to the much more mixed results for the \expf{} condition, for example.
 
 
 As mentioned above, each of the rows in these figures represents between 32 and 36 responses, depending on the condition.
@@ -787,6 +787,7 @@ The choice with seed 8015 also includes a \prq{travel\_onwards}{} option in a si
 
 
 \subsection{Dilemma Cases---Outcomes Affect Option Perception}
+\label{sec:e2-outcomes-affect-options}
 
 Recall that the \unxs{} case exhibited the same problem.
 %
@@ -834,6 +835,7 @@ However, based on the option popularities in choice 20739, that choice has the s
 \begin{figure}[p]
 \fseed{47371} \\
 \fseed{20739}
+\vspace*{-3pt}
 \caption[``Obvious success'' choices 47371 and 20739]{The \obvs{} choices 47371 and 20739 minus framing. Boxed numbers indicate the number of participants who saw each outcome.}
 \label{fig:e2-seeds-47371-20739}
 \end{figure}
@@ -851,7 +853,7 @@ The \prq{[alt]}{} cases are supposed to consist of participants who intentionall
 %
 Because of \dunyazad/'s failure to predict the complexities of player goals, the \prq{[alt]}{} case consists largely of participants who thought they were choosing the best option available, but who disagreed with \dunyazad/'s evaluation of what that was.
 %
-Of course, although these effects diminish the number of participants in the \prq{[main]}{} cases, at least their meaning is not diluted very much: only a few participants from poorly-formed choices like 20739 wound up choosing the options that \dunyazad/ considered best, and so only a few participants in the \prq{[main]}{} cases weren't choosing what they thought was an obviously superior option.
+Although these effects diminish the number of participants in the \prq{[main]}{} cases, at least their meaning is not diluted very much: only a few participants from poorly-formed choices like 20739 wound up choosing the options that \dunyazad/ considered best, and so only a few participants in the \prq{[main]}{} cases weren't choosing what they thought was an obviously superior option.
 
 
 \subsection{Costly Actions}
@@ -1005,7 +1007,7 @@ In other words, players reason neither strictly from options to outcomes nor fro
 %
 If fact, there is ample evidence of this kind of reasoning even in real-world decisions (for an extreme example see studies on choice blindness such as \citep{Hall2012}).
 %
-If an author is interested in constructing an option that feels a specific way in retrospect, then, they must be mindful of the consequences of that option.
+If an author is interested in constructing an option that feels a specific way in retrospect, then, they must be mindful of how the consequences of that option make it appear in hindsight.
 
 
 If the fact that options meant to seem indicative of failure were not explains the expectedness result in the \unxs{} case, what about the \obvfa{} case?
@@ -1037,7 +1039,8 @@ Because of this, getting a good result was not surprising, and the corresponding
 { \sffamily Unexpected Success}\\
 \includegraphics[width=\textwidth]{{fig/cropped-detailed-report-unexpected\string_success-06-out.bad}.pdf}\\
 \includegraphics[width=\textwidth]{{fig/cropped-detailed-report-unexpected\string_success-10-out.good}.pdf}\\
-\includegraphics[width=\textwidth]{fig/detailed-outcomes-legend-custom.pdf}
+\includegraphics[width=\textwidth]{fig/detailed-outcomes-legend-custom.pdf}%
+\vspace*{-1pt}%
 \caption[``Unexpected success'' valence results and choice 99500]{The choice with seed 99500 along with valence results from the \unxs{} condition. Boxed values indicate the number of participants that selected each outcome at choice 99500, and bracketed numbers on the right of the graph below indicate sample sizes for each row. Note the diverging responses for choice 99500 and the text of the outcome for option one.}
 \label{fig:e2-seed-99500-plus}
 \end{figure}
@@ -1168,21 +1171,23 @@ Choice 8638 combines an obvious option structure (so players feel they are makin
 %
 The desire to see the results of the polymorph spell might have something to do with the strong reactions to choice 8638, but the fact that the option text of option two mentions two positive factors and no negative ones is likely important as well.
 %
-If an author is intentionally trying to create a choice that is perceived as unfair, it seems that being subtle when suggesting a positive outcome is a dangerous approach.
+%Compared to choices like 46585 and 28306, choice 8638 creates a stronger expectation of success via both purely-positive relevance text and a stronger contrast with alternatives.
+%
+Based on these results, if an author is intentionally trying to create a choice that is perceived as unfair, it seems that being subtle when suggesting a positive outcome is not the most productive approach.
 
 
 \subsection{Regret and Alternatives}
 \label{sec:results-about-regret}
 
-Another unexpected result in the unexpected failure column was the fact that participants weren't dissatisfied with their decisions at \obvf{} choices.
+Another unexpected result from an unexpected failure case was the fact that participants weren't dissatisfied with their decisions at \obvf{} choices.
 %
 In retrospect, these hypotheses were poorly thought out: the \obvfm{} case should be one in which a participant selects what appears to be the only available good option, but is given a negative outcome.
 %
-Although one would expect such outcomes to be perceived as bad (which they were), the questions about satisfaction were asking whether participants \emph{would rather have picked a different option.}
+Although such outcomes should be perceived as bad (which they were), the questions about satisfaction were asking whether participants \emph{would rather have picked a different option.}
 %
-If a participant truly thinks that the option they picked is the only good option, then despite a negative result, they should not believe that picking a different option would lead to a better outcome.
+If a participant truly thinks that the option they picked is the only good option, then despite a bad result, they would not believe that a different option might lead to a better outcome.
 %
-Of course, it's not the case that they clearly \emph{wouldn't} want to try a different option---the outcome they got \emph{was} bad---so neither enthusiastic agreement nor firm denial seem like appropriate responses.
+However, it's not the case that they \emph{clearly} wouldn't want to try a different option---the outcome they got \emph{was} bad---so neither enthusiastic agreement nor firm denial seem like appropriate responses.
 
 
 The answers that I got reflected these competing impulses: the ``satisfied'' and ``dissatisfied'' statements both received a substantial number of neutral responses in the \obvfm{} condition, and the non-neutral responses were about evenly split overall, as shown in \cref{fig:e2-obvious-failure-main-detail-regret-expected}.
@@ -1260,9 +1265,9 @@ These hypotheses were grouped into five topics which each probed for evidence of
 
 \subsection{Free vs\@. Forced Unexpected Failure}
 
-The first such group predicted broadly that unexpected failure would be perceived as more acceptable when it seemed to be the result of a free choice rather than a forced one.
+The first group predicted broadly that unexpected failure would be perceived as more acceptable when it seemed to be the result of a free choice rather than a forced one.
 %
-Stated another way, participants who experienced an unexpected failure at a choice where all options seemed good would be more likely to blame themselves for picking a ``wrong'' choice, and participants who picked an option that seemed to be clearly better than the alternatives would blame the system, accusing it of being unfair or broken and generally viewing their lot as worse.
+Stated another way, participants who experienced failure at a choice where all options seemed good might be more likely to blame themselves for picking a ``wrong'' choice, while participants who picked an option that seemed to be clearly better than the alternatives might blame the system, accusing it of being unfair or broken and generally viewing their lot as worse.
 
 \begin{table}[!p]
 \centering
@@ -1425,13 +1430,13 @@ Of course, this last effect is more likely due to the valence of the alternative
 \end{figure}
 
 
-Unfortunately, although the hypotheses here are supported by the data and agree with existing literature, there may be another cause for my findings: several of the choices involved in these conditions have already been called out for not producing the poetic effects that they were supposed to.
+Unfortunately, although the hypotheses here are supported by the data and agree with existing literature, there may be another cause for my findings: several of the choices involved in these conditions have already been called out for not producing their intended poetic effects.
 %
-These hypotheses were expected to look for gradations of badness between choices whose results were uniformly viewed as bad, but the choices that \dunyazad/ constructed for these cases didn't turn out that way.
+These hypotheses were supposed to look for gradations of badness between choices whose results were uniformly viewed as bad, but the choices that \dunyazad/ constructed for these cases didn't turn out that way.
 %
 The data for the ``good'' item in all three relevant conditions, shown in \cref{fig:e2-expected-vs-unexpected-failure-detail}, reveal that several choices are acting up (similar anomalies appear for the ``bad'' item).
 %
-As already discussed, choices 87991 and 8015 included \prq{travel\_onwards}{} options which resulted in decidedly mixed evaluations, and choices 46585 and 28306 both had weak expectations and somewhat mixed outcomes.
+As already discussed, choices 87991 and 8015 included \prq{travel\_onwards}{} options which resulted in mixed evaluations, and choices 46585 and 28306 both had weak expectations and somewhat mixed outcomes.
 %
 In this case these problems happened to push things in favor of confirming the hypotheses, but including the aberrant choices changes the meaning of the hypotheses, as they are no longer clearly comparing failures to failures.
 
@@ -1496,7 +1501,8 @@ In any case, the data that I gathered do not provide enough information to argue
 \label{fig:e2-expected-vs-unexpected-success-detail}
 \end{figure}
 
-\section{Motive Hypotheses}
+\section{Motivation Results}
+\label{sec:e2-motive-results}
 
 \begin{table}[!b]
 {
@@ -1617,11 +1623,11 @@ Note that each bar in these graphs represents exact matches only, so for example
 These graphs thus show the most-common unique player-types, rather than the most common motivations across player-types.
 
 
-This motivation data should be taken with a grain of salt: it's self-reported, and not backed up by any other measures which could reveal potential contradictions.
+This data should be taken with a grain of salt: it's self-reported and not backed up by other measures which could reveal potential biases.
 %
 The top two categories among reasons for positive evaluations, for example, are the first option alone and ``all of the above.''
 %
-However, the strong grouping of results is an indication that responses aren't simply random, and in the question on motivation the \pr{avatar} category alone is most popular despite being the third option available. 
+However, the strong grouping of results is an indication that responses aren't simply random, and in the motivation question the \pr{avatar} category alone is most popular despite being the third option. 
 
 \begin{figure}[!b]
 \centering
@@ -1722,7 +1728,7 @@ In terms of motives for decision making, no single motive accounted for more tha
 %
 In fact, because there is considerable overlap between cases, 16\% of participants in this study listed neither of the two most-popular responses (\pr{avatar} and \pr{power}) as motives; only by including the third-most-popular motive, \pr{role}, does coverage exceed 90\%.
 %
-Of course this exact mix of motives is influenced by both the sample population (Mechanical Turk workers) and the genre of the choice they just experienced (and were being asked about), but I suspect that a similarly broad variety of motives is to be expected under most conditions where one might want to study choice poetics.
+Of course this exact mix of motives is influenced by both the sample population (Mechanical Turk workers) and the genre of the choice they just experienced, but I suspect that a similarly broad variety of motives is to be expected under most conditions where one might want to study choice poetics.
 
 
 Just like the first study, the retrospective study achieved its goals.
@@ -1795,35 +1801,31 @@ Of course, this is exactly the property that makes answer set programming an att
 \lbl{Label} & \textbf{Criteria} & \textbf{Caveats} \tabularnewline
 \midrule
 \lbl{Depressing}%
-& \cg{Each option hinders at least one top-priority goal.
-%
-No option should enable or advance any top-priority goals.}
+& \cg{Each option \lbl{hinders} at least one top-priority goal. No option should \lbl{enable} or \lbl{advance} any top-priority goals.}
 %
 & Options should create clear negative expectations, especially if they have positive outcomes. \tabularnewline
 %
 \lbl{Dilemma}%
-&\cg{Exactly two options, each of which hinders one of two different top-priority player goals.
-%
-The priorities of the goals and the severity of the consequences should be balanced and neither option should enable or advance any goals (even low-priority ones).}
+&\cg{Exactly two options, each of which \lbl{hinders} one of two different top-priority player goals. The priorities of the goals and the severity of the consequences should be balanced and neither option should \lbl{enable} or \lbl{advance} any goals (even low-priority ones).}
 %
 & Proper goal balance is difficult to achieve.
 %
 Moral injunctions often have exceptions that need to be considered. \tabularnewline
 %
 \lbl{Empowering}%
-&\cg{Every option advances a player goal, and may threaten one or more goals but does not hinder any.}
+&\cg{Every option \lbl{advances} a player goal, and may \lbl{threaten} one or more goals but does not \lbl{hinder} any.}
 %
 & If option costs are not balanced, it may collapse to ``obvious.'' \tabularnewline
 %
 \lbl{Obvious}%
-&\cg{One option that advances a top-priority player goal without hindering any (although it may threaten some), while none of the rest of the options enable any top-priority goals, and each of them threatens some goal.}
+&\cg{One option that \lbl{advances} a top-priority player goal without \lbl{hindering} any (although it may \lbl{threaten} some), while none of the rest of the options \lbl{enable} any top-priority goals, and each of them \lbl{threatens} some goal.}
 %
 & Resource costs must be taken into account.
 %
 ``Bad'' options should clearly indicate which goal(s) they threaten. \tabularnewline
 %
 \lbl{Relaxed}
-&\cg{There are no option expectations involving high-priority goals (positive or negative), and there are no threatens expectations (and thus no hinders expectations).}
+&\cg{There are no option expectations involving high-priority goals (positive or negative), and there are no \lbl{threatens} expectations (and thus no \lbl{hinders} expectations).}
 %
 & Slight differences between options can worry satisficers.
 %
@@ -1843,26 +1845,22 @@ Try to contrast stakes with those of previous choices. \tabularnewline
 \lbl{Label} & \textbf{Criteria} & \textbf{Caveats} \tabularnewline
 \midrule
 \lbl{Expected Success}
-& \cg{The option selected advances a player goal without hindering any, and its outcome is both predictable and positive.}
+& \cg{The selected option was expected to \lbl{advance} a player goal without \lbl{hindering} any, and its outcome is both \lbl{predictable} and \lbl{good}.}
 %
 & Resource costs should be taken into account.
 %
 Positive outcome states can be described negatively. \tabularnewline
 %
 \lbl{Expected Failure}
-& \cg{The option selected hinders a player goal and doesn't advance any, and its outcome is both predictable and negative.}
+& \cg{The selected option was expected to \lbl{hinder} a player goal and not \lbl{advance} any, and its outcome is both \lbl{predictable} and \lbl{bad}.}
 %
 & Badness of outcomes may be evaluated relative to expected outcomes of other choices. \tabularnewline
 \lbl{Unfair}
-& \cg{The selected option must be expected to advance at least one top-priority player goal, while not hindering any.
-%
-It must also have an unexpected and largely negative outcome.}
+& \cg{The selected option was expected to \lbl{advance} at least one top-priority player goal, while not \lbl{hindering} any. It has an \lbl{unexpected} and \lbl{bad} outcome.}
 %
 & May be perceived as broken if no attractive alternative options were present. Inherently chaotic actions dampen expectations of success. \tabularnewline
 \lbl{Miracle}
-& \cg{The selected option must be expected to hinder at least one top-priority goal, while not advancing any.
-%
-It must have an unexpected and overall positive outcome.}
+& \cg{The selected option was expected to \lbl{hinder} at least one top-priority goal, while not \lbl{advancing} any. It has an \lbl{unexpected} and \lbl{good} outcome.}
 %
 & As for expected successes, descriptive text is important, not just ``story-world result.''
 %

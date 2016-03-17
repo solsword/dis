@@ -8,11 +8,13 @@ The problem I set out to solve, namely ``How can a computer automatically genera
 %
 However, when I began my research, there was no existing literature focused on the specific poetics of choices (several authors have extended narratology to deal with various forms of interactive stories, but those projects are quite broad).
 %
-Thus in order to build my system, I would need to create my own theory describing how elements of a choice came together to produce effects like regret or hesitation, which led to a second research question: ``What poetic effects can choices accomplish within a narrative and how can those be recognized by examining said choices?''
+Thus in order to build my system, I would need to create my own theory describing how elements of a choice come together to produce effects like regret or hesitation, which led to a second research question: ``What poetic effects can choices accomplish within a narrative and how can those be recognized by examining said choices?''
 %
-Rather than simply hack away at my system until I got results that I liked and leave a theory implicit in the code that I wrote, I decided to come up with an explicit theory of choice poetics that I would develop alongside my system, and thus give both research questions equal ground.
+Rather than simply hack away at my system until I got results that I liked and leave a theory implicit in the code that I wrote, I decided to come up with an explicit theory of choice poetics that I would develop alongside my system, thereby giving both research questions equal ground.
 %
 In the end, the system has become as much a tool for the development of the theory as the theory is a tool for the development of the system, and my research methodology has become a hybrid of AI systems development and narrative theoretics.
+%
+As evidenced by the rest of this document, and in particular \cref{ch:option-results,ch:outcome-results}, this hybrid research methodology has a lot to recommend it, and the \dunyazad/ project as a concrete example of such a methodology in action is one of the key contributions of my work.
 
 
 \section{Two Approaches}
@@ -116,14 +118,14 @@ Of course, the experiments described here also help test \dunyazad/, so they ser
 %
 \Cref{ch:option-results,ch:outcome-results} present the results of two exploratory experiments, and the analysis in those chapters illustrates how results can shed light on both the system and the theory that it implements.
 
-\section{System Development drives Theory Refinement}
+\section{System Development Drives Theory Refinement}
 
 
-One common complaint that computer scientists have about theories from the humanities is that they are too vague to be implemented as a program.
+One complaint that some computer scientists have about theories from the humanities is that they are too vague to be implemented as a program.
 %
 Creating a computer system that generates predictions or content based on a theory of narrative or the like is a difficult task, because such theories are largely developed to serve humans interested in understanding and analyzing a work, and computers don't have the same common-sense reasoning capabilities as humans.
 %
-Unsurprisingly then, the system development half of my hybrid research approach tends to contribute details and refinements to the theory being developed simultaneously.
+Unsurprisingly then, the system development half of my hybrid research approach tends to contribute details and refinements to the theory half.
 
 
 A concrete example is illustrative.
@@ -144,7 +146,7 @@ Although this was clearly a bug in my system, finding it also helped me add nuan
 %
 A theory developed in the abstract might just talk about ``conditions that either positively or negatively impact a player goal,'' but as a result of having to define those conditions in a way that a computer can understand, I can refine my theory by giving a list of some such conditions and caveats to take into account during analysis.
 
-\begin{figure}[!t]
+\begin{figure}[!b]
 \centering
 \includegraphics[height=0.45\textheight]{fig/hybrid-research-method-crop.pdf}
 \caption[Hybrid Research Method]{The general flow of hybrid theory/system development.}
