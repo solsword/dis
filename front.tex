@@ -42,6 +42,7 @@ Vice Provost and Dean of Graduate Studies%
 \newpage
 
 % Copyright page
+{
 \centering
 \setstretch{1.7}
 \thispagestyle{empty}
@@ -50,8 +51,8 @@ Copyright \textcopyright~by \\
 Peter A. Mawhorter \\
 2016 \\
 \vspace*{\fill}
+}
 \newpage
-\justifying
 
 {\let\cleardoublepage\clearpage
 \microtypesetup{protrusion=false}
@@ -68,16 +69,19 @@ Peter A. Mawhorter \\
 
 % Abstract
 \newpage
+\thispagestyle{plain}
+~
+\clearpage
 \markboth{ABSTRACT}{ABSTRACT}
 
 \vspace{0.5em}
 {
-\huge
 \centering
-Abstract \\
+{\LARGE Abstract} \\
+{\Large Artificial Intelligence as a Tool for \\ Understanding Narrative Choices} \vspace{0.5em} \\
+Peter A. Mawhorter \\
 }
 \vspace*{1em}
-
 
 \setstretch{1.25}
 \addtolength{\baselineskip}{0pt plus 1pt minus 1pt}
@@ -85,5 +89,48 @@ Abstract \\
 \input{abs.tex}
 
 % Dedication & Acknowledgements
-% TODO: Make this really clear to an even page!
+\clearpage
+\setstretch{1.5}
+\addtolength{\baselineskip}{0pt plus 1pt minus 1pt}
+\markboth{DEDICATION}{DEDICATION}
+\vspace*{\fill}
+{
+\centering
+To Zhi Li (\zh{李智}) for her tremendous love and support during the preparation of this document, and to my parents Richard and Jennifer Mawhorter, my mother-in-law Ying Su (\zh{苏颖}), and my siblings Sarah, John, and Ross for all of the ways that they have influenced me to become the person I am today. \\
+}
+\vspace*{\fill}
+\clearpage
+\markboth{ACKNOWLEDGEMENTS}{ACKNOWLEDGEMENTS}
+{
+\centering
+ACKNOWLEDGEMENTS \vspace{0.5em} \\
+}
+{
+\justifying
+I would like to first acknowledge the outstanding contributions of Michael Mateas to my personal growth as a scholar.
+%
+His mentorship has contributed incalculably to my entire graduate career, and without his patient guidance and encouragement, this document would not exist in any form.
+%
+I also want to thank the other members of my advancement and dissertation committees, Noah Wardrip-Fruin, Arnav Jhala, and R\@. Michael Young, who through their feedback have developed the ideas expressed here into their current form.
+
+
+Additionally, I want to thank fellow students who have proven indispensible through their feedback, frank discussion, and moral and technical support.
+%
+Brandon Tearse, Ben Weber, Adam Smith, Chris Lewis, Gillian Smith, Josh McCoy, Serdar Sali, Anne Sullivan, Mike Treanor, Sherol Chen, Teale Fristoe, Ken Hullett, and Ron Liu all served as my role models during graduate school and have each contributed in some way to this document.
+%
+Joe Osborn, Adam Summerville, Kate Compton, John Murray, Bryan Blackford, John Grey, April Grow, Eric Kaltman, Zhongpeng Lin, Johnathan Pagnutti, Ben Spalding, Deirdra Kiai, Heather Logas, Paulo Gomes, and Sarah Harmon have been contemporaries who I have at one time or another depended upon for support, feedback, and intellectual growth.
+%
+I would also like to thank Aaron Reed, Jacob Garbe, Ben Samuel, James Ryan, and Stacey Mason in particular for their friendship and support during my graduate career; their viewpoints have helped shape my own and they have in many ways made this work possible.
+
+
+Finally, I want to thank Michael Mateas and Noah Wardrip-Fruin one more time for their dedication to the creation of an unmatched research environment in the form of the Expressive Intelligence Studio at UCSC.
+%
+They have both worked ridiculously hard to foster a unique collaborative environment, and their efforts have given me the opportunity to be influenced by so many during my graduate career.
+%
+They are both outstanding advisors and I consider myself lucky to have been their student.
+}
+\clearpage
+\markboth{}{}
+\thispagestyle{empty}
+
 \cleardoublepage

@@ -32,6 +32,8 @@
 %\usepackage{tgcursor} % fixed-width
 \usepackage{pifont}
 \usepackage{amsfonts}
+\usepackage{CJKutf8} % piecemeal CJK
+\newcommand{\zh}[1]{\begin{CJK*}{UTF8}{gbsn}#1\end{CJK*}}
 \usepackage[protrusion,expansion,final]{microtype}
 \DeclareMicrotypeSet[protrusion,expansion]{rmonly}{family={rm*}}
 \DeclareMicrotypeSet[protrusion,expansion]{sfonly}{family={sf*}}
@@ -68,12 +70,29 @@
 % HEVEA:\usepackage[poorman]{cleveref}
 \usepackage[backend=biber,style=authoryear-comp,natbib=true,sorting=ynt]{biblatex}
 \addbibresource{pmawhorter.bib}
-%\bibliographystyle{plainnat}
 
 % Misc
 \usepackage{xcolor}
 \usepackage{xspace}
 \usepackage[toc,page]{appendix}
+% HACK: Redefine appendix divider page to have a plain style:
+\makeatletter
+\def\@chap@pppage{%
+  \clear@ppage
+  \if@twocolumn\onecolumn\@tempswatrue\else\@tempswafalse\fi
+  \null\vfil
+  \markboth{}{}%
+  { \centering \interlinepenalty \@M
+    \normalfont \Huge \bfseries \appendixpagename\par}%
+  \thispagestyle{plain}
+  \if@dotoc@pp\addappheadtotoc\fi
+  \vfil\newpage
+  \if@twoside
+    \if@openright \null \newpage\fi
+  \fi
+  \if@tempswa \twocolumn\fi
+}
+\makeatother
 
 
 % Hyphenation rules
@@ -263,6 +282,15 @@
   \renewcommand{\footrulewidth}{0pt}
   \fancyfoot[CO,CE]{---~\texttt{\lastxmark}~---}
 }
+\fancypagestyle{plain}{
+  \fancyhead{}
+  \fancyfoot{}
+  \fancyhead[LE,RO]{\thepage}
+  \fancyhead[RE]{\leftmark}
+  \fancyhead[LO]{\rightmark}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
 \newcommand{\lfile}[3]{%
 {
 \vspace*{2\baselineskip}
@@ -310,7 +338,6 @@
 \mainmatter
 
 % Main chapters
-% Appendices
 
 \input{ch-intro.tex}
 \input{ch-method.tex}
@@ -329,12 +356,17 @@
 
 % Bibliography
 \begin{refcontext}[sorting=nyt]
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Bibliography}
 \printbibliography
 \end{refcontext}
 % Index?
 
+% Appendices
 \appendix
+\thispagestyle{plain}
 \begin{appendices}
+\thispagestyle{plain}
 \input{ap-nlg.tex}
 \clearpage
 \input{ap-src.tex}
