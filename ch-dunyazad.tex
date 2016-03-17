@@ -2,6 +2,8 @@
 
 \label{ch:dunyazad}%
 
+\Footnotetext{~}{Note: a much less detailed description of how \dunyazad/ works has been published as \citep{Mawhorter2015a}.}
+
 As stated in the introduction, \dunyazad/ has two purposes as a project: first, to produce a \emph{system}, and second, to produce a \emph{theory}.
 %
 The system is a novel story generator that is focused on generating interesting choices, and on providing fine-grained control over the kinds of choices it uses.
@@ -13,7 +15,7 @@ In order to satisfy these two goals, \dunyazad/ uses an answer set solver to tur
 
 \dunyazad/'s code therefore largely consists of a set of logical statements describing what a choice structure is and when choices fit into one of several categories.
 %
-For example, there are statements that define a ``relaxed'' choice.
+For example, there are statements that define a ``relaxed'' choice, and these rely on statements about what it means for an outcome to seem good or bad, and important or unimportant, and so on.
 %
 Answer sets that satisfy these constraints are found using Potassco Labs' \clingo/ solver \citep{Gebser2011}.
 %
@@ -104,11 +106,6 @@ In contrast with many techniques that could be applied to the problem of generat
 The use of answer-set programming as a design choice is thus driven not only by considerations at the system level, but also at the project level: in order for \dunyazad/ to produce both a system and a theory, the use of answer-set programming is critical.
 %
 In \dunyazad/, answer-set programming helps support the aims of critical technical practice by helping make the system's underlying assumptions clearly visible, and by making every change to the system suggest a parallel change to the theory that it implements.
-
-% TODO: Use this mini-rant somewhere?
-%In contrast, statistical techniques often hide such assumptions through their use of data which is assumed to be unbiased and universally representative.
-%
-%In fact, the data sets used to drive statistical artificial intelligence techniques often contain many assumptions, but examination of these is far from straightforward and is seen a peripheral to most technical projects if it is considered at all.
 
 
 \section{Choice Generation}
@@ -1214,11 +1211,13 @@ No project of \dunyazad/'s scope (modest though it may be) can be perfectly desc
 %
 There are details that were left out or glossed over in the sections above, and to thoroughly understand how \dunyazad/ works down to the smallest details reading its source code is unavoidable.
 %
-% TODO: HERE link to source code in archival format as well as on github!
+\dunyazad/ is an open-source project, and full source code can be found online at \githuburl/.
 %
-Luckily, such deep understanding should be unnecessary for most scholars who want to take something away from this work.
+Additionally, an archived snapshot current as of this writing can be found at \archiveurl/.
 %
-The choice analysis method presented in the \cref{ch:choice-poetics}, for example, does not depend on the intricate details of \dunyazad/ for its validity, although it may have undiscovered caveats which could be revealed by a careful inspection of \dunyazad/'s code.
+Luckily, a deep understanding of the source code should be unnecessary for most scholars who want to take something away from this work.
+%
+For example, the analysis method presented in the \cref{ch:choice-poetics} does not depend on the details of \dunyazad/ for its validity (although it is not impossible that it has undiscovered caveats which could be revealed by inspection of \dunyazad/'s code).
 
 
 Another reason that the description of \dunyazad/ given here can be appreciated on its own is that it describes all of the driving principles behind \dunyazad/'s inner workings, in enough detail for someone else to construct their own working system that generates narrative choices.
@@ -1230,7 +1229,7 @@ One could re-implement it using an entirely different theory of choice poetics, 
 
 From the perspective of generative systems, \dunyazad/ makes the statement: ``Generating narrative choices intentionally is computationally tractable, and here's one way to do it.''
 %
-Ideally this chapter is a convincing demonstration of that, but \dunyazad/ has ambitions well beyond being a working generative system.
+Ideally this chapter is a convincing demonstration of that, but \dunyazad/ has ambitions beyond being a working generative system.
 %
 In \cref{ch:option-results,ch:outcome-results}, I will discuss the results of two experiments that both demonstrate \dunyazad/'s capabilities as a generative system and provide useful insight into choice poetics by leveraging its capacity as a tool for theory development.
 
